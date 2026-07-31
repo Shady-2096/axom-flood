@@ -23,29 +23,38 @@
 </svelte:head>
 
 <article class="search-landing">
-  <section class="landing-hero">
-    <div class="hero-copy">
-      <p class="landing-kicker">Assam flood information</p>
-      <h1>Clear information on Assam floods.</h1>
-      <p class="landing-lede">
-        Check official river measurements, local alerts, relief camps and emergency contacts in plain language.
-      </p>
-      <div class="hero-actions">
-        <a class="landing-primary" href="/">Check Assam rivers</a>
-        <a class="landing-secondary" href="#how-it-works">How the information works</a>
-      </div>
-    </div>
-    <figure class="river-portrait">
-      <img
-        src="/assam-river-landscape.avif"
-        width="960"
-        height="560"
-        alt="Illustrative aerial view of braided river channels in Assam"
-        fetchpriority="high"
-      >
-      <figcaption>Illustrative river landscape. Open the live bulletin for current conditions.</figcaption>
-    </figure>
-  </section>
+  <!-- This read as a product launch: uppercase kicker, 64px headline, a pill
+       call to action and an underlined secondary beside it. The page is a
+       public information desk, so the masthead is a dateline and a rule, and
+       the river is a plate rather than a floating card in empty space. -->
+  <header class="landing-hero">
+    <p class="hero-dateline">
+      <span>About Axom Flood</span>
+      <span>Central Water Commission &middot; ASDMA</span>
+    </p>
+    <h1>Clear information on Assam floods.</h1>
+    <p class="landing-lede">
+      Check official river measurements, local alerts, relief camps and emergency contacts in plain language.
+    </p>
+    <a class="hero-open" href="/">Open the live river map <span aria-hidden="true">→</span></a>
+  </header>
+
+  <!-- The source is 960×560. It used to be squeezed into a near-square box by
+       object-fit, which cut nearly half the frame away and hid the braided
+       channels that are the only reason to show it. The plate now runs the
+       content width at close to the photograph's own shape. -->
+  <figure class="river-plate">
+    <img
+      src="/assam-river-landscape.avif"
+      width="960"
+      height="560"
+      alt="Aerial view of braided river channels in Assam"
+      fetchpriority="high"
+    >
+    <figcaption>
+      Braided river channels in Assam, seen from the air. Illustrative only — open the live map for current conditions.
+    </figcaption>
+  </figure>
 
   <nav class="need-paths" aria-label="Assam flood information">
     <a href="/">
@@ -136,6 +145,7 @@
       <a href="/camps/">Relief camps</a>
       <a href="/emergency/">Emergency</a>
       <a href="https://ffs.india-water.gov.in/" rel="noopener" target="_blank">CWC source</a>
+      <a href="https://github.com/Shady-2096/axom-flood" rel="noopener" target="_blank">Source code</a>
     </nav>
   </footer>
 </article>
@@ -148,24 +158,27 @@
   }
 
   .landing-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
-    align-items: center;
-    gap: clamp(36px, 6vw, 84px);
-    min-height: min(720px, calc(100dvh - 112px));
+    padding: clamp(32px, 5vw, 56px) 0 clamp(24px, 4vw, 40px);
   }
 
-  .hero-copy {
-    max-width: 650px;
-  }
-
-  .landing-kicker {
+  /* A masthead line, not a marketing eyebrow: what this page is on the left,
+     who the numbers belong to on the right, a rule under both. */
+  .hero-dateline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
     margin: 0 0 24px;
-    color: var(--river);
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: .12em;
-    text-transform: uppercase;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+
+  .hero-dateline span:first-child {
+    color: var(--ink);
   }
 
   h1,
@@ -175,78 +188,57 @@
   }
 
   h1 {
-    max-width: 680px;
+    max-width: 20ch;
     margin: 0;
-    font-size: clamp(40px, 5vw, 64px);
-    line-height: .98;
-    letter-spacing: -.045em;
+    font-size: clamp(32px, 3.6vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -.03em;
   }
 
   .landing-lede {
-    max-width: 590px;
-    margin: 32px 0 0;
+    max-width: 58ch;
+    margin: 20px 0 0;
     color: var(--graphite);
-    font-size: clamp(18px, 2vw, 23px);
-    line-height: 1.45;
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.5;
   }
 
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 32px;
-  }
-
-  .landing-primary,
-  .landing-secondary {
-    min-height: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
+  .hero-open {
+    display: inline-block;
+    margin-top: 24px;
+    color: var(--river);
+    font-size: 16px;
     font-weight: 800;
     text-decoration: none;
   }
 
-  .landing-primary {
-    padding: 0 24px;
-    border-radius: var(--r-control);
-    color: var(--on-action);
-    background: var(--action);
+  .hero-open:hover {
+    color: var(--river);
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
-  .landing-primary:hover {
-    color: var(--on-action);
-    background: var(--action-hover);
-  }
-
-  .landing-secondary {
-    color: var(--ink);
-    border-bottom: 1px solid var(--line-strong);
-  }
-
-  .landing-primary:active,
-  .landing-secondary:active {
-    transform: translateY(1px);
-  }
-
-  .river-portrait {
+  .river-plate {
     margin: 0;
   }
 
-  .river-portrait img {
+  /* height:auto is load-bearing. The width/height attributes on the <img> are
+     presentational hints, so without it the box stays locked at the file's
+     560px and aspect-ratio is ignored — which is what squeezed a 960×560
+     photograph into a near-square and cut half the river out of frame. */
+  .river-plate img {
     display: block;
     width: 100%;
-    min-height: 420px;
+    height: auto;
+    aspect-ratio: 16 / 7;
     object-fit: cover;
-    border: 1px solid var(--line);
+    object-position: center 42%;
     border-radius: var(--r-sheet);
-    box-shadow: var(--shadow-3);
   }
 
-  .river-portrait figcaption {
-    max-width: 52ch;
-    margin: 12px 4px 0;
+  .river-plate figcaption {
+    max-width: 70ch;
+    margin: 12px 0 0;
     color: var(--muted);
     font-size: 12px;
     line-height: 1.5;
@@ -255,19 +247,24 @@
   .need-paths {
     display: grid;
     grid-template-columns: 1fr 1.2fr 1fr;
-    margin: 32px 0 0;
+    margin: clamp(40px, 5vw, 56px) 0 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
 
+  /* An index of where to go next, not three feature cards. The rows are sized
+     by their content instead of a 170px minimum that padded them into tiles. */
   .need-paths a {
     display: flex;
-    min-height: 170px;
     flex-direction: column;
-    justify-content: center;
-    padding: 28px clamp(20px, 3vw, 38px);
+    justify-content: flex-start;
+    padding: 24px clamp(20px, 3vw, 32px);
     color: var(--ink);
     text-decoration: none;
+  }
+
+  .need-paths a:first-child {
+    padding-left: 0;
   }
 
   .need-paths a + a {
@@ -297,8 +294,11 @@
     line-height: 1.35;
   }
 
+  /* Pushed to the bottom of the row so the three supporting lines share one
+     baseline regardless of how many lines the title above them takes. */
   .need-paths small {
-    margin-top: 12px;
+    margin-top: auto;
+    padding-top: 12px;
     font-size: 14px;
     line-height: 1.45;
   }
@@ -314,11 +314,13 @@
     max-width: 720px;
   }
 
+  /* Kept under the h1. Section headings used to run to 58px against a 46px
+     page title, which inverted the hierarchy on every scroll. */
   h2 {
     margin: 0;
-    font-size: clamp(36px, 4.5vw, 58px);
-    line-height: 1.02;
-    letter-spacing: -.035em;
+    font-size: clamp(26px, 2.8vw, 34px);
+    line-height: 1.1;
+    letter-spacing: -.025em;
   }
 
   .meaning-section > header p,
@@ -408,13 +410,38 @@
     border-bottom: 1px solid var(--line);
   }
 
+  /* The default disclosure triangle rendered as a bare ▶ next to the question.
+     A drawn chevron on the right replaces it on both engines. */
   .faq-list summary {
+    position: relative;
     padding: 24px 40px 24px 0;
     color: var(--ink);
     cursor: pointer;
     font-size: 18px;
     font-weight: 800;
     line-height: 1.4;
+    list-style: none;
+  }
+
+  .faq-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-list summary::after {
+    position: absolute;
+    top: 28px;
+    right: 6px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--muted);
+    border-bottom: 2px solid var(--muted);
+    content: "";
+    transform: rotate(45deg);
+    transition: transform .18s ease;
+  }
+
+  .faq-list details[open] summary::after {
+    transform: rotate(225deg);
   }
 
   .faq-list p {
@@ -467,24 +494,24 @@
       padding-top: 12px;
     }
 
-    .landing-hero,
     .source-section {
       grid-template-columns: 1fr;
     }
 
-    .landing-hero {
-      gap: 40px;
-      min-height: 0;
-      padding: 40px 0 32px;
-    }
-
     h1 {
-      max-width: 620px;
+      max-width: none;
     }
 
-    .river-portrait img {
-      min-height: 0;
+    /* A 16:7 letterbox is a sliver on a phone. The plate opens back up toward
+       the photograph's own shape as the column narrows. */
+    .river-plate img {
       aspect-ratio: 16 / 10;
+    }
+
+    .meaning-section,
+    .source-section,
+    .faq-section {
+      padding: 56px 0;
     }
 
     .need-paths {
@@ -511,14 +538,8 @@
   }
 
   @media (max-width: 560px) {
-    .hero-actions {
-      align-items: stretch;
-      flex-direction: column;
-    }
-
-    .landing-secondary {
-      justify-content: flex-start;
-      width: fit-content;
+    .river-plate img {
+      aspect-ratio: 4 / 3;
     }
 
     .landing-footer {
