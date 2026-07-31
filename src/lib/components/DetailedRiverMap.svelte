@@ -1101,7 +1101,8 @@
       onclick={() => switchBasemap(basemap === "satellite" ? "streets" : "satellite")}
     >
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m12 3 9 4.5-9 4.5-9-4.5L12 3ZM3 12l9 4.5 9-4.5M3 16.5 12 21l9-4.5"/>
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/>
       </svg>
     </button>
   </div>
@@ -1511,8 +1512,10 @@
   .atlas-ask button { min-height: 40px; }
 
   @media (max-width: 859px) {
+    /* The search pill owns the top of the phone screen (top: 12px, 48px tall,
+       gutter to gutter). Both map controls start below it, not beside it. */
     .map-layer-control {
-      top: 16px;
+      top: 72px;
       left: 16px;
       width: 52px;
     }
@@ -1564,7 +1567,7 @@
     }
     .drawer-tools p { grid-column: 1/-1; margin: 0; font-size: 11px; }
     .drawer-tools button { min-height: 44px; padding: 6px; }
-    .map-control-dock { top: 16px; right: 16px; }
+    .map-control-dock { top: 72px; right: 16px; }
     .map-control-dock button:nth-child(-n+3) { display: none; }
     .map-control-dock button + button { border-top: 0; }
     .map-legend { display: none; }
