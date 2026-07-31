@@ -13,8 +13,11 @@ build/
 data/run-status/
 data/cache/
 
-# Impeccable design critiques are internal review notes, not public docs.
-.impeccable/critique/
+# Internal working files kept out of the public repo. They live on disk but
+# must never be committed, so an accidental `git add -A` can't publish them.
+CLAUDE.md
+docs/circle-boundary-questions.md
+.impeccable/
 
 # Local agent skills support development but are not application dependencies.
 .agents/
