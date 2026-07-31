@@ -36,6 +36,12 @@ const INDEXABLE = {
       "Open reviewed Assam flood emergency contacts and helplines, with clear coverage limits and offline access.",
     path: "/emergency/",
   },
+  terms: {
+    title: "Terms of Use | Axom Flood",
+    description:
+      "What Axom Flood is, which government sources its Assam river and flood data comes from, and why it must not be used alone for safety decisions.",
+    path: "/terms/",
+  },
 };
 
 const NON_INDEXABLE = {

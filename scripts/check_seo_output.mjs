@@ -12,6 +12,7 @@ const pages = [
   { pathname: "/camps/", file: "build/camps/index.html" },
   { pathname: "/situation/", file: "build/situation/index.html" },
   { pathname: "/emergency/", file: "build/emergency/index.html" },
+  { pathname: "/terms/", file: "build/terms/index.html" },
   { pathname: "/report/", file: "build/report/index.html" },
   { pathname: "/settings/", file: "build/settings/index.html" },
 ];

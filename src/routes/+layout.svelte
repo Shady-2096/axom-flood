@@ -289,6 +289,11 @@
       <a href="https://cwc.gov.in" rel="noopener" target="_blank">CWC</a>
       <a href="https://sdmassam.nic.in" rel="noopener" target="_blank">ASDMA</a>
       <a href="/about/">About</a>
+      <a href="/terms/">Terms</a>
+      <!-- The site is AGPL-3.0, so people using it over the network are owed a
+           way to reach the source. A link on every page is the plainest way to
+           give them one. -->
+      <a href="https://github.com/Shady-2096/axom-flood" rel="noopener" target="_blank">Source code</a>
       <a href="/settings/">Settings</a>
     </nav>
   </div>

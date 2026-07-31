@@ -2052,15 +2052,19 @@ button {
 .footer-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 12px 20px;
   flex-shrink: 0;
 }
 
+/* A two-word label like "Source code" breaks across lines and drags the whole
+   row out of alignment. The row wraps between links, never inside one. */
 .footer-links a {
   color: var(--rail-text);
   font-size: 12px;
   font-weight: 650;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .footer-links a:hover {
