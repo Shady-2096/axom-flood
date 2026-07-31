@@ -41,7 +41,7 @@ const BUILD = join(ROOT, "build");
 
 /* A page that forces the atlas rather than waiting on a stored preference or a
    connection sniff, so the check exercises the same path every time. */
-const PAGE = "/home/?layer=river";
+const PAGE = "/?layer=river";
 const READY_SELECTOR = ".maplibre-gauge";
 const READY_TIMEOUT_MS = 30000;
 
@@ -76,7 +76,7 @@ function serve(directory) {
       body = await readFile(file);
     } catch {
       try {
-        // adapter-static writes /home/index.html; a request for /home lands here.
+        // adapter-static writes /camps/index.html; a request for /camps lands here.
         file = join(directory, path, "index.html");
         body = await readFile(file);
       } catch {

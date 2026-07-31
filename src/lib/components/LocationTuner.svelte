@@ -19,7 +19,7 @@
       selected_at: new Date().toISOString(),
     });
     onselected();
-    if (goHome) await goto("/home/");
+    if (goHome) await goto("/");
   }
 </script>
 

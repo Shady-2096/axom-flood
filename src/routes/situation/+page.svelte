@@ -141,14 +141,14 @@
     <p class="state-label">Publication stopped</p>
     <h1>Latest report held for review</h1>
     <p>The newest ASDMA report did not pass deterministic validation. Its figures are not shown as current.</p>
-    <a href="/home/" class="button secondary">Open river bulletin</a>
+    <a href="/" class="button secondary">Open river bulletin</a>
   </section>
 {:else if status === "error"}
   <section class="screen situation-screen state-message">
     <p class="state-label">Report unavailable</p>
     <h1>Situation report could not load</h1>
     <p>{errorMessage || "Reconnect to save the latest validated ASDMA report on this device."}</p>
-    <a href="/home/" class="button secondary">Open river bulletin</a>
+    <a href="/" class="button secondary">Open river bulletin</a>
   </section>
 {:else}
   <article class="screen situation-screen">
@@ -283,7 +283,7 @@
         <h2 id="main-map-title">See the statewide pattern</h2>
         <p>Open the affected-people layer on the main Assam map. Switch layers there for villages, crop area, relief occupancy, relief centres and infrastructure reports.</p>
       </div>
-      <a class="button" href="/home/?layer=affected_population">Open the main impact map</a>
+      <a class="button" href="/?layer=affected_population">Open the main impact map</a>
     </section>
 
     <section class="table-section" aria-labelledby="district-table-title">
@@ -379,7 +379,7 @@
       <p>ASDMA compiles district submissions for a report date. It can establish administrative counts, reported damage, relief activity and affected revenue circles.</p>
       <p>The statewide season-loss checkpoint is generated from retained daily reports because each death and missing-person table contains only incidents added in that bulletin. Its missing figure records reports made during the covered period, not the number of people still unaccounted for now.</p>
       <p>It cannot establish live water depth at a house, a current flood boundary, every affected village, or whether a route is safe now. Check the river bulletin and local authority instructions before acting.</p>
-      <a href="/home/">Open the current river bulletin</a>
+      <a href="/">Open the current river bulletin</a>
     </aside>
   </article>
 {/if}

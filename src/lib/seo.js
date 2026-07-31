@@ -3,17 +3,20 @@ export const SITE_NAME = "Axom Flood";
 export const SOCIAL_IMAGE = `${SITE_URL}/social-card.jpg`;
 
 const INDEXABLE = {
-  landing: {
+  // The river map is the site's front door. `/` used to be a search-only
+  // landing page that bounced visitors to `/home/`, so the map now lives here
+  // and the explanatory page moved to `/about/`.
+  home: {
     title: "Assam Flood Information, River Levels and Alerts | Axom Flood",
     description:
       "Check Assam flood alerts, official river measurements, relief camp information and emergency contacts in plain language.",
     path: "/",
   },
-  home: {
-    title: "Assam Flood Alerts and River Levels | Axom Flood",
+  about: {
+    title: "How Axom Flood Reads Assam River Levels | Axom Flood",
     description:
-      "Check current Assam river levels, flood alerts, trends and official CWC measurements by village, revenue circle or district.",
-    path: "/home/",
+      "How Axom Flood turns official CWC river measurements into plain language, which sources it uses, and what its published limits are.",
+    path: "/about/",
   },
   camps: {
     title: "Assam Flood Relief Camps and Shelters | Axom Flood",
@@ -50,7 +53,7 @@ const NON_INDEXABLE = {
 };
 
 export function routeKey(pathname) {
-  return pathname.split("/").filter(Boolean)[0] || "landing";
+  return pathname.split("/").filter(Boolean)[0] || "home";
 }
 
 export function metadataForPath(pathname) {
@@ -58,7 +61,7 @@ export function metadataForPath(pathname) {
   const metadata = INDEXABLE[key] || NON_INDEXABLE[key];
   if (!metadata) {
     return {
-      ...INDEXABLE.landing,
+      ...INDEXABLE.home,
       title: `Page not found | ${SITE_NAME}`,
       robots: "noindex,follow",
     };

@@ -29,7 +29,7 @@
     <div class="empty-state">
       <h2>Your river bulletin still works</h2>
       <p>A missing reporting module does not affect official river readings already saved on this phone.</p>
-      <a class="button secondary" href="/home/">Return to river information</a>
+      <a class="button secondary" href="/">Return to river information</a>
     </div>
   </section>
 {:else}

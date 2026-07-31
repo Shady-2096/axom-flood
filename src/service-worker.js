@@ -4,7 +4,7 @@ import { build, files, version } from "$service-worker";
 
 const worker = /** @type {ServiceWorkerGlobalScope} */ (globalThis.self);
 const CACHE = `axom-flood-v12-${version}`;
-const ROUTES = ["/home/", "/camps/", "/report/", "/emergency/", "/settings/"];
+const ROUTES = ["/", "/about/", "/camps/", "/report/", "/emergency/", "/settings/"];
 const scopedPath = path => new URL(path, worker.registration.scope).pathname;
 const DEV_PATH_PREFIXES = ["/@fs/", "/@id/", "/@vite/", "/.svelte-kit/", "/node_modules/", "/src/"];
 
@@ -158,9 +158,7 @@ worker.addEventListener("fetch", event => {
         });
         if (cached) return cached;
         if (isNavigation) {
-          return (await cache.match("/home/"))
-            || (await cache.match("/"))
-            || Response.error();
+          return (await cache.match("/")) || Response.error();
         }
         return Response.error();
       }
@@ -173,7 +171,7 @@ worker.addEventListener("fetch", event => {
       return response;
     } catch (_) {
       return isNavigation
-        ? (await cache.match("/home/")) || Response.error()
+        ? (await cache.match("/")) || Response.error()
         : Response.error();
     }
   })());
@@ -186,7 +184,7 @@ worker.addEventListener("push", event => {
     icon: "/icon.svg",
     badge: "/icon.svg",
     tag: data.locality_id || "axom-flood",
-    data: { url: data.url || "/home/" },
+    data: { url: data.url || "/" },
   }));
 });
 

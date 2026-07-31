@@ -74,7 +74,7 @@
     open = false;
     activeIndex = -1;
     onselected();
-    if (goHome) await goto("/home/");
+    if (goHome) await goto("/");
   }
 
   async function search() {

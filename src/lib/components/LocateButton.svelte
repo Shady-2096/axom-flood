@@ -40,7 +40,7 @@
       status = "";
       finding = false;
       onselected();
-      if (goHome) await goto("/home/");
+      if (goHome) await goto("/");
     } catch (geolocationError) {
       status = geolocationErrorMessage(geolocationError);
       error = true;

@@ -1,543 +1,494 @@
 <!--
-  THESIS: Search visitors need a stable Assam flood information desk before they
-  enter the live, locality-aware river instrument.
-  MODE: Preserve the River Observatory visual system. Add crawlable public-
-  service content without changing the working app routes.
-
-  Real visitors are redirected to /home/ immediately. The prerendered HTML
-  keeps the structured data, FAQ schema, and crawlable text for search
-  engines that do not execute JavaScript.
+  THESIS: The homepage is a river observation desk, not a dashboard of cards or a theatrical emergency broadcast.
+  OWN-WORLD: Mineral daylight and deep night surfaces, river-blue controls, calibrated rules, and normal-width Archivo.
+  STORY: Choose a place, understand the local situation in plain language, then report conditions or follow the safest next action.
+  FIRST VIEWPORT: A full-width Assam map holds search, one briefing panel, one control dock, and one reporting action.
+  FORM: Monsoon gauge-station instrument, sixth grounded direction, staged as one active working surface; seed e2906d8c.
 -->
 <script>
-  import { goto } from "$app/navigation";
+  import DataUnavailable from "$lib/components/DataUnavailable.svelte";
+  import FloodBulletin from "$lib/components/FloodBulletin.svelte";
+  import Icon from "$lib/components/Icon.svelte";
+  import LoadingState from "$lib/components/LoadingState.svelte";
+  import LocateButton from "$lib/components/LocateButton.svelte";
+  import LocationSearch from "$lib/components/LocationSearch.svelte";
+  import LocationTuner from "$lib/components/LocationTuner.svelte";
+  import ProvenanceNotes from "$lib/components/ProvenanceNotes.svelte";
   import {
-    faqItems,
-    faqSchema,
-    serializeJsonLd,
-    websiteSchema,
-  } from "$lib/landing-seo.js";
+    currentSentence,
+    dataState,
+    displayContext,
+    getPosition,
+    nearestLocality,
+    selectionNote,
+    statusInfo,
+  } from "$lib/data/index.js";
+  import {
+    activeRenderMode,
+    dismissFullModePrompt,
+    preferencesChanged,
+    selectLocality,
+    selectRenderMode,
+    store,
+  } from "$lib/data/preferences.js";
+  import { serializeJsonLd, websiteSchema } from "$lib/landing-seo.js";
+  import { resolveRenderMode, shouldOfferFullMode } from "$lib/mode.js";
   import { onMount } from "svelte";
 
+  // The site identity schema belongs on the site's front door, which is this
+  // map. It used to sit on a search-only landing page at `/` that redirected
+  // here on mount, so every real visitor saw that page flash first.
   const websiteJsonLd = serializeJsonLd(websiteSchema);
-  const faqJsonLd = serializeJsonLd(faqSchema);
+
+  let shareLabel = $state("Share update");
+  let shareIcon = $state("share");
+  let tunerOpen = $state(false);
+  let TechnicalPanel = $state();
+  let RiverMap = $state();
+  let renderMode = $state("light");
+  let offerFullMode = $state(false);
+  let atlasSection = $state();
+  let atlasPanel = $state();
+  let panelCollapsed = $state(false);
+  let technicalSection = $state();
+  let technicalOpen = $state(false);
+  /* Bumped when the reader asks to be taken to their own circle. The map flies
+     on a change of selected circle, so locating the circle already selected
+     produced no movement at all — the commonest case, since the app remembers
+     the last choice. */
+  let focusRequest = $state(0);
+
+  let bundle = $derived($dataState.bundle);
+  /* A reader who has chosen nothing still lands on a working map with a real
+     bulletin on it — the worst reading in the state — rather than on a form.
+     The screen that used to stand here asked for a village name before it would
+     show anything at all, which is a toll gate in front of a safety page. */
+  let context = $derived.by(() => {
+    $preferencesChanged;
+    return bundle ? displayContext() : null;
+  });
+  let status = $derived(context ? statusInfo(context.gauge) : null);
+  let urgent = $derived(Boolean(status) && status.level >= 2);
+  /* The chosen layout is decided while the loading shell is still visible,
+     before the selected locality paints. This used to also require RiverMap to
+     have arrived, which meant every load rendered the document layout first and
+     then swapped the whole page for the map layout once the chunk landed. The
+     mode is a preference plus a connection check, both readable synchronously,
+     so only the map itself arrives late, into space the section already holds. */
+  let atlas = $derived(renderMode === "full");
+
+  async function loadFullMode() {
+    // The ground plane and the measurement panel are the two things data-saver
+    // mode does without. Loaded together, after the bulletin has already painted.
+    const [panel, ground] = await Promise.all([
+      import("$lib/components/TechnicalPanel.svelte"),
+      import("$lib/components/DetailedRiverMap.svelte"),
+    ]);
+    TechnicalPanel = panel.default;
+    RiverMap = ground.default;
+  }
+
+  function applyMode(mode) {
+    renderMode = mode;
+    activeRenderMode.set(mode);
+  }
+
+  function resolveMode() {
+    const connection = navigator.connection;
+    const preference = store.renderMode;
+    const requestedLayer = new URL(window.location.href).searchParams.get("layer");
+    if (requestedLayer) {
+      // A situation-page map link is an explicit request for the atlas. Honour
+      // it for this visit without overwriting the reader's stored display
+      // preference.
+      applyMode("full");
+      loadFullMode().catch(() => {
+        applyMode("light");
+        offerFullMode = false;
+      });
+      return;
+    }
+    if (resolveRenderMode(preference, connection) === "full") {
+      applyMode("full");
+      loadFullMode().catch(() => {
+        applyMode("light");
+        offerFullMode = false;
+      });
+      return;
+    }
+    applyMode("light");
+    offerFullMode = shouldOfferFullMode(
+      preference,
+      connection,
+      store.fullModePromptDismissed,
+    );
+  }
+
+  async function switchToFullMode() {
+    selectRenderMode("full");
+    offerFullMode = false;
+    renderMode = "full";
+    try {
+      await loadFullMode();
+    } catch {
+      // Keep the document view usable when either lazy full-mode chunk cannot
+      // be fetched (for example, after an offline cache was partially updated).
+      // The stored choice remains intact so a later reload can retry it.
+      renderMode = "light";
+      offerFullMode = false;
+    }
+  }
+
+  function dismissOffer() {
+    dismissFullModePrompt();
+    offerFullMode = false;
+  }
+
+  function showTechnicalDetails() {
+    technicalOpen = true;
+    requestAnimationFrame(() => {
+      const reducedMotion = globalThis.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+      technicalSection?.scrollIntoView({
+        behavior: reducedMotion ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+  }
+
+  function handleMapLayerChange(layer) {
+    if (layer === "river_conditions") return;
+    if (globalThis.matchMedia?.("(max-width: 859px), (max-height: 820px)")?.matches) {
+      panelCollapsed = true;
+    }
+  }
+
+  /* The reader has no place saved, so the map is showing the state's worst
+     reading. Ask the browser once — the prompt is the shortest path from a
+     stranger's district to their own, and a granted one skips the search field
+     entirely. Refused, dismissed, or unavailable, the default place stays on
+     screen with the search pill and the locate control both still there, and
+     the prompt is not raised again on the next visit. */
+  async function offerLocationOnce() {
+    if (store.locality || store.locationAsked) return;
+    store.locationAsked = true;
+    try {
+      const permission = await navigator.permissions?.query({ name: "geolocation" });
+      if (permission?.state === "denied") return;
+      const position = await getPosition();
+      const nearest = nearestLocality(position.coords.latitude, position.coords.longitude);
+      if (!nearest) return;
+      selectLocality(nearest.locality.locality_id, {
+        method: "approximate_location",
+        distance_km: Number(nearest.distance.toFixed(1)),
+        selected_at: new Date().toISOString(),
+      });
+    } catch (_) {
+      // A refusal is an answer. The default place is already on screen.
+    }
+  }
 
   onMount(() => {
-    goto("/home/", { replaceState: true });
+    // Resolve the client-only preference while the data loading shell is still
+    // on screen. Waiting for `context` meant a cached bundle briefly rendered
+    // the document layout before the next effect swapped in the atlas.
+    resolveMode();
   });
+
+  // Only once the bundle is in hand: the nearest circle is computed from it, so
+  // asking earlier would spend the one prompt on a lookup that cannot answer.
+  $effect(() => {
+    if (bundle) offerLocationOnce();
+  });
+
+  /* The header switch writes the mode too, so this screen follows it rather
+     than owning it. Coming back to the map re-imports the two lazy chunks; the
+     module cache makes that free after the first time. */
+  $effect(() => {
+    const next = $activeRenderMode;
+    if (next === renderMode) return;
+    renderMode = next;
+    if (next !== "full" || RiverMap) return;
+    loadFullMode().catch(() => {
+      renderMode = "light";
+    });
+  });
+
+  /* On a phone the map is the whole screen and the bulletin floats on top of
+     it, so everything else anchored to the bottom of the map — the locate
+     control, the tile attribution, the map's own notes — has to clear the
+     panel. Its height is not a constant anyone can write down: it moves with
+     the place name, the length of the status sentence, and the reader's text
+     size. Measure it and publish it as one custom property the map chrome
+     reads. */
+  $effect(() => {
+    const section = atlasSection;
+    const panel = atlasPanel;
+    if (!section || !panel) return;
+    const publish = () => {
+      section.style.setProperty("--atlas-panel-h", `${Math.round(panel.offsetHeight)}px`);
+    };
+    publish();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(publish);
+    observer.observe(panel);
+    return () => observer.disconnect();
+  });
+
+  // "(Pt)" is a Census part-circle suffix, not part of what anyone calls the
+  // place. Setting it inline and smaller keeps the disclosure while letting
+  // most names hold a single line.
+  let place = $derived.by(() => {
+    const name = context?.locality.revenue_circle || "";
+    const match = name.match(/^(.*?)\s*(\(Pt\))$/i);
+    return match ? { name: match[1], suffix: match[2] } : { name, suffix: "" };
+  });
+
+  async function share() {
+    const shareText = currentSentence(context.gauge);
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: `Flood update for ${context.locality.revenue_circle}`,
+          text: shareText,
+        });
+      } else {
+        await navigator.clipboard.writeText(shareText);
+        shareIcon = "copy";
+        shareLabel = "Update copied";
+      }
+    } catch (error) {
+      if (error?.name !== "AbortError") {
+        shareIcon = "";
+        shareLabel = "Could not share. Try the source link";
+      }
+    }
+  }
 </script>
 
 <svelte:head>
-  <meta http-equiv="refresh" content="0;url=/home/">
   {@html `<script type="application/ld+json">${websiteJsonLd}</script>`}
-  {@html `<script type="application/ld+json">${faqJsonLd}</script>`}
 </svelte:head>
 
-<article class="search-landing">
-  <section class="landing-hero">
-    <div class="hero-copy">
-      <p class="landing-kicker">Assam flood information</p>
-      <h1>Clear information on Assam floods.</h1>
-      <p class="landing-lede">
-        Check official river measurements, local alerts, relief camps and emergency contacts in plain language.
-      </p>
-      <div class="hero-actions">
-        <a class="landing-primary" href="/home/">Check Assam rivers</a>
-        <a class="landing-secondary" href="#how-it-works">How the information works</a>
-      </div>
-    </div>
-    <figure class="river-portrait">
-      <img
-        src="/assam-river-landscape.avif"
-        width="960"
-        height="560"
-        alt="Illustrative aerial view of braided river channels in Assam"
-        fetchpriority="high"
-      >
-      <figcaption>Illustrative river landscape. Open the live bulletin for current conditions.</figcaption>
-    </figure>
+{#if $dataState.status === "error"}
+  <DataUnavailable error={$dataState.error} />
+{:else if !bundle}
+  <LoadingState home />
+{:else if bundle.runtime.kill_switch.enabled}
+  <section class="home kill">
+    <p class="screen-kicker">Remote safety pause</p>
+    <h1 class="screen-title" tabindex="-1">River information paused</h1>
+    <p>{bundle.runtime.kill_switch.message_en}</p>
   </section>
-
-  <nav class="need-paths" aria-label="Assam flood information">
-    <a href="/home/">
-      <span>River status</span>
-      <strong>Latest Assam flood alerts and river levels</strong>
-      <small>Search by village, revenue circle or district</small>
-    </a>
-    <a href="/camps/">
-      <span>Relief</span>
-      <strong>Published Assam flood camp listings</strong>
-      <small>Confirm locally before travelling</small>
-    </a>
-    <a href="/emergency/">
-      <span>Emergency</span>
-      <strong>Reviewed flood contacts and helplines</strong>
-      <small>Coverage limits are shown clearly</small>
-    </a>
-  </nav>
-
-  <section class="meaning-section" id="how-it-works">
-    <header>
-      <h2>How to read an Assam flood update</h2>
-      <p>
-        A river number means little without its threshold, direction, age and source. Axom Flood keeps those parts together.
-      </p>
-    </header>
-    <dl class="meaning-list">
-      <div>
-        <dt>Observed river level</dt>
-        <dd>The latest available CWC measurement, labelled in metres above mean sea level.</dd>
-      </div>
-      <div>
-        <dt>Warning and danger levels</dt>
-        <dd>Published station thresholds used to explain whether a river needs attention.</dd>
-      </div>
-      <div>
-        <dt>Trend and forecast</dt>
-        <dd>Whether the reading is rising, steady or falling, plus an official forecast when available.</dd>
-      </div>
-      <div>
-        <dt>Age and source</dt>
-        <dd>The observation time and original source stay visible. Stale numbers are not shown as current.</dd>
-      </div>
-    </dl>
+{:else if !context}
+  <section class="home">
+    <p class="screen-kicker">No river areas in this update</p>
+    <h1 class="screen-title" tabindex="-1">Nothing to show yet</h1>
+    <p>This update carries no revenue circles. Reconnect once to fetch a complete one.</p>
   </section>
-
-  <section class="source-section">
-    <div class="source-copy">
-      <h2>Built around official Assam flood sources</h2>
-      <p>
-        River measurements come from the Central Water Commission. Relief information comes from published district and ASDMA documents when available.
-      </p>
-      <p>
-        Axom Flood is an independent interpretation layer. It links back to sources and never claims to replace an official warning.
-      </p>
-    </div>
-    <aside>
-      <strong>What the search understands</strong>
-      <p>
-        Village names and spelling variants resolve to a revenue circle. River gauges are assigned by reviewed river topology, never by nearest distance.
-      </p>
-      <a href="/home/">Search for a place in Assam</a>
-    </aside>
-  </section>
-
-  <section class="faq-section">
-    <header>
-      <h2>Assam flood information questions</h2>
-      <p>Short answers about freshness, sources, relief information and offline use.</p>
-    </header>
-    <div class="faq-list">
-      {#each faqItems as item}
-        <details>
-          <summary>{item.question}</summary>
-          <p>{item.answer}</p>
-        </details>
-      {/each}
-    </div>
-  </section>
-
-  <footer class="landing-footer">
-    <p>
-      <strong>Axom Flood</strong>
-      <span>Independent plain-language river information for Assam.</span>
+{:else}
+  <!-- Nobody has chosen a place, so this is the state's worst reading standing
+       in for one. It says so, in the panel, above the reading it is describing —
+       a default that looked chosen would be the one way this screen could
+       mislead. Both routes out sit inside the notice. -->
+  {#snippet notYours()}
+    <p class="stand-in">
+      <span>Not your area?</span>
+      <LocateButton statusId="stand-in-location-status" />
     </p>
-    <nav aria-label="Information links">
-      <a href="/home/">River</a>
-      <a href="/camps/">Relief camps</a>
-      <a href="/emergency/">Emergency</a>
-      <a href="https://ffs.india-water.gov.in/" rel="noopener" target="_blank">CWC source</a>
-    </nav>
-  </footer>
-</article>
+  {/snippet}
+
+  {#snippet bulletin(withPlace = null)}
+    <FloodBulletin
+      gauge={context.gauge}
+      {shareLabel}
+      {shareIcon}
+      place={withPlace}
+      kicker={context.fallback ? "Assam's highest reading" : "Local flood bulletin"}
+      lead={context.fallback ? notYours : null}
+      folded={withPlace ? panelCollapsed : false}
+      onfold={withPlace ? () => { panelCollapsed = !panelCollapsed; } : null}
+      onshare={share}
+      onmoreinfo={showTechnicalDetails}
+    />
+  {/snippet}
+
+  {#if atlas}
+    <!-- Map-first. The sheet is the map, and everything else floats on it as
+         small controls: a search pill, a locate button, and the bulletin. The
+         previous layout gave a permanent third of the screen to a location form
+         that most readers touch once. On a phone this composition is the same
+         one, at phone scale: the map runs the full screen between the header
+         and the tab bar, and the bulletin floats on it. It used to break into a
+         stack of full-width bands, which spent the first screen on a search
+         field, a 44svh strip of map, and the top third of a bulletin. -->
+    <section class="atlas" aria-label="River conditions across Assam" bind:this={atlasSection}>
+      <div class="atlas-search">
+        <LocationSearch
+          prefix="atlas"
+          compact
+          label="Village, revenue circle, or district"
+          placeholder="Search a place in Assam"
+        />
+      </div>
+
+      <!-- The section holds the map's space whether or not the chunk has landed,
+           so nothing below it moves when it does. -->
+      {#if RiverMap}
+        <RiverMap
+          localityId={context.locality.locality_id}
+          {focusRequest}
+          onlayerchange={handleMapLayerChange}
+        />
+      {:else}
+        <div class="atlas-map-pending" aria-hidden="true"></div>
+      {/if}
+
+      <!-- On a phone the card can be folded down to its identity and its state,
+           which is the part a reader keeps on screen while looking at terrain.
+           The handle is the whole top edge of the card, not a small target in a
+           corner: it is the control most likely to be reached for with a thumb
+           while the other hand is holding something. -->
+      <div class="atlas-panel" bind:this={atlasPanel}>
+        {@render bulletin({
+          name: `${place.name}${place.suffix ? ` ${place.suffix}` : ""}`,
+          meta: `${context.locality.district}, ${context.gauge?.river || "Gauge review pending"}`,
+        })}
+      </div>
+
+      <div class="atlas-dock">
+        <a class="atlas-report-cta" href="/report/">
+          <Icon name="report" />
+          Report local conditions
+        </a>
+        <LocateButton
+          statusId="atlas-location-status"
+          compact
+          onselected={() => { focusRequest += 1; }}
+        />
+      </div>
+
+    </section>
+  {/if}
+
+  <section class:has-atlas={atlas} class="home home-details">
+    {#if !atlas}
+      <div class="receiver" class:urgent class:tuner-open={tunerOpen}>
+        <header class="place-block">
+          <h1
+            class:long-place={place.name.length > 14}
+            class="place"
+            tabindex="-1"
+          >{place.name}{#if place.suffix}<span class="place-suffix">{place.suffix}</span>{/if}</h1>
+          <p class="place-meta">
+            <span>{context.locality.district}</span><span class="divider">/</span>
+            <span>{context.gauge?.river || "Gauge review pending"}</span>
+          </p>
+          <p class="place-source">
+            <span>{context.fallback
+              ? "No place chosen yet, so this is the highest reading in Assam."
+              : selectionNote(context.locality)}</span>
+            <button
+              class="change-place"
+              type="button"
+              aria-controls="location-tuner"
+              aria-expanded={tunerOpen}
+              onclick={() => { tunerOpen = !tunerOpen; }}
+            >{tunerOpen ? "Keep this place" : "Change place"}</button>
+          </p>
+        </header>
+
+        {@render bulletin()}
+
+        {#if offerFullMode}
+          <aside class="mode-offer" aria-label="Full display mode available">
+            <span>Your connection can load the detailed river view.</span>
+            <button type="button" onclick={switchToFullMode}>Show full view</button>
+            <button class="mode-dismiss" type="button" aria-label="Dismiss full view suggestion" onclick={dismissOffer}>×</button>
+          </aside>
+        {/if}
+
+        <div id="location-tuner" class:open={tunerOpen} class="tuner-slot">
+          <LocationTuner locality={context.locality} onselected={() => { tunerOpen = false; }} />
+        </div>
+      </div>
+
+      <div class="community-action">
+        <p>{bundle.i18n.en.strings.reciprocity_prompt}</p>
+        <a class="button" href="/report/">Report local conditions</a>
+      </div>
+    {/if}
+
+    {#if renderMode === "full" && TechnicalPanel}
+      <div
+        id="technical-details"
+        class="technical-anchor"
+        bind:this={technicalSection}
+      >
+        <TechnicalPanel
+          locality={context.locality}
+          gauge={context.gauge}
+          bind:open={technicalOpen}
+        />
+      </div>
+    {/if}
+
+    <div class="reading-context">
+      <ProvenanceNotes locality={context.locality} gauge={context.gauge} />
+    </div>
+  </section>
+{/if}
 
 <style>
-  .search-landing {
-    width: min(1180px, 100%);
-    margin: 0 auto;
-    padding: 32px 0 72px;
+  /* Mirrors the map's own box so the reserved space matches what fills it. The
+     section carries the height at every width now, including the phone, so this
+     is one rule rather than two. */
+  .atlas-map-pending {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background: var(--ground-deep);
   }
 
-  .landing-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
-    align-items: center;
-    gap: clamp(36px, 6vw, 84px);
-    min-height: min(720px, calc(100dvh - 112px));
+  @media (max-width: 859px) {
+    .atlas-map-pending { background: var(--ground); }
   }
 
-  .hero-copy {
-    max-width: 650px;
-  }
-
-  .landing-kicker {
-    margin: 0 0 24px;
-    color: var(--river);
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-  }
-
-  h1,
-  h2 {
-    font-family: var(--body);
-    color: var(--ink);
-  }
-
-  h1 {
-    max-width: 680px;
-    margin: 0;
-    font-size: clamp(40px, 5vw, 64px);
-    line-height: .98;
-    letter-spacing: -.045em;
-  }
-
-  .landing-lede {
-    max-width: 590px;
-    margin: 32px 0 0;
-    color: var(--graphite);
-    font-size: clamp(18px, 2vw, 23px);
-    line-height: 1.45;
-  }
-
-  .hero-actions {
+  .mode-offer {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-top: 32px;
-  }
-
-  .landing-primary,
-  .landing-secondary {
-    min-height: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    font-weight: 800;
-    text-decoration: none;
-  }
-
-  .landing-primary {
-    padding: 0 24px;
-    border-radius: var(--r-control);
-    color: var(--on-action);
-    background: var(--action);
-  }
-
-  .landing-primary:hover {
-    color: var(--on-action);
-    background: var(--action-hover);
-  }
-
-  .landing-secondary {
-    color: var(--ink);
-    border-bottom: 1px solid var(--line-strong);
-  }
-
-  .landing-primary:active,
-  .landing-secondary:active {
-    transform: translateY(1px);
-  }
-
-  .river-portrait {
-    margin: 0;
-  }
-
-  .river-portrait img {
-    display: block;
-    width: 100%;
-    min-height: 420px;
-    object-fit: cover;
+    gap: 8px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 16px 0 0;
+    padding: 8px 8px 8px 12px;
     border: 1px solid var(--line);
-    border-radius: var(--r-sheet);
-    box-shadow: var(--shadow-3);
-  }
-
-  .river-portrait figcaption {
-    max-width: 52ch;
-    margin: 12px 4px 0;
+    border-radius: var(--r-control);
     color: var(--muted);
+    background: var(--surface);
     font-size: 12px;
-    line-height: 1.5;
-  }
-
-  .need-paths {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr;
-    margin: 32px 0 0;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .need-paths a {
-    display: flex;
-    min-height: 170px;
-    flex-direction: column;
-    justify-content: center;
-    padding: 28px clamp(20px, 3vw, 38px);
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  .need-paths a + a {
-    border-left: 1px solid var(--line);
-  }
-
-  .need-paths a:hover {
-    background: var(--surface-inactive);
-  }
-
-  .need-paths span,
-  .need-paths small {
-    color: var(--muted);
-  }
-
-  .need-paths span {
-    margin-bottom: 16px;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-  }
-
-  .need-paths strong {
-    max-width: 30ch;
-    font-size: 18px;
     line-height: 1.35;
   }
-
-  .need-paths small {
-    margin-top: 12px;
-    font-size: 14px;
-    line-height: 1.45;
+  .mode-offer button {
+    min-height: 34px;
+    padding: 8px 12px;
+    border-radius: var(--r-control);
+    font-size: 12px;
+    white-space: nowrap;
   }
-
-  .meaning-section,
-  .source-section,
-  .faq-section {
-    padding: clamp(72px, 9vw, 116px) 0;
-  }
-
-  .meaning-section > header,
-  .faq-section > header {
-    max-width: 720px;
-  }
-
-  h2 {
-    margin: 0;
-    font-size: clamp(36px, 4.5vw, 58px);
-    line-height: 1.02;
-    letter-spacing: -.035em;
-  }
-
-  .meaning-section > header p,
-  .faq-section > header p {
-    max-width: 64ch;
-    margin: 20px 0 0;
+  .mode-offer .mode-dismiss {
+    width: 28px;
+    padding: 0;
+    border-color: transparent;
     color: var(--muted);
-    font-size: 18px;
-    line-height: 1.6;
-  }
-
-  .meaning-list {
-    display: grid;
-    grid-template-columns: 1.1fr .9fr;
-    gap: 0 clamp(42px, 7vw, 96px);
-    margin: 56px 0 0;
-  }
-
-  .meaning-list div {
-    padding: 24px 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .meaning-list dt {
-    color: var(--ink);
-    font-size: 18px;
-    font-weight: 800;
-  }
-
-  .meaning-list dd {
-    max-width: 48ch;
-    margin: 12px 0 0;
-    color: var(--graphite);
-    line-height: 1.6;
-  }
-
-  .source-section {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
-    gap: clamp(40px, 9vw, 120px);
-    align-items: start;
-    border-top: 1px solid var(--line);
-  }
-
-  .source-copy p {
-    max-width: 62ch;
-    margin: 24px 0 0;
-    color: var(--graphite);
-    font-size: 18px;
-    line-height: 1.65;
-  }
-
-  .source-section aside {
-    padding: 32px;
-    border: 1px solid var(--line);
-    border-radius: var(--r-panel);
-    color: var(--graphite);
-    background: var(--surface-inactive);
-  }
-
-  .source-section aside strong {
-    display: block;
-    color: var(--ink);
+    background: transparent;
     font-size: 18px;
   }
-
-  .source-section aside p {
-    margin: 16px 0 24px;
-    line-height: 1.6;
-  }
-
-  .source-section aside a {
-    color: var(--river);
-    font-weight: 800;
-  }
-
-  .faq-section {
-    border-top: 1px solid var(--line);
-  }
-
-  .faq-list {
-    max-width: 900px;
-    margin-top: 56px;
-  }
-
-  .faq-list details {
-    border-bottom: 1px solid var(--line);
-  }
-
-  .faq-list summary {
-    padding: 24px 40px 24px 0;
-    color: var(--ink);
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 800;
-    line-height: 1.4;
-  }
-
-  .faq-list p {
-    max-width: 72ch;
-    margin: -4px 0 24px;
-    color: var(--graphite);
-    line-height: 1.65;
-  }
-
-  .landing-footer {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 40px;
-    padding: 32px 0 8px;
-    border-top: 1px solid var(--line-strong);
-  }
-
-  .landing-footer p {
-    margin: 0;
-  }
-
-  .landing-footer strong,
-  .landing-footer span {
-    display: block;
-  }
-
-  .landing-footer strong {
-    color: var(--ink);
-    font-size: 18px;
-  }
-
-  .landing-footer span {
-    margin-top: 6px;
-    color: var(--muted);
-  }
-
-  .landing-footer nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 24px;
-  }
-
-  .landing-footer a {
-    color: var(--graphite);
-  }
-
-  @media (max-width: 860px) {
-    .search-landing {
-      padding-top: 12px;
-    }
-
-    .landing-hero,
-    .source-section {
-      grid-template-columns: 1fr;
-    }
-
-    .landing-hero {
-      gap: 40px;
-      min-height: 0;
-      padding: 40px 0 32px;
-    }
-
-    h1 {
-      max-width: 620px;
-    }
-
-    .river-portrait img {
-      min-height: 0;
-      aspect-ratio: 16 / 10;
-    }
-
-    .need-paths {
-      grid-template-columns: 1fr;
-    }
-
-    .need-paths a {
-      min-height: 0;
-      padding: 24px 0;
-    }
-
-    .need-paths a + a {
-      border-top: 1px solid var(--line);
-      border-left: 0;
-    }
-
-    .meaning-list {
-      grid-template-columns: 1fr;
-    }
-
-    .source-section {
-      gap: 40px;
-    }
-  }
-
-  @media (max-width: 560px) {
-    .hero-actions {
-      align-items: stretch;
-      flex-direction: column;
-    }
-
-    .landing-secondary {
-      justify-content: flex-start;
-      width: fit-content;
-    }
-
-    .landing-footer {
+  @media (max-width: 520px) {
+    .mode-offer {
       align-items: flex-start;
-      flex-direction: column;
+      flex-wrap: wrap;
+      border-radius: var(--r-control);
     }
-
-    .landing-footer nav {
-      display: grid;
-    }
+    .mode-dismiss { margin-left: auto; }
   }
 </style>

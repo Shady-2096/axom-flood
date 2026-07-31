@@ -14,13 +14,14 @@ import {
 } from "../src/lib/seo.js";
 
 test("search metadata uses Assam language and canonical production URLs", () => {
-  const landing = metadataForPath("/");
-  const river = metadataForPath("/home/");
+  const river = metadataForPath("/");
+  const about = metadataForPath("/about/");
 
-  assert.match(landing.title, /^Assam Flood Information/);
-  assert.match(landing.description, /Assam flood alerts/);
-  assert.equal(landing.path, "/");
-  assert.equal(river.path, "/home/");
+  assert.match(river.title, /^Assam Flood Information/);
+  assert.match(river.description, /Assam flood alerts/);
+  assert.equal(river.path, "/");
+  assert.equal(routeKey("/"), "home");
+  assert.equal(about.path, "/about/");
   assert.equal(river.robots, "index,follow,max-image-preview:large");
   assert.equal(SITE_URL, "https://assamflood.org");
 });
@@ -49,7 +50,7 @@ test("robots and sitemap expose only canonical indexable routes", () => {
   const sitemap = readFileSync("static/sitemap.xml", "utf8");
 
   assert.match(robots, /Sitemap: https:\/\/assamflood\.org\/sitemap\.xml/);
-  for (const path of ["/", "/home/", "/camps/", "/situation/", "/emergency/"]) {
+  for (const path of ["/", "/about/", "/camps/", "/situation/", "/emergency/"]) {
     assert.match(sitemap, new RegExp(`<loc>${SITE_URL}${path === "/" ? "/" : path}</loc>`));
   }
   assert.doesNotMatch(sitemap, /\/settings\/|\/report\//);

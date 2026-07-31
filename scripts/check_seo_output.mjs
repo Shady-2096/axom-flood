@@ -8,7 +8,7 @@ import {
 
 const pages = [
   { pathname: "/", file: "build/index.html" },
-  { pathname: "/home/", file: "build/home/index.html" },
+  { pathname: "/about/", file: "build/about/index.html" },
   { pathname: "/camps/", file: "build/camps/index.html" },
   { pathname: "/situation/", file: "build/situation/index.html" },
   { pathname: "/emergency/", file: "build/emergency/index.html" },
@@ -57,22 +57,36 @@ for (const page of pages) {
   );
 }
 
+/* The river map is the front door, so the site identity schema is prerendered
+   there and the FAQ lives with the explanatory copy on /about/. */
+function structuredData(file) {
+  const html = readFileSync(file, "utf8");
+  assert.doesNotMatch(html, /\{JSON\.stringify\(/, `${file}: JSON-LD interpolation leaked into output`);
+  return [...html.matchAll(
+    /<script type="application\/ld\+json">(.*?)<\/script>/gs,
+  )].map(match => JSON.parse(match[1]));
+}
+
+const rootJsonLd = structuredData("build/index.html");
+const aboutJsonLd = structuredData("build/about/index.html");
+const jsonLd = [...rootJsonLd, ...aboutJsonLd];
+assert.deepEqual(new Set(rootJsonLd.map(block => block["@type"])), new Set(["WebSite"]));
+assert.deepEqual(new Set(aboutJsonLd.map(block => block["@type"])), new Set(["FAQPage"]));
+
+/* The root must never ship the old landing hero again: seeing it meant real
+   visitors got a page that redirected out from under them. */
 const root = readFileSync("build/index.html", "utf8");
-assert.doesNotMatch(root, /\{JSON\.stringify\(/, "JSON-LD interpolation leaked into output");
-const jsonLd = [...root.matchAll(
-  /<script type="application\/ld\+json">(.*?)<\/script>/gs,
-)].map(match => JSON.parse(match[1]));
-assert.deepEqual(
-  new Set(jsonLd.map(block => block["@type"])),
-  new Set(["WebSite", "FAQPage"]),
-);
-assert.match(root, /<h1[^>]*>Clear information on Assam floods\.<\/h1>/);
-assert.match(root, /Where can I check Assam flood status today\?/);
+assert.doesNotMatch(root, /<meta http-equiv="refresh"/);
+assert.doesNotMatch(root, /Clear information on Assam floods\./);
+
+const about = readFileSync("build/about/index.html", "utf8");
+assert.match(about, /<h1[^>]*>Clear information on Assam floods\.<\/h1>/);
+assert.match(about, /Where can I check Assam flood status today\?/);
 
 const robots = readFileSync("build/robots.txt", "utf8");
 const sitemap = readFileSync("build/sitemap.xml", "utf8");
 assert.match(robots, /Sitemap: https:\/\/assamflood\.org\/sitemap\.xml/);
-for (const pathname of ["/", "/home/", "/camps/", "/situation/", "/emergency/"]) {
+for (const pathname of ["/", "/about/", "/camps/", "/situation/", "/emergency/"]) {
   assert.match(sitemap, new RegExp(`<loc>${escaped(`${SITE_URL}${pathname}`)}</loc>`));
 }
 assert.doesNotMatch(sitemap, /\/report\/|\/settings\//);

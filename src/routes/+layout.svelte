@@ -43,7 +43,7 @@
 
   const routes = [
     {
-      href: "/home/",
+      href: "/",
       route: "home",
       label: "River",
       path: "M3 8c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M3 13c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M3 18c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0",
@@ -138,10 +138,12 @@
       }).catch(() => {});
     }
 
+    /* The map moved from `/home/` to `/`, so "home" resolves to the root here
+       and `/home/` itself is a server-side redirect. */
     const oldRoutes = new Set(["home", "camps", "situation", "report", "emergency", "settings"]);
     const hashRoute = location.hash.slice(1);
     if (oldRoutes.has(hashRoute) && currentRoute() !== hashRoute) {
-      goto(`/${hashRoute}/`, { replaceState: true });
+      goto(hashRoute === "home" ? "/" : `/${hashRoute}/`, { replaceState: true });
     }
     initializeData().catch(() => {});
     let lastRefreshAt = Date.now();
@@ -286,6 +288,7 @@
     <nav class="footer-links" aria-label="Footer">
       <a href="https://cwc.gov.in" rel="noopener" target="_blank">CWC</a>
       <a href="https://sdmassam.nic.in" rel="noopener" target="_blank">ASDMA</a>
+      <a href="/about/">About</a>
       <a href="/settings/">Settings</a>
     </nav>
   </div>

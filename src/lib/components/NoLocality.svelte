@@ -8,7 +8,7 @@
     <p class="screen-intro">{what}</p>
   </header>
   <p class="no-locality">
-    <a class="button" href="/home/">Choose your place</a>
+    <a class="button" href="/">Choose your place</a>
   </p>
 </section>
 

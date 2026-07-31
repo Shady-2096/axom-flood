@@ -44,7 +44,7 @@
       label: selection.label,
       selected_at: new Date().toISOString(),
     });
-    await goto("/home/");
+    await goto("/");
   }
 
   async function enableNotifications() {

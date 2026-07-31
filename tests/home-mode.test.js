@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const home = await readFile(
-  new URL("../src/routes/home/+page.svelte", import.meta.url),
+  new URL("../src/routes/+page.svelte", import.meta.url),
   "utf8",
 );
 const appShell = await readFile(
@@ -97,7 +97,7 @@ test("ASDMA impact uses the main atlas and the situation page has no second map"
     home,
     /if \(globalThis\.matchMedia\?\.\("\(max-width: 859px\), \(max-height: 820px\)"\)\?\.matches\) \{\s*panelCollapsed = true;/,
   );
-  assert.match(situation, /href="\/home\/\?layer=affected_population"/);
+  assert.match(situation, /href="\/\?layer=affected_population"/);
   assert.doesNotMatch(situation, /ImpactMap|MapComponent|openMap|showMap/);
 });
 

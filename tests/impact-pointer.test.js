@@ -39,7 +39,7 @@ test("ASDMA impact payload stays outside the service-worker shell", async () => 
 
 test("situation data and map stay outside the primary river first paint", async () => {
   const home = await readFile(
-    new URL("../build/home/index.html", import.meta.url),
+    new URL("../build/index.html", import.meta.url),
     "utf8",
   );
   assert.equal(home.includes("impact-current.json"), false);
