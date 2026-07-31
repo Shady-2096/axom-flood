@@ -15,12 +15,14 @@
 
 <article class="terms">
   <header class="terms-head">
-    <p class="terms-kicker">Axom Flood</p>
+    <p class="terms-dateline">
+      <span>Axom Flood</span>
+      <span>Last updated {UPDATED}</span>
+    </p>
     <h1>Terms of use</h1>
     <p class="terms-lede">
       What this site is, where its numbers come from, and what it does not promise.
     </p>
-    <p class="terms-updated">Last updated {UPDATED}</p>
   </header>
 
   <aside class="terms-summary" aria-labelledby="summary-heading">
@@ -161,62 +163,70 @@
   .terms {
     max-width: 720px;
     margin: 0 auto;
-    padding: 40px 0 56px;
+    padding: clamp(32px, 5vw, 56px) 0 56px;
   }
 
-  .terms-head {
-    padding-bottom: 32px;
+  /* Same masthead as the about page: what this is on the left, when it last
+     changed on the right, a rule under both. */
+  .terms-dateline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    margin: 0 0 24px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
   }
 
-  .terms-kicker {
-    margin: 0;
-    color: var(--river);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+  .terms-dateline span:first-child {
+    color: var(--ink);
   }
 
   h1 {
-    margin: 12px 0 0;
+    margin: 0;
     color: var(--ink);
-    font-size: 28px;
-    letter-spacing: -.02em;
+    font-size: clamp(32px, 3.6vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -.03em;
   }
 
   .terms-lede {
-    margin: 12px 0 0;
-    color: var(--muted);
-    font-size: 18px;
-  }
-
-  .terms-updated {
-    margin: 16px 0 0;
-    color: var(--muted);
-    font-size: 12px;
+    max-width: 58ch;
+    margin: 20px 0 0;
+    color: var(--graphite);
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.5;
   }
 
   /* The one block someone skimming in an emergency will actually read, so it
-     carries the evacuation sentence rather than burying it in section four. */
+     carries the evacuation sentence rather than burying it in section four.
+     Ruled off rather than boxed — a tinted card with an accent stripe reads as
+     decoration, and nothing else on the site is drawn that way. */
   .terms-summary {
-    margin: 32px 0 0;
-    padding: 24px;
-    border-left: 4px solid var(--river);
-    border-radius: var(--r-panel);
-    background: var(--veil);
+    margin: 40px 0 0;
+    padding: 24px 0;
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
   }
 
   .terms-summary h2 {
     margin: 0;
-    color: var(--ink);
-    font-size: 16px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
   }
 
   .terms-summary ul {
-    margin: 12px 0 0;
+    margin: 16px 0 0;
     padding-left: 20px;
     color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
   }
 
   .terms-summary li + li {
@@ -257,10 +267,6 @@
   @media (max-width: 560px) {
     .terms {
       padding: 24px 0 40px;
-    }
-
-    .terms-summary {
-      padding: 20px;
     }
 
     .terms-links {
