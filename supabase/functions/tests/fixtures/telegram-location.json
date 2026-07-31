@@ -1,0 +1,10 @@
+{
+  "update_id": 10002,
+  "message": {
+    "message_id": 52,
+    "from": {"id": 4242, "is_bot": false, "first_name": "Test"},
+    "chat": {"id": 4242, "type": "private"},
+    "date": 1785350010,
+    "location": {"latitude": 26.912345, "longitude": 94.680123}
+  }
+}

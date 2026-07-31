@@ -1,0 +1,21 @@
+.DS_Store
+.pytest_cache/
+.ruff_cache/
+.venv/
+__pycache__/
+*.py[cod]
+node_modules/
+.svelte-kit/
+build/
+.vercel/
+
+# Runtime status files are operational artifacts, not public data.
+data/run-status/
+data/cache/
+
+# Impeccable design critiques are internal review notes, not public docs.
+.impeccable/critique/
+
+# Local agent skills support development but are not application dependencies.
+.agents/
+skills-lock.json

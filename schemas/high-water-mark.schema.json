@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/high-water-mark-v1.json",
+  "title": "Recalled historic high-water mark",
+  "type": "object",
+  "description": "One recalled, dry-season record of historic flood depth at a location. The plan's exact field set from assam-flood-implementation-plan.md PART 4 §2.5, plus schema_version (repo-wide rule), a cavities id (hwm_id) and submitted_at provenance pair so the recalled record's body can stay in the plan's exact shape. Never mixed with live crowd reports; seeds Phase 4.",
+  "required": [
+    "schema_version",
+    "hwm_id",
+    "submitted_at",
+    "location",
+    "year",
+    "depth_cm",
+    "reference_en",
+    "confidence"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "hwm_id": {"type": "string", "description": "UUID assigned at intake."},
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the recalled report was captured."
+    },
+    "location": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "items": false,
+      "description": "[longitude, latitude] rounded to the same three-decimal grid as crowd reports. Never finer than the 50 m policy floor."
+    },
+    "year": {"type": "integer", "minimum": 1900},
+    "depth_cm": {"type": "integer", "minimum": 0},
+    "reference_en": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Plain-language reference such as 'up to the window sill'. Free text is scanned for inadvertently embedded phone numbers and email addresses at intake."
+    },
+    "confidence": {"enum": ["recalled", "corroborated"]}
+  }
+}

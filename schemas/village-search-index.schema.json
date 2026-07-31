@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/village-search-index-v1.json",
+  "title": "Census village to revenue-circle search index",
+  "type": "object",
+  "required": ["schema_version", "provenance", "villages"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "provenance": {"type": "object"},
+    "villages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "village_name",
+          "normalized_name",
+          "locality_id",
+          "revenue_circle",
+          "district",
+          "centre",
+          "centre_confidence",
+          "census_village_code"
+        ],
+        "properties": {
+          "village_name": {"type": "string", "minLength": 1},
+          "normalized_name": {"type": "string"},
+          "locality_id": {"type": "string", "minLength": 1},
+          "revenue_circle": {"type": "string", "minLength": 1},
+          "district": {"type": "string", "minLength": 1},
+          "centre": {
+            "type": "array",
+            "prefixItems": [{"type": "number"}, {"type": "number"}],
+            "items": false
+          },
+          "centre_confidence": {
+            "enum": ["exact_village_school_median", "revenue_circle_fallback"]
+          },
+          "census_village_code": {"type": "string", "pattern": "^[0-9]{6}$"}
+        }
+      }
+    }
+  }
+}

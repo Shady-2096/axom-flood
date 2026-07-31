@@ -1,0 +1,13 @@
+{
+  "name": "Axom Flood",
+  "short_name": "Axom Flood",
+  "description": "Offline river alerts and relief information for Assam",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f2f6f5",
+  "theme_color": "#092f3d",
+  "lang": "as",
+  "icons": [
+    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}

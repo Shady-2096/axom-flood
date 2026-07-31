@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/merit-hand-preflight-v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "preflight_status",
+    "dataset",
+    "dataset_version",
+    "hand_source",
+    "approximate_resolution_m",
+    "tile_id",
+    "tile_sha256",
+    "manifest_revision_sha256",
+    "aoi_geometry",
+    "topology_limitation"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "preflight_status": {"const": "verified"},
+    "dataset": {"const": "MERIT Hydro"},
+    "dataset_version": {"const": "1.0.1"},
+    "hand_source": {"const": "provided_hnd_band_not_locally_derived"},
+    "approximate_resolution_m": {"const": 90},
+    "tile_id": {"type": "string", "minLength": 1},
+    "tile_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "manifest_revision_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "aoi_geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geometry_id",
+        "sha256",
+        "review_status",
+        "reviewed_at",
+        "reviewed_by"
+      ],
+      "properties": {
+        "geometry_id": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "review_status": {"const": "reviewed"},
+        "reviewed_at": {"type": "string", "format": "date-time"},
+        "reviewed_by": {"type": "string", "minLength": 1}
+      }
+    },
+    "topology_limitation": {"type": "string", "minLength": 1}
+  }
+}

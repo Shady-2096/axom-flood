@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "districts": [
+    {"name": "Baksa", "slug": "baksa"},
+    {"name": "Bajali", "slug": "bajali"},
+    {"name": "Barpeta", "slug": "barpeta"},
+    {"name": "Biswanath", "slug": "biswanath"},
+    {"name": "Bongaigaon", "slug": "bongaigaon"},
+    {"name": "Cachar", "slug": "cachar"},
+    {"name": "Charaideo", "slug": "charaideo"},
+    {
+      "name": "Chirang",
+      "slug": "chirang",
+      "seed_documents": [
+        {
+          "title": "Pre Identified Relief Camps 2026",
+          "url": "https://chirang.assam.gov.in/sites/default/files/public_utility/ReliefCampNotification_1.pdf",
+          "document_type": "dedicated_camp_list"
+        }
+      ]
+    },
+    {"name": "Darrang", "slug": "darrang"},
+    {"name": "Dhemaji", "slug": "dhemaji"},
+    {"name": "Dhubri", "slug": "dhubri"},
+    {"name": "Dibrugarh", "slug": "dibrugarh"},
+    {"name": "Dima Hasao", "slug": "dimahasao"},
+    {"name": "Goalpara", "slug": "goalpara"},
+    {"name": "Golaghat", "slug": "golaghat"},
+    {"name": "Hailakandi", "slug": "hailakandi"},
+    {"name": "Hojai", "slug": "hojai"},
+    {"name": "Jorhat", "slug": "jorhat"},
+    {"name": "Kamrup", "slug": "kamrup"},
+    {"name": "Kamrup Metropolitan", "slug": "kamrupmetro"},
+    {"name": "Karbi Anglong", "slug": "karbianglong"},
+    {"name": "Kokrajhar", "slug": "kokrajhar"},
+    {"name": "Lakhimpur", "slug": "lakhimpur"},
+    {"name": "Majuli", "slug": "majuli"},
+    {"name": "Morigaon", "slug": "morigaon", "source_aliases": ["Marigaon"]},
+    {"name": "Nagaon", "slug": "nagaon"},
+    {"name": "Nalbari", "slug": "nalbari"},
+    {
+      "name": "Sivasagar",
+      "slug": "sivasagar",
+      "source_aliases": ["Sivsagar"],
+      "seed_documents": [
+        {
+          "title": "District Flood Contingency Plan 2026",
+          "url": "https://sivasagar.assam.gov.in/sites/default/files/public_utility/Flood%20Contingency%20Plan%202026%20Final%20pdf.pdf",
+          "document_type": "contingency_plan"
+        }
+      ]
+    },
+    {
+      "name": "Sonitpur",
+      "slug": "sonitpur",
+      "seed_documents": [
+        {
+          "title": "District Flood Contingency Plan 2026",
+          "url": "https://sonitpur.assam.gov.in/sites/default/files/public_utility/District%20Flood%20Contingency%20Plan.pdf",
+          "document_type": "contingency_plan"
+        }
+      ]
+    },
+    {"name": "South Salmara-Mankachar", "slug": "southsalmaramankachar"},
+    {
+      "name": "Sribhumi",
+      "slug": "sribhumi",
+      "alternate_slugs": ["karimganj"],
+      "source_aliases": ["Karimganj"]
+    },
+    {"name": "Tamulpur", "slug": "tamulpur"},
+    {"name": "Tinsukia", "slug": "tinsukia"},
+    {"name": "Udalguri", "slug": "udalguri"},
+    {"name": "West Karbi Anglong", "slug": "westkarbianglong"}
+  ]
+}

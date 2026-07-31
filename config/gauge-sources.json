@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "primary_source_id": "cwc_ffs_level_stations",
+  "sources": [
+    {
+      "source_id": "cwc_ffs_level_stations",
+      "agency": "Central Water Commission",
+      "role": "primary",
+      "url": "https://ffs.india-water.gov.in/",
+      "format": "cwc_ffs_json",
+      "operational_freshness_required_hours": 6,
+      "provides": [
+        "current_level",
+        "observation_time",
+        "gauge_identity",
+        "river_name",
+        "district",
+        "warning_level",
+        "danger_level",
+        "highest_flood_level",
+        "recent_hourly_readings",
+        "official_forecast"
+      ],
+      "notes": "Undocumented but unauthenticated; this is the contract the public FFS site itself reads. Endpoint paths and the specification filter DSL are recorded in src/axom_flood/cwc/client.py."
+    },
+    {
+      "source_id": "nwdp_assam_rwl_hourly_2026_2030",
+      "agency": "Assam Water Resources Department via NWDP",
+      "role": "secondary",
+      "url": "https://nwdp.nwic.gov.in/dataset/6273c426-32f9-4fdf-b67f-e4e7a46d8554/resource/847f5630-f231-46c0-922d-0f2f379a5cb8/download/rwl_tel_hr_assam_999_2026_2030.csv",
+      "format": "nwdp_river_level_csv",
+      "operational_freshness_required_hours": 6,
+      "notes": "Retained for cross-checking and for the WRD station it covers. As of 2026-07-27 its newest observation is 2026-05-30, so it emits no_data and cannot carry Phase 1 alerts."
+    }
+  ]
+}

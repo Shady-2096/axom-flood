@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/asdma-impact-status-v1.json",
+  "title": "Latest ASDMA impact ingestion status",
+  "type": "object",
+  "required": ["schema_version", "updated_at", "latest_attempt", "current_valid"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "latest_attempt": {
+      "type": "object",
+      "required": [
+        "report_date",
+        "revision_id",
+        "extractor_version",
+        "validated_at",
+        "state",
+        "validation_id",
+        "failures"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "report_date": {"type": "string", "format": "date"},
+        "revision_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "extractor_version": {
+          "oneOf": [
+            {"type": "integer", "minimum": 7},
+            {"type": "null"}
+          ]
+        },
+        "validated_at": {"type": "string", "format": "date-time"},
+        "state": {
+          "enum": [
+            "validated",
+            "validated_partial",
+            "quarantined",
+            "historical",
+            "superseded"
+          ]
+        },
+        "validation_id": {"type": "string", "minLength": 1},
+        "failures": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "current_valid": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": [
+            "report_date",
+            "revision_id",
+            "publication_state",
+            "impact_url"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "report_date": {"type": "string", "format": "date"},
+            "revision_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            "publication_state": {
+              "enum": ["validated", "validated_partial"]
+            },
+            "impact_url": {
+              "type": "string",
+              "pattern": "^data/impact-.+\\.json$"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

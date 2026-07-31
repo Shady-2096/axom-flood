@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-07-28T01:54:54.547037+05:30",
+  "schema_version": 1,
+  "source_sha256": "9745d18d29f863da9355930f3d356d340bc6ffa5e40a59af54446347de7c3b0f",
+  "stale_after_hours": 6,
+  "station_count": 1,
+  "stations": [
+    {
+      "agency": "Assam",
+      "coordinates": [
+        92.11638889,
+        26.50833333
+      ],
+      "data_age_hours": 1394.92,
+      "district": "Darrang",
+      "gap_detected_in_trend_window": false,
+      "gauge_id": "nh15_crossing_fakirpara_tangni",
+      "last_observed_level_m": 60.984,
+      "level_m": null,
+      "observed_at": "2026-05-30T23:00:00+05:30",
+      "river": "-",
+      "schema_version": 1,
+      "site_name": "NH15 Crossing Fakirpara Tangni",
+      "source_sha256": "9745d18d29f863da9355930f3d356d340bc6ffa5e40a59af54446347de7c3b0f",
+      "source_url": "https://nwdp.nwic.gov.in/dataset/6273c426-32f9-4fdf-b67f-e4e7a46d8554/resource/847f5630-f231-46c0-922d-0f2f379a5cb8/download/rwl_tel_hr_assam_999_2026_2030.csv",
+      "status": "no_data",
+      "trend_cm_per_hr": null,
+      "trend_window_hrs": 4
+    }
+  ],
+  "stations_with_no_data": 1
+}

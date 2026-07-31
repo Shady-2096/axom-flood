@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/sentinel-retrospective-association-v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "association_id",
+    "use",
+    "scene_id",
+    "scene_source_revision_sha256",
+    "event_id",
+    "event_evidence_revision_sha256",
+    "temporal_relation",
+    "absolute_offset_hours",
+    "aoi_geometry",
+    "spatial_basis",
+    "spatial_coverage_claim",
+    "flood_extent_claim"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "association_id": {"type": "string", "minLength": 1},
+    "use": {"const": "retrospective_validation_only"},
+    "scene_id": {"type": "string", "minLength": 1},
+    "scene_source_revision_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "event_id": {"type": "string", "minLength": 1},
+    "event_evidence_revision_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "temporal_relation": {
+      "enum": ["before_event", "overlaps_event", "after_event"]
+    },
+    "absolute_offset_hours": {"type": "number", "minimum": 0},
+    "aoi_geometry": {"$ref": "#/$defs/reviewed_geometry"},
+    "spatial_basis": {"type": "string", "minLength": 1},
+    "spatial_coverage_claim": {"const": false},
+    "flood_extent_claim": {"const": false}
+  },
+  "$defs": {
+    "reviewed_geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geometry_id",
+        "sha256",
+        "review_status",
+        "reviewed_at",
+        "reviewed_by"
+      ],
+      "properties": {
+        "geometry_id": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "review_status": {"const": "reviewed"},
+        "reviewed_at": {"type": "string", "format": "date-time"},
+        "reviewed_by": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

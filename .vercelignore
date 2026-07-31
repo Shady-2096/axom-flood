@@ -1,0 +1,11 @@
+.git/
+.agents/
+.pytest_cache/
+.ruff_cache/
+.svelte-kit/
+.venv/
+build/
+data/cache/
+data/run-status/
+node_modules/
+skills-lock.json

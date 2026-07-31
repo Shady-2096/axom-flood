@@ -1,0 +1,28 @@
+schema_version,extractor_version,report_date,revision_id,district,revenue_circle,source_names,affected_villages,affected_population,crop_area_submerged_hectares,relief_camps_open,relief_distribution_centres_open,relief_camp_occupants,confirmed_deaths
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Charaideo,Mahmora,Mahmora,67,67128,7340,9,6,1251,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Charaideo,Sapekhati,Sapekhati,2,0,1797,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Charaideo,Sonari,Sonari,80,121276,8512,2,0,358,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Dhemaji,Sissiborgaon,Sissiborgaon,,0,0,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Dibrugarh,Dibrugarh East,Dibrugarh East,,0,0,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Dibrugarh,Dibrugarh West,Dibrugarh West,,0,0,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Dibrugarh,Moran,Moran,,0,0,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Dibrugarh,Naharkatiya,Naharkatia,,0,0,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Dibrugarh,Tengakhat,Tengakhat,,0,0,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Golaghat,Bokakhat,Bokakhat,22,2717,180.6,0,2,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Golaghat,Dergaon,Dergaon,45,17065,427.35,0,12,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Golaghat,Golaghat,Golaghat,28,13386,923,5,5,532,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Golaghat,Khumtai,Khumtai,16,5004,880.55,2,3,86,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Jorhat,Jorhat East,Jorhat East,4,0,23,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Jorhat,Jorhat West,Jorhat West,57,41931,2025.9200000000003,5,1,1252,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Jorhat,Mariani,Mariani,6,0,0,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Jorhat,Teok,Teok,25,27366,716.5,9,0,521,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Jorhat,Titabor,Titabor,16,5161,580.2,0,2,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Kamrup (M),Dispur,Dispur,1,0,0.9,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Nagaon,Kampur,Kampur,8,0,196,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Nagaon,Nagaon,Nagaon,14,0,0,0,4,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Nagaon,Samaguri,Samaguri,8,0,123,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Sivasagar,Amguri,Amguri,46,39152,78.5,23,12,13980,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Sivasagar,Dimow,Demow,24,9465,463,6,16,567,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Sivasagar,Nazira,Nazira,41,17885,8551,18,5,4050,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Sivasagar,Sibsagar,Sivsagar,114,71452,4321,11,19,6098,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Sivasagar,Sonari,Sonari RC part,7,6507,0,0,7,0,0

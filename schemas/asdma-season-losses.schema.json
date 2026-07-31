@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/asdma-season-losses-v2.json",
+  "title": "Generated ASDMA statewide season loss checkpoint",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "season_id",
+    "season_label",
+    "season_start_date",
+    "as_of_date",
+    "statewide",
+    "definitions",
+    "coverage",
+    "source",
+    "publication"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 2},
+    "season_id": {"type": "string", "minLength": 1},
+    "season_label": {"type": "string", "minLength": 1},
+    "season_start_date": {"type": "string", "format": "date"},
+    "as_of_date": {"type": "string", "format": "date"},
+    "statewide": {
+      "type": "object",
+      "required": ["confirmed_deaths", "people_reported_missing"],
+      "additionalProperties": false,
+      "properties": {
+        "confirmed_deaths": {"type": "integer", "minimum": 0},
+        "people_reported_missing": {"type": "integer", "minimum": 0}
+      }
+    },
+    "definitions": {
+      "type": "object",
+      "required": ["confirmed_deaths", "people_reported_missing"],
+      "additionalProperties": false,
+      "properties": {
+        "confirmed_deaths": {"type": "string", "minLength": 1},
+        "people_reported_missing": {"type": "string", "minLength": 1}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "daily_report_start_date",
+        "daily_report_end_date",
+        "daily_reports_reviewed",
+        "unpublished_dates",
+        "reports"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "daily_report_start_date": {"type": "string", "format": "date"},
+        "daily_report_end_date": {"type": "string", "format": "date"},
+        "daily_reports_reviewed": {"type": "integer", "minimum": 1},
+        "unpublished_dates": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "format": "date"}
+        },
+        "reports": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "report_date",
+              "revision_id",
+              "newly_confirmed_deaths",
+              "newly_reported_missing",
+              "source_artifact_url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "report_date": {"type": "string", "format": "date"},
+              "revision_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+              "newly_confirmed_deaths": {"type": "integer", "minimum": 0},
+              "newly_reported_missing": {"type": "integer", "minimum": 0},
+              "source_artifact_url": {
+                "type": "string",
+                "pattern": "^data/asdma-source/[a-f0-9]{64}\\.pdf$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "source": {"$ref": "#/$defs/source"},
+    "publication": {
+      "type": "object",
+      "required": ["state", "generated_at", "generator"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {"const": "generated_checkpoint"},
+        "generated_at": {"type": "string", "format": "date-time"},
+        "generator": {"const": "build_asdma_season_losses-v1"}
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["label", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "format": "uri"}
+      }
+    }
+  }
+}

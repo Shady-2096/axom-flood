@@ -1,0 +1,2610 @@
+/* One variable file, two voices. Archivo carries weight 100–900 and width
+   62–125 in a single 90 KB woff2; pinning the width axis inside @font-face
+   gives the condensed broadcast headline and the reading face their own family
+   names from the same download. The old stack named "Roboto Condensed" and
+   "Avenir Next", neither of which exists on an Android phone in Assam, so the
+   only distinguishing device in the system silently became stock Roboto.
+
+   Bengali-Assamese is deliberately left to the system font for now. Assamese
+   and Bengali share one script and every open face for it is named after
+   Bengali; choosing between them means judging Assamese letterforms, which
+   belongs with the Assamese copy review, not here. */
+@font-face {
+  font-family: "Archivo Broadcast";
+  src: url("/fonts/archivo-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 72%;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Archivo Text";
+  src: url("/fonts/archivo-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 100%;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Measured from the shipped file: Archivo is upm 1000, ascent 878, descent 210,
+   x-height 526. Overriding Arial to the same box means `swap` exchanges the
+   face without moving a line of text. */
+@font-face {
+  font-family: "Archivo Fallback";
+  src: local("Arial"), local("Helvetica"), local("Liberation Sans");
+  size-adjust: 98.6%;
+  ascent-override: 87.8%;
+  descent-override: 21%;
+  line-gap-override: 0%;
+}
+
+/* THE BRAIDED RIVER
+   ─────────────────
+   The page is a map sheet of the Brahmaputra basin read at night. Water is the
+   ground, land is the figure, and every lit thing on top is a measurement.
+
+   Dark is not a theme here, it is the use scene: the reader who most needs this
+   is on a phone at 11pm on a failing battery with the water rising. Water reads
+   dark in every hydrological index, so the form and the scene agree. A full
+   daylight scheme is authored at the foot of this file, not inverted from here.
+
+   What this palette refuses, deliberately: gradient fills as decoration, glass,
+   backdrop blur, and coloured halos. Depth comes from flat opaque planes and
+   shadows that carry a real offset — the way ink sits on a printed sheet and a
+   panel sits on a bench. */
+:root {
+  /* Ground: the river bed the whole product rests on. */
+  --ground: #04181f;
+  --ground-deep: #021015;
+  /* Land as it prints on the sheet, and the char sandbars in the channel.
+     Land is the figure and water is the ground, so land carries the warmer,
+     lighter tone — the same relationship a printed survey sheet uses. */
+  --land: #23372f;
+  --char: #3b3122;
+
+  /* Map fills, precomputed. These were color-mix() evaluated live on all 176
+     paths; recomputing them on every selection blew up compositing mid-repaint
+     and painted stale layers over a white canvas. A mix that never varies is a
+     constant, and constants belong in the token layer. */
+  --area-land: #23372f;
+  --area-warning: #5e4b2f;
+  --area-danger: #553123;
+  --area-here: #50858b;
+  --area-hot: #3b6161;
+
+  /* Panels that float over the map carry a little translucency so the sheet
+     reads continuously underneath. No backdrop blur: the alpha is high enough
+     that type stays solid, and blur is the glass look this system refuses. */
+  --veil: rgba(8, 37, 46, .96);
+
+  /* Instrument surfaces, opaque and flat.
+     These were #0c2b35 / #123b46 / #102f38, which sat at 1.18:1 against the
+     ground. On a near-black page a shadow carries no signal, so a panel whose
+     only separation was its shadow had no separation at all — the whole night
+     scheme read as one undifferentiated slab. The planes now step by tone,
+     which is the only depth cue that survives at this luminance. */
+  /* Chroma matters as much as luminance here. The old night panels sat at .74–.76
+     chroma against a .83 ground, which is close enough that everything read as
+     one grey wash — the scheme had a hue but never a colour. These carry real
+     blue-teal saturation, so a panel is a blue object on a near-black ground
+     rather than a slightly lighter patch of the same nothing. */
+  --surface: #0d3d52;
+  --surface-2: #12506a;
+  --surface-inactive: #0b3242;
+  /* The direction a neutral field moves when a control on it is pressed or
+     hovered: away from the ink, so contrast rises rather than falls. It is
+     darker at night and lighter on paper, because the ink flips with it. */
+  --shade: #05202b;
+
+  /* The briefing panel is its own material, not --surface. It floats on the map
+     in both schemes, so it stays a smoke slate in both: low chroma and cool,
+     which is the one family the OSM sheet never uses. The pale sage it used to
+     take in daylight was the same colour as the landcover underneath it, so the
+     panel and the terrain camouflaged each other. */
+  --smoke: #243139;
+  --smoke-alpha: .86;
+  --on-smoke: #eef5f6;
+  --on-smoke-quiet: #b3c2c7;
+  --on-smoke-mark: var(--river);
+  --smoke-shade: #0e171c;
+
+  /* Historic high water. Sediment/sand is the fourth safety-adjacent hue and the
+     only one that means "record", not "now" — it reads as an ochre survey mark
+     rather than another alarm. */
+  --sediment: #dcc38c;
+
+  /* Chrome is the sheet's margin — the rail and the mobile mast. It is a
+     structural role, not a text colour. The previous system used one --ink
+     token for both, which works only while the page is light. */
+  --chrome: #04171e;
+  --chrome-active: #0d3440;
+
+  /* Live data. Cyan is the only colour that means "measured right now". */
+  --river: #75d0df;
+  --river-deep: #1b91a6;
+  --river-pale: #103842;
+  /* The filled-action field, kept separate from --river. --river is the "measured
+     right now" accent and is spent on focus rings, links and live values; a
+     button-sized area of it was a pastel (0.48 saturation), and a pastel slab is
+     most of what makes an interface read as unserious. This one is the same hue
+     at 0.78, which holds its own as a field instead of tinting. Foreground and
+     hover travel with it so nothing filled with it hardcodes a second pair. */
+  --action: #2aa8c0;
+  --on-action: #04202a;
+  --action-hover: #3fbdd4;
+
+  --ink: #edf5f4;
+  --ink-soft: #d6e3e1;
+  --ink-deep: #ffffff;
+  --graphite: #c2d2d3;
+  /* 5.9:1 on --surface. Metadata never drops below this. */
+  --muted: #9eb8be;
+  /* 4.43:1 against the new panel surface, so it missed AA on the one control
+     that is nothing but placeholder text until someone types. */
+  --placeholder: #9ab6bc;
+  --line: #28515c;
+  --line-strong: #3c6974;
+  --line-dark: rgba(198, 226, 232, .14);
+  --rail-text: #a9bdc1;
+
+  /* Safety ramp, carried over unchanged in meaning from the previous system.
+     One warm escalation: amber is the shallow end of red. These are the only
+     colours in the product that may fill a whole region, and they do not
+     soften at night — an alarm that dims is not an alarm. */
+  --signal: #e8792e;
+  --signal-ink: #f0a163;
+  --danger: #8f2a15;
+  --danger-text: #f08a6b;
+  --flood-deep: #5e1608;
+  --safe: #50b89a;
+  /* Foregrounds locked to their field's own colour, never to the scheme's. */
+  --on-warning: #24140a;
+  --on-danger: #fff;
+
+  --display: "Archivo Broadcast", "Archivo Fallback", "Arial Narrow", sans-serif;
+  --body: "Archivo Text", "Archivo Fallback", system-ui, sans-serif;
+
+  /* Corners are generous and consistent. The old 2/4/6/8/12 scale was tight
+     enough that every surface read as cut with a blade. */
+  --r-marker: 6px;
+  --r-control: 16px;
+  --r-field: 16px;
+  --r-panel: 20px;
+  --r-sheet: 24px;
+  --r-pill: 999px;
+
+  /* Three steps, each with a real offset and a soft blur. A zero-offset
+     coloured halo is decoration and is not in this system. */
+  --shadow-1: 0 2px 5px rgba(0,0,0,.28);
+  --shadow-2: 0 12px 32px rgba(0,0,0,.34);
+  --shadow-3: 0 24px 56px rgba(0,0,0,.42);
+  --shadow-bulletin: var(--shadow-3);
+
+  /* Type ramp: 11 · 12 · 14 · 15 · 16 · 18 · 20 · 24 · 28, then display clamps.
+     Spacing rhythm: 4 · 6 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 56 · 72.
+     Both are documented in DESIGN.md and checked by scripts/check_design_scale.mjs,
+     which is stricter than tokens would be — a literal cannot slip past it.
+     11px is the floor and belongs to tracked instrument labels only; no prose
+     sits below 14px. */
+  --rail-width: 168px;
+
+  /* The gauge deck was #08171c — 1.04:1 against its own page. One fixed dark
+     field was being asked to create hierarchy in both schemes, and it only ever
+     worked against paper: a 12.3:1 black slab dropped into the daylight page,
+     and an invisible one at night. The deck is now a raised plane in whichever
+     scheme is running, and the reading earns its prominence from type and the
+     river accent rather than from a box. */
+  /* The deck sits a few degrees greener than the briefing surface (189° against
+     198°) so the instrument and the bulletin read as two materials rather than
+     two sizes of the same panel. The lead cell is the one saturated colour event
+     on the page: the current reading is the only number here measured now. */
+  --instrument: #123f47;
+  --instrument-lead: #14586b;
+  --instrument-ink: #edf5f4;
+  --instrument-muted: #a8c2c8;
+  --instrument-lead-muted: #cfe4e8;
+  --instrument-accent: #a8ecf8;
+  --instrument-line: rgba(215, 236, 239, .16);
+  --instrument-danger: #ff9b83;
+
+  --map-control: #0c2027;
+  --map-control-ink: #edf5f4;
+  --map-control-muted: #9db2b7;
+  --map-control-line: rgba(220, 239, 242, .14);
+  --map-control-hover: #17333b;
+  --map-control-active: #1d3d46;
+  --technical-shell: #0a2731;
+
+  /* Gauge severity on the map. These were four raw hex literals inside the map
+     component, and one of them was --danger-text's *dark-theme* value used as a
+     fill in both schemes — so danger rendered as a pale salmon, lighter and
+     calmer than the amber it escalates from, and none of the four moved when the
+     theme did.
+
+     They are fixed across themes on purpose, the same rule the safety fields
+     follow: an alarm that dims at night is not an alarm. Lightness falls as
+     severity rises, which is what makes the ramp readable as a ramp, and every
+     symbol carries a dark keyline so each step stays legible on both the bright
+     daylight sheet and the darkened night one.
+
+     Colour is never the only carrier. Each state also has its own glyph, because
+     amber and vermilion are exactly the pair that collapses for a red-green
+     colour-blind reader, and because a map has to survive being photographed,
+     screenshotted, and forwarded in greyscale. */
+  --gauge-normal: #2f96b0;
+  --gauge-warning: #e8792e;
+  --gauge-danger: #d33a17;
+  --gauge-extreme: #8f1d08;
+  --gauge-none: #f7fbfc;
+  --gauge-keyline: #04171e;
+
+  /* Legacy aliases still referenced by component-scoped styles. */
+  --mist: var(--ground);
+  --white: var(--surface);
+  --paper: var(--surface);
+}
+
+
+* { box-sizing: border-box; }
+
+html {
+  min-width: 320px;
+  background: var(--mist);
+  color: var(--ink);
+  font-family: var(--body);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--mist);
+}
+
+button, input, select { font: inherit; }
+button, a, input, select, summary { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+svg { display: block; }
+
+:focus-visible {
+  outline: 3px solid var(--river);
+  outline-offset: 3px;
+}
+main h1:focus { outline: none; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 10px;
+  left: 10px;
+  min-height: 44px;
+  padding: 12px 16px;
+  border-radius: var(--r-control);
+  color: var(--ink);
+  background: var(--chrome);
+  transform: translateY(-150%);
+}
+.skip-link:focus-visible { transform: none; }
+
+.mobile-mast {
+  display: none;
+}
+
+.receiver-rail {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 20;
+  display: flex;
+  width: var(--rail-width);
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--chrome);
+}
+
+.brand {
+  display: flex;
+  min-height: 136px;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 32px 24px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 6px;
+}
+.brand-mark svg { width: 25px; height: 25px; }
+.brand-mark path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-width: 1.7; }
+.brand strong {
+  display: block;
+  font: 800 24px/.88 var(--display);
+  letter-spacing: -.025em;
+}
+.brand small {
+  display: block;
+  margin-top: 8px;
+  color: var(--rail-text);
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.primary-nav {
+  display: grid;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-dark);
+}
+.primary-nav a {
+  position: relative;
+  display: flex;
+  min-height: 60px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  color: var(--rail-text);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .004em;
+  text-decoration: none;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+.primary-nav a::before {
+  position: absolute;
+  inset: 9px auto 9px 0;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: transparent;
+  content: "";
+}
+.primary-nav a:hover { color: var(--ink); background: rgba(255,255,255,.06); }
+.primary-nav a.active { color: var(--ink); background: var(--chrome-active); }
+.primary-nav a.active::before { background: var(--signal); }
+.primary-nav svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+/* The active item is heavier as well as lighter, so the current screen is
+   still obvious without relying on the fill behind it. */
+.primary-nav a.active svg { stroke-width: 2.1; }
+
+/* River blue on the ink rail sits at 2.8:1. On dark chrome the ring is white. */
+.receiver-rail :focus-visible, .mobile-mast :focus-visible {
+  outline-color: var(--ink);
+  outline-offset: -3px;
+}
+
+/* The rail's foot is part of the rail, not a card parked inside it. */
+.rail-signal {
+  margin: 0;
+  padding: 16px 20px 24px;
+  border-top: 1px solid var(--line-dark);
+}
+.rail-signal p {
+  max-width: 22ch;
+  margin: 8px 0 0;
+  color: var(--rail-text);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* Anything that reports a measurement uses lining tabular figures, so a
+   reading does not jitter sideways between updates. */
+.age, .dial strong, .place-source, .data-foot {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.network-state, .age {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+}
+/* A lit lamp is filled and a lost one is hollow, so connection and freshness
+   never rest on hue alone. */
+.network-state i, .age-dot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--safe);
+}
+.network-state.offline i {
+  background: none;
+  box-shadow: inset 0 0 0 2.5px var(--signal-ink);
+}
+/* On the ink rail the bright amber is the readable one. */
+.receiver-rail .network-state.offline i { box-shadow: inset 0 0 0 2.5px var(--signal); }
+.age.stale .age-dot {
+  background: none;
+  box-shadow: inset 0 0 0 2.5px var(--signal-ink);
+}
+
+.theme-toggle {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 12px;
+  margin: auto 12px 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--r-control);
+  color: var(--rail-text);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--ink); background: rgba(255,255,255,.06); }
+.theme-toggle svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+.theme-toggle-mobile { display: none; }
+.mast-tools { display: flex; align-items: center; gap: 12px; }
+
+main {
+  --page-pad-x: clamp(28px, 5vw, 84px);
+
+  min-height: 100svh;
+  margin-left: var(--rail-width);
+  padding: clamp(32px, 5vw, 72px) var(--page-pad-x) 80px;
+}
+
+.home, .screen {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, 100%);
+  margin: 0 auto;
+}
+
+/* The receiver layout is the same four parts in the same order at every state.
+   What changes with the river is how much of the width the bulletin claims. */
+.receiver {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(270px, .65fr);
+  grid-template-areas:
+    "place  tuner"
+    "signal tuner"
+    "asides asides";
+  align-items: start;
+  column-gap: clamp(40px, 6vw, 84px);
+}
+/* Where the place is chosen stays in the top right at every state. Only the
+   bulletin's width changes: at warning and above it takes the whole row. */
+.receiver.urgent {
+  grid-template-columns: minmax(0, 1fr) 0;
+  grid-template-areas:
+    "place  tuner"
+    "signal signal"
+    "asides asides";
+  column-gap: 0;
+}
+/* Reopening the tuner on a raised screen gives the column its width back. */
+.receiver.urgent.tuner-open {
+  grid-template-columns: minmax(0, 1.7fr) minmax(270px, .65fr);
+  column-gap: clamp(40px, 6vw, 84px);
+}
+.place-block { grid-area: place; }
+.receiver > .bulletin { grid-area: signal; margin-top: 32px; }
+.receiver.urgent > .bulletin { margin-top: 32px; }
+.asides { grid-area: asides; }
+.tuner-slot { grid-area: tuner; }
+
+.screen-kicker, .data-label {
+  margin: 0;
+  color: var(--river);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .075em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* The place name was running to 96px, which made the locality the loudest thing
+   on a page whose subject is the river. Size is the last hierarchy device here,
+   not the first: the name holds the top of the sheet and is answered by the
+   status below it, rather than shouting over it. */
+.place {
+  max-width: 16ch;
+  margin: 0;
+  font: 800 clamp(40px, 5vw, 56px)/.98 var(--display);
+  letter-spacing: -.035em;
+  /* `anywhere` feeds every break opportunity into intrinsic sizing, which
+     shrank the heading to one word and wrapped the suffix. `break-word` keeps
+     the safety net for a very long name without collapsing the box. */
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+.place.long-place { max-width: 19ch; font-size: clamp(32px, 4vw, 44px); }
+.place-suffix {
+  display: inline-block;
+  margin-left: .16em;
+  color: var(--graphite);
+  font-size: .34em;
+  font-weight: 750;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+}
+
+.place-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 16px 0 0;
+  color: var(--graphite);
+  font-size: 15px;
+  font-weight: 650;
+}
+.place-meta .divider { color: var(--muted); font-weight: 400; }
+
+/* How this place came to be on screen stays visible at every width. Hiding it
+   is what let a default locality pass for a chosen one. */
+.place-source {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  max-width: 62ch;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.change-place {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: var(--river);
+  background: none;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.change-place:hover { color: var(--ink); background: none; }
+/* While the river is calm the tuner sits open in the right column and costs
+   nothing. Once the state is raised it collapses behind this disclosure, so a
+   location form never holds the top of the screen above the broadcast. */
+@media (min-width: 1081px) {
+  .receiver:not(.urgent) .change-place { display: none; }
+  .receiver.urgent .tuner-slot:not(.open) { display: none; }
+}
+
+.asides { margin-top: 32px; }
+@media (min-width: 1081px) {
+  .receiver:not(.urgent) .asides {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: clamp(40px, 6vw, 84px);
+    align-items: start;
+  }
+  .receiver:not(.urgent) .asides > * { min-width: 0; }
+}
+
+.broadcast-icon {
+  position: relative;
+  width: 21px;
+  height: 18px;
+}
+.broadcast-icon::before, .broadcast-icon::after {
+  position: absolute;
+  top: 3px;
+  width: 7px;
+  height: 12px;
+  border: 1.5px solid currentColor;
+  content: "";
+}
+.broadcast-icon::before { left: 0; border-width: 0 0 0 1.5px; border-radius: 50% 0 0 50%; }
+.broadcast-icon::after { right: 0; border-width: 0 1.5px 0 0; border-radius: 0 50% 50% 0; }
+.broadcast-icon i {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Controls come in three weights and no more: a filled primary, a filled
+   secondary one step quieter, and a quiet text action. Hover is a tonal step
+   within the same colour — a control never changes identity under the cursor.
+
+   Both slabs are *filled*. The old secondary was a transparent outline, which
+   next to a filled primary read as a button beside a hole rather than as two
+   objects of different weight. Labels sit in sentence case at body weight: a
+   tracked uppercase control is an instrument label pretending to be an action. */
+.button, button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  color: var(--ground);
+  background: var(--ink);
+  box-shadow: var(--shadow-1);
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: .004em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+.button:hover, button:hover { background: #fff; }
+.button:active, button:active { background: var(--ink-soft); }
+
+.button.secondary, button.secondary {
+  border-color: var(--line);
+  color: var(--ink);
+  background: var(--surface-2);
+  box-shadow: none;
+}
+.button.secondary:hover, button.secondary:hover {
+  border-color: var(--river-deep);
+  color: var(--ink);
+  background: var(--river-pale);
+}
+
+/* For the third and fourth thing a screen can do, where a slab would claim
+   more attention than the action deserves. */
+.button.quiet, button.quiet {
+  min-height: 44px;
+  padding: 12px 4px;
+  border-color: transparent;
+  color: var(--river);
+  background: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+.button.quiet:hover, button.quiet:hover {
+  border-color: transparent;
+  color: var(--ink);
+  background: none;
+}
+
+button:disabled { cursor: progress; opacity: .55; }
+.button svg, button svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+
+/* The tuner only sticks while it has a full-height column beside it. When the
+   bulletin takes the whole row it would otherwise ride over the broadcast. */
+.tuner-slot { position: sticky; top: 40px; }
+.receiver.urgent .tuner-slot { position: static; }
+.location-tuner {
+  padding: 20px 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-panel);
+  background: var(--surface);
+  box-shadow: var(--shadow-2);
+}
+.location-tuner h2 {
+  margin: 0 0 8px;
+  font: 800 28px/1 var(--display);
+  letter-spacing: -.025em;
+}
+.location-tuner > p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.location-tuner .button, .location-tuner > button { width: 100%; }
+.search-method {
+  margin: 24px 0 8px !important;
+  color: var(--muted) !important;
+  font-size: 12px !important;
+  font-weight: 700;
+}
+.or-divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+}
+.or-divider::before, .or-divider::after { height: 1px; background: var(--line); content: ""; }
+
+/* Map picker. Pointing at where you live asks nothing of someone who does not
+   know how a source spells their village in English. */
+.map-holder {
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+.map-holder[hidden] { display: none; }
+.map-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.map-bar p { margin: 0; color: var(--muted); font-size: 12px; }
+.map-bar strong { font-size: 14px; }
+.map-bar button { min-height: 44px; padding: 12px 16px; font-size: 14px; }
+.map-back { color: var(--ink); border-color: var(--line); background: var(--white); }
+.map-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 62vh;
+  padding: 12px;
+}
+.map-area path {
+  fill: var(--river-pale);
+  stroke: var(--white);
+  stroke-width: .006;
+  stroke-linejoin: round;
+}
+.map-area.is-current path { fill: var(--signal-ink); }
+.map-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  max-height: 280px;
+  overflow: auto;
+  padding: 12px;
+  border-top: 1px solid var(--line);
+}
+.map-choice {
+  min-height: 44px;
+  justify-content: flex-start;
+  padding: 12px;
+  border-color: var(--line);
+  color: var(--ink);
+  background: var(--white);
+  font-size: 12px;
+  text-align: left;
+}
+.map-choice:hover, .map-choice:focus-visible {
+  border-color: var(--river);
+  color: var(--ink);
+  background: var(--river-pale);
+}
+.map-choice.is-current {
+  border-color: var(--signal-ink);
+  box-shadow: inset 4px 0 var(--signal-ink);
+  font-weight: 800;
+}
+.map-status { margin: 0; padding: 20px 16px; color: var(--muted); font-size: 14px; }
+.map-status.error { color: var(--danger-text); }
+.map-credit {
+  margin: 0;
+  padding: 8px 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+label {
+  display: block;
+  margin: 20px 0 8px;
+  color: var(--graphite);
+  font-size: 14px;
+  font-weight: 750;
+}
+input, select {
+  width: 100%;
+  min-height: 52px;
+  padding: 16px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  background: var(--white);
+  transition: border-color 140ms ease;
+}
+input::placeholder { color: var(--placeholder); opacity: 1; }
+input:hover, select:hover { border-color: var(--muted); }
+/* The outline is drawn inside the border it replaces, so a focused field reads
+   as one thicker edge rather than a ring floating outside a second line. */
+input:focus-visible, select:focus-visible {
+  border-color: var(--river);
+  outline: 2px solid var(--river);
+  outline-offset: -2px;
+}
+.field-status {
+  min-height: 20px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.field-status.error { color: var(--danger-text); }
+.field-status.success { color: var(--safe); }
+.field-hint {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.search-wrap { position: relative; }
+.search-results {
+  position: absolute;
+  z-index: 12;
+  inset: calc(100% + 6px) 0 auto;
+  max-height: 310px;
+  overflow: auto;
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 16px 38px rgba(9,47,61,.16);
+}
+.search-results[hidden] { display: none; }
+.search-results .result-heading {
+  position: sticky;
+  top: 0;
+  margin: 0;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  background: var(--river-pale);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.search-results button {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-size: 14px;
+  text-align: left;
+}
+.search-results button:last-child { border-bottom: 0; }
+.search-results button:hover,
+.search-results button:focus-visible,
+.search-results button.active { color: var(--ink); background: var(--river-pale); }
+.search-results small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.recents {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.recents p { margin: 0 0 8px; color: var(--muted); font-size: 11px; font-weight: 750; text-transform: uppercase; letter-spacing: .06em; }
+.recent-place {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  justify-content: flex-start;
+  padding: 8px 0;
+  border: 0;
+  color: var(--ink);
+  background: none;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+}
+.recent-place:hover { color: var(--river); background: none; }
+
+/* The technical panel's shell, summary and disclosure marker live in
+   TechnicalPanel.svelte. This block declared a bordered card with a --chrome
+   fill and a "+" marker while the component declared a borderless transparent
+   one, and set the summary in the condensed display face — which is reserved
+   for the wordmark and calibrated numerals, not section headings. */
+
+.reading-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.reading-header h2 {
+  margin: 8px 0 0;
+  font: 800 clamp(27px, 3vw, 42px)/1 var(--display);
+  letter-spacing: -.025em;
+}
+.reading-header p {
+  max-width: 44ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+/* The calibrated scale now lives with the panel that owns it, in
+   TechnicalPanel.svelte — it reads from marker positions that only that
+   component computes, and splitting it across two files is how the old version
+   ended up with a legend explaining a graphic it could not see. */
+
+.data-foot {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  margin-top: 32px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.data-foot p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.data-foot strong { color: var(--graphite); }
+.forecast-note, .notice, .review-note, .source-note, .empty {
+  position: relative;
+  z-index: 1;
+  max-width: 66ch;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+/* The standing disclaimer sits on the sheet, never straight on the map. */
+.source-note {
+  margin-top: 32px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-control);
+  background: var(--surface);
+}
+/* A condition that is true on every visit is provenance, not an alert. Amber
+   fills are reserved for states that can actually turn off. */
+.notice, .review-note {
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.asides {
+  margin-top: 32px;
+  padding: 4px 24px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-panel);
+  background: var(--surface);
+  box-shadow: var(--shadow-2);
+}
+
+.reciprocity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.reciprocity p { margin: 0; color: var(--graphite); font-size: 15px; line-height: 1.45; }
+.reciprocity-cta {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--river);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+}
+.reciprocity-cta:hover { color: var(--ink); }
+
+.screen {
+  max-width: 940px;
+}
+.screen-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: clamp(34px, 6vw, 68px);
+}
+.screen-title {
+  max-width: 13ch;
+  margin: 12px 0 0;
+  font: 800 clamp(48px, 8vw, 86px)/.88 var(--display);
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.screen-intro {
+  max-width: 36ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.state-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, .65fr);
+  gap: 32px;
+  align-items: end;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.state-header .screen-title { margin-top: 0; }
+
+.empty-state {
+  max-width: 680px;
+  padding: 32px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  background: var(--surface-inactive);
+}
+.empty-state h2 {
+  max-width: 20ch;
+  margin: 0;
+  font: 800 28px/1 var(--display);
+  letter-spacing: -.02em;
+}
+.empty-state p {
+  max-width: 54ch;
+  margin: 12px 0 20px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.camps-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+  gap: 40px;
+  align-items: end;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.camps-header .screen-title { margin-top: 0; }
+.camps-place {
+  margin: 16px 0 0;
+  color: var(--graphite);
+  font-size: 18px;
+  font-weight: 700;
+}
+.camps-guidance {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.camps-guidance > p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.camps-guidance .saved-count {
+  color: var(--graphite);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.list {
+  border-top: 1px solid var(--line);
+}
+.list-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.list-card h2 { margin: 0; font: 800 24px/1 var(--display); letter-spacing: -.02em; }
+.list-card p { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.list-meta { text-align: right; }
+.camp-status { text-transform: capitalize; }
+.camp-phones {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.camp-phones a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--river);
+  font-size: 14px;
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--river);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.tag::before { width: 7px; height: 7px; border-radius: 50%; background: currentColor; content: ""; }
+
+.emergency-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+  gap: 56px;
+  align-items: end;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.emergency-header .screen-title { margin-top: 0; }
+.emergency-lede {
+  max-width: 38ch;
+  margin: 20px 0 0;
+  color: var(--graphite);
+  font-size: 18px;
+  line-height: 1.55;
+}
+.coverage-boundary {
+  padding-top: 16px;
+  border-top: 3px solid var(--signal-ink);
+}
+.coverage-boundary h2 {
+  margin: 0;
+  font: 800 20px/1.05 var(--display);
+  letter-spacing: -.015em;
+}
+.coverage-boundary p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.emergency-context {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+  border-block: 1px solid var(--line);
+}
+.emergency-context > p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.emergency-list { margin-top: 32px; }
+.emergency-call {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "agency command"
+    "number command";
+  gap: 8px 24px;
+  align-items: center;
+  min-height: 180px;
+  padding: 32px;
+  border: 0;
+  color: var(--on-warning);
+  background: var(--signal);
+  text-decoration: none;
+}
+.call-agency {
+  grid-area: agency;
+  max-width: 38ch;
+  font-size: 14px;
+  font-weight: 750;
+}
+.emergency-call strong {
+  grid-area: number;
+  font: 800 clamp(64px, 10vw, 96px)/.82 var(--display);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -.035em;
+}
+.call-command {
+  grid-area: command;
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border: 1.5px solid currentColor;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 800;
+}
+.emergency-call:hover .call-command { color: var(--signal); background: var(--on-warning); }
+
+.settings-screen {
+  display: grid;
+  max-width: 1080px;
+  grid-template-columns: minmax(260px, .65fr) minmax(0, 1.35fr);
+  gap: 72px;
+  align-items: start;
+}
+.settings-header {
+  position: sticky;
+  top: 40px;
+}
+.settings-header .screen-title { margin-top: 0; }
+.settings-header > p {
+  max-width: 36ch;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.settings-summary {
+  margin: 32px 0 0;
+  border-top: 1px solid var(--line);
+}
+.settings-summary div {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.settings-summary dt {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.settings-summary dd {
+  margin: 4px 0 0;
+  color: var(--graphite);
+  font-size: 14px;
+  font-weight: 750;
+}
+.settings-content { border-top: 1px solid var(--line); }
+.settings-block {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+}
+.settings-block h2 { margin: 0 0 8px; font: 800 24px/1 var(--display); }
+.settings-block > p { max-width: 58ch; margin: 0 0 20px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.settings-block .button, .settings-block button { width: auto; }
+
+.kill {
+  max-width: 760px;
+  padding: clamp(28px, 6vw, 64px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-panel);
+  color: var(--ink);
+  background: var(--chrome);
+}
+.kill .screen-kicker { color: #ffb27a; }
+.kill .screen-title { max-width: none; }
+.kill p:last-child { max-width: 56ch; color: #c8dade; line-height: 1.6; }
+
+.loading-state {
+  display: flex;
+  min-height: 60vh;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--graphite);
+}
+.loading-state strong { font: 800 24px/1 var(--display); }
+.loading-state p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+.signal-loader { display: flex; align-items: end; gap: 4px; height: 27px; }
+.signal-loader i { display: block; width: 4px; background: var(--river); animation: tune 1.05s infinite ease-in-out; }
+.signal-loader i:nth-child(1) { height: 10px; }
+.signal-loader i:nth-child(2) { height: 19px; animation-delay: 100ms; }
+.signal-loader i:nth-child(3) { height: 27px; animation-delay: 200ms; }
+@keyframes tune { 50% { height: 7px; opacity: .35; } }
+
+/* Between a phone and a wide desktop there is not enough width to carry a
+   display headline and a location panel side by side. The tuner goes below,
+   behind the same disclosure the phone uses. */
+@media (max-width: 1080px) {
+  .receiver, .receiver.urgent {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tuner-slot {
+    position: static;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .tuner-slot:not(.open) { display: none; }
+  .receiver > .bulletin, .receiver.urgent > .bulletin { margin-top: 24px; }
+}
+
+@media (max-width: 859px) {
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+  .receiver-rail {
+    inset: auto 0 0;
+    width: auto;
+    height: calc(68px + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .receiver-rail > .brand, .receiver-rail > .theme-toggle, .rail-signal { display: none; }
+  .primary-nav {
+    grid-template-columns: repeat(5, 1fr);
+    height: 68px;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .primary-nav a {
+    min-width: 0;
+    min-height: 68px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 4px;
+    font-size: 11px;
+  }
+  .primary-nav a::before { inset: 0 22% auto; width: auto; height: 3px; border-radius: 0 0 2px 2px; }
+  .primary-nav a.active { color: var(--ink); background: var(--chrome-active); }
+  .primary-nav svg { width: 23px; height: 23px; }
+
+  .mobile-mast {
+    position: sticky;
+    z-index: 18;
+    top: 0;
+    display: flex;
+    min-height: 66px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: env(safe-area-inset-top) 20px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--mist);
+  }
+  .brand-mobile { min-height: 65px; padding: 12px 0; color: var(--ink); }
+  .brand-mobile .brand-mark { width: 31px; height: 31px; border-color: var(--line); color: var(--river); }
+  .brand-mobile .brand-mark svg { width: 23px; height: 23px; }
+  .brand-mobile strong { font: 800 18px/1 var(--display); }
+  .brand-mobile small { margin-top: 4px; color: var(--muted); font-size: 11px; }
+  .mobile-mast .network-state { color: var(--graphite); font-size: 11px; }
+  .theme-toggle-mobile {
+    display: grid;
+    width: 42px;
+    min-height: 42px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+    border-color: var(--line);
+    color: var(--river);
+  }
+
+  main {
+    --page-pad-x: 18px;
+
+    min-height: calc(100svh - 66px);
+    margin-left: 0;
+    padding: 24px var(--page-pad-x) 56px;
+  }
+  /* The phone reads place, then state, then what to do. The tuner is a thing
+     you reach for, not the thing standing between you and the broadcast. */
+  .receiver { display: flex; flex-direction: column; align-items: stretch; }
+  .tuner-slot {
+    position: static;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .tuner-slot:not(.open) { display: none; }
+  .location-tuner > button { min-height: 52px; }
+  .place { font-size: clamp(36px, 10vw, 46px); }
+  .receiver > .bulletin, .receiver.urgent > .bulletin { margin-top: 24px; }
+  .reciprocity { align-items: flex-start; flex-direction: column; }
+
+  .reading-header { display: block; }
+  .reading-header p { margin-top: 8px; text-align: left; }
+  .data-foot { grid-template-columns: 1fr; }
+  .data-foot .button { width: 100%; }
+
+  .screen-header { display: block; margin-bottom: 32px; }
+  .state-header, .camps-header, .emergency-header { display: block; margin-bottom: 32px; }
+  .state-header .screen-intro { margin-top: 20px; }
+  .camps-guidance { margin-top: 24px; }
+  .coverage-boundary { margin-top: 24px; }
+  .emergency-context { align-items: flex-start; flex-direction: column; }
+  .settings-screen { display: block; }
+  .settings-header { position: static; margin-bottom: 40px; }
+  .screen-title { font-size: clamp(54px, 17vw, 80px); }
+  .screen-intro { margin-top: 20px; }
+
+  .site-footer { padding: 0 var(--page-pad-x); }
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0 calc(20px + 72px + env(safe-area-inset-bottom));
+  }
+  .footer-links { gap: 16px; }
+}
+
+@media (max-width: 520px) {
+  .network-state span { display: none; }
+  .mobile-mast .network-state { gap: 0; }
+  .place-meta { font-size: 14px; }
+  .list-card { grid-template-columns: 1fr; gap: 12px; }
+  .list-meta { text-align: left; }
+  .camp-phones { justify-items: start; }
+  .emergency-call {
+    grid-template-columns: 1fr;
+    grid-template-areas: "agency" "number" "command";
+    padding: 24px;
+  }
+  .call-command { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+@media print {
+  .receiver-rail, .mobile-mast, .tuner-slot, .site-footer { display: none; }
+  main { margin: 0; padding: 20px; }
+}
+
+/* Daylight.
+
+   The same map sheet, printed rather than lit: paper ground, warm land, ink
+   water. This is not an inversion of the night palette — a sheet read in Assam
+   sun at noon is a different object from a screen read at 11pm, and the roles
+   are re-picked rather than flipped. Water stays the darkest thing on the page
+   in both schemes, which is what keeps the product recognisably itself.
+
+   The safety fields do not change at all. Amber stays amber and the two reds
+   stay red; only the values that must be *read as type* switch to the deep
+   variants that clear 4.5:1 on paper. */
+:root[data-theme="light"] {
+    --ground: #dfeaec;
+    --ground-deep: #cadcdf;
+    --land: #e2eadf;
+    --char: #ddd1b9;
+
+    --area-land: #e7eade;
+    --area-warning: #e7c8a9;
+    --area-danger: #bf9282;
+    --area-here: #709ea2;
+    --area-hot: #a6c0bd;
+    --veil: rgba(247, 251, 249, .98);
+
+    --surface: #f7faf8;
+    --surface-2: #cfe0e2;
+    --surface-inactive: #d6e3da;
+    --shade: #ffffff;
+
+    /* Daylight takes a lighter smoke than night, but it stays smoke: a cool
+       near-neutral grey at .09 chroma. What made the old panel disappear was
+       never its lightness, it was its hue — a sage field on sage landcover. A
+       grey this neutral still separates from terrain that is green, tan or
+       white, and the shadow carries the edge where the luminances run close. */
+    --smoke: #aab7be;
+    --smoke-alpha: .9;
+    --on-smoke: #10272f;
+    --on-smoke-quiet: #2c4149;
+    --on-smoke-mark: #084f5e;
+    /* Ink is dark here, so a control deepens by going lighter. */
+    --smoke-shade: #ffffff;
+
+    --sediment: #7a5a1f;
+
+    /* Chrome participates in the selected scheme. Keeping this pair on its
+       night values left dark slabs behind the daylight foreground tokens,
+       which made the rail and technical reading nearly illegible. */
+    --chrome: #063947;
+    --chrome-active: #0b5060;
+
+    --river: #0d7287;
+    --river-deep: #084f5e;
+    --river-pale: #cde3e7;
+    --action: #0d7287;
+    --on-action: #f4fbfc;
+    --action-hover: #0a5d6f;
+
+    --ink: #10272f;
+    --ink-soft: #25464f;
+    --ink-deep: #081a20;
+    --graphite: #36545d;
+    --muted: #526b72;
+    --placeholder: #657c82;
+    --line: #adc2c5;
+    --line-strong: #839fa5;
+    --line-dark: rgba(16,39,47,.14);
+    --rail-text: #445f67;
+
+    /* Amber is 2.68:1 as type on paper, so anything amber that must be read
+       uses the deep variant. The field colour itself is unchanged. */
+    --signal-ink: #b4560f;
+    --danger-text: #8f2a15;
+    --safe: #28765f;
+    --on-warning: #24140a;
+
+    --shadow-1: 0 2px 5px rgba(16,39,47,.08);
+    --shadow-2: 0 12px 32px rgba(16,39,47,.11);
+    --shadow-3: 0 24px 56px rgba(16,39,47,.15);
+
+    /* Daylight no longer drops a black slab into the middle of the page to
+       fake hierarchy. The deck is paper on mineral ground; the reading leads
+       because it is large and because the river accent is on it. */
+    --instrument: #f7faf8;
+    --instrument-lead: #dceef2;
+    --instrument-ink: #10272f;
+    --instrument-muted: #4c666d;
+    --instrument-lead-muted: #40606a;
+    --instrument-accent: #0a5d70;
+    --instrument-line: rgba(16, 39, 47, .13);
+    --instrument-danger: #8f2a15;
+
+    --map-control: #f7faf8;
+    --map-control-ink: #10272f;
+    --map-control-muted: #526b72;
+    --map-control-line: rgba(16,39,47,.13);
+    --map-control-hover: #dfeaec;
+    --map-control-active: #cde3e7;
+    --technical-shell: #d3e0e2;
+}
+
+/* Daylight keeps a deep river header. It gives the map a deliberate frame and
+   stops the light scheme becoming one undifferentiated white sheet. */
+:root[data-theme="light"] .site-header {
+  border-color: rgba(213, 237, 239, .16);
+  color: #f4faf9;
+  background: var(--chrome);
+  box-shadow: none;
+}
+
+:root[data-theme="light"] .site-header .brand,
+:root[data-theme="light"] .site-header .brand strong,
+:root[data-theme="light"] .site-header .primary-nav a.active {
+  color: #f4faf9;
+}
+
+:root[data-theme="light"] .site-header .brand small,
+:root[data-theme="light"] .site-header .primary-nav a,
+:root[data-theme="light"] .site-header .theme-toggle,
+:root[data-theme="light"] .site-header .network-state {
+  color: #bfd3d6;
+}
+
+:root[data-theme="light"] .site-header .brand-mark,
+:root[data-theme="light"] .site-header .primary-nav a.active svg {
+  color: #7fd4e0;
+}
+
+:root[data-theme="light"] .site-header .primary-nav a:hover,
+:root[data-theme="light"] .site-header .theme-toggle:hover {
+  color: #f4faf9;
+  background: transparent;
+}
+
+/* The footer keeps the header's deep river tone in daylight too. */
+:root[data-theme="light"] .site-footer {
+  border-color: rgba(213, 237, 239, .16);
+  color: #bfd3d6;
+  background: var(--chrome);
+}
+
+:root[data-theme="light"] .footer-brand strong { color: #f4faf9; }
+:root[data-theme="light"] .footer-brand small { color: #bfd3d6; }
+:root[data-theme="light"] .footer-mark { color: #7fd4e0; }
+:root[data-theme="light"] .footer-notes p { color: #8fa8ad; }
+:root[data-theme="light"] .footer-links a { color: #bfd3d6; }
+:root[data-theme="light"] .footer-links a:hover { color: #f4faf9; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   THE ATLAS
+
+   Map-first composition for full mode. The map is the sheet and everything
+   else is a small object floating on it: a search pill, a circular locate
+   control, and the bulletin. The layout this replaced spent a permanent third
+   of the screen on a location form that most readers touch once, and left the
+   map as scenery behind a document.
+
+   Restraint here is structural, not decorative: three floating objects, each
+   sized to its content, and nothing else competing with the state of a river.
+   ───────────────────────────────────────────────────────────────────────── */
+.atlas {
+  position: relative;
+  z-index: 1;
+  height: min(720px, calc(100svh - 96px));
+  margin: calc(-1 * clamp(32px, 5vw, 72px)) calc(-1 * var(--page-pad-x)) 32px;
+  border-bottom: 1px solid var(--line);
+  background: var(--ground);
+}
+
+.atlas-search {
+  position: absolute;
+  z-index: 3;
+  top: 20px;
+  left: 20px;
+  width: min(360px, calc(100% - 40px));
+}
+.search-wrap.compact input {
+  min-height: 48px;
+  padding: 12px 20px;
+  border-color: var(--line);
+  border-radius: var(--r-pill);
+  background: var(--veil);
+  box-shadow: var(--shadow-2);
+}
+
+.search-wrap.compact + .field-status { padding-left: 20px; }
+
+/* The circular control: same action, label carried by the accessible name. */
+.icon-button {
+  width: 52px;
+  min-height: 52px;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: var(--shadow-2);
+}
+
+.atlas-panel {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  left: 20px;
+  width: min(520px, calc(100% - 40px));
+}
+
+.home.has-atlas { padding-top: 0; }
+
+/* The phone layout for the atlas is owned by one block, at the bottom of this
+   file. It used to be declared twice — a band-and-document version here and a
+   second pass down there — and the two disagreed about whether the map was a
+   strip or a sheet. */
+
+/* Inside the atlas the bulletin is a floating object, not a full-width band,
+   so it runs at a tighter measure: one step down on padding and status size,
+   with the two actions kept on one line. */
+.atlas-panel .bulletin {
+  --pad: 20px;
+  --status-size: 24px;
+}
+.atlas-panel .bulletin .head { gap: 12px; }
+.atlas-panel .bulletin .type { white-space: nowrap; }
+.atlas-panel .bulletin .sentence { font-size: 15px; }
+.atlas-panel .bulletin .actions { gap: 8px; margin-top: 20px; }
+.atlas-panel .bulletin .act {
+  min-height: 44px;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+/* RIVER OBSERVATORY
+   ─────────────────
+   The homepage is one working surface, one briefing, and one instrument.
+   This replaces the permanent receiver rail and the previous card-within-card
+   composition while preserving every safety and data state. */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: flex;
+  height: 64px;
+  align-items: center;
+  gap: 32px;
+  padding: 0 clamp(16px, 3vw, 32px);
+  border: 0;
+  border-radius: 0;
+  color: var(--ink);
+  background: var(--chrome);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.site-header .brand {
+  min-height: 0;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+}
+
+.site-header .brand-mark {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  color: var(--river);
+  background: transparent;
+}
+
+.site-header .brand-mark svg {
+  width: 28px;
+  height: 28px;
+}
+
+.site-header .brand strong {
+  font: 780 16px/1 var(--body);
+  letter-spacing: -.018em;
+  white-space: nowrap;
+}
+
+.site-header .brand small {
+  margin-top: 4px;
+  color: var(--rail-text);
+  font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.site-header .primary-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+}
+
+.site-header .primary-nav a {
+  min-height: 40px;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--rail-text);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.site-header .primary-nav a::before { display: none; }
+
+.site-header .primary-nav a:hover {
+  color: var(--ink);
+  background: transparent;
+}
+
+.site-header .primary-nav a.active {
+  color: var(--ink);
+  background: transparent;
+  box-shadow: none;
+}
+
+.site-header .primary-nav a.active svg { color: var(--river); }
+
+.site-header .primary-nav svg {
+  width: 19px;
+  height: 19px;
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+/* The two display switches in the header — what the page is made of, and what
+   colour it is — are one control type and take one set of rules. */
+.header-tools .theme-toggle,
+.header-tools .mode-toggle {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  color: var(--rail-text);
+  background: transparent;
+  box-shadow: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.header-tools .theme-toggle:hover,
+.header-tools .mode-toggle:hover {
+  color: var(--ink);
+  background: rgba(255,255,255,.06);
+}
+
+.header-tools .theme-toggle svg,
+.header-tools .mode-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.offline-copy {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.site-header :focus-visible {
+  outline-color: var(--river);
+  outline-offset: 2px;
+}
+
+main {
+  --page-pad-x: clamp(20px, 4vw, 56px);
+
+  min-height: 100svh;
+  margin-left: 0;
+  padding: 72px var(--page-pad-x);
+}
+
+.home,
+.screen {
+  width: min(1180px, 100%);
+}
+
+.button,
+button {
+  min-height: 46px;
+  padding: 12px 20px;
+  border-radius: var(--r-control);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.place {
+  font-family: var(--body);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 780;
+  line-height: 1.04;
+  letter-spacing: -.03em;
+}
+
+.place.long-place {
+  font-size: clamp(32px, 4vw, 44px);
+}
+
+.receiver {
+  display: block;
+  width: min(880px, 100%);
+}
+
+.receiver.urgent,
+.receiver.urgent.tuner-open {
+  display: block;
+  width: min(880px, 100%);
+}
+
+.receiver > .bulletin,
+.receiver.urgent > .bulletin {
+  margin-top: 24px;
+}
+
+.tuner-slot {
+  position: static;
+  width: min(520px, 100%);
+  margin-top: 24px;
+}
+
+.tuner-slot:not(.open) {
+  display: none;
+}
+
+.receiver .change-place {
+  display: inline-flex;
+}
+
+.location-tuner {
+  border: 1px solid var(--line);
+  border-radius: var(--r-panel);
+  background: var(--surface);
+  box-shadow: none;
+}
+
+.location-tuner h2 {
+  font-family: var(--body);
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+.community-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  padding: 8px 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.community-action p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+/* This was --ink-deep on --river: at night, #ffffff on #75d0df, which is
+   1.69:1 — the label was very nearly invisible on its own button. The action
+   pair carries a foreground that is guaranteed against its field. */
+.community-action .button {
+  flex: 0 0 auto;
+  color: var(--on-action);
+  background: var(--action);
+}
+
+.community-action .button:hover {
+  color: var(--on-action);
+  background: var(--action-hover);
+}
+
+.reading-context {
+  margin-top: 40px;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   SITE FOOTER
+
+   A quiet institutional close. Same deep river tone as the header, so the
+   page is framed rather than trailing off. The footer carries provenance
+   (who made this, where the data comes from) and nothing else — no
+   marketing, no newsletter, no social grid.
+   ───────────────────────────────────────────────────────────────────────── */
+.site-footer {
+  padding: 0 var(--page-pad-x, clamp(28px, 5vw, 84px));
+  border-top: 1px solid var(--line);
+  color: var(--rail-text);
+  background: var(--chrome);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.footer-mark {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  color: var(--river);
+}
+
+.footer-mark svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.footer-brand strong {
+  display: block;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.footer-brand small {
+  display: block;
+  margin-top: 0;
+  color: var(--rail-text);
+  font-size: 11px;
+  font-weight: 560;
+}
+
+.footer-notes {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.footer-notes p {
+  max-width: 56ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.footer-links a {
+  color: var(--rail-text);
+  font-size: 12px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--ink);
+}
+
+.home-details.has-atlas {
+  padding-top: 40px;
+}
+
+.atlas {
+  height: calc(100dvh - 64px);
+  min-height: 0;
+  margin: -8px calc(-1 * var(--page-pad-x)) 0;
+  border-bottom: 0;
+  background: var(--ground-deep);
+}
+
+.atlas-search {
+  top: 24px;
+  left: 24px;
+  width: min(380px, calc(100% - 48px));
+}
+
+.search-wrap.compact {
+  position: relative;
+}
+
+.search-wrap.compact .search-icon {
+  position: absolute;
+  z-index: 2;
+  top: 17px;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--placeholder);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  pointer-events: none;
+}
+
+.search-wrap.compact input {
+  min-height: 52px;
+  padding: 12px 20px 12px 40px;
+  border: 0;
+  border-radius: var(--r-control);
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: var(--shadow-2);
+}
+
+/* Floating on the map, the search field is map chrome, not a form on a page, and
+   it takes the map's material like everything else up there. On the night sheet
+   --surface is #0d3d52 and --map-control is #0c2027: two floating controls forty
+   pixels apart in visibly different colours, for no reason a reader could name.
+   One field for the whole layer of chrome. */
+.atlas-search .search-wrap.compact input {
+  color: var(--map-control-ink);
+  background: var(--map-control);
+}
+
+.atlas-search .search-wrap.compact input::placeholder { color: var(--map-control-muted); }
+.atlas-search .search-wrap.compact .search-icon { stroke: var(--map-control-muted); }
+
+.search-wrap.compact input:focus {
+  box-shadow: 0 0 0 3px var(--river), var(--shadow-2);
+}
+
+.search-wrap.compact .search-results {
+  margin-top: 8px;
+  border-color: transparent;
+  border-radius: var(--r-control);
+  box-shadow: var(--shadow-2);
+}
+
+.atlas-panel {
+  bottom: 24px;
+  left: 24px;
+  width: min(480px, calc(100% - 48px));
+}
+
+/* This panel used to be glass: a .78 alpha field, blur(20px) saturate(135%), a
+   1px translucent border to draw the refractive edge, and an `inset 0 1px 0`
+   highlight to fake a bevel. Four treatments stacked to say "card". The border
+   was not a border — it existed only because glass needs an edge to be legible,
+   and once the blur goes the edge has nothing to do.
+
+   It also contradicted the system this file opens by declaring, which refuses
+   glass and backdrop blur outright. Two generations of intent were live in one
+   stylesheet and the newer one silently won.
+
+   Opaque is also the correct call on the merits: this is the panel that says
+   whether a river is about to take your house, and a surface you can read the
+   map through is a surface whose text is competing with terrain. One field, one
+   shadow with a real offset, no edge. */
+/* The bulletin's own fields — including the optical glass it wears inside the
+   atlas — live in FloodBulletin.svelte. They were split across this file and the
+   component, at equal specificity, and the component always loaded second: every
+   field set here was silently discarded, which is why the panel kept coming back
+   sage no matter what colour was declared for it. */
+
+.atlas-panel .bulletin {
+  --pad: 24px;
+  --status-size: 20px;
+}
+
+.atlas-panel .bulletin .sentence {
+  font-size: 15px;
+}
+
+.atlas-panel .bulletin .act {
+  min-height: 44px;
+  padding: 12px 20px;
+  border-radius: 16px;
+}
+
+/* The two actions differ by fill weight and nothing else. Previously the
+   secondary carried a fill *and* a hairline *and* a top bevel — three devices
+   to say "this one matters less than the one beside it", which is what read as
+   an outline nobody asked for. The primary carried its own bevel on top of a
+   drop shadow. Both are now one flat slab each, which is the whole distinction
+   a pair of buttons needs. */
+.atlas-panel .bulletin .act:active,
+.atlas-report-cta:active,
+.icon-button:active {
+  transform: scale(.98);
+}
+
+/* One dock, two controls. These were separate absolutely-positioned objects at
+   right:24px and right:88px — a 52px circle and a 16px-radius pill, different
+   shapes and different radii, butted together in a corner with no stated
+   relationship. Laying them out in a single flex row means the gap is declared
+   once and the two controls share a baseline and a height. */
+.atlas-dock {
+  position: absolute;
+  z-index: 4;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-button {
+  width: 52px;
+  min-height: 52px;
+  border: 0;
+  color: var(--map-control-ink);
+  background: var(--map-control);
+  box-shadow: var(--shadow-2);
+}
+
+.icon-button:hover {
+  color: var(--map-control-ink);
+  background: var(--map-control-hover);
+}
+
+/* Was #83d6e4 on #06171c with the glyph in a third literal, #0c6375. Three
+   hardcoded colours meant this control alone never responded to the theme: the
+   same pale blue in a night shell and a daylight one, while every other surface
+   flipped around it. On the night map it was also the most saturated object on
+   the screen, which put the loudest colour in the product on its third-most
+   important action. It now takes the river tokens, so it reads as deep teal on
+   paper and bright cyan at night — present, but no longer shouting over the
+   bulletin. */
+.atlas-report-cta {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  border-radius: var(--r-control);
+  color: var(--on-action);
+  background: var(--action);
+  box-shadow: var(--shadow-2);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -.005em;
+  text-decoration: none;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.atlas-report-cta svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.atlas-report-cta:hover {
+  background: var(--action-hover);
+  transform: translateY(-1px);
+}
+
+/* The locate control's own live region rides in the dock, so a geolocation
+   refusal arrives as loose body text over terrain. Give it a field. */
+.atlas-dock .field-status:not(.sr-only) {
+  max-width: 260px;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: var(--r-control);
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: var(--shadow-2);
+}
+
+.technical-anchor {
+  scroll-margin-top: 72px;
+}
+
+.mode-offer {
+  border-radius: var(--r-control);
+}
+
+@media (max-width: 1080px) and (min-width: 860px) {
+  .site-header {
+    gap: 16px;
+    padding-inline: 20px;
+  }
+
+  .site-header .brand small { display: none; }
+
+  .site-header .primary-nav a {
+    gap: 6px;
+    padding-inline: 8px;
+  }
+
+  .header-tools .network-state span { display: none; }
+  .header-tools .theme-toggle span,
+  .header-tools .mode-toggle span { display: none; }
+
+}
+
+@media (max-width: 859px) {
+  .site-header {
+    inset: 0 0 auto;
+    height: 64px;
+    gap: 12px;
+    padding: 0 16px;
+    border-radius: 0;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .site-header .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .site-header .brand strong { font-size: 18px; }
+  .site-header .brand small { display: none; }
+
+  .site-header .primary-nav {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 60;
+    display: grid;
+    height: calc(68px + env(safe-area-inset-bottom));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0;
+    padding: 0 4px env(safe-area-inset-bottom);
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--chrome);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .site-header .primary-nav a {
+    min-height: 68px;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 4px;
+    border-radius: 0;
+    font-size: 11px;
+  }
+
+  .site-header .primary-nav a.active {
+    color: var(--river);
+    background: transparent;
+  }
+
+  .header-tools {
+    gap: 8px;
+  }
+
+  .header-tools .network-state span,
+  .header-tools .theme-toggle span,
+  .header-tools .mode-toggle span,
+  .offline-copy {
+    display: none;
+  }
+
+  .header-tools .theme-toggle,
+  .header-tools .mode-toggle {
+    display: grid;
+    width: 40px;
+    padding: 0;
+    place-items: center;
+  }
+
+  main {
+    --page-pad-x: 16px;
+
+    margin: 0;
+    padding: 72px var(--page-pad-x) calc(72px + env(safe-area-inset-bottom));
+  }
+
+  .receiver,
+  .receiver.urgent,
+  .receiver.urgent.tuner-open {
+    display: block;
+  }
+
+  .receiver > .bulletin,
+  .receiver.urgent > .bulletin {
+    margin-top: 24px;
+  }
+
+  .tuner-slot {
+    position: static;
+    margin-top: 24px;
+  }
+
+  .community-action {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .community-action .button { width: 100%; }
+
+  .reading-context {
+    margin-top: 24px;
+  }
+
+  .home-details.has-atlas {
+    padding-top: 0;
+  }
+
+  /* THE ATLAS ON A PHONE
+     ────────────────────
+     One sheet, edge to edge, filling everything between the fixed header and
+     the tab bar, with three small objects floating on it. The stacked version
+     this replaces gave the first screen to a search band, a 44svh strip of
+     map, and the top third of a bulletin — three half-things, none of them
+     whole, and the map smallest of all on the device where terrain matters
+     most.
+
+     The height is stated rather than left to `auto` because the map fills it:
+     100svh less the 64px header and the 68px tab bar (plus whatever the device
+     reserves below it). `svh` is the small viewport — the value that holds
+     while a mobile browser's URL bar is expanded — so the tab bar never gets
+     pushed under the fold as the chrome collapses. */
+  .atlas {
+    height: calc(100dvh - 132px - env(safe-area-inset-bottom));
+    min-height: 320px;
+    margin: -8px calc(-1 * var(--page-pad-x)) 24px;
+    background: var(--ground);
+  }
+
+  .atlas .detailed-map,
+  .atlas .atlas-map {
+    position: absolute;
+    inset: 0;
+    height: auto;
+  }
+
+  .atlas-search {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    padding: 0;
+  }
+
+  /* The panel keeps the gutter on both sides and stays a card — the bulletin's
+     own phone rules flatten it to a full-bleed band, which is right when it is
+     the document and wrong when it is floating on terrain.
+
+     Capped at three fifths of the sheet. A danger reading with a four-line
+     sentence runs past that, and a card that can grow without limit is a card
+     that ends up covering the river it is describing; past the cap it scrolls
+     inside itself and the map keeps the rest. */
+  .atlas-panel {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: auto;
+    max-height: 60%;
+    overflow-y: auto;
+    padding: 0;
+  }
+
+  /* The locate control follows the compact map-display tab on the right edge.
+     Basemap and fit controls now live inside that drawer, so this remains the
+     only separate map action. */
+  .atlas-dock {
+    top: 216px;
+    right: 12px;
+    bottom: auto;
+  }
+
+  /* Same width as the controls above it, so the right edge reads as one stack
+     rather than a column with a wider button loose beneath it. */
+  .atlas-dock .icon-button {
+    width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+  }
+
+  .atlas-report-cta { display: none; }
+
+  .atlas-dock .field-status:not(.sr-only) {
+    max-width: calc(100vw - 100px);
+  }
+}
+
+@media print {
+  .site-header,
+  .tuner-slot,
+  .atlas-report-cta,
+  .site-footer {
+    display: none;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────
+   GAUGE MAP TOOLTIP
+
+   The card that opens on the gauge itself when a reader hovers or taps it.
+   MapLibre owns the container and the tip, so both are stripped back here and
+   the card inside becomes the whole visible object. This is map furniture, not
+   page surface, so it follows the --map-control tokens the legend and the
+   control dock already use.
+
+   Everything below sat inside the @media print block above, unclosed, so the
+   old Leaflet tooltip styling only ever applied on paper.
+   ───────────────────────────────────────────────────────────────────────── */
+.maplibregl-popup.gauge-tooltip {
+  z-index: 7;
+  /* Informational only. The gauge underneath keeps the hover and the click. */
+  pointer-events: none;
+  animation: gauge-card-in 140ms ease-out;
+}
+
+/* Opacity only. MapLibre keeps the card on its gauge with a transform, and
+   anything animating transform here would drag the card off the station. */
+.maplibregl-popup.gauge-tooltip.leaving {
+  opacity: 0;
+  /* Slower than the way in, and eased out, so the card leaves quietly rather
+     than being cut. The component waits this long before removing it. */
+  transition: opacity 220ms ease-out;
+}
+
+@keyframes gauge-card-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .maplibregl-popup.gauge-tooltip { animation: none; }
+  .maplibregl-popup.gauge-tooltip.leaving { transition: none; }
+}
+
+.gauge-tooltip .maplibregl-popup-content {
+  min-width: 200px;
+  padding: 0;
+  border-radius: var(--r-control, 14px);
+  color: var(--map-control-ink);
+  background: var(--map-control);
+  box-shadow: var(--shadow-3);
+}
+
+/* The tip is a CSS triangle: only the side facing the gauge is painted, and
+   which side that is depends on the anchor MapLibre picked near a map edge. */
+.gauge-tooltip[class*="anchor-top"] .maplibregl-popup-tip {
+  border-bottom-color: var(--map-control);
+}
+
+.gauge-tooltip[class*="anchor-bottom"] .maplibregl-popup-tip {
+  border-top-color: var(--map-control);
+}
+
+.gauge-tooltip.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+  border-right-color: var(--map-control);
+}
+
+.gauge-tooltip.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+  border-left-color: var(--map-control);
+}
+
+.gauge-tooltip-card {
+  padding: 12px 16px;
+  font-family: var(--body);
+  pointer-events: none;
+}
+
+.gauge-tooltip-title {
+  color: var(--map-control-ink);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.gauge-tooltip-river {
+  margin-top: 4px;
+  color: var(--map-control-muted);
+  font-size: 12px;
+  font-weight: 560;
+}
+
+.gauge-tooltip-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--map-control-line);
+  color: var(--map-control-ink);
+  font-size: 12px;
+}
+
+/* The dot repeats the symbol on the map rather than the page's status palette,
+   so the card and the gauge it is attached to cannot disagree. */
+.gauge-tooltip-status .dot {
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--map-control-line);
+  border-radius: 50%;
+  background: var(--gauge-none);
+}
+
+.gauge-tooltip-status.state-normal .dot { background: var(--gauge-normal); }
+.gauge-tooltip-status.state-warning .dot { background: var(--gauge-warning); }
+.gauge-tooltip-status.state-danger .dot { background: var(--gauge-danger); }
+.gauge-tooltip-status.state-extreme .dot { background: var(--gauge-extreme); }
+
+.gauge-tooltip-status .sep { color: var(--map-control-muted); opacity: .5; }

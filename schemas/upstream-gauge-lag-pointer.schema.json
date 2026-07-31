@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://axom-flood.local/schemas/upstream-gauge-lag-pointer.schema.json",
+  "title": "Current upstream gauge lag review pointer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generated_at",
+    "artifact_id",
+    "artifact_path",
+    "review_only",
+    "relationship_count",
+    "relationships_supporting_review"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "artifact_path": {
+      "type": "string",
+      "pattern": "^[^/].*\\.json$"
+    },
+    "review_only": {
+      "const": true
+    },
+    "relationship_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "relationships_supporting_review": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

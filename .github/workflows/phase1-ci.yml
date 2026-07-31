@@ -1,0 +1,37 @@
+name: Phase 1 CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+      - run: npm run check:seo
+      - run: node scripts/check_design_scale.mjs
+      # The map rewrite passed every gate above while shipping without its
+      # boundaries and tie line, because none of them loads the page. This one
+      # does. It stubs every off-origin request, so it never depends on a tile
+      # server being up and never sends CI traffic to OpenStreetMap.
+      - run: npx playwright install --with-deps chromium
+      - run: npm run check:browser
+      - run: uv sync --locked --all-extras
+      - run: uv run ruff check .
+      - run: uv run pytest
+      - run: uv run python scripts/check_pwa_budget.py

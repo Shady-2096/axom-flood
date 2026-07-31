@@ -1,0 +1,29 @@
+{
+  "fixture_metadata": {
+    "kind": "synthetic_contract",
+    "fixture_provenance": "synthetic",
+    "provenance_note": "Hand-built tile manifest paired with merit-hand-tile.hex. No MERIT Hydro tile has been downloaded. Replace with a captured manifest once the ODbL tile set is fetched.",
+    "live_tile": false
+  },
+  "dataset": "MERIT Hydro",
+  "dataset_version": "1.0.1",
+  "band": "hnd",
+  "approximate_resolution_m": 90,
+  "vertical_units": "metres",
+  "license_expression": "CC-BY-NC-4.0 OR ODbL-1.0",
+  "topology_limitation": "single-flow-direction representation does not model bifurcations",
+  "tiles": [
+    {
+      "tile_id": "fixture-merit-hand-tile",
+      "filename": "fixture-merit-hand.tif",
+      "sha256": "674bdee3dc33697d083e2ad7488d3ceb096819322b6ec99f40f3c7c8c78253c0",
+      "byte_length": 36,
+      "bounds": [
+        90.0,
+        24.0,
+        96.0,
+        28.0
+      ]
+    }
+  ]
+}

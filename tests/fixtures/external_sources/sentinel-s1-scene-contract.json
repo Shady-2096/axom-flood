@@ -1,0 +1,21 @@
+{
+  "fixture_metadata": {
+    "kind": "synthetic_contract",
+    "fixture_provenance": "synthetic",
+    "provenance_note": "Hand-built Sentinel-1 GRD scene metadata. No Earth Engine or CDSE query has been made. Replace with captured scene metadata once Earth Engine access exists.",
+    "live_scene": false
+  },
+  "scene_id": "fixture-S1-GRD-scene",
+  "collection": "COPERNICUS/S1_GRD",
+  "acquisition_start": "2026-07-02T00:00:00Z",
+  "acquisition_end": "2026-07-02T00:01:00Z",
+  "instrument_mode": "IW",
+  "orbit_pass": "ASCENDING",
+  "relative_orbit_number": 121,
+  "polarizations": [
+    "VV",
+    "VH"
+  ],
+  "nominal_resolution_m": 10,
+  "asset_url": "fixture://sentinel-1/fixture-S1-GRD-scene"
+}

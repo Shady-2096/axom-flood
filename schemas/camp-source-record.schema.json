@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/camp-source-record-v1.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "district",
+    "name_raw",
+    "status",
+    "geocode_confidence",
+    "source_document_id",
+    "source_url"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "district": {"type": "string", "minLength": 1},
+    "revenue_circle": {"type": ["string", "null"]},
+    "name_raw": {"type": "string", "minLength": 1},
+    "village": {"type": ["string", "null"]},
+    "coordinates": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "array",
+          "prefixItems": [
+            {"type": "number", "minimum": 89, "maximum": 97},
+            {"type": "number", "minimum": 23, "maximum": 29}
+          ],
+          "items": false
+        }
+      ]
+    },
+    "contact_phone": {"type": ["string", "null"]},
+    "capacity_estimate": {"type": ["integer", "null"], "minimum": 0},
+    "status": {"enum": ["proposed", "open", "closed", "unconfirmed"]},
+    "geocode_confidence": {
+      "enum": ["source_coordinates", "high", "medium", "unverified"]
+    },
+    "source_document_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_url": {"type": "string", "format": "uri"},
+    "source_page": {"type": "integer", "minimum": 1}
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://axom-flood.local/schemas/upstream-gauge-candidates.schema.json",
+  "title": "Review-only upstream gauge candidates",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "purpose",
+    "relationships"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "relationships": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship_id",
+          "upstream_station_code",
+          "downstream_station_code",
+          "topology_status",
+          "topology_basis"
+        ],
+        "properties": {
+          "relationship_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "upstream_station_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "downstream_station_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "topology_status": {
+            "enum": [
+              "candidate_unreviewed",
+              "hypothesis_unverified"
+            ]
+          },
+          "topology_basis": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

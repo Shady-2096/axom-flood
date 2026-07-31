@@ -1,0 +1,7 @@
+{
+  "source": "OpenStreetMap via Overpass API",
+  "licence": "ODbL 1.0",
+  "retrieved_at": "2026-07-27T14:21:36Z",
+  "sha256": "a3f888706b416a66d1cfd30d74ce3ed18086ed2d86a0882a8b6b0c45303cc1d5",
+  "query_file": "documented in scripts/build_osm_places.py"
+}

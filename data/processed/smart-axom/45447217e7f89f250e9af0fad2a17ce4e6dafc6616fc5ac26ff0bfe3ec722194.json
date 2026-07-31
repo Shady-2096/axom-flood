@@ -1,0 +1,986 @@
+{
+  "alert_count": 108,
+  "alerts": [
+    {
+      "district": "Baska",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Baganpara",
+      "schema_version": 1,
+      "severity_category": "high",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Barpeta",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Bajali",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Bongaigaon",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Bijni",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Bongaigaon",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Boitamari",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Bongaigaon",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Bongaigaon",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Bongaigaon",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Srijangram",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dhemaji",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Dhemaji",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dhemaji",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Sissibargaon",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dhemaji",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Subansiri",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Jorhat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Jorhat East",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Jorhat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Jorhat West",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Jorhat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Majuli",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Jorhat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Mariani",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Jorhat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Teok",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Jorhat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Titabor",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Rural",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Chamaria",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Rural",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Goroimari",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Rural",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Hajo",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Rural",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "North Guwahati",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Rural",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Palashbari",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sonitpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Chariduar",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sonitpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Dhekiajuli",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sonitpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Na-Duar",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sonitpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Tezpur",
+      "schema_version": 1,
+      "severity_category": "low_to_moderate",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Barpeta",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Chengar",
+      "schema_version": 1,
+      "severity_category": "no_alert",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Baska",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Baksa",
+      "schema_version": 1,
+      "severity_category": "no_alert",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Baska",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Barnagar",
+      "schema_version": 1,
+      "severity_category": "no_alert",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Bongaigaon",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Sidli",
+      "schema_version": 1,
+      "severity_category": "no_alert",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dibrugarh",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Tingkhang",
+      "schema_version": 1,
+      "severity_category": "no_alert",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Barpeta",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Barnagar",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Baska",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Tamulpur",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Biswanath",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Biswanath",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Charaideo",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Mahmora",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Charaideo",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Sonari",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Darrang",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Dalgaon",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Darrang",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Mangaldoi",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Darrang",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Pathorighat",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Darrang",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Sipajhar",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dibrugarh",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Moran",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dibrugarh",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Naharkatia",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dibrugarh",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Tengakhat",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Golaghat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Boikakhat",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Golaghat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Golaghat",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Golaghat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Khumtai",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Golaghat",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Morangi",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Hailakandi",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Algapur",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Hailakandi",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Hailakandi",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Hailakandi",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Lala",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Metro",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Azara",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Metro",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Chandrapur",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Metro",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Dispur",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Metro",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Guwahati",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Metro",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "North Guwahati",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Kamrup_Metro",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Sonapur",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Lakhimpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Bihpuria",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Lakhimpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Naobaicha",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Lakhimpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Narayanpur",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Lakhimpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "North Lakhimpur",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Morigaon",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Marigaon",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Nalbari",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Barbhag",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Nalbari",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Barkhetri",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Nalbari",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Ghograpar",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Nalbari",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Nalbari",
+      "schema_version": 1,
+      "severity_category": "flood_watch",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Barpeta",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Baghbor",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Barpeta",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Barpeta",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Biswanath",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Biswanath Chariali",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Biswanath",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Gohpur",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Biswanath",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Halem",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Biswanath",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Naduar",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Chirang",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Chirang",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Bijni",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Chirang",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Sidli",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dhubri",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Agamoni",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dhubri",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Bagibari",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dhubri",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Bilasipara",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dhubri",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Dhubri",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dhubri",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Golokganj",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dibrugarh",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Chabua",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dibrugarh",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Dibrugarh East",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Dibrugarh",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Dibrugarh West",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Goalpara",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Balijana",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Goalpara",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Dudhnai",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Goalpara",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Lakhipur",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Goalpara",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Matia",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Goalpara",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Rangjuli",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Hojai",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Doboka",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Hojai",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Hojai",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Hojai",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Lanka",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Karimganj",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Badarpur",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Karimganj",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Karimganj",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Karimganj",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Nilambazar",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Karimganj",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Patharkandi",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Karimganj",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Ramkrishna Nagar",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Nagaon",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Kampur",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Nagaon",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Nagaon",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Nagaon",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Raha",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Nalbari",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Pachim Nalbari",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Nalbari",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Tihu",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sibsagar",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Amguri",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sibsagar",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Dimow",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sibsagar",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Nazira",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sibsagar",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Sibsagar",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sonitpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Gohpur",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Sonitpur",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Helem",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Tinsukia",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Doomdooma",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Tinsukia",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Margherita",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Tinsukia",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Sadiya",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    },
+    {
+      "district": "Tinsukia",
+      "is_current": false,
+      "issued_at": "2023-08-26T09:41:00+05:30",
+      "revenue_circle": "Tinsukia",
+      "schema_version": 1,
+      "severity_category": "low",
+      "source_alert_value": 1
+    }
+  ],
+  "data_age_hours": 25576.48,
+  "fetched_at": "2026-07-27T02:09:43.805064+05:30",
+  "issued_at": "2023-08-26T09:41:00+05:30",
+  "operational_warning": "Public endpoint is stale; rows must not be presented as active warnings.",
+  "schema_version": 1,
+  "source": "SMART AXOM public dashboard API",
+  "source_base_url": "https://api.nesdr.gov.in/asdma",
+  "source_revision": "85c7725d620c072675f0338602a290937fc0df8b0b3a2643bcdc62b210720010",
+  "status": "no_data"
+}

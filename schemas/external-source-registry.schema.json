@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/external-source-registry-v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "verified_at", "sources"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "verified_at": {"type": "string", "format": "date-time"},
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "name",
+          "official_urls",
+          "access_mode",
+          "live_enabled_by_default",
+          "operational_role",
+          "credential_gate",
+          "geometry_gate"
+        ],
+        "properties": {
+          "source_id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+          "name": {"type": "string", "minLength": 1},
+          "official_urls": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "format": "uri"}
+          },
+          "access_mode": {
+            "enum": [
+              "account_required",
+              "ip_whitelist_required",
+              "approval_required",
+              "registered_download",
+              "public_metadata"
+            ]
+          },
+          "live_enabled_by_default": {"type": "boolean"},
+          "operational_role": {"type": "string", "minLength": 1},
+          "credential_gate": {"type": "string", "minLength": 1},
+          "geometry_gate": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "reports": [
+    {
+      "extractor_version": 7,
+      "fetched_at": "2026-07-28T01:54:12.143080+05:30",
+      "impact_url": "data/impact-4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7-extractor-v7-validator-v3.json",
+      "profile": "impact-v1",
+      "publication_state": "validated",
+      "report_date": "2026-07-27",
+      "revision_id": "4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7",
+      "source_artifact_url": "data/asdma-source/4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7.pdf",
+      "source_url": "https://sdrf.assam.gov.in/dfr/download",
+      "validated_at": "2026-07-29T16:51:12.638304+05:30"
+    },
+    {
+      "extractor_version": 7,
+      "fetched_at": "2026-07-27T14:57:16.731281+05:30",
+      "impact_url": "data/impact-2af68e12437eebb7223c4dd83d8a5af468ffcb810e8b8eb7c30d2209285c2573-extractor-v7-validator-v3.json",
+      "profile": "impact-v1-infrastructure-count-only",
+      "publication_state": "historical",
+      "report_date": "2026-07-26",
+      "revision_id": "2af68e12437eebb7223c4dd83d8a5af468ffcb810e8b8eb7c30d2209285c2573",
+      "source_artifact_url": "data/asdma-source/2af68e12437eebb7223c4dd83d8a5af468ffcb810e8b8eb7c30d2209285c2573.pdf",
+      "source_url": "https://sdrf.assam.gov.in/dfr/download",
+      "validated_at": "2026-07-29T16:51:12.638363+05:30"
+    },
+    {
+      "extractor_version": 7,
+      "fetched_at": "2026-07-26T20:02:46.581476+05:30",
+      "impact_url": "data/impact-df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a-extractor-v7-validator-v3.json",
+      "profile": "impact-v1",
+      "publication_state": "historical",
+      "report_date": "2026-07-25",
+      "revision_id": "df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a",
+      "source_artifact_url": "data/asdma-source/df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a.pdf",
+      "source_url": "https://sdrf.assam.gov.in/dfr/download",
+      "validated_at": "2026-07-29T16:51:12.638324+05:30"
+    }
+  ],
+  "schema_version": 2,
+  "updated_at": "2026-07-29T16:51:12.638363+05:30"
+}

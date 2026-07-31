@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-27T00:00:00+05:30",
+  "kill_switch": {
+    "enabled": false,
+    "message_en": "River information is temporarily unavailable. Use official emergency sources.",
+    "message_as": null,
+    "assamese_reviewed": false
+  },
+  "push_public_key": null,
+  "push_subscription_url": null,
+  "crowd_submission_url": null
+}

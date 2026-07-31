@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-27T00:00:00+05:30",
+  "numbers": [
+    {
+      "id": "asdma-1070",
+      "label_en": "ASDMA State Emergency Operation Centre",
+      "label_as": null,
+      "assamese_reviewed": false,
+      "number": "1070",
+      "source_url": "https://asdma.assam.gov.in/"
+    }
+  ]
+}

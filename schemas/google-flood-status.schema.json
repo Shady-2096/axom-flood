@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/google-flood-status-v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider",
+    "access_mode",
+    "gauge_id",
+    "issued_at",
+    "forecast_start",
+    "forecast_end",
+    "severity",
+    "quality_verified",
+    "inundation_set_ids",
+    "source_revision"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "provider": {"const": "Google Flood Forecasting API"},
+    "access_mode": {"const": "approval_required"},
+    "gauge_id": {"type": "string", "minLength": 1},
+    "issued_at": {"type": "string", "format": "date-time"},
+    "forecast_start": {"type": "string", "format": "date-time"},
+    "forecast_end": {"type": "string", "format": "date-time"},
+    "severity": {"type": "string", "minLength": 1},
+    "quality_verified": {"type": "boolean"},
+    "inundation_set_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "source_revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "source_url",
+        "fetched_at",
+        "sha256",
+        "byte_length",
+        "media_type"
+      ],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "source_url": {"type": "string", "minLength": 1},
+        "fetched_at": {"type": "string", "format": "date-time"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "byte_length": {"type": "integer", "minimum": 0},
+        "media_type": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

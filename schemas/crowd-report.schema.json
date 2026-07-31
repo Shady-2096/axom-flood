@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/crowd-report-v1.json",
+  "title": "Anonymous crowd report",
+  "type": "object",
+  "description": "One anonymised report of the water on the ground where the reporter is right now. The plan's exact field set from assam-flood-implementation-plan.md PART 3 §3.5, plus a schema_version per the repo-wide rule that every artifact carries one (schemas/README.md). No PII of any kind is permitted: no name, phone, email, full-precision coordinate, or raw device token.",
+  "required": [
+    "schema_version",
+    "report_id",
+    "submitted_at",
+    "location",
+    "location_precision_m",
+    "depth_class",
+    "source",
+    "device_hash",
+    "flags"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "report_id": {
+      "type": "string",
+      "description": "UUID assigned at intake. The raw device token is never persisted or transmitted; only the salted, monthly-rotating device_hash is."
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Reporter's local wall-clock time of submission with the IST offset."
+    },
+    "location": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "items": false,
+      "description": "[longitude, latitude] rounded to three decimal degrees (about 100 m at Assam latitudes), never finer than the 50 m policy floor declared by location_precision_m. Matches the plan example 'location: [94.681, 26.912]'."
+    },
+    "location_precision_m": {
+      "const": 50,
+      "description": "The deliberate coarsening policy floor. The stored grid is coarser than this and never finer; consumers must read this to know the data is deliberately coarse."
+    },
+    "depth_class": {"enum": ["dry", "ankle", "knee", "waist_plus"]},
+    "locality_id": {
+      "type": ["string", "null"],
+      "description": "Optional resolve-to-revenue-circle. Null when the reporter did not pick a locality."
+    },
+    "source": {"enum": ["app", "whatsapp", "web"]},
+    "device_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Salted, monthly-rotating SHA-256 of the raw device token. Used only for duplicate detection. Not reversible to a device, not linkable across monthly rotations."
+    },
+    "flags": {
+      "type": "array",
+      "items": {"enum": ["neighbour_contradiction", "terrain_contradiction", "review_pending"]},
+      "description": "Display-rule flags grind. A flagged report is kept for review and never auto-deleted."
+    }
+  }
+}

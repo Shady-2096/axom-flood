@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/asdma-impact-pointer-v1.json",
+  "title": "Current ASDMA impact pointer",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "updated_at",
+    "report_date",
+    "revision_id",
+    "extractor_version",
+    "fetched_at",
+    "publication_state",
+    "profile",
+    "impact_url",
+    "validation_id",
+    "source_url",
+    "source_artifact_url"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 2},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "report_date": {"type": "string", "format": "date"},
+    "revision_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "extractor_version": {"type": "integer", "minimum": 7},
+    "fetched_at": {"type": "string", "format": "date-time"},
+    "publication_state": {"enum": ["validated", "validated_partial"]},
+    "profile": {
+      "enum": ["impact-v1", "impact-v1-infrastructure-count-only"]
+    },
+    "impact_url": {"type": "string", "pattern": "^data/impact-.+\\.json$"},
+    "validation_id": {"type": "string", "minLength": 1},
+    "source_url": {"type": "string", "format": "uri"},
+    "source_artifact_url": {
+      "type": "string",
+      "pattern": "^data/asdma-source/[a-f0-9]{64}\\.pdf$"
+    }
+  }
+}

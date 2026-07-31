@@ -1,0 +1,28 @@
+{
+  "name": "axom-flood-pwa",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "check:seo": "node scripts/check_seo_output.mjs",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+    "test": "node --test tests/*.test.js supabase/functions/tests/*.test.js",
+    "check:browser": "node scripts/check_browser_smoke.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.70.1",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "playwright": "^1.62.1",
+    "svelte": "^5.56.8",
+    "svelte-check": "^4.3.4",
+    "vite": "^8.1.5"
+  },
+  "dependencies": {
+    "maplibre-gl": "^5.24.0",
+    "pmtiles": "^4.4.1"
+  }
+}

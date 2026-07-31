@@ -1,0 +1,2150 @@
+{
+  "generated_at": "2026-07-29T23:59:00+05:30",
+  "method_limitations": [
+    "Correlation is evidence of repeated timing, not proof that one gauge caused or uniquely predicts the other.",
+    "Shared rainfall, tributary inflow, regulation, telemetry gaps, and changing flood-wave speed can shift or mimic a lag.",
+    "A passing quality result still requires river-topology review and never changes a locality mapping or official severity."
+  ],
+  "relationship_count": 8,
+  "relationships": [
+    {
+      "analysis": {
+        "change_window_hours": 6,
+        "lag_search_hours": [
+          0,
+          72
+        ],
+        "method": "may_october_six_hour_change_cross_correlation_v1",
+        "quality": {
+          "correlated_year_fraction": 1.0,
+          "eligible_completed_years": 7,
+          "gates": {
+            "correlated_year_fraction": true,
+            "enough_completed_years": true,
+            "improves_on_zero_lag": true,
+            "lag_iqr": true,
+            "median_correlation": true,
+            "positive_lead_time": true,
+            "stable_year_fraction": true
+          },
+          "lag_interquartile_range_hours": 1.0,
+          "median_best_minus_zero_lag": 0.1854,
+          "median_robust_correlation": 0.6477,
+          "observed_yearly_lag_range_hours": [
+            4,
+            7
+          ],
+          "passes_quality_gates": true,
+          "recommended_lag_hours": 5.0,
+          "stable_year_fraction": 1.0
+        },
+        "quality_gate_thresholds": {
+          "maximum_lag_interquartile_range_hours": 12,
+          "maximum_stable_deviation_hours": 12,
+          "minimum_active_pairs_per_year": 800,
+          "minimum_completed_years": 3,
+          "minimum_correlated_year_fraction": 0.7,
+          "minimum_monsoon_coverage": 0.75,
+          "minimum_robust_correlation": 0.35,
+          "minimum_stable_year_fraction": 0.7,
+          "minimum_upstream_rise_events_per_year": 5,
+          "minimum_zero_lag_improvement": 0.02
+        },
+        "robustness": "Per-year six-hour changes; both-quiet pairs removed; each change series winsorised at 1% before Pearson correlation; completed monsoons fitted independently.",
+        "year_results": [
+          {
+            "best_lag_hours": 7,
+            "best_minus_zero_lag": 0.2626,
+            "best_ordinary_correlation": 0.6223,
+            "best_robust_correlation": 0.648,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              6,
+              8
+            ],
+            "paired_changes_at_best_lag": 4395,
+            "rise_event_threshold_m_per_6h": 0.36,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 22,
+            "year": 2019,
+            "zero_lag_robust_correlation": 0.3854
+          },
+          {
+            "best_lag_hours": 4,
+            "best_minus_zero_lag": 0.0744,
+            "best_ordinary_correlation": 0.5702,
+            "best_robust_correlation": 0.6324,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.8601,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              2,
+              6
+            ],
+            "paired_changes_at_best_lag": 3460,
+            "rise_event_threshold_m_per_6h": 0.35,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 31,
+            "year": 2020,
+            "zero_lag_robust_correlation": 0.558
+          },
+          {
+            "best_lag_hours": 5,
+            "best_minus_zero_lag": 0.2312,
+            "best_ordinary_correlation": 0.6372,
+            "best_robust_correlation": 0.6553,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9633,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              4,
+              6
+            ],
+            "paired_changes_at_best_lag": 4130,
+            "rise_event_threshold_m_per_6h": 0.39,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 28,
+            "year": 2021,
+            "zero_lag_robust_correlation": 0.4241
+          },
+          {
+            "best_lag_hours": 6,
+            "best_minus_zero_lag": 0.1854,
+            "best_ordinary_correlation": 0.5986,
+            "best_robust_correlation": 0.6053,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              4,
+              7
+            ],
+            "paired_changes_at_best_lag": 4319,
+            "rise_event_threshold_m_per_6h": 0.27,
+            "upstream_monsoon_coverage": 0.9878,
+            "upstream_rise_events": 30,
+            "year": 2022,
+            "zero_lag_robust_correlation": 0.4199
+          },
+          {
+            "best_lag_hours": 5,
+            "best_minus_zero_lag": 0.166,
+            "best_ordinary_correlation": 0.4046,
+            "best_robust_correlation": 0.5987,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              3,
+              6
+            ],
+            "paired_changes_at_best_lag": 4395,
+            "rise_event_threshold_m_per_6h": 0.39,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 25,
+            "year": 2023,
+            "zero_lag_robust_correlation": 0.4327
+          },
+          {
+            "best_lag_hours": 6,
+            "best_minus_zero_lag": 0.1866,
+            "best_ordinary_correlation": 0.6641,
+            "best_robust_correlation": 0.6477,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              5,
+              7
+            ],
+            "paired_changes_at_best_lag": 4395,
+            "rise_event_threshold_m_per_6h": 0.28,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 24,
+            "year": 2024,
+            "zero_lag_robust_correlation": 0.461
+          },
+          {
+            "best_lag_hours": 5,
+            "best_minus_zero_lag": 0.1569,
+            "best_ordinary_correlation": 0.6639,
+            "best_robust_correlation": 0.6505,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9993,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              4,
+              6
+            ],
+            "paired_changes_at_best_lag": 4376,
+            "rise_event_threshold_m_per_6h": 0.3,
+            "upstream_monsoon_coverage": 0.9973,
+            "upstream_rise_events": 26,
+            "year": 2025,
+            "zero_lag_robust_correlation": 0.4936
+          },
+          {
+            "best_lag_hours": 4,
+            "best_minus_zero_lag": 0.0872,
+            "best_ordinary_correlation": 0.3884,
+            "best_robust_correlation": 0.4912,
+            "complete_year": false,
+            "downstream_monsoon_coverage": 0.4654,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "monsoon_year_in_progress",
+              "upstream_monsoon_coverage_below_gate",
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              3,
+              5
+            ],
+            "paired_changes_at_best_lag": 2032,
+            "rise_event_threshold_m_per_6h": 0.38,
+            "upstream_monsoon_coverage": 0.4649,
+            "upstream_rise_events": 16,
+            "year": 2026,
+            "zero_lag_robust_correlation": 0.404
+          }
+        ]
+      },
+      "automatic_use_allowed": false,
+      "disposition": "evidence_supports_hydrology_review",
+      "downstream": {
+        "coordinates": [
+          95.33555555555554,
+          28.07777777777778
+        ],
+        "cwc_station_code": "005-UBDDIB",
+        "district": "East Siang",
+        "river": "Siang",
+        "site_name": "Passighat",
+        "state": "Arunachal Pradesh"
+      },
+      "mapping_changed": false,
+      "relationship_id": "siang-yingkiong-to-passighat",
+      "topology": {
+        "basis": "Both CWC reference records identify the river as Siang, and the station coordinates place Yingkiong north of Passighat. A hydrologist has not reviewed reach connectivity or intervening controls.",
+        "review_required": true,
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "status": "candidate_unreviewed"
+      },
+      "upstream": {
+        "coordinates": [
+          95.01277777777777,
+          28.661666666666665
+        ],
+        "cwc_station_code": "009NEID3",
+        "district": "Upper Siang",
+        "river": "Siang",
+        "site_name": "Yingkiong",
+        "state": "Arunachal Pradesh"
+      }
+    },
+    {
+      "analysis": {
+        "change_window_hours": 6,
+        "lag_search_hours": [
+          0,
+          72
+        ],
+        "method": "may_october_six_hour_change_cross_correlation_v1",
+        "quality": {
+          "correlated_year_fraction": 1.0,
+          "eligible_completed_years": 7,
+          "gates": {
+            "correlated_year_fraction": true,
+            "enough_completed_years": true,
+            "improves_on_zero_lag": true,
+            "lag_iqr": true,
+            "median_correlation": true,
+            "positive_lead_time": true,
+            "stable_year_fraction": true
+          },
+          "lag_interquartile_range_hours": 1.0,
+          "median_best_minus_zero_lag": 0.2846,
+          "median_robust_correlation": 0.584,
+          "observed_yearly_lag_range_hours": [
+            12,
+            15
+          ],
+          "passes_quality_gates": true,
+          "recommended_lag_hours": 14.0,
+          "stable_year_fraction": 1.0
+        },
+        "quality_gate_thresholds": {
+          "maximum_lag_interquartile_range_hours": 12,
+          "maximum_stable_deviation_hours": 12,
+          "minimum_active_pairs_per_year": 800,
+          "minimum_completed_years": 3,
+          "minimum_correlated_year_fraction": 0.7,
+          "minimum_monsoon_coverage": 0.75,
+          "minimum_robust_correlation": 0.35,
+          "minimum_stable_year_fraction": 0.7,
+          "minimum_upstream_rise_events_per_year": 5,
+          "minimum_zero_lag_improvement": 0.02
+        },
+        "robustness": "Per-year six-hour changes; both-quiet pairs removed; each change series winsorised at 1% before Pearson correlation; completed monsoons fitted independently.",
+        "year_results": [
+          {
+            "best_lag_hours": 13,
+            "best_minus_zero_lag": 0.2404,
+            "best_ordinary_correlation": 0.2408,
+            "best_robust_correlation": 0.5453,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              11,
+              14
+            ],
+            "paired_changes_at_best_lag": 4343,
+            "rise_event_threshold_m_per_6h": 0.21,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 23,
+            "year": 2019,
+            "zero_lag_robust_correlation": 0.3049
+          },
+          {
+            "best_lag_hours": 12,
+            "best_minus_zero_lag": 0.2027,
+            "best_ordinary_correlation": 0.539,
+            "best_robust_correlation": 0.6279,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9364,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              10,
+              14
+            ],
+            "paired_changes_at_best_lag": 3248,
+            "rise_event_threshold_m_per_6h": 0.18,
+            "upstream_monsoon_coverage": 0.8601,
+            "upstream_rise_events": 27,
+            "year": 2020,
+            "zero_lag_robust_correlation": 0.4252
+          },
+          {
+            "best_lag_hours": 15,
+            "best_minus_zero_lag": 0.326,
+            "best_ordinary_correlation": 0.5166,
+            "best_robust_correlation": 0.587,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9993,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              14,
+              17
+            ],
+            "paired_changes_at_best_lag": 4063,
+            "rise_event_threshold_m_per_6h": 0.22,
+            "upstream_monsoon_coverage": 0.9633,
+            "upstream_rise_events": 28,
+            "year": 2021,
+            "zero_lag_robust_correlation": 0.261
+          },
+          {
+            "best_lag_hours": 14,
+            "best_minus_zero_lag": 0.2789,
+            "best_ordinary_correlation": 0.5845,
+            "best_robust_correlation": 0.584,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              12,
+              17
+            ],
+            "paired_changes_at_best_lag": 4294,
+            "rise_event_threshold_m_per_6h": 0.18,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 25,
+            "year": 2022,
+            "zero_lag_robust_correlation": 0.3051
+          },
+          {
+            "best_lag_hours": 14,
+            "best_minus_zero_lag": 0.2846,
+            "best_ordinary_correlation": 0.3665,
+            "best_robust_correlation": 0.5474,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              12,
+              15
+            ],
+            "paired_changes_at_best_lag": 4325,
+            "rise_event_threshold_m_per_6h": 0.303,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 27,
+            "year": 2023,
+            "zero_lag_robust_correlation": 0.2627
+          },
+          {
+            "best_lag_hours": 14,
+            "best_minus_zero_lag": 0.3368,
+            "best_ordinary_correlation": 0.5707,
+            "best_robust_correlation": 0.5671,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              12,
+              16
+            ],
+            "paired_changes_at_best_lag": 4336,
+            "rise_event_threshold_m_per_6h": 0.18,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 20,
+            "year": 2024,
+            "zero_lag_robust_correlation": 0.2303
+          },
+          {
+            "best_lag_hours": 15,
+            "best_minus_zero_lag": 0.4125,
+            "best_ordinary_correlation": 0.5746,
+            "best_robust_correlation": 0.62,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9991,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              13,
+              16
+            ],
+            "paired_changes_at_best_lag": 4353,
+            "rise_event_threshold_m_per_6h": 0.22,
+            "upstream_monsoon_coverage": 0.9993,
+            "upstream_rise_events": 25,
+            "year": 2025,
+            "zero_lag_robust_correlation": 0.2074
+          },
+          {
+            "best_lag_hours": 14,
+            "best_minus_zero_lag": 0.2016,
+            "best_ordinary_correlation": 0.304,
+            "best_robust_correlation": 0.4426,
+            "complete_year": false,
+            "downstream_monsoon_coverage": 0.4712,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "monsoon_year_in_progress",
+              "upstream_monsoon_coverage_below_gate",
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              11,
+              18
+            ],
+            "paired_changes_at_best_lag": 2009,
+            "rise_event_threshold_m_per_6h": 0.23,
+            "upstream_monsoon_coverage": 0.4654,
+            "upstream_rise_events": 13,
+            "year": 2026,
+            "zero_lag_robust_correlation": 0.241
+          }
+        ]
+      },
+      "automatic_use_allowed": false,
+      "disposition": "evidence_supports_hydrology_review",
+      "downstream": {
+        "coordinates": [
+          94.90972222222223,
+          27.488611111111112
+        ],
+        "cwc_station_code": "010-UBDDIB",
+        "district": "Dibrugarh",
+        "river": "Brahmaputra",
+        "site_name": "Dibrugarh",
+        "state": "Assam"
+      },
+      "mapping_changed": false,
+      "relationship_id": "siang-passighat-to-brahmaputra-dibrugarh",
+      "topology": {
+        "basis": "Passighat is on the Siang upstream of the Assam plain and Dibrugarh is on the Brahmaputra. This coarse sequence does not establish the precise confluence path, tributary effects, or an operational warning relationship.",
+        "review_required": true,
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "status": "hypothesis_unverified"
+      },
+      "upstream": {
+        "coordinates": [
+          95.33555555555554,
+          28.07777777777778
+        ],
+        "cwc_station_code": "005-UBDDIB",
+        "district": "East Siang",
+        "river": "Siang",
+        "site_name": "Passighat",
+        "state": "Arunachal Pradesh"
+      }
+    },
+    {
+      "analysis": {
+        "change_window_hours": 6,
+        "lag_search_hours": [
+          0,
+          72
+        ],
+        "method": "may_october_six_hour_change_cross_correlation_v1",
+        "quality": {
+          "correlated_year_fraction": 1.0,
+          "eligible_completed_years": 7,
+          "gates": {
+            "correlated_year_fraction": true,
+            "enough_completed_years": true,
+            "improves_on_zero_lag": true,
+            "lag_iqr": true,
+            "median_correlation": true,
+            "positive_lead_time": true,
+            "stable_year_fraction": true
+          },
+          "lag_interquartile_range_hours": 3.0,
+          "median_best_minus_zero_lag": 0.5084,
+          "median_robust_correlation": 0.7153,
+          "observed_yearly_lag_range_hours": [
+            18,
+            23
+          ],
+          "passes_quality_gates": true,
+          "recommended_lag_hours": 21.0,
+          "stable_year_fraction": 1.0
+        },
+        "quality_gate_thresholds": {
+          "maximum_lag_interquartile_range_hours": 12,
+          "maximum_stable_deviation_hours": 12,
+          "minimum_active_pairs_per_year": 800,
+          "minimum_completed_years": 3,
+          "minimum_correlated_year_fraction": 0.7,
+          "minimum_monsoon_coverage": 0.75,
+          "minimum_robust_correlation": 0.35,
+          "minimum_stable_year_fraction": 0.7,
+          "minimum_upstream_rise_events_per_year": 5,
+          "minimum_zero_lag_improvement": 0.02
+        },
+        "robustness": "Per-year six-hour changes; both-quiet pairs removed; each change series winsorised at 1% before Pearson correlation; completed monsoons fitted independently.",
+        "year_results": [
+          {
+            "best_lag_hours": 18,
+            "best_minus_zero_lag": 0.4784,
+            "best_ordinary_correlation": 0.2884,
+            "best_robust_correlation": 0.7614,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              15,
+              20
+            ],
+            "paired_changes_at_best_lag": 4307,
+            "rise_event_threshold_m_per_6h": 0.12,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 23,
+            "year": 2019,
+            "zero_lag_robust_correlation": 0.2829
+          },
+          {
+            "best_lag_hours": 18,
+            "best_minus_zero_lag": 0.278,
+            "best_ordinary_correlation": 0.679,
+            "best_robust_correlation": 0.7525,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              15,
+              20
+            ],
+            "paired_changes_at_best_lag": 3906,
+            "rise_event_threshold_m_per_6h": 0.11,
+            "upstream_monsoon_coverage": 0.9364,
+            "upstream_rise_events": 18,
+            "year": 2020,
+            "zero_lag_robust_correlation": 0.4745
+          },
+          {
+            "best_lag_hours": 20,
+            "best_minus_zero_lag": 0.5084,
+            "best_ordinary_correlation": 0.6144,
+            "best_robust_correlation": 0.7545,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9993,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              16,
+              24
+            ],
+            "paired_changes_at_best_lag": 4324,
+            "rise_event_threshold_m_per_6h": 0.1,
+            "upstream_monsoon_coverage": 0.9993,
+            "upstream_rise_events": 21,
+            "year": 2021,
+            "zero_lag_robust_correlation": 0.2461
+          },
+          {
+            "best_lag_hours": 21,
+            "best_minus_zero_lag": 0.5447,
+            "best_ordinary_correlation": 0.7378,
+            "best_robust_correlation": 0.7109,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              18,
+              24
+            ],
+            "paired_changes_at_best_lag": 4349,
+            "rise_event_threshold_m_per_6h": 0.1,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 20,
+            "year": 2022,
+            "zero_lag_robust_correlation": 0.1662
+          },
+          {
+            "best_lag_hours": 21,
+            "best_minus_zero_lag": 0.5885,
+            "best_ordinary_correlation": 0.6369,
+            "best_robust_correlation": 0.6984,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              18,
+              25
+            ],
+            "paired_changes_at_best_lag": 4270,
+            "rise_event_threshold_m_per_6h": 0.11,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 22,
+            "year": 2023,
+            "zero_lag_robust_correlation": 0.1099
+          },
+          {
+            "best_lag_hours": 23,
+            "best_minus_zero_lag": 0.443,
+            "best_ordinary_correlation": 0.6591,
+            "best_robust_correlation": 0.7153,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9989,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              19,
+              26
+            ],
+            "paired_changes_at_best_lag": 4247,
+            "rise_event_threshold_m_per_6h": 0.1,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 16,
+            "year": 2024,
+            "zero_lag_robust_correlation": 0.2722
+          },
+          {
+            "best_lag_hours": 23,
+            "best_minus_zero_lag": 0.5129,
+            "best_ordinary_correlation": 0.5998,
+            "best_robust_correlation": 0.6888,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9339,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              20,
+              27
+            ],
+            "paired_changes_at_best_lag": 3880,
+            "rise_event_threshold_m_per_6h": 0.09,
+            "upstream_monsoon_coverage": 0.9991,
+            "upstream_rise_events": 20,
+            "year": 2025,
+            "zero_lag_robust_correlation": 0.1759
+          },
+          {
+            "best_lag_hours": 27,
+            "best_minus_zero_lag": 0.4084,
+            "best_ordinary_correlation": 0.4117,
+            "best_robust_correlation": 0.4439,
+            "complete_year": false,
+            "downstream_monsoon_coverage": 0.4656,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "monsoon_year_in_progress",
+              "upstream_monsoon_coverage_below_gate",
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              23,
+              35
+            ],
+            "paired_changes_at_best_lag": 1999,
+            "rise_event_threshold_m_per_6h": 0.11,
+            "upstream_monsoon_coverage": 0.4712,
+            "upstream_rise_events": 13,
+            "year": 2026,
+            "zero_lag_robust_correlation": 0.0355
+          }
+        ]
+      },
+      "automatic_use_allowed": false,
+      "disposition": "evidence_supports_hydrology_review",
+      "downstream": {
+        "coordinates": [
+          94.25166666666667,
+          26.860555555555557
+        ],
+        "cwc_station_code": "019-UBDDIB",
+        "district": "Jorhat",
+        "river": "Brahmaputra",
+        "site_name": "Neamatighat",
+        "state": "Assam"
+      },
+      "mapping_changed": false,
+      "relationship_id": "brahmaputra-dibrugarh-to-neamatighat",
+      "topology": {
+        "basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed.",
+        "review_required": true,
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "status": "candidate_unreviewed"
+      },
+      "upstream": {
+        "coordinates": [
+          94.90972222222223,
+          27.488611111111112
+        ],
+        "cwc_station_code": "010-UBDDIB",
+        "district": "Dibrugarh",
+        "river": "Brahmaputra",
+        "site_name": "Dibrugarh",
+        "state": "Assam"
+      }
+    },
+    {
+      "analysis": {
+        "change_window_hours": 6,
+        "lag_search_hours": [
+          0,
+          72
+        ],
+        "method": "may_october_six_hour_change_cross_correlation_v1",
+        "quality": {
+          "correlated_year_fraction": 1.0,
+          "eligible_completed_years": 6,
+          "gates": {
+            "correlated_year_fraction": true,
+            "enough_completed_years": true,
+            "improves_on_zero_lag": true,
+            "lag_iqr": true,
+            "median_correlation": true,
+            "positive_lead_time": true,
+            "stable_year_fraction": true
+          },
+          "lag_interquartile_range_hours": 4.5,
+          "median_best_minus_zero_lag": 0.4353,
+          "median_robust_correlation": 0.7161,
+          "observed_yearly_lag_range_hours": [
+            22,
+            30
+          ],
+          "passes_quality_gates": true,
+          "recommended_lag_hours": 26.5,
+          "stable_year_fraction": 1.0
+        },
+        "quality_gate_thresholds": {
+          "maximum_lag_interquartile_range_hours": 12,
+          "maximum_stable_deviation_hours": 12,
+          "minimum_active_pairs_per_year": 800,
+          "minimum_completed_years": 3,
+          "minimum_correlated_year_fraction": 0.7,
+          "minimum_monsoon_coverage": 0.75,
+          "minimum_robust_correlation": 0.35,
+          "minimum_stable_year_fraction": 0.7,
+          "minimum_upstream_rise_events_per_year": 5,
+          "minimum_zero_lag_improvement": 0.02
+        },
+        "robustness": "Per-year six-hour changes; both-quiet pairs removed; each change series winsorised at 1% before Pearson correlation; completed monsoons fitted independently.",
+        "year_results": [
+          {
+            "best_lag_hours": 29,
+            "best_minus_zero_lag": 0.4548,
+            "best_ordinary_correlation": 0.7101,
+            "best_robust_correlation": 0.7771,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              25,
+              33
+            ],
+            "paired_changes_at_best_lag": 4282,
+            "rise_event_threshold_m_per_6h": 0.17,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 17,
+            "year": 2019,
+            "zero_lag_robust_correlation": 0.3222
+          },
+          {
+            "best_lag_hours": 30,
+            "best_minus_zero_lag": 0.206,
+            "best_ordinary_correlation": 0.4879,
+            "best_robust_correlation": 0.6854,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.926,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              19,
+              32
+            ],
+            "paired_changes_at_best_lag": 3769,
+            "rise_event_threshold_m_per_6h": 0.17,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 18,
+            "year": 2020,
+            "zero_lag_robust_correlation": 0.4794
+          },
+          {
+            "best_lag_hours": 24,
+            "best_minus_zero_lag": 0.4386,
+            "best_ordinary_correlation": 0.3544,
+            "best_robust_correlation": 0.7146,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.6438,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              20,
+              28
+            ],
+            "paired_changes_at_best_lag": 1985,
+            "rise_event_threshold_m_per_6h": 0.17,
+            "upstream_monsoon_coverage": 0.9993,
+            "upstream_rise_events": 16,
+            "year": 2021,
+            "zero_lag_robust_correlation": 0.276
+          },
+          {
+            "best_lag_hours": 22,
+            "best_minus_zero_lag": 0.432,
+            "best_ordinary_correlation": 0.7209,
+            "best_robust_correlation": 0.7128,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              18,
+              25
+            ],
+            "paired_changes_at_best_lag": 4356,
+            "rise_event_threshold_m_per_6h": 0.19,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 17,
+            "year": 2022,
+            "zero_lag_robust_correlation": 0.2808
+          },
+          {
+            "best_lag_hours": 28,
+            "best_minus_zero_lag": 0.5156,
+            "best_ordinary_correlation": 0.5766,
+            "best_robust_correlation": 0.7193,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              25,
+              31
+            ],
+            "paired_changes_at_best_lag": 4315,
+            "rise_event_threshold_m_per_6h": 0.18,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 16,
+            "year": 2023,
+            "zero_lag_robust_correlation": 0.2037
+          },
+          {
+            "best_lag_hours": 24,
+            "best_minus_zero_lag": 0.4386,
+            "best_ordinary_correlation": 0.7527,
+            "best_robust_correlation": 0.7668,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              22,
+              28
+            ],
+            "paired_changes_at_best_lag": 4246,
+            "rise_event_threshold_m_per_6h": 0.14,
+            "upstream_monsoon_coverage": 0.9989,
+            "upstream_rise_events": 12,
+            "year": 2024,
+            "zero_lag_robust_correlation": 0.3282
+          },
+          {
+            "best_lag_hours": 25,
+            "best_minus_zero_lag": 0.3472,
+            "best_ordinary_correlation": 0.6022,
+            "best_robust_correlation": 0.6764,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              21,
+              31
+            ],
+            "paired_changes_at_best_lag": 3870,
+            "rise_event_threshold_m_per_6h": 0.13,
+            "upstream_monsoon_coverage": 0.9339,
+            "upstream_rise_events": 18,
+            "year": 2025,
+            "zero_lag_robust_correlation": 0.3292
+          },
+          {
+            "best_lag_hours": 19,
+            "best_minus_zero_lag": 0.2032,
+            "best_ordinary_correlation": 0.6234,
+            "best_robust_correlation": 0.6481,
+            "complete_year": false,
+            "downstream_monsoon_coverage": 0.4764,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "monsoon_year_in_progress",
+              "upstream_monsoon_coverage_below_gate",
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              14,
+              23
+            ],
+            "paired_changes_at_best_lag": 1994,
+            "rise_event_threshold_m_per_6h": 0.11,
+            "upstream_monsoon_coverage": 0.4656,
+            "upstream_rise_events": 12,
+            "year": 2026,
+            "zero_lag_robust_correlation": 0.4448
+          }
+        ]
+      },
+      "automatic_use_allowed": false,
+      "disposition": "evidence_supports_hydrology_review",
+      "downstream": {
+        "coordinates": [
+          92.79730555555555,
+          26.616666666666667
+        ],
+        "cwc_station_code": "031-UBDDIB",
+        "district": "Sonitpur",
+        "river": "Brahmaputra",
+        "site_name": "Tezpur",
+        "state": "Assam"
+      },
+      "mapping_changed": false,
+      "relationship_id": "brahmaputra-neamatighat-to-tezpur",
+      "topology": {
+        "basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed.",
+        "review_required": true,
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "status": "candidate_unreviewed"
+      },
+      "upstream": {
+        "coordinates": [
+          94.25166666666667,
+          26.860555555555557
+        ],
+        "cwc_station_code": "019-UBDDIB",
+        "district": "Jorhat",
+        "river": "Brahmaputra",
+        "site_name": "Neamatighat",
+        "state": "Assam"
+      }
+    },
+    {
+      "analysis": {
+        "change_window_hours": 6,
+        "lag_search_hours": [
+          0,
+          72
+        ],
+        "method": "may_october_six_hour_change_cross_correlation_v1",
+        "quality": {
+          "correlated_year_fraction": 1.0,
+          "eligible_completed_years": 5,
+          "gates": {
+            "correlated_year_fraction": true,
+            "enough_completed_years": true,
+            "improves_on_zero_lag": true,
+            "lag_iqr": true,
+            "median_correlation": true,
+            "positive_lead_time": true,
+            "stable_year_fraction": true
+          },
+          "lag_interquartile_range_hours": 3.0,
+          "median_best_minus_zero_lag": 0.3011,
+          "median_robust_correlation": 0.775,
+          "observed_yearly_lag_range_hours": [
+            22,
+            28
+          ],
+          "passes_quality_gates": true,
+          "recommended_lag_hours": 24.0,
+          "stable_year_fraction": 1.0
+        },
+        "quality_gate_thresholds": {
+          "maximum_lag_interquartile_range_hours": 12,
+          "maximum_stable_deviation_hours": 12,
+          "minimum_active_pairs_per_year": 800,
+          "minimum_completed_years": 3,
+          "minimum_correlated_year_fraction": 0.7,
+          "minimum_monsoon_coverage": 0.75,
+          "minimum_robust_correlation": 0.35,
+          "minimum_stable_year_fraction": 0.7,
+          "minimum_upstream_rise_events_per_year": 5,
+          "minimum_zero_lag_improvement": 0.02
+        },
+        "robustness": "Per-year six-hour changes; both-quiet pairs removed; each change series winsorised at 1% before Pearson correlation; completed monsoons fitted independently.",
+        "year_results": [
+          {
+            "best_lag_hours": 30,
+            "best_minus_zero_lag": 0.1507,
+            "best_ordinary_correlation": 0.1331,
+            "best_robust_correlation": 0.3853,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.7018,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              20,
+              33
+            ],
+            "paired_changes_at_best_lag": 2984,
+            "rise_event_threshold_m_per_6h": 0.13,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 18,
+            "year": 2019,
+            "zero_lag_robust_correlation": 0.2346
+          },
+          {
+            "best_lag_hours": 23,
+            "best_minus_zero_lag": 0.2212,
+            "best_ordinary_correlation": 0.6314,
+            "best_robust_correlation": 0.8063,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              19,
+              27
+            ],
+            "paired_changes_at_best_lag": 3750,
+            "rise_event_threshold_m_per_6h": 0.12,
+            "upstream_monsoon_coverage": 0.926,
+            "upstream_rise_events": 21,
+            "year": 2020,
+            "zero_lag_robust_correlation": 0.5851
+          },
+          {
+            "best_lag_hours": 27,
+            "best_minus_zero_lag": 0.3596,
+            "best_ordinary_correlation": 0.4332,
+            "best_robust_correlation": 0.7356,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "upstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              22,
+              31
+            ],
+            "paired_changes_at_best_lag": 1924,
+            "rise_event_threshold_m_per_6h": 0.16,
+            "upstream_monsoon_coverage": 0.6438,
+            "upstream_rise_events": 14,
+            "year": 2021,
+            "zero_lag_robust_correlation": 0.376
+          },
+          {
+            "best_lag_hours": 24,
+            "best_minus_zero_lag": 0.3119,
+            "best_ordinary_correlation": 0.736,
+            "best_robust_correlation": 0.775,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              20,
+              29
+            ],
+            "paired_changes_at_best_lag": 4319,
+            "rise_event_threshold_m_per_6h": 0.15,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 18,
+            "year": 2022,
+            "zero_lag_robust_correlation": 0.4631
+          },
+          {
+            "best_lag_hours": 28,
+            "best_minus_zero_lag": 0.3378,
+            "best_ordinary_correlation": 0.5807,
+            "best_robust_correlation": 0.7641,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              23,
+              33
+            ],
+            "paired_changes_at_best_lag": 4341,
+            "rise_event_threshold_m_per_6h": 0.13,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 23,
+            "year": 2023,
+            "zero_lag_robust_correlation": 0.4263
+          },
+          {
+            "best_lag_hours": 26,
+            "best_minus_zero_lag": 0.3011,
+            "best_ordinary_correlation": 0.7908,
+            "best_robust_correlation": 0.8352,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              22,
+              30
+            ],
+            "paired_changes_at_best_lag": 4238,
+            "rise_event_threshold_m_per_6h": 0.11,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 18,
+            "year": 2024,
+            "zero_lag_robust_correlation": 0.5342
+          },
+          {
+            "best_lag_hours": 22,
+            "best_minus_zero_lag": 0.2725,
+            "best_ordinary_correlation": 0.7531,
+            "best_robust_correlation": 0.7664,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9989,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              17,
+              26
+            ],
+            "paired_changes_at_best_lag": 4270,
+            "rise_event_threshold_m_per_6h": 0.12,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 19,
+            "year": 2025,
+            "zero_lag_robust_correlation": 0.4938
+          },
+          {
+            "best_lag_hours": 37,
+            "best_minus_zero_lag": 0.4148,
+            "best_ordinary_correlation": 0.7338,
+            "best_robust_correlation": 0.7723,
+            "complete_year": false,
+            "downstream_monsoon_coverage": 0.476,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "monsoon_year_in_progress",
+              "upstream_monsoon_coverage_below_gate",
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              22,
+              41
+            ],
+            "paired_changes_at_best_lag": 2026,
+            "rise_event_threshold_m_per_6h": 0.15,
+            "upstream_monsoon_coverage": 0.4764,
+            "upstream_rise_events": 9,
+            "year": 2026,
+            "zero_lag_robust_correlation": 0.3576
+          }
+        ]
+      },
+      "automatic_use_allowed": false,
+      "disposition": "evidence_supports_hydrology_review",
+      "downstream": {
+        "coordinates": [
+          91.74305555555556,
+          26.19472222222222
+        ],
+        "cwc_station_code": "001-MBDGHY",
+        "district": "Kamrup",
+        "river": "Brahmaputra",
+        "site_name": "Guwahati(D.C.Court)",
+        "state": "Assam"
+      },
+      "mapping_changed": false,
+      "relationship_id": "brahmaputra-tezpur-to-guwahati",
+      "topology": {
+        "basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed.",
+        "review_required": true,
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "status": "candidate_unreviewed"
+      },
+      "upstream": {
+        "coordinates": [
+          92.79730555555555,
+          26.616666666666667
+        ],
+        "cwc_station_code": "031-UBDDIB",
+        "district": "Sonitpur",
+        "river": "Brahmaputra",
+        "site_name": "Tezpur",
+        "state": "Assam"
+      }
+    },
+    {
+      "analysis": {
+        "change_window_hours": 6,
+        "lag_search_hours": [
+          0,
+          72
+        ],
+        "method": "may_october_six_hour_change_cross_correlation_v1",
+        "quality": {
+          "correlated_year_fraction": 1.0,
+          "eligible_completed_years": 6,
+          "gates": {
+            "correlated_year_fraction": true,
+            "enough_completed_years": true,
+            "improves_on_zero_lag": true,
+            "lag_iqr": true,
+            "median_correlation": true,
+            "positive_lead_time": true,
+            "stable_year_fraction": true
+          },
+          "lag_interquartile_range_hours": 7.5,
+          "median_best_minus_zero_lag": 0.1343,
+          "median_robust_correlation": 0.7708,
+          "observed_yearly_lag_range_hours": [
+            14,
+            30
+          ],
+          "passes_quality_gates": true,
+          "recommended_lag_hours": 23.5,
+          "stable_year_fraction": 1.0
+        },
+        "quality_gate_thresholds": {
+          "maximum_lag_interquartile_range_hours": 12,
+          "maximum_stable_deviation_hours": 12,
+          "minimum_active_pairs_per_year": 800,
+          "minimum_completed_years": 3,
+          "minimum_correlated_year_fraction": 0.7,
+          "minimum_monsoon_coverage": 0.75,
+          "minimum_robust_correlation": 0.35,
+          "minimum_stable_year_fraction": 0.7,
+          "minimum_upstream_rise_events_per_year": 5,
+          "minimum_zero_lag_improvement": 0.02
+        },
+        "robustness": "Per-year six-hour changes; both-quiet pairs removed; each change series winsorised at 1% before Pearson correlation; completed monsoons fitted independently.",
+        "year_results": [
+          {
+            "best_lag_hours": 0,
+            "best_minus_zero_lag": 0.0,
+            "best_ordinary_correlation": 0.7962,
+            "best_robust_correlation": 0.7305,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.7018,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "upstream_monsoon_coverage_below_gate",
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              0,
+              0
+            ],
+            "paired_changes_at_best_lag": 3030,
+            "rise_event_threshold_m_per_6h": 0.18,
+            "upstream_monsoon_coverage": 0.7018,
+            "upstream_rise_events": 21,
+            "year": 2019,
+            "zero_lag_robust_correlation": 0.7305
+          },
+          {
+            "best_lag_hours": 17,
+            "best_minus_zero_lag": 0.0897,
+            "best_ordinary_correlation": 0.8254,
+            "best_robust_correlation": 0.8319,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9995,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              9,
+              25
+            ],
+            "paired_changes_at_best_lag": 4259,
+            "rise_event_threshold_m_per_6h": 0.14,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 17,
+            "year": 2020,
+            "zero_lag_robust_correlation": 0.7422
+          },
+          {
+            "best_lag_hours": 25,
+            "best_minus_zero_lag": 0.2735,
+            "best_ordinary_correlation": 0.7765,
+            "best_robust_correlation": 0.7732,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              19,
+              29
+            ],
+            "paired_changes_at_best_lag": 4221,
+            "rise_event_threshold_m_per_6h": 0.14,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 15,
+            "year": 2021,
+            "zero_lag_robust_correlation": 0.4997
+          },
+          {
+            "best_lag_hours": 14,
+            "best_minus_zero_lag": 0.088,
+            "best_ordinary_correlation": 0.767,
+            "best_robust_correlation": 0.7817,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              9,
+              25
+            ],
+            "paired_changes_at_best_lag": 4362,
+            "rise_event_threshold_m_per_6h": 0.15,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 18,
+            "year": 2022,
+            "zero_lag_robust_correlation": 0.6936
+          },
+          {
+            "best_lag_hours": 22,
+            "best_minus_zero_lag": 0.1025,
+            "best_ordinary_correlation": 0.593,
+            "best_robust_correlation": 0.7241,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              17,
+              28
+            ],
+            "paired_changes_at_best_lag": 4308,
+            "rise_event_threshold_m_per_6h": 0.14,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 21,
+            "year": 2023,
+            "zero_lag_robust_correlation": 0.6216
+          },
+          {
+            "best_lag_hours": 26,
+            "best_minus_zero_lag": 0.1661,
+            "best_ordinary_correlation": 0.7099,
+            "best_robust_correlation": 0.7683,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              20,
+              32
+            ],
+            "paired_changes_at_best_lag": 4231,
+            "rise_event_threshold_m_per_6h": 0.14,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 12,
+            "year": 2024,
+            "zero_lag_robust_correlation": 0.6022
+          },
+          {
+            "best_lag_hours": 30,
+            "best_minus_zero_lag": 0.1807,
+            "best_ordinary_correlation": 0.7359,
+            "best_robust_correlation": 0.7581,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              24,
+              34
+            ],
+            "paired_changes_at_best_lag": 4151,
+            "rise_event_threshold_m_per_6h": 0.16,
+            "upstream_monsoon_coverage": 0.9989,
+            "upstream_rise_events": 14,
+            "year": 2025,
+            "zero_lag_robust_correlation": 0.5774
+          },
+          {
+            "best_lag_hours": 25,
+            "best_minus_zero_lag": 0.2353,
+            "best_ordinary_correlation": 0.7162,
+            "best_robust_correlation": 0.7665,
+            "complete_year": false,
+            "downstream_monsoon_coverage": 0.476,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "monsoon_year_in_progress",
+              "upstream_monsoon_coverage_below_gate",
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              20,
+              29
+            ],
+            "paired_changes_at_best_lag": 2024,
+            "rise_event_threshold_m_per_6h": 0.16,
+            "upstream_monsoon_coverage": 0.476,
+            "upstream_rise_events": 11,
+            "year": 2026,
+            "zero_lag_robust_correlation": 0.5312
+          }
+        ]
+      },
+      "automatic_use_allowed": false,
+      "disposition": "evidence_supports_hydrology_review",
+      "downstream": {
+        "coordinates": [
+          90.63388888888889,
+          26.184722222222224
+        ],
+        "cwc_station_code": "002-MBDGHY",
+        "district": "Goalpara",
+        "river": "Brahmaputra",
+        "site_name": "Goalpara",
+        "state": "Assam"
+      },
+      "mapping_changed": false,
+      "relationship_id": "brahmaputra-guwahati-to-goalpara",
+      "topology": {
+        "basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed.",
+        "review_required": true,
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "status": "candidate_unreviewed"
+      },
+      "upstream": {
+        "coordinates": [
+          91.74305555555556,
+          26.19472222222222
+        ],
+        "cwc_station_code": "001-MBDGHY",
+        "district": "Kamrup",
+        "river": "Brahmaputra",
+        "site_name": "Guwahati(D.C.Court)",
+        "state": "Assam"
+      }
+    },
+    {
+      "analysis": {
+        "change_window_hours": 6,
+        "lag_search_hours": [
+          0,
+          72
+        ],
+        "method": "may_october_six_hour_change_cross_correlation_v1",
+        "quality": {
+          "correlated_year_fraction": 1.0,
+          "eligible_completed_years": 6,
+          "gates": {
+            "correlated_year_fraction": true,
+            "enough_completed_years": true,
+            "improves_on_zero_lag": true,
+            "lag_iqr": true,
+            "median_correlation": true,
+            "positive_lead_time": true,
+            "stable_year_fraction": true
+          },
+          "lag_interquartile_range_hours": 5.8,
+          "median_best_minus_zero_lag": 0.0722,
+          "median_robust_correlation": 0.822,
+          "observed_yearly_lag_range_hours": [
+            7,
+            16
+          ],
+          "passes_quality_gates": true,
+          "recommended_lag_hours": 13.0,
+          "stable_year_fraction": 1.0
+        },
+        "quality_gate_thresholds": {
+          "maximum_lag_interquartile_range_hours": 12,
+          "maximum_stable_deviation_hours": 12,
+          "minimum_active_pairs_per_year": 800,
+          "minimum_completed_years": 3,
+          "minimum_correlated_year_fraction": 0.7,
+          "minimum_monsoon_coverage": 0.75,
+          "minimum_robust_correlation": 0.35,
+          "minimum_stable_year_fraction": 0.7,
+          "minimum_upstream_rise_events_per_year": 5,
+          "minimum_zero_lag_improvement": 0.02
+        },
+        "robustness": "Per-year six-hour changes; both-quiet pairs removed; each change series winsorised at 1% before Pearson correlation; completed monsoons fitted independently.",
+        "year_results": [
+          {
+            "best_lag_hours": 0,
+            "best_minus_zero_lag": 0.0,
+            "best_ordinary_correlation": 0.8165,
+            "best_robust_correlation": 0.8614,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "upstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              0,
+              0
+            ],
+            "paired_changes_at_best_lag": 2996,
+            "rise_event_threshold_m_per_6h": 0.14,
+            "upstream_monsoon_coverage": 0.7018,
+            "upstream_rise_events": 18,
+            "year": 2019,
+            "zero_lag_robust_correlation": 0.8614
+          },
+          {
+            "best_lag_hours": 7,
+            "best_minus_zero_lag": 0.0291,
+            "best_ordinary_correlation": 0.8274,
+            "best_robust_correlation": 0.8369,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              2,
+              14
+            ],
+            "paired_changes_at_best_lag": 4240,
+            "rise_event_threshold_m_per_6h": 0.11,
+            "upstream_monsoon_coverage": 0.9995,
+            "upstream_rise_events": 20,
+            "year": 2020,
+            "zero_lag_robust_correlation": 0.8078
+          },
+          {
+            "best_lag_hours": 16,
+            "best_minus_zero_lag": 0.1657,
+            "best_ordinary_correlation": 0.8356,
+            "best_robust_correlation": 0.8332,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              12,
+              20
+            ],
+            "paired_changes_at_best_lag": 4182,
+            "rise_event_threshold_m_per_6h": 0.1,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 17,
+            "year": 2021,
+            "zero_lag_robust_correlation": 0.6675
+          },
+          {
+            "best_lag_hours": 12,
+            "best_minus_zero_lag": 0.0546,
+            "best_ordinary_correlation": 0.6563,
+            "best_robust_correlation": 0.8173,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              5,
+              18
+            ],
+            "paired_changes_at_best_lag": 4344,
+            "rise_event_threshold_m_per_6h": 0.12,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 21,
+            "year": 2022,
+            "zero_lag_robust_correlation": 0.7626
+          },
+          {
+            "best_lag_hours": 9,
+            "best_minus_zero_lag": 0.0586,
+            "best_ordinary_correlation": 0.6647,
+            "best_robust_correlation": 0.7791,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              5,
+              21
+            ],
+            "paired_changes_at_best_lag": 4280,
+            "rise_event_threshold_m_per_6h": 0.12,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 19,
+            "year": 2023,
+            "zero_lag_robust_correlation": 0.7205
+          },
+          {
+            "best_lag_hours": 16,
+            "best_minus_zero_lag": 0.0858,
+            "best_ordinary_correlation": 0.7606,
+            "best_robust_correlation": 0.8136,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              9,
+              21
+            ],
+            "paired_changes_at_best_lag": 4142,
+            "rise_event_threshold_m_per_6h": 0.12,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 15,
+            "year": 2024,
+            "zero_lag_robust_correlation": 0.7277
+          },
+          {
+            "best_lag_hours": 14,
+            "best_minus_zero_lag": 0.1333,
+            "best_ordinary_correlation": 0.8146,
+            "best_robust_correlation": 0.8267,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              9,
+              17
+            ],
+            "paired_changes_at_best_lag": 4207,
+            "rise_event_threshold_m_per_6h": 0.12,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 13,
+            "year": 2025,
+            "zero_lag_robust_correlation": 0.6933
+          },
+          {
+            "best_lag_hours": 17,
+            "best_minus_zero_lag": 0.1814,
+            "best_ordinary_correlation": 0.7612,
+            "best_robust_correlation": 0.7737,
+            "complete_year": false,
+            "downstream_monsoon_coverage": 0.4762,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "monsoon_year_in_progress",
+              "upstream_monsoon_coverage_below_gate",
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              13,
+              24
+            ],
+            "paired_changes_at_best_lag": 2005,
+            "rise_event_threshold_m_per_6h": 0.1,
+            "upstream_monsoon_coverage": 0.476,
+            "upstream_rise_events": 9,
+            "year": 2026,
+            "zero_lag_robust_correlation": 0.5924
+          }
+        ]
+      },
+      "automatic_use_allowed": false,
+      "disposition": "evidence_supports_hydrology_review",
+      "downstream": {
+        "coordinates": [
+          90.03248888888889,
+          25.990991666666666
+        ],
+        "cwc_station_code": "005-LBDJPG",
+        "district": "Dhubri",
+        "river": "Brahmaputra",
+        "site_name": "Dhubri",
+        "state": "Assam"
+      },
+      "mapping_changed": false,
+      "relationship_id": "brahmaputra-goalpara-to-dhubri",
+      "topology": {
+        "basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed.",
+        "review_required": true,
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "status": "candidate_unreviewed"
+      },
+      "upstream": {
+        "coordinates": [
+          90.63388888888889,
+          26.184722222222224
+        ],
+        "cwc_station_code": "002-MBDGHY",
+        "district": "Goalpara",
+        "river": "Brahmaputra",
+        "site_name": "Goalpara",
+        "state": "Assam"
+      }
+    },
+    {
+      "analysis": {
+        "change_window_hours": 6,
+        "lag_search_hours": [
+          0,
+          72
+        ],
+        "method": "may_october_six_hour_change_cross_correlation_v1",
+        "quality": {
+          "correlated_year_fraction": 0.0,
+          "eligible_completed_years": 7,
+          "gates": {
+            "correlated_year_fraction": false,
+            "enough_completed_years": true,
+            "improves_on_zero_lag": false,
+            "lag_iqr": false,
+            "median_correlation": false,
+            "positive_lead_time": true,
+            "stable_year_fraction": false
+          },
+          "lag_interquartile_range_hours": 16.5,
+          "median_best_minus_zero_lag": 0.0061,
+          "median_robust_correlation": 0.2622,
+          "observed_yearly_lag_range_hours": [
+            0,
+            21
+          ],
+          "passes_quality_gates": false,
+          "recommended_lag_hours": 4.0,
+          "stable_year_fraction": 0.5714
+        },
+        "quality_gate_thresholds": {
+          "maximum_lag_interquartile_range_hours": 12,
+          "maximum_stable_deviation_hours": 12,
+          "minimum_active_pairs_per_year": 800,
+          "minimum_completed_years": 3,
+          "minimum_correlated_year_fraction": 0.7,
+          "minimum_monsoon_coverage": 0.75,
+          "minimum_robust_correlation": 0.35,
+          "minimum_stable_year_fraction": 0.7,
+          "minimum_upstream_rise_events_per_year": 5,
+          "minimum_zero_lag_improvement": 0.02
+        },
+        "robustness": "Per-year six-hour changes; both-quiet pairs removed; each change series winsorised at 1% before Pearson correlation; completed monsoons fitted independently.",
+        "year_results": [
+          {
+            "best_lag_hours": 18,
+            "best_minus_zero_lag": 0.1374,
+            "best_ordinary_correlation": 0.0259,
+            "best_robust_correlation": 0.2553,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 1.0,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              15,
+              21
+            ],
+            "paired_changes_at_best_lag": 4333,
+            "rise_event_threshold_m_per_6h": 0.32,
+            "upstream_monsoon_coverage": 1.0,
+            "upstream_rise_events": 25,
+            "year": 2019,
+            "zero_lag_robust_correlation": 0.1179
+          },
+          {
+            "best_lag_hours": 0,
+            "best_minus_zero_lag": 0.0,
+            "best_ordinary_correlation": 0.2379,
+            "best_robust_correlation": 0.3004,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9364,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              0,
+              3
+            ],
+            "paired_changes_at_best_lag": 3449,
+            "rise_event_threshold_m_per_6h": 0.22,
+            "upstream_monsoon_coverage": 0.8587,
+            "upstream_rise_events": 24,
+            "year": 2020,
+            "zero_lag_robust_correlation": 0.3004
+          },
+          {
+            "best_lag_hours": 21,
+            "best_minus_zero_lag": 0.1387,
+            "best_ordinary_correlation": 0.2431,
+            "best_robust_correlation": 0.2638,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9993,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              17,
+              24
+            ],
+            "paired_changes_at_best_lag": 4236,
+            "rise_event_threshold_m_per_6h": 0.19,
+            "upstream_monsoon_coverage": 0.9975,
+            "upstream_rise_events": 23,
+            "year": 2021,
+            "zero_lag_robust_correlation": 0.125
+          },
+          {
+            "best_lag_hours": 4,
+            "best_minus_zero_lag": 0.0033,
+            "best_ordinary_correlation": 0.2434,
+            "best_robust_correlation": 0.2429,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              0,
+              13
+            ],
+            "paired_changes_at_best_lag": 4352,
+            "rise_event_threshold_m_per_6h": 0.24,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 24,
+            "year": 2022,
+            "zero_lag_robust_correlation": 0.2396
+          },
+          {
+            "best_lag_hours": 3,
+            "best_minus_zero_lag": 0.0061,
+            "best_ordinary_correlation": 0.2261,
+            "best_robust_correlation": 0.1692,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              0,
+              19
+            ],
+            "paired_changes_at_best_lag": 4293,
+            "rise_event_threshold_m_per_6h": 0.28,
+            "upstream_monsoon_coverage": 0.9998,
+            "upstream_rise_events": 21,
+            "year": 2023,
+            "zero_lag_robust_correlation": 0.1632
+          },
+          {
+            "best_lag_hours": 0,
+            "best_minus_zero_lag": 0.0,
+            "best_ordinary_correlation": 0.2811,
+            "best_robust_correlation": 0.2622,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9998,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              0,
+              17
+            ],
+            "paired_changes_at_best_lag": 4307,
+            "rise_event_threshold_m_per_6h": 0.23,
+            "upstream_monsoon_coverage": 0.9989,
+            "upstream_rise_events": 19,
+            "year": 2024,
+            "zero_lag_robust_correlation": 0.2622
+          },
+          {
+            "best_lag_hours": 18,
+            "best_minus_zero_lag": 0.0474,
+            "best_ordinary_correlation": 0.2863,
+            "best_robust_correlation": 0.2624,
+            "complete_year": true,
+            "downstream_monsoon_coverage": 0.9991,
+            "eligible_for_stability": true,
+            "ineligible_reasons": [],
+            "near_best_lag_range_hours": [
+              12,
+              20
+            ],
+            "paired_changes_at_best_lag": 3938,
+            "rise_event_threshold_m_per_6h": 0.22,
+            "upstream_monsoon_coverage": 0.9309,
+            "upstream_rise_events": 16,
+            "year": 2025,
+            "zero_lag_robust_correlation": 0.215
+          },
+          {
+            "best_lag_hours": 11,
+            "best_minus_zero_lag": 0.0561,
+            "best_ordinary_correlation": 0.1091,
+            "best_robust_correlation": 0.1486,
+            "complete_year": false,
+            "downstream_monsoon_coverage": 0.4712,
+            "eligible_for_stability": false,
+            "ineligible_reasons": [
+              "monsoon_year_in_progress",
+              "upstream_monsoon_coverage_below_gate",
+              "downstream_monsoon_coverage_below_gate"
+            ],
+            "near_best_lag_range_hours": [
+              6,
+              14
+            ],
+            "paired_changes_at_best_lag": 2036,
+            "rise_event_threshold_m_per_6h": 0.23,
+            "upstream_monsoon_coverage": 0.4706,
+            "upstream_rise_events": 9,
+            "year": 2026,
+            "zero_lag_robust_correlation": 0.0924
+          }
+        ]
+      },
+      "automatic_use_allowed": false,
+      "disposition": "insufficient_or_unstable_signal",
+      "downstream": {
+        "coordinates": [
+          94.90972222222223,
+          27.488611111111112
+        ],
+        "cwc_station_code": "010-UBDDIB",
+        "district": "Dibrugarh",
+        "river": "Brahmaputra",
+        "site_name": "Dibrugarh",
+        "state": "Assam"
+      },
+      "mapping_changed": false,
+      "relationship_id": "nao-dehing-namsai-to-brahmaputra-dibrugarh",
+      "topology": {
+        "basis": "Namsai is on the Nao Dehing and Dibrugarh is on the Brahmaputra. This is an exploratory cross-river hypothesis only; it does not establish a direct reach, confluence timing, or warning relationship.",
+        "review_required": true,
+        "reviewed_at": null,
+        "reviewed_by": null,
+        "status": "hypothesis_unverified"
+      },
+      "upstream": {
+        "coordinates": [
+          95.84805555555555,
+          27.635555555555555
+        ],
+        "cwc_station_code": "009-UBDDIB",
+        "district": "Namsai",
+        "river": "Nao Dehing",
+        "site_name": "Namsai",
+        "state": "Arunachal Pradesh"
+      }
+    }
+  ],
+  "relationships_supporting_review": 7,
+  "review_only": true,
+  "review_queue": "upstream_gauge_lag_candidates",
+  "schema_version": 1,
+  "source": {
+    "candidate_configuration": {
+      "path": "config/upstream-gauge-candidates.json",
+      "sha256": "ce3a92eff3a00e6275179e6a8824b71c4737014640de5f4b299a9afa34963db2"
+    },
+    "datatype": "HHS reduced level in metres above mean sea level",
+    "endpoint": "/iam/api/new-entry-data/specification/",
+    "history": {
+      "001-MBDGHY": {
+        "ambiguous_timestamp_examples": [],
+        "ambiguous_timestamps": 0,
+        "corrections_applied": 0,
+        "duplicate_rows_collapsed": 0,
+        "first_observed_at": "2019-01-01T08:00:00+05:30",
+        "foreign_datatype_rows": 0,
+        "implausible_rows": 235,
+        "last_observed_at": "2026-07-27T14:00:00+05:30",
+        "malformed_rows": 23,
+        "observations_accepted": 35493,
+        "rows_seen": 35751,
+        "source_path": "data/cache/cwc-history/001-MBDGHY.json",
+        "source_sha256": "aca5aa304ffd222a0dbbc9fa35c3f1e0806bc4b778da1f5edfa0b0963a5dec07",
+        "station_code": "001-MBDGHY",
+        "wrong_station_rows": 0
+      },
+      "002-MBDGHY": {
+        "ambiguous_timestamp_examples": [],
+        "ambiguous_timestamps": 0,
+        "corrections_applied": 0,
+        "duplicate_rows_collapsed": 0,
+        "first_observed_at": "2019-01-01T08:00:00+05:30",
+        "foreign_datatype_rows": 0,
+        "implausible_rows": 136,
+        "last_observed_at": "2026-07-27T14:00:00+05:30",
+        "malformed_rows": 23,
+        "observations_accepted": 35409,
+        "rows_seen": 35568,
+        "source_path": "data/cache/cwc-history/002-MBDGHY.json",
+        "source_sha256": "fed7d63402903308ac17d415d09dd3b892b0bf25930a5ee7d5c0d1939308e0e0",
+        "station_code": "002-MBDGHY",
+        "wrong_station_rows": 0
+      },
+      "005-LBDJPG": {
+        "ambiguous_timestamp_examples": [],
+        "ambiguous_timestamps": 0,
+        "corrections_applied": 0,
+        "duplicate_rows_collapsed": 0,
+        "first_observed_at": "2019-01-01T08:00:00+05:30",
+        "foreign_datatype_rows": 0,
+        "implausible_rows": 220,
+        "last_observed_at": "2026-07-27T15:00:00+05:30",
+        "malformed_rows": 25,
+        "observations_accepted": 36858,
+        "rows_seen": 37103,
+        "source_path": "data/cache/cwc-history/005-LBDJPG.json",
+        "source_sha256": "d6dd981ed0315aa3da741a59bc177923af92cf0ff2145ec3aa0a39353c1218d8",
+        "station_code": "005-LBDJPG",
+        "wrong_station_rows": 0
+      },
+      "005-UBDDIB": {
+        "ambiguous_timestamp_examples": [],
+        "ambiguous_timestamps": 0,
+        "corrections_applied": 0,
+        "duplicate_rows_collapsed": 0,
+        "first_observed_at": "2019-01-01T08:00:00+05:30",
+        "foreign_datatype_rows": 0,
+        "implausible_rows": 0,
+        "last_observed_at": "2026-07-27T15:00:00+05:30",
+        "malformed_rows": 0,
+        "observations_accepted": 36285,
+        "rows_seen": 36285,
+        "source_path": "data/cache/cwc-history/005-UBDDIB.json",
+        "source_sha256": "5493733f20fd1930a064f0295cafb8aa3757a4312653dfc16542a60f86ea231f",
+        "station_code": "005-UBDDIB",
+        "wrong_station_rows": 0
+      },
+      "009-UBDDIB": {
+        "ambiguous_timestamp_examples": [],
+        "ambiguous_timestamps": 0,
+        "corrections_applied": 0,
+        "duplicate_rows_collapsed": 0,
+        "first_observed_at": "2019-01-01T08:00:00+05:30",
+        "foreign_datatype_rows": 0,
+        "implausible_rows": 0,
+        "last_observed_at": "2026-07-27T15:00:00+05:30",
+        "malformed_rows": 0,
+        "observations_accepted": 36137,
+        "rows_seen": 36137,
+        "source_path": "data/cache/cwc-history/009-UBDDIB.json",
+        "source_sha256": "314d40cf565cd34a7abede87ee0368bf229dc66c74e7be17f2277a552f28e2ba",
+        "station_code": "009-UBDDIB",
+        "wrong_station_rows": 0
+      },
+      "009NEID3": {
+        "ambiguous_timestamp_examples": [],
+        "ambiguous_timestamps": 0,
+        "corrections_applied": 0,
+        "duplicate_rows_collapsed": 0,
+        "first_observed_at": "2019-01-01T08:00:00+05:30",
+        "foreign_datatype_rows": 0,
+        "implausible_rows": 621,
+        "last_observed_at": "2026-07-27T15:00:00+05:30",
+        "malformed_rows": 0,
+        "observations_accepted": 36917,
+        "rows_seen": 37538,
+        "source_path": "data/cache/cwc-history/009NEID3.json",
+        "source_sha256": "ad2b59a9dc95f38d5e1c6ccfc661702da938d20d7090df8fda0fbd24844308fc",
+        "station_code": "009NEID3",
+        "wrong_station_rows": 0
+      },
+      "010-UBDDIB": {
+        "ambiguous_timestamp_examples": [],
+        "ambiguous_timestamps": 0,
+        "corrections_applied": 0,
+        "duplicate_rows_collapsed": 0,
+        "first_observed_at": "2019-01-01T08:00:00+05:30",
+        "foreign_datatype_rows": 0,
+        "implausible_rows": 0,
+        "last_observed_at": "2026-07-27T16:00:00+05:30",
+        "malformed_rows": 0,
+        "observations_accepted": 36826,
+        "rows_seen": 36826,
+        "source_path": "data/cache/cwc-history/010-UBDDIB.json",
+        "source_sha256": "d07f1f832e29d4d67bc254c035cc38d148c80106151df33a40cc9494aec73851",
+        "station_code": "010-UBDDIB",
+        "wrong_station_rows": 0
+      },
+      "019-UBDDIB": {
+        "ambiguous_timestamp_examples": [],
+        "ambiguous_timestamps": 0,
+        "corrections_applied": 0,
+        "duplicate_rows_collapsed": 0,
+        "first_observed_at": "2019-01-01T08:00:00+05:30",
+        "foreign_datatype_rows": 0,
+        "implausible_rows": 0,
+        "last_observed_at": "2026-07-27T16:00:00+05:30",
+        "malformed_rows": 0,
+        "observations_accepted": 36767,
+        "rows_seen": 36767,
+        "source_path": "data/cache/cwc-history/019-UBDDIB.json",
+        "source_sha256": "b1e00fd86dff29a251cc37b1c3d729eb685c7d6db678bc39623479a85c9537e0",
+        "station_code": "019-UBDDIB",
+        "wrong_station_rows": 0
+      },
+      "031-UBDDIB": {
+        "ambiguous_timestamp_examples": [],
+        "ambiguous_timestamps": 0,
+        "corrections_applied": 0,
+        "duplicate_rows_collapsed": 0,
+        "first_observed_at": "2019-01-01T08:00:00+05:30",
+        "foreign_datatype_rows": 0,
+        "implausible_rows": 0,
+        "last_observed_at": "2026-07-27T16:00:00+05:30",
+        "malformed_rows": 2,
+        "observations_accepted": 35077,
+        "rows_seen": 35079,
+        "source_path": "data/cache/cwc-history/031-UBDDIB.json",
+        "source_sha256": "3b9a01a1cc41d2c090ec8e91a48b5351174dad9aa3fd38649a16d14e03b3a730",
+        "station_code": "031-UBDDIB",
+        "wrong_station_rows": 0
+      }
+    },
+    "name": "CWC Flood Forecasting System"
+  }
+}

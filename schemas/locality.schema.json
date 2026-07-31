@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/locality-v1.json",
+  "title": "Revenue-circle alert locality",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "provenance",
+    "localities"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "localities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "assamese_review",
+          "boundary_geojson_ref",
+          "census_2011_district",
+          "centroid",
+          "district",
+          "district_assignment",
+          "district_slug",
+          "flood_threshold_confidence",
+          "flood_threshold_m",
+          "flood_threshold_n_events",
+          "locality_id",
+          "name_as",
+          "name_en",
+          "primary_gauge",
+          "primary_gauge_mapping",
+          "revenue_circle",
+          "schema_version"
+        ],
+        "properties": {
+          "schema_version": {
+            "const": 1
+          },
+          "locality_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name_en": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name_as": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "assamese_review": {
+            "type": "object",
+            "required": [
+              "reviewed",
+              "reviewed_by",
+              "reviewed_at"
+            ],
+            "properties": {
+              "reviewed": {
+                "type": "boolean"
+              },
+              "reviewed_by": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reviewed_at": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "district": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revenue_circle": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_aliases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "centroid": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "items": false
+          },
+          "centroid_method": {
+            "type": "string"
+          },
+          "boundary_geojson_ref": {
+            "type": "null"
+          },
+          "primary_gauge": {
+            "type": "string",
+            "minLength": 1
+          },
+          "primary_gauge_mapping": {
+            "type": "object",
+            "required": [
+              "confidence",
+              "basis",
+              "method",
+              "reviewed",
+              "distance_km",
+              "nearest_gauge_km",
+              "far",
+              "much_nearer_gauge_exists"
+            ],
+            "properties": {
+              "confidence": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "unverified"
+                ]
+              },
+              "basis": {
+                "type": "string",
+                "minLength": 1
+              },
+              "method": {
+                "const": "manual_river_topology"
+              },
+              "reviewed": {
+                "type": "boolean"
+              },
+              "claimed_confidence": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "unverified"
+                ],
+                "description": "The mapping table's own claim, before the distance audit."
+              },
+              "distance_km": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "description": "Kilometres from the circle centroid to the assigned gauge."
+              },
+              "nearest_gauge": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "nearest_gauge_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "nearest_gauge_km": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "far": {
+                "type": "boolean",
+                "description": "Assigned gauge is beyond the review threshold."
+              },
+              "much_nearer_gauge_exists": {
+                "type": "boolean",
+                "description": "A different gauge is materially closer than the assigned one."
+              }
+            },
+            "description": "Which gauge this circle reads from, and how much that mapping has been checked. `confidence` is the audited value: the distance audit in scripts/audit_gauge_mappings.py can demote a claim but never promote one, so `claimed_confidence` keeps what the mapping table asserted before the audit ran. `reviewed` is true only for an audited confidence of high."
+          },
+          "population_estimate": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "flood_threshold_m": {
+            "type": "null"
+          },
+          "flood_threshold_confidence": {
+            "type": "null"
+          },
+          "flood_threshold_n_events": {
+            "type": "null"
+          },
+          "district_slug": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Canonical registry slug for the current district, or null when the source spelling is unknown to config/assam-districts.json."
+          },
+          "census_2011_district": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The district this circle was filed under in the 2011 Census, or null for an explicitly sourced current-administration supplement."
+          },
+          "district_assignment": {
+            "type": "object",
+            "description": "How the current district was decided. Districts created after 2011 are reassigned only from an administration's own published revenue-circle list, never inferred from a name or a coordinate.",
+            "required": [
+              "method",
+              "confidence",
+              "reviewed"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "method": {
+                "enum": [
+                  "census_2011_parent",
+                  "post_2011_district_reassignment",
+                  "current_district_administration"
+                ]
+              },
+              "source_url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confidence": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "unverified"
+                ]
+              },
+              "reviewed": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

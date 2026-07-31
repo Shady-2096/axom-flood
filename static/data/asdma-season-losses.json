@@ -1,0 +1,650 @@
+{
+  "as_of_date": "2026-07-28",
+  "coverage": {
+    "daily_report_end_date": "2026-07-28",
+    "daily_report_start_date": "2026-05-01",
+    "daily_reports_reviewed": 88,
+    "reports": [
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-01",
+        "revision_id": "424914bcd4edb39e8c49d8b8a09d6577b155c30a0e4ef1906f49985f90b48096",
+        "source_artifact_url": "data/asdma-source/424914bcd4edb39e8c49d8b8a09d6577b155c30a0e4ef1906f49985f90b48096.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-02",
+        "revision_id": "a303c712bcbe1b974e9ab2d4873b6903379aca4aa462dcdc60bdd8a61606d2a8",
+        "source_artifact_url": "data/asdma-source/a303c712bcbe1b974e9ab2d4873b6903379aca4aa462dcdc60bdd8a61606d2a8.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-03",
+        "revision_id": "6986316b5ae1c87353acb85cf79c4d6f0235acae9e6ef33e50553aa7efe3a6c8",
+        "source_artifact_url": "data/asdma-source/6986316b5ae1c87353acb85cf79c4d6f0235acae9e6ef33e50553aa7efe3a6c8.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-04",
+        "revision_id": "912b2805eb8e91a7085cd3d6a55e3f05a4cdcda0906d2730f4aa6667445ae267",
+        "source_artifact_url": "data/asdma-source/912b2805eb8e91a7085cd3d6a55e3f05a4cdcda0906d2730f4aa6667445ae267.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-05",
+        "revision_id": "f4325947cda351194734700bae1513f6f313d386f9b38fa53db36e3926b1a79a",
+        "source_artifact_url": "data/asdma-source/f4325947cda351194734700bae1513f6f313d386f9b38fa53db36e3926b1a79a.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-06",
+        "revision_id": "03b55ac9a7200b792e5cee10d402d8285ea2d77f3c7d9d509971812c882a276e",
+        "source_artifact_url": "data/asdma-source/03b55ac9a7200b792e5cee10d402d8285ea2d77f3c7d9d509971812c882a276e.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-07",
+        "revision_id": "5125d5812fcea3a5c1c8aa6335dde3678ab54b81b82e139c7fa6621c3924b137",
+        "source_artifact_url": "data/asdma-source/5125d5812fcea3a5c1c8aa6335dde3678ab54b81b82e139c7fa6621c3924b137.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-08",
+        "revision_id": "000ac4fd61b683ca683c785d4a078f7ed23141df8d2bc70a5ce56568e9919732",
+        "source_artifact_url": "data/asdma-source/000ac4fd61b683ca683c785d4a078f7ed23141df8d2bc70a5ce56568e9919732.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-09",
+        "revision_id": "942334baff34a15316d1ab94914f02e06a166dfa5e8b33ca3afc99f62b68e2c5",
+        "source_artifact_url": "data/asdma-source/942334baff34a15316d1ab94914f02e06a166dfa5e8b33ca3afc99f62b68e2c5.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-10",
+        "revision_id": "9401ebc3ffc09557b179cc4ebc9cd42c98956deab8732d9fbde4d1637eb198f8",
+        "source_artifact_url": "data/asdma-source/9401ebc3ffc09557b179cc4ebc9cd42c98956deab8732d9fbde4d1637eb198f8.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-11",
+        "revision_id": "6f6240ba7818fb84d2d329a4e40e7f457e4ccd7ceec165ecd406190b99e1f86d",
+        "source_artifact_url": "data/asdma-source/6f6240ba7818fb84d2d329a4e40e7f457e4ccd7ceec165ecd406190b99e1f86d.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-12",
+        "revision_id": "9bb4d3de641d9d7a3c478f5df14dfd863165ea82d7a39693a23e56c6597d0f9d",
+        "source_artifact_url": "data/asdma-source/9bb4d3de641d9d7a3c478f5df14dfd863165ea82d7a39693a23e56c6597d0f9d.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-13",
+        "revision_id": "7551056148f9be1ba24a1f15412438c8321eb38e254ee579977856eae47fbb7e",
+        "source_artifact_url": "data/asdma-source/7551056148f9be1ba24a1f15412438c8321eb38e254ee579977856eae47fbb7e.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-14",
+        "revision_id": "fd9d1c0ca41712bd8182586304c82be41e089a5e563ae21ecabb27245f75f4ae",
+        "source_artifact_url": "data/asdma-source/fd9d1c0ca41712bd8182586304c82be41e089a5e563ae21ecabb27245f75f4ae.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-15",
+        "revision_id": "4c255ba6ce202db4370da15fd0e191b45ffb69b945844388a79c4ab7d6c8ca8f",
+        "source_artifact_url": "data/asdma-source/4c255ba6ce202db4370da15fd0e191b45ffb69b945844388a79c4ab7d6c8ca8f.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-16",
+        "revision_id": "30fc4f481f0c19eb5e4896d01e3cdefd5d02f9dc00eca0a9481442e4c31aad97",
+        "source_artifact_url": "data/asdma-source/30fc4f481f0c19eb5e4896d01e3cdefd5d02f9dc00eca0a9481442e4c31aad97.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-17",
+        "revision_id": "95e58df9ce6d5cc897d5b5334b99c12cfeb6400e4b8abcdb0d622557804c223c",
+        "source_artifact_url": "data/asdma-source/95e58df9ce6d5cc897d5b5334b99c12cfeb6400e4b8abcdb0d622557804c223c.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-18",
+        "revision_id": "419a392e72d04b5e84a2f1d28519a8f6ea23240a930c3d13f8e7faa18f62c9da",
+        "source_artifact_url": "data/asdma-source/419a392e72d04b5e84a2f1d28519a8f6ea23240a930c3d13f8e7faa18f62c9da.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-19",
+        "revision_id": "9b6a939815646074d78db588871d24db1a43948118c5a0ca27e58069229b3806",
+        "source_artifact_url": "data/asdma-source/9b6a939815646074d78db588871d24db1a43948118c5a0ca27e58069229b3806.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-20",
+        "revision_id": "6f5b29886c00d148b4cb3fdefad3bf7052080ecddad001c7e897145d727589b3",
+        "source_artifact_url": "data/asdma-source/6f5b29886c00d148b4cb3fdefad3bf7052080ecddad001c7e897145d727589b3.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-21",
+        "revision_id": "d302b438e6e795f137b43ce355a8f0a4fba6d73456e671d7634bfae11bddb7e1",
+        "source_artifact_url": "data/asdma-source/d302b438e6e795f137b43ce355a8f0a4fba6d73456e671d7634bfae11bddb7e1.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-22",
+        "revision_id": "391c428892ab4e4f09ce5c018ac4891e147aa0bc6e969c6a788e5c1338ed2a70",
+        "source_artifact_url": "data/asdma-source/391c428892ab4e4f09ce5c018ac4891e147aa0bc6e969c6a788e5c1338ed2a70.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-23",
+        "revision_id": "d7c73803235a9e0d273c6ea259d217bf26b9888a91eb104246a4ea751976e0db",
+        "source_artifact_url": "data/asdma-source/d7c73803235a9e0d273c6ea259d217bf26b9888a91eb104246a4ea751976e0db.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-24",
+        "revision_id": "13f426d3bb09e1bbfa71ae60f89c8e3fe71e3bda9876c939086254d374f77daa",
+        "source_artifact_url": "data/asdma-source/13f426d3bb09e1bbfa71ae60f89c8e3fe71e3bda9876c939086254d374f77daa.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-25",
+        "revision_id": "da154dca66d4841532f4222ac854249f4c08649ee24a82091148eebf99760b5f",
+        "source_artifact_url": "data/asdma-source/da154dca66d4841532f4222ac854249f4c08649ee24a82091148eebf99760b5f.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-26",
+        "revision_id": "ba7c2504cc7282aa83ac0190d85779294d1b61e65da10df7cd667807cbdd40a0",
+        "source_artifact_url": "data/asdma-source/ba7c2504cc7282aa83ac0190d85779294d1b61e65da10df7cd667807cbdd40a0.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-27",
+        "revision_id": "ef41621a9d5589abbba4dea3367b22e7758d2e275d6003fdd2ebefa3a47b8934",
+        "source_artifact_url": "data/asdma-source/ef41621a9d5589abbba4dea3367b22e7758d2e275d6003fdd2ebefa3a47b8934.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-28",
+        "revision_id": "66afec04ff7c5a104bc37464b485359a511f58a8c5ae2d61ff043b7d2903dba5",
+        "source_artifact_url": "data/asdma-source/66afec04ff7c5a104bc37464b485359a511f58a8c5ae2d61ff043b7d2903dba5.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-29",
+        "revision_id": "8b2fddef322b9188e14c3569261e885e7df4063888795cc4d7b3dd2632cb64f2",
+        "source_artifact_url": "data/asdma-source/8b2fddef322b9188e14c3569261e885e7df4063888795cc4d7b3dd2632cb64f2.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-05-31",
+        "revision_id": "db16a0500f905caad91023e44fa1c27a17b28f6f4a00cd6656d2e04552b60d6f",
+        "source_artifact_url": "data/asdma-source/db16a0500f905caad91023e44fa1c27a17b28f6f4a00cd6656d2e04552b60d6f.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-01",
+        "revision_id": "20d21810c266de33137c2b5992a44e04120fb000c41c88a2355bd41e9dcdfcce",
+        "source_artifact_url": "data/asdma-source/20d21810c266de33137c2b5992a44e04120fb000c41c88a2355bd41e9dcdfcce.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-02",
+        "revision_id": "3bf9f1e0c50f379e431df27b56bacefef11b7ea7c5b21f74e95c6aa54087cf6d",
+        "source_artifact_url": "data/asdma-source/3bf9f1e0c50f379e431df27b56bacefef11b7ea7c5b21f74e95c6aa54087cf6d.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-03",
+        "revision_id": "bad7f8018eab5532681ff4756eb9d44a6033442ef6b6196b2368b59465d8a9a5",
+        "source_artifact_url": "data/asdma-source/bad7f8018eab5532681ff4756eb9d44a6033442ef6b6196b2368b59465d8a9a5.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-04",
+        "revision_id": "85a2fc50466bce8cd24fc72dbac0844dddc406aaf48c0324ffedc6a8c9ad45bb",
+        "source_artifact_url": "data/asdma-source/85a2fc50466bce8cd24fc72dbac0844dddc406aaf48c0324ffedc6a8c9ad45bb.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-05",
+        "revision_id": "3efa1c3414bf8bbb0a9c60c29c6992c0310d1dd44c45d3bb5907b23e2c7e031b",
+        "source_artifact_url": "data/asdma-source/3efa1c3414bf8bbb0a9c60c29c6992c0310d1dd44c45d3bb5907b23e2c7e031b.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-06",
+        "revision_id": "7b4757b5ed8da3d42c95e6ef431e671046749d94941624921af921ed46cf9197",
+        "source_artifact_url": "data/asdma-source/7b4757b5ed8da3d42c95e6ef431e671046749d94941624921af921ed46cf9197.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-07",
+        "revision_id": "c3aa93a86187f98a5902f7d5c6a383126c0a7821d62f1b0725a4c309b612c8db",
+        "source_artifact_url": "data/asdma-source/c3aa93a86187f98a5902f7d5c6a383126c0a7821d62f1b0725a4c309b612c8db.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-08",
+        "revision_id": "6c74e4adfc095c5c40576888c2624517782f2fd51f38728f43bff221b8d3c62a",
+        "source_artifact_url": "data/asdma-source/6c74e4adfc095c5c40576888c2624517782f2fd51f38728f43bff221b8d3c62a.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-09",
+        "revision_id": "f0f78dcfff9d2ec6dff0224798648b1753d247f32e24ced812b0c86bebe43471",
+        "source_artifact_url": "data/asdma-source/f0f78dcfff9d2ec6dff0224798648b1753d247f32e24ced812b0c86bebe43471.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-10",
+        "revision_id": "3b8e4814c5d8fb0bf69113675d61675215f5bf2cf1f38d53a8f5b29eda4f2b00",
+        "source_artifact_url": "data/asdma-source/3b8e4814c5d8fb0bf69113675d61675215f5bf2cf1f38d53a8f5b29eda4f2b00.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-11",
+        "revision_id": "9a335e0a0413f722435a1d63aa117d7f824d0fa0f03946ffb5183a430076c1ce",
+        "source_artifact_url": "data/asdma-source/9a335e0a0413f722435a1d63aa117d7f824d0fa0f03946ffb5183a430076c1ce.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-12",
+        "revision_id": "f551d4c22dfbd75d4788d2df9a70daaea6305d8d68713f4b08ae625066ffb6f1",
+        "source_artifact_url": "data/asdma-source/f551d4c22dfbd75d4788d2df9a70daaea6305d8d68713f4b08ae625066ffb6f1.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-13",
+        "revision_id": "26e04d5248dfacb65e80cb5ba2b4c44e77a0a6f1239cd192229abfc00e49d263",
+        "source_artifact_url": "data/asdma-source/26e04d5248dfacb65e80cb5ba2b4c44e77a0a6f1239cd192229abfc00e49d263.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-14",
+        "revision_id": "8d9921473ac37a638c964fe8655ccb73be55a0880ee39626af7544b39a249cdb",
+        "source_artifact_url": "data/asdma-source/8d9921473ac37a638c964fe8655ccb73be55a0880ee39626af7544b39a249cdb.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-15",
+        "revision_id": "6bb385cca749e946760a90734861887e9b1311737c5bcb915d74ed1d12ec8af9",
+        "source_artifact_url": "data/asdma-source/6bb385cca749e946760a90734861887e9b1311737c5bcb915d74ed1d12ec8af9.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-16",
+        "revision_id": "4e8c40689b6a6daa9c7b831ef77bb239ae74fd12231012c1aaf84cc5b09f2ce6",
+        "source_artifact_url": "data/asdma-source/4e8c40689b6a6daa9c7b831ef77bb239ae74fd12231012c1aaf84cc5b09f2ce6.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-17",
+        "revision_id": "4f9c64360959d2b0840607dd230617bbb30eecd8a2437bb8473c5c8ec2ae37cb",
+        "source_artifact_url": "data/asdma-source/4f9c64360959d2b0840607dd230617bbb30eecd8a2437bb8473c5c8ec2ae37cb.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-18",
+        "revision_id": "c0a3f0124d1831e03913eda899951d01f99c694cf9d6a703382852db8f74de41",
+        "source_artifact_url": "data/asdma-source/c0a3f0124d1831e03913eda899951d01f99c694cf9d6a703382852db8f74de41.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-19",
+        "revision_id": "3eb4c197db829cc916e13936c19c5251379838573d4a942370a16bf091926bfb",
+        "source_artifact_url": "data/asdma-source/3eb4c197db829cc916e13936c19c5251379838573d4a942370a16bf091926bfb.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 1,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-20",
+        "revision_id": "812e4130ffa4d13c14d2bc4bfae1dcd1f1aae81e10c794a5f9cbab0d9903dc4a",
+        "source_artifact_url": "data/asdma-source/812e4130ffa4d13c14d2bc4bfae1dcd1f1aae81e10c794a5f9cbab0d9903dc4a.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-21",
+        "revision_id": "bbe154aa8217d1cb9914e645ddc7affdfb74dcbfd972197d8da868469a822f68",
+        "source_artifact_url": "data/asdma-source/bbe154aa8217d1cb9914e645ddc7affdfb74dcbfd972197d8da868469a822f68.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-22",
+        "revision_id": "177c2b3a1ae619c72fd86b02035dce0e6ffb97221ad435f623c364b8872537ff",
+        "source_artifact_url": "data/asdma-source/177c2b3a1ae619c72fd86b02035dce0e6ffb97221ad435f623c364b8872537ff.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-23",
+        "revision_id": "71ad66ca7734c52edfc56ef4d02cf32ed923d7a0057a12232fba1759f7fa29ad",
+        "source_artifact_url": "data/asdma-source/71ad66ca7734c52edfc56ef4d02cf32ed923d7a0057a12232fba1759f7fa29ad.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-24",
+        "revision_id": "8925ea713576704e36a5868848decb52212a82d50f694445c9bd92eb31dfd714",
+        "source_artifact_url": "data/asdma-source/8925ea713576704e36a5868848decb52212a82d50f694445c9bd92eb31dfd714.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-25",
+        "revision_id": "59febddc915a7d5e2843e1c899f6142a13be282dbd93ccd825adfa92ec3bd1aa",
+        "source_artifact_url": "data/asdma-source/59febddc915a7d5e2843e1c899f6142a13be282dbd93ccd825adfa92ec3bd1aa.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-26",
+        "revision_id": "23be6e9131339ae281a5a09404c9af532d5f72cf535cdee9e9e05dde07a9ae59",
+        "source_artifact_url": "data/asdma-source/23be6e9131339ae281a5a09404c9af532d5f72cf535cdee9e9e05dde07a9ae59.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-27",
+        "revision_id": "348b9304e03d7ed8e983400966b2b1f09a75b88a2e3d360af5a1f91ede206260",
+        "source_artifact_url": "data/asdma-source/348b9304e03d7ed8e983400966b2b1f09a75b88a2e3d360af5a1f91ede206260.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-28",
+        "revision_id": "6ef230141ecd237b2f2c94b900d577983d702f71310b4bb070f36b00ba98fd5f",
+        "source_artifact_url": "data/asdma-source/6ef230141ecd237b2f2c94b900d577983d702f71310b4bb070f36b00ba98fd5f.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 1,
+        "report_date": "2026-06-29",
+        "revision_id": "42e8ef7922b5821fabf217b0880e12bb36c87d801d532152a57ebfe3979322dc",
+        "source_artifact_url": "data/asdma-source/42e8ef7922b5821fabf217b0880e12bb36c87d801d532152a57ebfe3979322dc.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 1,
+        "newly_reported_missing": 0,
+        "report_date": "2026-06-30",
+        "revision_id": "e825428dc446ae572d9f09cbaeeb6c4615298c86c0feebb15dc7805e7735d7f9",
+        "source_artifact_url": "data/asdma-source/e825428dc446ae572d9f09cbaeeb6c4615298c86c0feebb15dc7805e7735d7f9.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-01",
+        "revision_id": "0303f5d665b34ed8975d3b34150c4bf20f1212b31e117fa5ce9625b7b5b3a807",
+        "source_artifact_url": "data/asdma-source/0303f5d665b34ed8975d3b34150c4bf20f1212b31e117fa5ce9625b7b5b3a807.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-02",
+        "revision_id": "ec0b0a05636e49cef009a7aa8353ac16ec4793031152d7490a1b9fc5de94e33c",
+        "source_artifact_url": "data/asdma-source/ec0b0a05636e49cef009a7aa8353ac16ec4793031152d7490a1b9fc5de94e33c.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-03",
+        "revision_id": "28a633873b95d9dd5ec9acee6929732bfbaf8c1008dba34f5e25f29bc0ffe5b7",
+        "source_artifact_url": "data/asdma-source/28a633873b95d9dd5ec9acee6929732bfbaf8c1008dba34f5e25f29bc0ffe5b7.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 1,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-04",
+        "revision_id": "6ee82cde95e2de118debd41b4537d2104fbb440eed4341b6a6f934a24abfb915",
+        "source_artifact_url": "data/asdma-source/6ee82cde95e2de118debd41b4537d2104fbb440eed4341b6a6f934a24abfb915.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-05",
+        "revision_id": "6dbd9fec3d3dbc7c21479000206f9d682e9b6d1386c412064fab666c7339c89e",
+        "source_artifact_url": "data/asdma-source/6dbd9fec3d3dbc7c21479000206f9d682e9b6d1386c412064fab666c7339c89e.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-06",
+        "revision_id": "9fa0e6e89a9d5e62affa4341236140b3dda989a8bfd9ab754f1a31799dc1ef6d",
+        "source_artifact_url": "data/asdma-source/9fa0e6e89a9d5e62affa4341236140b3dda989a8bfd9ab754f1a31799dc1ef6d.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-07",
+        "revision_id": "f234d8f740024d9a7d7d2c74a76bfc14a4f3d1e87ee71e11bdd902a9430ac54c",
+        "source_artifact_url": "data/asdma-source/f234d8f740024d9a7d7d2c74a76bfc14a4f3d1e87ee71e11bdd902a9430ac54c.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-08",
+        "revision_id": "8ff8116939f6f2b6cc4dd875334a458a1893906c56695f38b0706a1fc8ce9aec",
+        "source_artifact_url": "data/asdma-source/8ff8116939f6f2b6cc4dd875334a458a1893906c56695f38b0706a1fc8ce9aec.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-09",
+        "revision_id": "c5cb7d27a4d77e6e3be3da794f5bbfb0fb399b1f9022af832c287b8864a0925a",
+        "source_artifact_url": "data/asdma-source/c5cb7d27a4d77e6e3be3da794f5bbfb0fb399b1f9022af832c287b8864a0925a.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-10",
+        "revision_id": "6c55d84cc4b822e6c7ee232eca058f144a7d02f562a5b4259e655bbebcc04dd8",
+        "source_artifact_url": "data/asdma-source/6c55d84cc4b822e6c7ee232eca058f144a7d02f562a5b4259e655bbebcc04dd8.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-11",
+        "revision_id": "c75e61676cafe2f8ab0d96d19c6febd55ef1689a8a8aa29963883f2b95e7078b",
+        "source_artifact_url": "data/asdma-source/c75e61676cafe2f8ab0d96d19c6febd55ef1689a8a8aa29963883f2b95e7078b.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-12",
+        "revision_id": "71f0363c9cd5f6c30eadb439e3c1a815202d85c13e893c9ff424a5d680317f8b",
+        "source_artifact_url": "data/asdma-source/71f0363c9cd5f6c30eadb439e3c1a815202d85c13e893c9ff424a5d680317f8b.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-13",
+        "revision_id": "699613afb636ba0c6ca70e73cfaba2f97569200fda30a23db95d2d984c72d24f",
+        "source_artifact_url": "data/asdma-source/699613afb636ba0c6ca70e73cfaba2f97569200fda30a23db95d2d984c72d24f.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 1,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-14",
+        "revision_id": "8eebde662466a51f2c78202b761d217200086ff8892f29c24c7b997bc17a985c",
+        "source_artifact_url": "data/asdma-source/8eebde662466a51f2c78202b761d217200086ff8892f29c24c7b997bc17a985c.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-15",
+        "revision_id": "a6ffd82a04c717b9cc03f1d403918479683c20144f291b6fd82ab5cfc7dd74b6",
+        "source_artifact_url": "data/asdma-source/a6ffd82a04c717b9cc03f1d403918479683c20144f291b6fd82ab5cfc7dd74b6.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-16",
+        "revision_id": "dc5ca10593fd9e32e20b90fb428ad3b4ceb95f22eb837dfd7f52ef4336d458a3",
+        "source_artifact_url": "data/asdma-source/dc5ca10593fd9e32e20b90fb428ad3b4ceb95f22eb837dfd7f52ef4336d458a3.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-17",
+        "revision_id": "205e49fd3e8080c78d3472fd4190746a898a6e374ce7ededf41bc3b0e18a6726",
+        "source_artifact_url": "data/asdma-source/205e49fd3e8080c78d3472fd4190746a898a6e374ce7ededf41bc3b0e18a6726.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-18",
+        "revision_id": "7c33ac34788bc8d77fa3b1b79e43d01fd9694566b1be9643f6178e3e8a909732",
+        "source_artifact_url": "data/asdma-source/7c33ac34788bc8d77fa3b1b79e43d01fd9694566b1be9643f6178e3e8a909732.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 1,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-19",
+        "revision_id": "c9dabe56212035b0a89d771eca8b30c59c6ce6bd31d338bdeb9ede5a3b15405b",
+        "source_artifact_url": "data/asdma-source/c9dabe56212035b0a89d771eca8b30c59c6ce6bd31d338bdeb9ede5a3b15405b.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 5,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-20",
+        "revision_id": "6f3b583c0b95f05695359076b9c9ce72240dd9b2196110d88b4416f90cc443df",
+        "source_artifact_url": "data/asdma-source/6f3b583c0b95f05695359076b9c9ce72240dd9b2196110d88b4416f90cc443df.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 21,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-21",
+        "revision_id": "52e0e5db46f7d9168faa536219d6c866ea69bf8002ddea02a3c2efd1d6f3d11b",
+        "source_artifact_url": "data/asdma-source/52e0e5db46f7d9168faa536219d6c866ea69bf8002ddea02a3c2efd1d6f3d11b.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 10,
+        "newly_reported_missing": 6,
+        "report_date": "2026-07-22",
+        "revision_id": "f1ca996eaaae2865a95f39935fc28060418c8ce83c70ba9861778abcbf069486",
+        "source_artifact_url": "data/asdma-source/f1ca996eaaae2865a95f39935fc28060418c8ce83c70ba9861778abcbf069486.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 6,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-23",
+        "revision_id": "09a0ad11802fd4eb63ee64cce8f5e1f4b7cf336b06a3803429eb542c80f802a9",
+        "source_artifact_url": "data/asdma-source/09a0ad11802fd4eb63ee64cce8f5e1f4b7cf336b06a3803429eb542c80f802a9.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 14,
+        "newly_reported_missing": 1,
+        "report_date": "2026-07-24",
+        "revision_id": "7ba125125fa690c311c3f50661c44ba6c4c94c120cc4084b66e7061549ef9e02",
+        "source_artifact_url": "data/asdma-source/7ba125125fa690c311c3f50661c44ba6c4c94c120cc4084b66e7061549ef9e02.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 4,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-25",
+        "revision_id": "df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a",
+        "source_artifact_url": "data/asdma-source/df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 2,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-26",
+        "revision_id": "2af68e12437eebb7223c4dd83d8a5af468ffcb810e8b8eb7c30d2209285c2573",
+        "source_artifact_url": "data/asdma-source/2af68e12437eebb7223c4dd83d8a5af468ffcb810e8b8eb7c30d2209285c2573.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 0,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-27",
+        "revision_id": "4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7",
+        "source_artifact_url": "data/asdma-source/4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7.pdf"
+      },
+      {
+        "newly_confirmed_deaths": 7,
+        "newly_reported_missing": 0,
+        "report_date": "2026-07-28",
+        "revision_id": "7ada1ffacacc1c9ad203d87b54e510c913be65e7972414abaf4bac6a7b5aba69",
+        "source_artifact_url": "data/asdma-source/7ada1ffacacc1c9ad203d87b54e510c913be65e7972414abaf4bac6a7b5aba69.pdf"
+      }
+    ],
+    "unpublished_dates": [
+      "2026-05-30"
+    ]
+  },
+  "definitions": {
+    "confirmed_deaths": "The sum of deaths newly confirmed in each retained ASDMA daily flood report during the covered season.",
+    "people_reported_missing": "The sum of people newly reported missing in each retained ASDMA daily flood report. It is not the number still missing."
+  },
+  "publication": {
+    "generated_at": "2026-07-29T16:35:58.061774+05:30",
+    "generator": "build_asdma_season_losses-v1",
+    "state": "generated_checkpoint"
+  },
+  "schema_version": 2,
+  "season_id": "assam-flood-2026",
+  "season_label": "2026 flood season",
+  "season_start_date": "2026-05-01",
+  "source": {
+    "label": "ASDMA DRIMS daily flood report service",
+    "url": "https://sdrf.assam.gov.in/dfr/download?type=flood"
+  },
+  "statewide": {
+    "confirmed_deaths": 74,
+    "people_reported_missing": 8
+  }
+}

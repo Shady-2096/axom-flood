@@ -1,0 +1,1839 @@
+{
+  "artifact_id": "9b7b36aa6afa79734b363dfced693431a755d0a0a07a00fb2f652e9d696959f4",
+  "items": [
+    {
+      "camp_name": "966 No. Malivita Vidyakunja LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5265329996364,
+          26.8066329998184
+        ],
+        "school_name": "NO.836 MALIVITA LPS",
+        "score": 90.62,
+        "udise_code": "18250216902",
+        "village": "MALIVITA FV",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No.1 Burijhar LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.4690329998216,
+          26.6998499997419
+        ],
+        "school_name": "NO.1 BURIJHAR LPS",
+        "score": 100.0,
+        "udise_code": "18250207801",
+        "village": "BURIJHAR NO.1",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Khairabari Anganwadi Kendra",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Madarpur Community Hall",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Madarpur LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5194500001151,
+          26.5967830000509
+        ],
+        "school_name": "MADARPUR LPS",
+        "score": 100.0,
+        "udise_code": "18250214301",
+        "village": "MADARPUR",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Naba Uday Higher Secondary School, Nangal Bhanga.",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5481329996262,
+          26.6151000000394
+        ],
+        "school_name": "NABA UDAY HIGH SCHOOL",
+        "score": 86.49,
+        "udise_code": "18250212407",
+        "village": "NANGAL BHANGA",
+        "village_match": true
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Pochim Nangal Bhanga LP",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5368670003743,
+          26.6243330001734
+        ],
+        "school_name": "P. NANGALBHANGA LPS",
+        "score": 75.36,
+        "udise_code": "18250212404",
+        "village": "NANGAL BHANGA",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Sachipur Anganwadi Center",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "571 No. Saragaon LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5346329998572,
+          26.6037669999681
+        ],
+        "school_name": "NO.571 SARAGOAN LPS",
+        "score": 90.14,
+        "udise_code": "18250202701",
+        "village": "SARAGAON",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Dangaigaon L.P School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7322830002588,
+          26.466482999909
+        ],
+        "school_name": "50 NO. DANGAIGAON LPS",
+        "score": 100.0,
+        "udise_code": "18250128102",
+        "village": "DANGAIGAON (MANIKPUR)",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Uttar Nepalpara LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5347669997515,
+          26.5350170001336
+        ],
+        "school_name": "NEPALPARA LPS",
+        "score": 100.0,
+        "udise_code": "18250208302",
+        "village": "NEPALPARA (BHIRANGAON GP)",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "2No.OdalguriL P School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.582583000005,
+          26.543033000108
+        ],
+        "school_name": "2 NO ODALGURI LPS",
+        "score": 72.73,
+        "udise_code": "18250129101",
+        "village": "2 NO. ODALGURI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "TulshijhoraL P and ME School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5697999995632,
+          26.577550000112
+        ],
+        "school_name": "TULSIJHORA M.E. SCHOOL",
+        "score": 88.89,
+        "udise_code": "18250117102",
+        "village": "TULSIJHORA",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Odalguri Madrassa",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No.3 Odalguri LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5889170004121,
+          26.5390000003587
+        ],
+        "school_name": "ODALGURI LPS",
+        "score": 100.0,
+        "udise_code": "18250122001",
+        "village": "ODALGURI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "366 No. Lawripara LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.3891499996692,
+          26.5585330001078
+        ],
+        "school_name": "366 NO. LAWRIPARA LPS",
+        "score": 100.0,
+        "udise_code": "18250225901",
+        "village": "LAWRIPARA",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Bijni Stadium",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "79 Moneswari JB School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7293330002394,
+          26.4976499997074
+        ],
+        "school_name": "806 NO. MONESWARI LPS",
+        "score": 84.21,
+        "udise_code": "18250136901",
+        "village": "MONESWARI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "799 No.Puran Bijni LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7182829999992,
+          26.4864999997355
+        ],
+        "school_name": "N0. 799 PURAN BIJNI LPS",
+        "score": 96.1,
+        "udise_code": "18250113101",
+        "village": "BIJNI GAON",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Majrabari Nowapara High School",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.6495329999277,
+          26.5211169996716
+        ],
+        "school_name": "MAJRABARI NOWAPARA HIGH SCHOOL",
+        "score": 100.0,
+        "udise_code": "18250116604",
+        "village": "1 NO. MAJRABARI",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "252 No. Sishubari LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5888670001834,
+          26.6923000002279
+        ],
+        "school_name": "SISHUBARI LPS",
+        "score": 100.0,
+        "udise_code": "18250101302",
+        "village": "SISHUBARI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "850 No. Sarapet LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.6203830004364,
+          26.5345829997045
+        ],
+        "school_name": "850 NO. CHARAPET LPS",
+        "score": 95.77,
+        "udise_code": "18250137401",
+        "village": "2 NO. CHARAPET",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No. 1 Sarapet Sub Centre & Library",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No.1 Chowrabari L PS",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Nawduba LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.6099170003523,
+          26.5442170002046
+        ],
+        "school_name": "NAWDUBA LPS",
+        "score": 100.0,
+        "udise_code": "18250127701",
+        "village": "MAJRABARI",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "373 No. Kathalguri LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.6099170003523,
+          26.5442170002046
+        ],
+        "school_name": "373 KATHALGURI LPS",
+        "score": 100.0,
+        "udise_code": "18250127702",
+        "village": "MAJRABARI",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Ledopara JK Club",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Odalguri LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5797169996512,
+          26.5343330000528
+        ],
+        "school_name": "3 NO ODALGURI LPS",
+        "score": 100.0,
+        "udise_code": "18250117001",
+        "village": "3 NO. ODALGURI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Uttar Manikpur LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5590330000785,
+          26.5910329996779
+        ],
+        "school_name": "UTTAR MANIKPUR LPS",
+        "score": 100.0,
+        "udise_code": "18250105102",
+        "village": "MANIKPUR (BOROBAZAR)",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Pachim Kaliagaon LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7113669999842,
+          26.554299999702
+        ],
+        "school_name": "PACHIM KALIAGAON LPS (VEN)",
+        "score": 100.0,
+        "udise_code": "18250121606",
+        "village": "KALIAGAON(AMGURI GP)",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Amguri HS School",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5682170000476,
+          26.638582999679
+        ],
+        "school_name": "AMGURI HS SCHOOL",
+        "score": 100.0,
+        "udise_code": "18250109402",
+        "village": "AMGURI (BOROBAZAR)",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "792 No. Narayanpur LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5694999999875,
+          26.6724499998729
+        ],
+        "school_name": "792 NO. NARAYANPUR LPS",
+        "score": 100.0,
+        "udise_code": "18250104801",
+        "village": "NARAYANPUR",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Kungkrajhora MES",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.6048330002732,
+          26.6431169997075
+        ],
+        "school_name": "KUNGKRAJHORA ME SCHOOL",
+        "score": 100.0,
+        "udise_code": "18250125803",
+        "village": "KUNGKRAJHORA",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Kungkrajhora Community Hall",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No. 1 Uttar Boldi LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5986329997604,
+          26.6201999998467
+        ],
+        "school_name": "1 NO. UTTAR BOLDI LPS",
+        "score": 100.0,
+        "udise_code": "18250131101",
+        "village": "1 NO. UTTAR BOLDI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "419 No. Dologaon LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.6083830003422,
+          26.6152499998558
+        ],
+        "school_name": "419 DOLOGAON LPS",
+        "score": 100.0,
+        "udise_code": "18250104701",
+        "village": "2 NO. UTTAR BOLDI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "538 No. Ladanguri LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.6155830000394,
+          26.6337169998977
+        ],
+        "school_name": "538 NO. LADANGURI LP SCHOOL",
+        "score": 100.0,
+        "udise_code": "18250107402",
+        "village": "LADANGURI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No.360 Symthaibari LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5093000003985,
+          26.5471500001553
+        ],
+        "school_name": "A.M. LP SCHOOL",
+        "score": 93.02,
+        "udise_code": "18250203706",
+        "village": "HASRAWBARI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Nadhiyapara Library",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "127 No. Kashdoha LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7296329998151,
+          26.4500830000884
+        ],
+        "school_name": "127 NO. KASHDAHA LPS",
+        "score": 97.22,
+        "udise_code": "18250113501",
+        "village": "KASHDAHA",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "703 No. Bisdoba LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.8080499997294,
+          26.5723829999444
+        ],
+        "school_name": "703 NO. BISHDOBA LPS",
+        "score": 98.59,
+        "udise_code": "18250135501",
+        "village": "BISHDOBA",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "877 No. Soregaon LPS (Boupara)",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5093000003985,
+          26.5471500001553
+        ],
+        "school_name": "A.M. LP SCHOOL",
+        "score": 93.02,
+        "udise_code": "18250203706",
+        "village": "HASRAWBARI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Bedlangkhaity Yeer Mamood MES",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.7219500002441,
+          26.5531330001898
+        ],
+        "school_name": "BEDLANGKHAITI YEER MAMOOD ME M",
+        "score": 89.89,
+        "udise_code": "18250101804",
+        "village": "BEDLANGKHAITI",
+        "village_match": true
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Panbari Model LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.8305500002428,
+          26.5953329999207
+        ],
+        "school_name": "PANBARI MODEL LPS",
+        "score": 100.0,
+        "udise_code": "18250125305",
+        "village": "BOULAJHAR",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Chikajhora LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7475830001767,
+          26.612533000205
+        ],
+        "school_name": "3 NO. CHIKAJHORA LPS",
+        "score": 100.0,
+        "udise_code": "18250123701",
+        "village": "3 NO. CHIKAJHORA",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "894 No. Dahaldanda LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5093000003985,
+          26.5471500001553
+        ],
+        "school_name": "A.M. LP SCHOOL",
+        "score": 93.02,
+        "udise_code": "18250203706",
+        "village": "HASRAWBARI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Bagargaon Anchalik High School",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.751083000017,
+          26.538332999837
+        ],
+        "school_name": "BAGARGAON ANCHALIK HS",
+        "score": 100.0,
+        "udise_code": "18250112904",
+        "village": "BAGORGAON",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "966 No. Malivita Vidyakunja LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5265329996364,
+          26.8066329998184
+        ],
+        "school_name": "NO.836 MALIVITA LPS",
+        "score": 90.62,
+        "udise_code": "18250216902",
+        "village": "MALIVITA FV",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No.1 Burijhar LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.4690329998216,
+          26.6998499997419
+        ],
+        "school_name": "NO.1 BURIJHAR LPS",
+        "score": 100.0,
+        "udise_code": "18250207801",
+        "village": "BURIJHAR NO.1",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Khairabari Anganwadi Kendra",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Madarpur Community Hall",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Madarpur LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5194500001151,
+          26.5967830000509
+        ],
+        "school_name": "MADARPUR LPS",
+        "score": 100.0,
+        "udise_code": "18250214301",
+        "village": "MADARPUR",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Naba Uday Higher Secondary School, Nangal Bhanga.",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5481329996262,
+          26.6151000000394
+        ],
+        "school_name": "NABA UDAY HIGH SCHOOL",
+        "score": 86.49,
+        "udise_code": "18250212407",
+        "village": "NANGAL BHANGA",
+        "village_match": true
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Pochim Nangal Bhanga LP",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5368670003743,
+          26.6243330001734
+        ],
+        "school_name": "P. NANGALBHANGA LPS",
+        "score": 75.36,
+        "udise_code": "18250212404",
+        "village": "NANGAL BHANGA",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Sachipur Anganwadi Center",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "571 No. Saragaon LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5346329998572,
+          26.6037669999681
+        ],
+        "school_name": "NO.571 SARAGOAN LPS",
+        "score": 90.14,
+        "udise_code": "18250202701",
+        "village": "SARAGAON",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Bengtol",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Dangaigaon L.P School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7322830002588,
+          26.466482999909
+        ],
+        "school_name": "50 NO. DANGAIGAON LPS",
+        "score": 100.0,
+        "udise_code": "18250128102",
+        "village": "DANGAIGAON (MANIKPUR)",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Uttar Nepalpara LP School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5347669997515,
+          26.5350170001336
+        ],
+        "school_name": "NEPALPARA LPS",
+        "score": 100.0,
+        "udise_code": "18250208302",
+        "village": "NEPALPARA (BHIRANGAON GP)",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "2No.OdalguriL P School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.582583000005,
+          26.543033000108
+        ],
+        "school_name": "2 NO ODALGURI LPS",
+        "score": 72.73,
+        "udise_code": "18250129101",
+        "village": "2 NO. ODALGURI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "TulshijhoraL P and ME School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5697999995632,
+          26.577550000112
+        ],
+        "school_name": "TULSIJHORA M.E. SCHOOL",
+        "score": 88.89,
+        "udise_code": "18250117102",
+        "village": "TULSIJHORA",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Odalguri Madrassa",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No.3 Odalguri LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5889170004121,
+          26.5390000003587
+        ],
+        "school_name": "ODALGURI LPS",
+        "score": 100.0,
+        "udise_code": "18250122001",
+        "village": "ODALGURI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "366 No. Lawripara LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.3891499996692,
+          26.5585330001078
+        ],
+        "school_name": "366 NO. LAWRIPARA LPS",
+        "score": 100.0,
+        "udise_code": "18250225901",
+        "village": "LAWRIPARA",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Bijni Stadium",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "79 Moneswari JB School",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7293330002394,
+          26.4976499997074
+        ],
+        "school_name": "806 NO. MONESWARI LPS",
+        "score": 84.21,
+        "udise_code": "18250136901",
+        "village": "MONESWARI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "799 No.Puran Bijni LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7182829999992,
+          26.4864999997355
+        ],
+        "school_name": "N0. 799 PURAN BIJNI LPS",
+        "score": 96.1,
+        "udise_code": "18250113101",
+        "village": "BIJNI GAON",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Majrabari Nowapara High School",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.6495329999277,
+          26.5211169996716
+        ],
+        "school_name": "MAJRABARI NOWAPARA HIGH SCHOOL",
+        "score": 100.0,
+        "udise_code": "18250116604",
+        "village": "1 NO. MAJRABARI",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "252 No. Sishubari LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5888670001834,
+          26.6923000002279
+        ],
+        "school_name": "SISHUBARI LPS",
+        "score": 100.0,
+        "udise_code": "18250101302",
+        "village": "SISHUBARI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "850 No. Sarapet LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.6203830004364,
+          26.5345829997045
+        ],
+        "school_name": "850 NO. CHARAPET LPS",
+        "score": 95.77,
+        "udise_code": "18250137401",
+        "village": "2 NO. CHARAPET",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No. 1 Sarapet Sub Centre & Library",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No.1 Chowrabari L PS",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Nawduba LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.6099170003523,
+          26.5442170002046
+        ],
+        "school_name": "NAWDUBA LPS",
+        "score": 100.0,
+        "udise_code": "18250127701",
+        "village": "MAJRABARI",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "373 No. Kathalguri LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.6099170003523,
+          26.5442170002046
+        ],
+        "school_name": "373 KATHALGURI LPS",
+        "score": 100.0,
+        "udise_code": "18250127702",
+        "village": "MAJRABARI",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Ledopara JK Club",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Odalguri LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5797169996512,
+          26.5343330000528
+        ],
+        "school_name": "3 NO ODALGURI LPS",
+        "score": 100.0,
+        "udise_code": "18250117001",
+        "village": "3 NO. ODALGURI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Uttar Manikpur LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5590330000785,
+          26.5910329996779
+        ],
+        "school_name": "UTTAR MANIKPUR LPS",
+        "score": 100.0,
+        "udise_code": "18250105102",
+        "village": "MANIKPUR (BOROBAZAR)",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Pachim Kaliagaon LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7113669999842,
+          26.554299999702
+        ],
+        "school_name": "PACHIM KALIAGAON LPS (VEN)",
+        "score": 100.0,
+        "udise_code": "18250121606",
+        "village": "KALIAGAON(AMGURI GP)",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Amguri HS School",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5682170000476,
+          26.638582999679
+        ],
+        "school_name": "AMGURI HS SCHOOL",
+        "score": 100.0,
+        "udise_code": "18250109402",
+        "village": "AMGURI (BOROBAZAR)",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "792 No. Narayanpur LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.5694999999875,
+          26.6724499998729
+        ],
+        "school_name": "792 NO. NARAYANPUR LPS",
+        "score": 100.0,
+        "udise_code": "18250104801",
+        "village": "NARAYANPUR",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Kungkrajhora MES",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.6048330002732,
+          26.6431169997075
+        ],
+        "school_name": "KUNGKRAJHORA ME SCHOOL",
+        "score": 100.0,
+        "udise_code": "18250125803",
+        "village": "KUNGKRAJHORA",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Kungkrajhora Community Hall",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No. 1 Uttar Boldi LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5986329997604,
+          26.6201999998467
+        ],
+        "school_name": "1 NO. UTTAR BOLDI LPS",
+        "score": 100.0,
+        "udise_code": "18250131101",
+        "village": "1 NO. UTTAR BOLDI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "419 No. Dologaon LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.6083830003422,
+          26.6152499998558
+        ],
+        "school_name": "419 DOLOGAON LPS",
+        "score": 100.0,
+        "udise_code": "18250104701",
+        "village": "2 NO. UTTAR BOLDI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "538 No. Ladanguri LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.6155830000394,
+          26.6337169998977
+        ],
+        "school_name": "538 NO. LADANGURI LP SCHOOL",
+        "score": 100.0,
+        "udise_code": "18250107402",
+        "village": "LADANGURI",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "No.360 Symthaibari LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5093000003985,
+          26.5471500001553
+        ],
+        "school_name": "A.M. LP SCHOOL",
+        "score": 93.02,
+        "udise_code": "18250203706",
+        "village": "HASRAWBARI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Nadhiyapara Library",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "127 No. Kashdoha LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7296329998151,
+          26.4500830000884
+        ],
+        "school_name": "127 NO. KASHDAHA LPS",
+        "score": 97.22,
+        "udise_code": "18250113501",
+        "village": "KASHDAHA",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "703 No. Bisdoba LPS",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.8080499997294,
+          26.5723829999444
+        ],
+        "school_name": "703 NO. BISHDOBA LPS",
+        "score": 98.59,
+        "udise_code": "18250135501",
+        "village": "BISHDOBA",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "877 No. Soregaon LPS (Boupara)",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5093000003985,
+          26.5471500001553
+        ],
+        "school_name": "A.M. LP SCHOOL",
+        "score": 93.02,
+        "udise_code": "18250203706",
+        "village": "HASRAWBARI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Bedlangkhaity Yeer Mamood MES",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.7219500002441,
+          26.5531330001898
+        ],
+        "school_name": "BEDLANGKHAITI YEER MAMOOD ME M",
+        "score": 89.89,
+        "udise_code": "18250101804",
+        "village": "BEDLANGKHAITI",
+        "village_match": true
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Panbari Model LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.8305500002428,
+          26.5953329999207
+        ],
+        "school_name": "PANBARI MODEL LPS",
+        "score": 100.0,
+        "udise_code": "18250125305",
+        "village": "BOULAJHAR",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Chikajhora LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.7475830001767,
+          26.612533000205
+        ],
+        "school_name": "3 NO. CHIKAJHORA LPS",
+        "score": 100.0,
+        "udise_code": "18250123701",
+        "village": "3 NO. CHIKAJHORA",
+        "village_match": true
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "894 No. Dahaldanda LPS",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          90.5093000003985,
+          26.5471500001553
+        ],
+        "school_name": "A.M. LP SCHOOL",
+        "score": 93.02,
+        "udise_code": "18250203706",
+        "village": "HASRAWBARI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Bagargaon Anchalik High School",
+      "candidate": {
+        "ambiguous": false,
+        "coordinates": [
+          90.751083000017,
+          26.538332999837
+        ],
+        "school_name": "BAGARGAON ANCHALIK HS",
+        "score": 100.0,
+        "udise_code": "18250112904",
+        "village": "BAGORGAON",
+        "village_match": false
+      },
+      "confidence": "medium",
+      "district": "Chirang",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "Sidli",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Training of camp in-charge in the wake of COVID-19",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Departmental list of camp wise designated officials received",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Mechanism for necessary transportation arrangements (road, water and air) to ensure GR is transported in time to each of the designated camps established",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Ensure that all measures of social distancing and other added actions as suggested in the addendum are ensured",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Instruction issued for setting up of camps",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Setting up of camps and provisions/functions of responsible departments reviewed",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Setting up of Child Friendly Spaces and breastfeeding corners in designated camps reviewed",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Ensuring special care is taken to evacuate home quarantined persons including separate camp arrangements",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Camps are safe from all hazards and appropriate protection and vigilance arrangements being made",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Grievance Redressal mechanism for collecting and addressing feedback/complains from camp inmates are established and functional at camp level",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Real time instructions/directives to concerned departments to address grievances issued",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Real time functional mechanisms for ensuring accountability in camp management are ensured",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Closure of the camps declared considering the on-ground situation",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Post Operation (Closure of camps) Visits conducted to assess the situation of the camps",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Designated camps (particularly schools) are provided with resources/ support towards cleanliness post closure of the camps",
+      "candidate": {
+        "ambiguous": true,
+        "coordinates": [
+          92.4835830000229,
+          26.5014500002844
+        ],
+        "school_name": "UTTAR PUB LATHIAMARI NEW LPS",
+        "score": 44.3,
+        "udise_code": "18100107803",
+        "village": "1 NO. KANDHULIMARI",
+        "village_match": false
+      },
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Post closure review meeting conducted to understand challenges, gaps and areas of improvement in camp management",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "All related documents (needed for compliance) are properly managed",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    },
+    {
+      "camp_name": "Departments are instructed to conduct internal debriefing on lessons learnt",
+      "candidate": null,
+      "confidence": "unverified",
+      "district": "Nagaon",
+      "queue_type": "udise_match_review",
+      "revenue_circle": "the",
+      "schema_version": 1
+    }
+  ],
+  "schema_version": 1
+}

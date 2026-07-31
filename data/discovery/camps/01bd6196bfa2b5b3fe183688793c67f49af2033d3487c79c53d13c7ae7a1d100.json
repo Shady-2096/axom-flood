@@ -1,0 +1,1291 @@
+{
+  "district_count": 35,
+  "districts": [
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Baksa",
+      "documents": [],
+      "probes": [
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://baksa.assam.gov.in/document-search"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://baksa.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://baksa.assam.gov.in/document/reports"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://baksa.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://baksa.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "baksa"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Bajali",
+      "documents": [
+        {
+          "document_type": "contingency_plan",
+          "title": "Flood Contingency plan 2026 for Bajali Revenue Circle",
+          "url": "https://bajali.assam.gov.in/sites/default/files/public_utility/FCP%20BRC%20%281%29.pdf"
+        },
+        {
+          "document_type": "contingency_plan",
+          "title": "Flood Contingency plan 2026 for Sarupeta Revenue Circle",
+          "url": "https://bajali.assam.gov.in/sites/default/files/public_utility/FCP%20SRC%20%281%29.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://bajali.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://bajali.assam.gov.in/departments-list"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://bajali.assam.gov.in/document/reports"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://bajali.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://bajali.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "bajali"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Barpeta",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://barpeta.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://barpeta.assam.gov.in/departments-list"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://barpeta.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://barpeta.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://barpeta.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "barpeta"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Biswanath",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://biswanath.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://biswanath.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://biswanath.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://biswanath.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://biswanath.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "biswanath"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Bongaigaon",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://bongaigaon.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://bongaigaon.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://bongaigaon.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://bongaigaon.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://bongaigaon.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "bongaigaon"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Cachar",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://cachar.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://cachar.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://cachar.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://cachar.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://cachar.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "cachar"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Charaideo",
+      "documents": [
+        {
+          "document_type": "contingency_plan",
+          "title": "Flood Contingency Plan 2026",
+          "url": "https://charaideo.assam.gov.in/sites/default/files/public_utility/Flood%20Contingency%20Plan%202026.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://charaideo.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://charaideo.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://charaideo.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://charaideo.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://charaideo.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "charaideo"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Chirang",
+      "documents": [
+        {
+          "document_type": "dedicated_camp_list",
+          "title": "Pre Identified Relief Camps 2026",
+          "url": "https://chirang.assam.gov.in/sites/default/files/public_utility/ReliefCampNotification.pdf"
+        },
+        {
+          "document_type": "dedicated_camp_list",
+          "title": "Pre Identified Relief Camps 2026",
+          "url": "https://chirang.assam.gov.in/sites/default/files/public_utility/ReliefCampNotification_1.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://chirang.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://chirang.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://chirang.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://chirang.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://chirang.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "chirang"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Darrang",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://darrang.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://darrang.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://darrang.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://darrang.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://darrang.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "darrang"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Dhemaji",
+      "documents": [],
+      "probes": [
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dhemaji.assam.gov.in/document-search"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dhemaji.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dhemaji.assam.gov.in/document/reports"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dhemaji.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dhemaji.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "dhemaji"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Dhubri",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://dhubri.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://dhubri.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dhubri.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://dhubri.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dhubri.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "dhubri"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Dibrugarh",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://dibrugarh.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://dibrugarh.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dibrugarh.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://dibrugarh.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dibrugarh.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "dibrugarh"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Dima Hasao",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://dimahasao.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://dimahasao.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dimahasao.assam.gov.in/document/reports"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dimahasao.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://dimahasao.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "dimahasao"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Goalpara",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://goalpara.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://goalpara.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://goalpara.assam.gov.in/document/reports"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://goalpara.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://goalpara.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "goalpara"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Golaghat",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://golaghat.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://golaghat.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://golaghat.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://golaghat.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://golaghat.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "golaghat"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Hailakandi",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://hailakandi.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://hailakandi.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://hailakandi.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://hailakandi.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://hailakandi.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "hailakandi"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Hojai",
+      "documents": [
+        {
+          "document_type": "contingency_plan",
+          "title": "DISTRICT DISASTER MANAGEMENT PLAN HOJAI (2026 – 2027)",
+          "url": "https://hojai.assam.gov.in/sites/default/files/public_utility/DDMP%20compressed%20%281%29.pdf"
+        },
+        {
+          "document_type": "contingency_plan",
+          "title": "Flood contingency plan for Hojai District 2022-2023",
+          "url": "https://hojai.assam.gov.in/sites/default/files/public_utility/final_sd_district_flood_contingency_plan22_compressed.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://hojai.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://hojai.assam.gov.in/departments-list"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://hojai.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://hojai.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://hojai.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "hojai"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Jorhat",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://jorhat.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://jorhat.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://jorhat.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://jorhat.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://jorhat.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "jorhat"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Kamrup",
+      "documents": [
+        {
+          "document_type": "contingency_plan",
+          "title": "District Disaster Management Plan",
+          "url": "https://kamrup.assam.gov.in/sites/default/files/public_utility/DDMP2024-25.pdf"
+        },
+        {
+          "document_type": "contingency_plan",
+          "title": "District Disaster Management Plan",
+          "url": "https://kamrup.assam.gov.in/sites/default/files/public_utility/ddmp_2022-23.pdf"
+        },
+        {
+          "document_type": "contingency_plan",
+          "title": "District Disaster Management Plan",
+          "url": "https://kamrup.assam.gov.in/sites/default/files/public_utility/ddmp_2023-24_3.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://kamrup.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://kamrup.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://kamrup.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://kamrup.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://kamrup.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "kamrup"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Kamrup Metropolitan",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://kamrupmetro.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://kamrupmetro.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://kamrupmetro.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://kamrupmetro.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://kamrupmetro.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "kamrupmetro"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Karbi Anglong",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://karbianglong.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://karbianglong.assam.gov.in/departments-list"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://karbianglong.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://karbianglong.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://karbianglong.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "karbianglong"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Kokrajhar",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://kokrajhar.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://kokrajhar.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://kokrajhar.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://kokrajhar.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://kokrajhar.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "kokrajhar"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Lakhimpur",
+      "documents": [
+        {
+          "document_type": "dedicated_camp_list",
+          "title": "SOP on Model Relief camp",
+          "url": "https://lakhimpur.assam.gov.in/sites/default/files/public_utility/SOP%20on%20Model%20Relief%20camp.pdf"
+        },
+        {
+          "document_type": "dedicated_camp_list",
+          "title": "SOP on Relief Camp Management",
+          "url": "https://lakhimpur.assam.gov.in/sites/default/files/public_utility/SOP%20on%20Relief%20Camp%20Management_compressed_compressed.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://lakhimpur.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://lakhimpur.assam.gov.in/departments-list"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://lakhimpur.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://lakhimpur.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://lakhimpur.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "lakhimpur"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Majuli",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://majuli.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://majuli.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://majuli.assam.gov.in/document/reports"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://majuli.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://majuli.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "majuli"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Morigaon",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://morigaon.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://morigaon.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://morigaon.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://morigaon.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://morigaon.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "morigaon"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Nagaon",
+      "documents": [
+        {
+          "document_type": "contingency_plan",
+          "title": "District Disaster Management Plan",
+          "url": "https://nagaon.assam.gov.in/sites/default/files/public_utility/DDMP-2026%20new_1.pdf"
+        },
+        {
+          "document_type": "dedicated_camp_list",
+          "title": "SOP on Relief Camp Management",
+          "url": "https://nagaon.assam.gov.in/sites/default/files/public_utility/SOP_on_Relief%20Camp%20Management_final_2.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://nagaon.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://nagaon.assam.gov.in/departments-list"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://nagaon.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://nagaon.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://nagaon.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "nagaon"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Nalbari",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://nalbari.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://nalbari.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://nalbari.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://nalbari.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://nalbari.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "nalbari"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Sivasagar",
+      "documents": [
+        {
+          "document_type": "dedicated_camp_list",
+          "title": "SOP on Relief Camp",
+          "url": "https://sivasagar.assam.gov.in/sites/default/files/public_utility/Adobe%20Scan%20Apr%2027%2C%202023%20%283%29.pdf"
+        },
+        {
+          "document_type": "contingency_plan",
+          "title": "District Flood Contingency Plan 2026",
+          "url": "https://sivasagar.assam.gov.in/sites/default/files/public_utility/Flood%20Contingency%20Plan%202026%20Final%20pdf.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sivasagar.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sivasagar.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://sivasagar.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sivasagar.assam.gov.in/document/notifications"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sivasagar.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "sivasagar"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Sonitpur",
+      "documents": [
+        {
+          "document_type": "dedicated_camp_list",
+          "title": "Assured Minimum Facilities and Service n Model Relief Camps",
+          "url": "https://sonitpur.assam.gov.in/sites/default/files/public_utility/Assured%20Minimum%20Facilities%20and%20Service%20n%20Model%20Relief%20Camps.pdf"
+        },
+        {
+          "document_type": "contingency_plan",
+          "title": "District Flood Contingency Plan 2026",
+          "url": "https://sonitpur.assam.gov.in/sites/default/files/public_utility/District%20Flood%20Contingency%20Plan.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sonitpur.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sonitpur.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://sonitpur.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sonitpur.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://sonitpur.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "sonitpur"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "South Salmara-Mankachar",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://southsalmaramankachar.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://southsalmaramankachar.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://southsalmaramankachar.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://southsalmaramankachar.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://southsalmaramankachar.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "southsalmaramankachar"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Sribhumi",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sribhumi.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sribhumi.assam.gov.in/departments-list"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://sribhumi.assam.gov.in/document/reports"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://sribhumi.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://sribhumi.assam.gov.in/departments/revenue-and-disaster-management"
+        },
+        {
+          "error": "ConnectError",
+          "ok": false,
+          "url": "https://karimganj.assam.gov.in/document-search"
+        },
+        {
+          "error": "ConnectError",
+          "ok": false,
+          "url": "https://karimganj.assam.gov.in/departments-list"
+        },
+        {
+          "error": "ConnectError",
+          "ok": false,
+          "url": "https://karimganj.assam.gov.in/document/reports"
+        },
+        {
+          "error": "ConnectError",
+          "ok": false,
+          "url": "https://karimganj.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "ConnectError",
+          "ok": false,
+          "url": "https://karimganj.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "sribhumi"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Tamulpur",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://tamulpur.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://tamulpur.assam.gov.in/departments-list"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://tamulpur.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://tamulpur.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://tamulpur.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "tamulpur"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "Tinsukia",
+      "documents": [],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://tinsukia.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://tinsukia.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://tinsukia.assam.gov.in/document/reports"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://tinsukia.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://tinsukia.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "tinsukia"
+    },
+    {
+      "discovery_status": "found",
+      "district": "Udalguri",
+      "documents": [
+        {
+          "document_type": "dedicated_camp_list",
+          "title": "Minutes of the thematic meeting on Relief Camp management, DDMA.",
+          "url": "https://udalguri.assam.gov.in/sites/default/files/public_utility/RCmgmt.pdf"
+        }
+      ],
+      "probes": [
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://udalguri.assam.gov.in/document-search"
+        },
+        {
+          "ok": true,
+          "status": 200,
+          "url": "https://udalguri.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://udalguri.assam.gov.in/document/reports"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://udalguri.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://udalguri.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "udalguri"
+    },
+    {
+      "discovery_status": "no_candidate_found",
+      "district": "West Karbi Anglong",
+      "documents": [],
+      "probes": [
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://westkarbianglong.assam.gov.in/document-search"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://westkarbianglong.assam.gov.in/departments-list"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://westkarbianglong.assam.gov.in/document/reports"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://westkarbianglong.assam.gov.in/document/notifications"
+        },
+        {
+          "error": "HTTPStatusError",
+          "ok": false,
+          "url": "https://westkarbianglong.assam.gov.in/departments/revenue-and-disaster-management"
+        }
+      ],
+      "slug": "westkarbianglong"
+    }
+  ],
+  "schema_version": 1
+}

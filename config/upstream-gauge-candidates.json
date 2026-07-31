@@ -1,0 +1,63 @@
+{
+  "$schema": "../schemas/upstream-gauge-candidates.schema.json",
+  "schema_version": 1,
+  "purpose": "Review-only candidate gauge sequences for historical timing analysis. This file is not an operational locality-to-gauge map.",
+  "relationships": [
+    {
+      "relationship_id": "siang-yingkiong-to-passighat",
+      "upstream_station_code": "009NEID3",
+      "downstream_station_code": "005-UBDDIB",
+      "topology_status": "candidate_unreviewed",
+      "topology_basis": "Both CWC reference records identify the river as Siang, and the station coordinates place Yingkiong north of Passighat. A hydrologist has not reviewed reach connectivity or intervening controls."
+    },
+    {
+      "relationship_id": "siang-passighat-to-brahmaputra-dibrugarh",
+      "upstream_station_code": "005-UBDDIB",
+      "downstream_station_code": "010-UBDDIB",
+      "topology_status": "hypothesis_unverified",
+      "topology_basis": "Passighat is on the Siang upstream of the Assam plain and Dibrugarh is on the Brahmaputra. This coarse sequence does not establish the precise confluence path, tributary effects, or an operational warning relationship."
+    },
+    {
+      "relationship_id": "brahmaputra-dibrugarh-to-neamatighat",
+      "upstream_station_code": "010-UBDDIB",
+      "downstream_station_code": "019-UBDDIB",
+      "topology_status": "candidate_unreviewed",
+      "topology_basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed."
+    },
+    {
+      "relationship_id": "brahmaputra-neamatighat-to-tezpur",
+      "upstream_station_code": "019-UBDDIB",
+      "downstream_station_code": "031-UBDDIB",
+      "topology_status": "candidate_unreviewed",
+      "topology_basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed."
+    },
+    {
+      "relationship_id": "brahmaputra-tezpur-to-guwahati",
+      "upstream_station_code": "031-UBDDIB",
+      "downstream_station_code": "001-MBDGHY",
+      "topology_status": "candidate_unreviewed",
+      "topology_basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed."
+    },
+    {
+      "relationship_id": "brahmaputra-guwahati-to-goalpara",
+      "upstream_station_code": "001-MBDGHY",
+      "downstream_station_code": "002-MBDGHY",
+      "topology_status": "candidate_unreviewed",
+      "topology_basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed."
+    },
+    {
+      "relationship_id": "brahmaputra-goalpara-to-dhubri",
+      "upstream_station_code": "002-MBDGHY",
+      "downstream_station_code": "005-LBDJPG",
+      "topology_status": "candidate_unreviewed",
+      "topology_basis": "Both CWC reference records identify the Brahmaputra, and station coordinates follow the broad east-to-west main-stem sequence. Reach topology and controls remain unreviewed."
+    },
+    {
+      "relationship_id": "nao-dehing-namsai-to-brahmaputra-dibrugarh",
+      "upstream_station_code": "009-UBDDIB",
+      "downstream_station_code": "010-UBDDIB",
+      "topology_status": "hypothesis_unverified",
+      "topology_basis": "Namsai is on the Nao Dehing and Dibrugarh is on the Brahmaputra. This is an exploratory cross-river hypothesis only; it does not establish a direct reach, confluence timing, or warning relationship."
+    }
+  ]
+}

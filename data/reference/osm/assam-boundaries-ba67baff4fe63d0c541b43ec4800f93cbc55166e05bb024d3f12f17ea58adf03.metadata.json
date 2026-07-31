@@ -1,0 +1,8 @@
+{
+  "source": "OpenStreetMap via Overpass API",
+  "licence": "ODbL 1.0",
+  "retrieved_at": "2026-07-27T14:46:33Z",
+  "sha256": "ba67baff4fe63d0c541b43ec4800f93cbc55166e05bb024d3f12f17ea58adf03",
+  "content": "Assam admin_level 5 and 6 boundary relations with geometry",
+  "query_file": "documented in scripts/build_osm_places.py"
+}

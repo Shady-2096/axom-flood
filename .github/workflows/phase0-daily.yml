@@ -1,0 +1,137 @@
+name: Phase 0 daily data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: phase0-daily
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --extra dev --locked
+      - name: Validate parsers
+        run: |
+          uv run ruff check .
+          uv run pytest
+      - name: Ingest ASDMA bulletin
+        id: asdma
+        continue-on-error: true
+        run: >-
+          uv run axom-flood asdma latest
+          --lookback-days 3
+          --timeout 180
+          --max-attempts 3
+          --retry-backoff 2
+      - name: Crawl all 35 district camp sources
+        id: camps
+        continue-on-error: true
+        run: uv run axom-flood camps --timeout 30
+      - name: Match camps to the versioned UDISE reference
+        id: matches
+        continue-on-error: true
+        run: uv run axom-flood udise match
+      - name: Ingest Assam hourly gauges
+        id: gauges
+        continue-on-error: true
+        run: >-
+          uv run axom-flood gauges
+          --source
+          https://nwdp.nwic.gov.in/dataset/6273c426-32f9-4fdf-b67f-e4e7a46d8554/resource/847f5630-f231-46c0-922d-0f2f379a5cb8/download/rwl_tel_hr_assam_999_2026_2030.csv
+      - name: Ingest CWC FFS gauges
+        id: cwc
+        continue-on-error: true
+        run: uv run axom-flood cwc --backfill-hours 12
+      - name: Inspect SMART AXOM public alerts
+        id: smart_axom
+        continue-on-error: true
+        run: uv run axom-flood flews
+      # A CWC ingest can write a new station reference, which changes how far each
+      # revenue circle sits from its gauge. Re-measure before the bundle is built,
+      # or the distances shown on the map are measured against a station list that
+      # no longer exists. The audit only ever demotes a mapping to unverified; it
+      # never promotes one and never picks a replacement gauge, so running it
+      # unattended can only move things toward caution.
+      - name: Re-audit gauge distances against the refreshed stations
+        id: gauge_audit
+        continue-on-error: true
+        run: uv run python scripts/audit_gauge_mappings.py --write
+      - name: Publish current PWA data bundle
+        id: pwa_bundle
+        continue-on-error: true
+        run: uv run python scripts/build_pwa_bundle.py
+      - name: Record unattended-run evidence
+        if: >-
+          steps.asdma.outcome == 'success' &&
+          steps.camps.outcome == 'success' &&
+          steps.matches.outcome == 'success' &&
+          steps.gauges.outcome == 'success' &&
+          steps.cwc.outcome == 'success' &&
+          steps.smart_axom.outcome == 'success' &&
+          steps.gauge_audit.outcome == 'success' &&
+          steps.pwa_bundle.outcome == 'success'
+        run: >-
+          uv run axom-flood monitor record
+          --run-id "${{ github.run_id }}"
+          --run-origin "${{ github.event_name }}"
+      - name: Commit new immutable data
+        if: always()
+        run: |
+          git config user.name "axom-flood-data-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add config data static/data
+          git diff --cached --quiet || git commit -m "data: run Phase 0 daily pipelines"
+          git push
+      - name: Enforce complete daily success
+        if: always()
+        env:
+          ASDMA_OUTCOME: ${{ steps.asdma.outcome }}
+          CAMPS_OUTCOME: ${{ steps.camps.outcome }}
+          MATCHES_OUTCOME: ${{ steps.matches.outcome }}
+          GAUGES_OUTCOME: ${{ steps.gauges.outcome }}
+          CWC_OUTCOME: ${{ steps.cwc.outcome }}
+          SMART_AXOM_OUTCOME: ${{ steps.smart_axom.outcome }}
+          GAUGE_AUDIT_OUTCOME: ${{ steps.gauge_audit.outcome }}
+          PWA_BUNDLE_OUTCOME: ${{ steps.pwa_bundle.outcome }}
+        run: |
+          test "$ASDMA_OUTCOME" = success
+          test "$CAMPS_OUTCOME" = success
+          test "$MATCHES_OUTCOME" = success
+          test "$GAUGES_OUTCOME" = success
+          test "$CWC_OUTCOME" = success
+          test "$SMART_AXOM_OUTCOME" = success
+          test "$GAUGE_AUDIT_OUTCOME" = success
+          test "$PWA_BUNDLE_OUTCOME" = success
+
+  report-failure:
+    needs: ingest
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "Phase 0 daily pipeline failed";
+            const existing = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open"
+            });
+            if (!existing.some(issue => issue.title === title)) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body: `A scheduled Phase 0 ingestion or parser check failed. Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+              });
+            }

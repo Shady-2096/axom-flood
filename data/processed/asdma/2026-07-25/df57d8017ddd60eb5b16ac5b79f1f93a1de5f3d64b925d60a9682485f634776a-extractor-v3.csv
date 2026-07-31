@@ -1,0 +1,13 @@
+schema_version,extractor_version,report_date,revision_id,district,affected_revenue_circles,revenue_circles,affected_villages,affected_population,crop_area_submerged_hectares,relief_camps_open,relief_distribution_centres_open,relief_camp_occupants,confirmed_deaths
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Charaideo,3,Mahmora|Sonari|Sapekhati,148,188404,16449,16,31,3342,1
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Dhemaji,,,,0,0,0,0,0,0
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Dibrugarh,3,Naharkatiya|Dibrugarh West|Moran,22,164,611.5,1,2,88,0
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Golaghat,5,Golaghat|Khumtai|Bokakhat|Dergaon|Morongi,119,40846,2985.44,13,35,1210,0
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Hojai,1,Doboka,19,0,116,0,0,0,0
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Jorhat,5,Mariani|Teok|Jorhat East|Jorhat West|Titabor,185,131948,5586.11,14,35,3069,0
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Kamrup,1,Chhaygaon,2,0,6.5,0,0,0,0
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Kamrup (M),1,Sonapur,8,0,21,0,0,0,0
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Nagaon,3,Samaguri|Kampur|Nagaon,51,2699,3027.5,0,1,0,0
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Sivasagar,5,Nazira|Sibsagar|Amguri|Dimow|Sonari,255,290777,6158.45,46,80,11193,3
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Sonitpur,1,Dhekiajuli,1,0,9.3,0,0,0,0
+1,3,2026-07-25,df57d8017ddd60eb5b16ac5b79f1f93a1de5f3d64b925d60a9682485f634776a,Sribhumi,,,,0,0,0,0,0,0

@@ -1,0 +1,523 @@
+{
+  "affected_district_names": [
+    "Sivasagar",
+    "Golaghat",
+    "Charaideo",
+    "Jorhat",
+    "Nagaon",
+    "Kamrup (M)"
+  ],
+  "artifact_id": "4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7-extractor-v5",
+  "districts": [
+    {
+      "affected_population": 188404,
+      "affected_revenue_circles": 3,
+      "affected_villages": 149,
+      "confirmed_deaths": 0,
+      "crop_area_submerged_hectares": 17649,
+      "district": "Charaideo",
+      "relief_camp_occupants": 1609,
+      "relief_camps_open": 11,
+      "relief_distribution_centres_open": 6,
+      "revenue_circle_data": [
+        {
+          "affected_population": 67128,
+          "affected_villages": 67,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 7340,
+          "relief_camp_occupants": 1251,
+          "relief_camps_open": 9,
+          "relief_distribution_centres_open": 6,
+          "revenue_circle": "Mahmora",
+          "source_names": [
+            "Mahmora"
+          ]
+        },
+        {
+          "affected_population": 0,
+          "affected_villages": 2,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 1797,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Sapekhati",
+          "source_names": [
+            "Sapekhati"
+          ]
+        },
+        {
+          "affected_population": 121276,
+          "affected_villages": 80,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 8512,
+          "relief_camp_occupants": 358,
+          "relief_camps_open": 2,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Sonari",
+          "source_names": [
+            "Sonari"
+          ]
+        }
+      ],
+      "revenue_circles": [
+        "Mahmora",
+        "Sonari",
+        "Sapekhati"
+      ]
+    },
+    {
+      "affected_population": 0,
+      "confirmed_deaths": 0,
+      "crop_area_submerged_hectares": 0,
+      "district": "Dhemaji",
+      "relief_camp_occupants": 0,
+      "relief_camps_open": 0,
+      "relief_distribution_centres_open": 0,
+      "revenue_circle_data": [
+        {
+          "affected_population": 0,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Sissiborgaon",
+          "source_names": [
+            "Sissiborgaon"
+          ]
+        }
+      ]
+    },
+    {
+      "affected_population": 0,
+      "confirmed_deaths": 0,
+      "crop_area_submerged_hectares": 0,
+      "district": "Dibrugarh",
+      "relief_camp_occupants": 0,
+      "relief_camps_open": 0,
+      "relief_distribution_centres_open": 0,
+      "revenue_circle_data": [
+        {
+          "affected_population": 0,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Dibrugarh East",
+          "source_names": [
+            "Dibrugarh East"
+          ]
+        },
+        {
+          "affected_population": 0,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Dibrugarh West",
+          "source_names": [
+            "Dibrugarh West"
+          ]
+        },
+        {
+          "affected_population": 0,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Moran",
+          "source_names": [
+            "Moran"
+          ]
+        },
+        {
+          "affected_population": 0,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Naharkatiya",
+          "source_names": [
+            "Naharkatia"
+          ]
+        },
+        {
+          "affected_population": 0,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Tengakhat",
+          "source_names": [
+            "Tengakhat"
+          ]
+        }
+      ]
+    },
+    {
+      "affected_population": 38172,
+      "affected_revenue_circles": 4,
+      "affected_villages": 111,
+      "confirmed_deaths": 0,
+      "crop_area_submerged_hectares": 2411.5,
+      "district": "Golaghat",
+      "relief_camp_occupants": 618,
+      "relief_camps_open": 7,
+      "relief_distribution_centres_open": 22,
+      "revenue_circle_data": [
+        {
+          "affected_population": 2717,
+          "affected_villages": 22,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 180.6,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 2,
+          "revenue_circle": "Bokakhat",
+          "source_names": [
+            "Bokakhat"
+          ]
+        },
+        {
+          "affected_population": 17065,
+          "affected_villages": 45,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 427.35,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 12,
+          "revenue_circle": "Dergaon",
+          "source_names": [
+            "Dergaon"
+          ]
+        },
+        {
+          "affected_population": 13386,
+          "affected_villages": 28,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 923,
+          "relief_camp_occupants": 532,
+          "relief_camps_open": 5,
+          "relief_distribution_centres_open": 5,
+          "revenue_circle": "Golaghat",
+          "source_names": [
+            "Golaghat"
+          ]
+        },
+        {
+          "affected_population": 5004,
+          "affected_villages": 16,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 880.55,
+          "relief_camp_occupants": 86,
+          "relief_camps_open": 2,
+          "relief_distribution_centres_open": 3,
+          "revenue_circle": "Khumtai",
+          "source_names": [
+            "Khumtai"
+          ]
+        }
+      ],
+      "revenue_circles": [
+        "Golaghat",
+        "Khumtai",
+        "Bokakhat",
+        "Dergaon"
+      ]
+    },
+    {
+      "affected_population": 74458,
+      "affected_revenue_circles": 5,
+      "affected_villages": 108,
+      "confirmed_deaths": 0,
+      "crop_area_submerged_hectares": 3345.62,
+      "district": "Jorhat",
+      "relief_camp_occupants": 1773,
+      "relief_camps_open": 14,
+      "relief_distribution_centres_open": 3,
+      "revenue_circle_data": [
+        {
+          "affected_population": 0,
+          "affected_villages": 4,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 23,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Jorhat East",
+          "source_names": [
+            "Jorhat East"
+          ]
+        },
+        {
+          "affected_population": 41931,
+          "affected_villages": 57,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 2025.9200000000003,
+          "relief_camp_occupants": 1252,
+          "relief_camps_open": 5,
+          "relief_distribution_centres_open": 1,
+          "revenue_circle": "Jorhat West",
+          "source_names": [
+            "Jorhat West"
+          ]
+        },
+        {
+          "affected_population": 0,
+          "affected_villages": 6,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Mariani",
+          "source_names": [
+            "Mariani"
+          ]
+        },
+        {
+          "affected_population": 27366,
+          "affected_villages": 25,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 716.5,
+          "relief_camp_occupants": 521,
+          "relief_camps_open": 9,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Teok",
+          "source_names": [
+            "Teok"
+          ]
+        },
+        {
+          "affected_population": 5161,
+          "affected_villages": 16,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 580.2,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 2,
+          "revenue_circle": "Titabor",
+          "source_names": [
+            "Titabor"
+          ]
+        }
+      ],
+      "revenue_circles": [
+        "Teok",
+        "Mariani",
+        "Jorhat West",
+        "Titabor",
+        "Jorhat East"
+      ]
+    },
+    {
+      "affected_population": 0,
+      "affected_revenue_circles": 1,
+      "affected_villages": 1,
+      "confirmed_deaths": 0,
+      "crop_area_submerged_hectares": 0.9,
+      "district": "Kamrup (M)",
+      "relief_camp_occupants": 0,
+      "relief_camps_open": 0,
+      "relief_distribution_centres_open": 0,
+      "revenue_circle_data": [
+        {
+          "affected_population": 0,
+          "affected_villages": 1,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0.9,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Dispur",
+          "source_names": [
+            "Dispur"
+          ]
+        }
+      ],
+      "revenue_circles": [
+        "Dispur"
+      ]
+    },
+    {
+      "affected_population": 0,
+      "affected_revenue_circles": 3,
+      "affected_villages": 30,
+      "confirmed_deaths": 0,
+      "crop_area_submerged_hectares": 319,
+      "district": "Nagaon",
+      "relief_camp_occupants": 0,
+      "relief_camps_open": 0,
+      "relief_distribution_centres_open": 4,
+      "revenue_circle_data": [
+        {
+          "affected_population": 0,
+          "affected_villages": 8,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 196,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Kampur",
+          "source_names": [
+            "Kampur"
+          ]
+        },
+        {
+          "affected_population": 0,
+          "affected_villages": 14,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 4,
+          "revenue_circle": "Nagaon",
+          "source_names": [
+            "Nagaon"
+          ]
+        },
+        {
+          "affected_population": 0,
+          "affected_villages": 8,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 123,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 0,
+          "revenue_circle": "Samaguri",
+          "source_names": [
+            "Samaguri"
+          ]
+        }
+      ],
+      "revenue_circles": [
+        "Nagaon",
+        "Samaguri",
+        "Kampur"
+      ]
+    },
+    {
+      "affected_population": 144461,
+      "affected_revenue_circles": 5,
+      "affected_villages": 232,
+      "confirmed_deaths": 0,
+      "crop_area_submerged_hectares": 13413.5,
+      "district": "Sivasagar",
+      "relief_camp_occupants": 24695,
+      "relief_camps_open": 58,
+      "relief_distribution_centres_open": 59,
+      "revenue_circle_data": [
+        {
+          "affected_population": 39152,
+          "affected_villages": 46,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 78.5,
+          "relief_camp_occupants": 13980,
+          "relief_camps_open": 23,
+          "relief_distribution_centres_open": 12,
+          "revenue_circle": "Amguri",
+          "source_names": [
+            "Amguri"
+          ]
+        },
+        {
+          "affected_population": 9465,
+          "affected_villages": 24,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 463,
+          "relief_camp_occupants": 567,
+          "relief_camps_open": 6,
+          "relief_distribution_centres_open": 16,
+          "revenue_circle": "Dimow",
+          "source_names": [
+            "Demow"
+          ]
+        },
+        {
+          "affected_population": 17885,
+          "affected_villages": 41,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 8551,
+          "relief_camp_occupants": 4050,
+          "relief_camps_open": 18,
+          "relief_distribution_centres_open": 5,
+          "revenue_circle": "Nazira",
+          "source_names": [
+            "Nazira"
+          ]
+        },
+        {
+          "affected_population": 71452,
+          "affected_villages": 114,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 4321,
+          "relief_camp_occupants": 6098,
+          "relief_camps_open": 11,
+          "relief_distribution_centres_open": 19,
+          "revenue_circle": "Sibsagar",
+          "source_names": [
+            "Sivsagar"
+          ]
+        },
+        {
+          "affected_population": 6507,
+          "affected_villages": 7,
+          "confirmed_deaths": 0,
+          "crop_area_submerged_hectares": 0,
+          "relief_camp_occupants": 0,
+          "relief_camps_open": 0,
+          "relief_distribution_centres_open": 7,
+          "revenue_circle": "Sonari",
+          "source_names": [
+            "Sonari RC part"
+          ]
+        }
+      ],
+      "revenue_circles": [
+        "Nazira",
+        "Dimow",
+        "Sibsagar",
+        "Amguri",
+        "Sonari"
+      ]
+    }
+  ],
+  "extractor_version": 5,
+  "report_date": "2026-07-27",
+  "revision_id": "4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7",
+  "rivers_above_danger_level": [
+    "Dhansiri (S) (Numaligarh)"
+  ],
+  "rivers_above_highest_flood_level": [],
+  "schema_version": 1,
+  "source": {
+    "content_type": "application/pdf",
+    "fetched_at": "2026-07-28T01:54:12.143080+05:30",
+    "requested_date": "2026-07-27",
+    "schema_version": 1,
+    "sha256": "4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7",
+    "size_bytes": 1247113,
+    "source_url": "https://sdrf.assam.gov.in/dfr/download"
+  },
+  "summary": {
+    "affected_districts": 6,
+    "affected_embankments": 0,
+    "affected_population": 445495,
+    "affected_revenue_circles": 21,
+    "affected_villages": 631,
+    "breached_embankments": 0,
+    "confirmed_deaths": 0,
+    "crop_area_submerged_hectares": 37139.52,
+    "damaged_bridges": 0,
+    "damaged_roads": 48,
+    "relief_camp_occupants": 28695,
+    "relief_camps_open": 90,
+    "relief_distribution_centres_open": 94
+  }
+}

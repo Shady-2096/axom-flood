@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/gauge-snapshot-v1.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "gauge_id",
+    "site_name",
+    "district",
+    "coordinates",
+    "observed_at",
+    "data_age_hours",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "gauge_id": {"type": "string"},
+    "site_name": {"type": "string"},
+    "district": {"type": ["string", "null"]},
+    "district_slug": {
+      "type": ["string", "null"],
+      "description": "Canonical registry slug, or null when the source spelling is unknown to config/assam-districts.json."
+    },
+    "district_source_name": {
+      "type": ["string", "null"],
+      "description": "The district name exactly as the upstream source spelled it."
+    },
+    "state": {"type": ["string", "null"]},
+    "river": {"type": ["string", "null"]},
+    "agency": {"type": ["string", "null"]},
+    "coordinates": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "items": false
+    },
+    "observed_at": {"type": "string", "format": "date-time"},
+    "level_m": {
+      "type": ["number", "null"],
+      "description": "Null whenever status is no_data. A stale reading is never presented as current."
+    },
+    "last_observed_level_m": {"type": "number"},
+    "data_age_hours": {"type": "number", "minimum": 0},
+    "trend_cm_per_hr": {"type": ["number", "null"]},
+    "trend_window_hrs": {"type": "number"},
+    "gap_detected_in_trend_window": {"type": "boolean"},
+    "readings_in_local_series": {"type": "integer", "minimum": 0},
+    "status": {
+      "enum": ["normal", "warning", "above_danger", "above_hfl", "falling", "no_data"]
+    },
+    "warning_level_m": {"type": ["number", "null"]},
+    "danger_level_m": {"type": ["number", "null"]},
+    "highest_flood_level_m": {"type": ["number", "null"]},
+    "highest_flood_level_date": {"type": ["string", "null"]},
+    "cwc_station_code": {"type": "string"},
+    "cwc_status": {
+      "type": ["string", "null"],
+      "description": "CWC's own classification for the station. Null when the reading is stale.",
+      "enum": ["WARNING", "DANGER", null]
+    },
+    "cwc_trend": {
+      "type": ["string", "null"],
+      "enum": ["RISING", "FALLING", "STEADY", null]
+    },
+    "cwc_classification_available": {
+      "type": "boolean",
+      "description": "False when CWC's warning list was unavailable. A null cwc_status then means unknown, never an all-clear."
+    },
+    "source_revision": {"type": "string"},
+    "reference_revision": {
+      "type": "string",
+      "description": "Revision of the reference tables that supplied this gauge's thresholds and labels."
+    },
+    "in_latest_source_response": {
+      "type": "boolean",
+      "description": "False when the source stopped returning this station this run; the snapshot then rests on stored history and goes stale into no_data."
+    },
+    "is_upstream_of_assam": {
+      "type": "boolean",
+      "description": "True for gauges outside Assam kept for upstream lead time; not an Assam district reading."
+    },
+    "telemetric": {"type": "boolean"},
+    "station_operational": {"type": "boolean"},
+    "source": {"type": "string"},
+    "source_url": {"type": ["string", "null"]},
+    "forecast": {
+      "type": ["object", "null"],
+      "description": "Nearest approved official level forecast for this gauge.",
+      "required": ["forecast_level_m", "forecast_for", "issued_at"],
+      "properties": {
+        "forecast_level_m": {"type": "number"},
+        "forecast_for": {"type": "string", "format": "date-time"},
+        "issued_at": {"type": "string", "format": "date-time"},
+        "trend_word": {"type": ["string", "null"]},
+        "revised": {"type": "boolean"}
+      }
+    }
+  }
+}

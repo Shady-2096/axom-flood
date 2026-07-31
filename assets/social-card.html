@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      @font-face {
+        font-family: "Archivo";
+        src: url("../static/fonts/archivo-latin.woff2") format("woff2");
+        font-display: block;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        font-family: "Archivo", Arial, sans-serif;
+        color: #edf5f4;
+        background: #061c24;
+      }
+
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(4, 23, 30, 0.99) 0%, rgba(4, 23, 30, 0.92) 38%, rgba(4, 23, 30, 0.34) 70%, rgba(4, 23, 30, 0.12) 100%),
+          linear-gradient(0deg, rgba(4, 23, 30, 0.35), rgba(4, 23, 30, 0)),
+          url("./social-card-background.jpg") center / cover no-repeat;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(237, 245, 244, 0.12);
+        pointer-events: none;
+      }
+
+      .content {
+        position: absolute;
+        inset: 58px 64px 54px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 58px;
+        height: 58px;
+        place-items: center;
+        border: 1px solid rgba(117, 208, 223, 0.32);
+        border-radius: 14px;
+        background: rgba(6, 28, 36, 0.82);
+      }
+
+      .brand-mark svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      .brand-name {
+        display: block;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 0.085em;
+      }
+
+      .brand-detail {
+        display: block;
+        margin-top: 4px;
+        color: #9db2b7;
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .message {
+        width: 660px;
+        margin-top: 76px;
+      }
+
+      h1 {
+        max-width: 650px;
+        margin: 0;
+        font-size: 67px;
+        font-weight: 760;
+        letter-spacing: -0.045em;
+        line-height: 0.98;
+      }
+
+      p {
+        max-width: 600px;
+        margin: 26px 0 0;
+        color: #c8d8da;
+        font-size: 23px;
+        font-weight: 500;
+        line-height: 1.38;
+      }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-top: auto;
+        color: #edf5f4;
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .footer-line {
+        width: 52px;
+        height: 2px;
+        background: #75d0df;
+      }
+
+      .offline {
+        color: #9db2b7;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="content">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 512 512">
+              <path d="M66 188c67-54 126-54 190 0s123 54 190 0v45c-67 54-126 54-190 0s-123-54-190 0zm0 103c67-54 126-54 190 0s123 54 190 0v45c-67 54-126 54-190 0s-123-54-190 0z" fill="#edf5f4"/>
+              <circle cx="401" cy="105" r="30" fill="#d66b24"/>
+            </svg>
+          </div>
+          <div>
+            <span class="brand-name">AXOM FLOOD</span>
+            <span class="brand-detail">Assam river observatory</span>
+          </div>
+        </div>
+
+        <div class="message">
+          <h1>River information for Assam.</h1>
+          <p>Plain-language alerts, official measurements, relief camps and emergency contacts.</p>
+        </div>
+
+        <div class="footer">
+          <span class="footer-line" aria-hidden="true"></span>
+          <span>assamflood.org</span>
+          <span class="offline">Available offline</span>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

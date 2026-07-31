@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/asdma-impact-validation-v1.json",
+  "title": "ASDMA impact validation result",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "validator_version",
+    "validation_id",
+    "revision_id",
+    "extractor_version",
+    "report_date",
+    "validated_at",
+    "state",
+    "profile",
+    "allowed_fields",
+    "checks",
+    "warnings",
+    "failures",
+    "impact_url"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "validator_version": {"type": "integer", "minimum": 1},
+    "validation_id": {
+      "type": "string",
+      "pattern": "^validation-[a-f0-9]{64}-extractor-(?:v[1-9][0-9]*|unknown)-validator-v[1-9][0-9]*$"
+    },
+    "revision_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "extractor_version": {
+      "oneOf": [
+        {"type": "integer", "minimum": 7},
+        {"type": "null"}
+      ]
+    },
+    "report_date": {"type": "string", "format": "date"},
+    "validated_at": {"type": "string", "format": "date-time"},
+    "state": {
+      "enum": [
+        "validated",
+        "validated_partial",
+        "quarantined",
+        "superseded",
+        "historical"
+      ]
+    },
+    "profile": {
+      "enum": ["impact-v1", "impact-v1-infrastructure-count-only", "none"]
+    },
+    "allowed_fields": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "detail", "field_paths"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "status": {"enum": ["pass", "warn", "fail"]},
+          "detail": {"type": "string", "minLength": 1},
+          "field_paths": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "failures": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "impact_url": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "pattern": "^data/impact-.+\\.json$"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+name: UDISE reference refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 2 * * 0"
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --extra dev --locked
+      - run: uv run axom-flood udise ingest
+      - run: uv run axom-flood udise match
+      - name: Commit a changed source revision
+        run: |
+          git config user.name "axom-flood-data-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/reference/udise data/processed/camp-matches data/review/camp-matches
+          git diff --cached --quiet || git commit -m "data: refresh UDISE reference"
+          git push
+
+  report-failure:
+    needs: refresh
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "UDISE reference refresh failed";
+            const existing = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open"
+            });
+            if (!existing.some(issue => issue.title === title)) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body: `The weekly UDISE reference refresh failed. Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+              });
+            }

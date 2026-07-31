@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/asdma-impact-history-v1.json",
+  "title": "Published ASDMA impact report history",
+  "type": "object",
+  "required": ["schema_version", "updated_at", "reports"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 2},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "report_date",
+          "revision_id",
+          "extractor_version",
+          "fetched_at",
+          "publication_state",
+          "profile",
+          "validated_at",
+          "impact_url",
+          "source_url",
+          "source_artifact_url"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "report_date": {"type": "string", "format": "date"},
+          "revision_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "extractor_version": {"type": "integer", "minimum": 7},
+          "fetched_at": {"type": "string", "format": "date-time"},
+          "publication_state": {
+            "enum": ["validated", "validated_partial", "historical", "superseded"]
+          },
+          "profile": {
+            "enum": ["impact-v1", "impact-v1-infrastructure-count-only"]
+          },
+          "validated_at": {"type": "string", "format": "date-time"},
+          "impact_url": {"type": "string", "pattern": "^data/impact-.+\\.json$"},
+          "source_url": {"type": "string", "format": "uri"},
+          "source_artifact_url": {
+            "type": "string",
+            "pattern": "^data/asdma-source/[a-f0-9]{64}\\.pdf$"
+          }
+        }
+      }
+    }
+  }
+}

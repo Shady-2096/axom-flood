@@ -1,0 +1,404 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/asdma-bulletin-v1.json",
+  "title": "ASDMA flood bulletin",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "extractor_version",
+    "report_date",
+    "revision_id",
+    "artifact_id",
+    "source",
+    "summary",
+    "districts"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "extractor_version": {"minimum": 7}
+        },
+        "required": ["extractor_version"]
+      },
+      "then": {
+        "required": [
+          "field_provenance",
+          "relief_material_notes",
+          "infrastructure",
+          "extraction_warnings"
+        ],
+        "properties": {
+          "summary": {
+            "required": [
+              "missing_people",
+              "livestock_affected",
+              "livestock_washed_away",
+              "houses_damaged",
+              "houses_damaged_others",
+              "rescue_operations",
+              "relief_distributed",
+              "infrastructure_incidents",
+              "infrastructure_records_extracted"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "extractor_version": {"type": "integer", "minimum": 1},
+    "report_date": {"type": "string", "format": "date"},
+    "revision_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "artifact_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}-extractor-v[1-9][0-9]*$"
+    },
+    "affected_district_names": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "rivers_above_danger_level": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "rivers_above_highest_flood_level": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "affected_districts",
+        "affected_revenue_circles",
+        "affected_villages",
+        "affected_population",
+        "crop_area_submerged_hectares",
+        "relief_camps_open",
+        "relief_distribution_centres_open",
+        "relief_camp_occupants",
+        "confirmed_deaths"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "affected_districts": {"type": "integer", "minimum": 0},
+        "affected_revenue_circles": {"type": "integer", "minimum": 0},
+        "affected_villages": {"type": "integer", "minimum": 0},
+        "affected_population": {"type": "integer", "minimum": 0},
+        "crop_area_submerged_hectares": {"type": "number", "minimum": 0},
+        "relief_camps_open": {"type": "integer", "minimum": 0},
+        "relief_distribution_centres_open": {"type": "integer", "minimum": 0},
+        "relief_camp_occupants": {"type": "integer", "minimum": 0},
+        "confirmed_deaths": {"type": "integer", "minimum": 0},
+        "missing_people": {"type": "integer", "minimum": 0},
+        "livestock_affected": {"$ref": "#/$defs/livestockBreakdown"},
+        "livestock_washed_away": {"$ref": "#/$defs/livestockBreakdown"},
+        "houses_damaged": {"$ref": "#/$defs/houseDamage"},
+        "houses_damaged_others": {"$ref": "#/$defs/otherHouseDamage"},
+        "rescue_operations": {"$ref": "#/$defs/rescueOperations"},
+        "relief_distributed": {"$ref": "#/$defs/reliefDistributed"},
+        "infrastructure_incidents": {"$ref": "#/$defs/infrastructureCounts"},
+        "infrastructure_records_extracted": {
+          "$ref": "#/$defs/infrastructureCounts"
+        },
+        "damaged_roads": {"type": "integer", "minimum": 0},
+        "damaged_bridges": {"type": "integer", "minimum": 0},
+        "breached_embankments": {"type": "integer", "minimum": 0},
+        "affected_embankments": {"type": "integer", "minimum": 0}
+      }
+    },
+    "districts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["district"],
+        "properties": {
+          "district": {"type": "string", "minLength": 1},
+          "affected_revenue_circles": {"type": "integer", "minimum": 0},
+          "revenue_circles": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "affected_villages": {"type": "integer", "minimum": 0},
+          "affected_population": {"type": "integer", "minimum": 0},
+          "crop_area_submerged_hectares": {"type": "number", "minimum": 0},
+          "relief_camps_open": {"type": "integer", "minimum": 0},
+          "relief_distribution_centres_open": {"type": "integer", "minimum": 0},
+          "relief_camp_occupants": {"type": "integer", "minimum": 0},
+          "confirmed_deaths": {"type": "integer", "minimum": 0},
+          "missing_people": {"type": "integer", "minimum": 0},
+          "livestock_affected": {"$ref": "#/$defs/livestockBreakdown"},
+          "livestock_washed_away": {"$ref": "#/$defs/livestockBreakdown"},
+          "houses_damaged": {"$ref": "#/$defs/houseDamage"},
+          "houses_damaged_others": {"$ref": "#/$defs/otherHouseDamage"},
+          "rescue_operations": {"$ref": "#/$defs/rescueOperations"},
+          "relief_distributed": {"$ref": "#/$defs/reliefDistributed"},
+          "revenue_circle_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["revenue_circle", "source_names"],
+              "additionalProperties": false,
+              "properties": {
+                "revenue_circle": {"type": "string", "minLength": 1},
+                "source_names": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {"type": "string", "minLength": 1}
+                },
+                "affected_villages": {"type": "integer", "minimum": 0},
+                "affected_population": {"type": "integer", "minimum": 0},
+                "crop_area_submerged_hectares": {"type": "number", "minimum": 0},
+                "relief_camps_open": {"type": "integer", "minimum": 0},
+                "relief_distribution_centres_open": {"type": "integer", "minimum": 0},
+                "relief_camp_occupants": {"type": "integer", "minimum": 0},
+                "confirmed_deaths": {"type": "integer", "minimum": 0}
+              }
+            }
+          }
+        }
+      }
+    },
+    "field_provenance": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {"$ref": "#/$defs/sourceRow"}
+      }
+    },
+    "relief_material_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["district", "provenance"],
+        "additionalProperties": false,
+        "properties": {
+          "district": {"type": "string", "minLength": 1},
+          "baby_food_liquid_source_text": {"type": ["string", "null"]},
+          "baby_food_solid_source_text": {"type": ["string", "null"]},
+          "other_materials_source_text": {"type": ["string", "null"]},
+          "provenance": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"$ref": "#/$defs/sourceRow"}
+          }
+        }
+      }
+    },
+    "infrastructure": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/infrastructureRecord"}
+    },
+    "extraction_warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "code",
+          "incident_type",
+          "reported_count",
+          "extracted_record_count"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "code": {"const": "infrastructure_detail_count_mismatch"},
+          "incident_type": {"$ref": "#/$defs/incidentType"},
+          "reported_count": {"type": "integer", "minimum": 0},
+          "extracted_record_count": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "requested_date",
+        "fetched_at",
+        "source_url",
+        "content_type",
+        "sha256",
+        "size_bytes"
+      ],
+      "properties": {
+        "schema_version": {"const": 1},
+        "requested_date": {"type": "string", "format": "date"},
+        "fetched_at": {"type": "string", "format": "date-time"},
+        "source_url": {"type": "string", "format": "uri"},
+        "content_type": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "size_bytes": {"type": "integer", "minimum": 1}
+      }
+    }
+  },
+  "$defs": {
+    "nonNegativeNumber": {"type": "number", "minimum": 0},
+    "livestockBreakdown": {
+      "type": "object",
+      "required": ["total", "big_animals", "small_animals", "poultry"],
+      "additionalProperties": false,
+      "properties": {
+        "total": {"type": "integer", "minimum": 0},
+        "big_animals": {"type": "integer", "minimum": 0},
+        "small_animals": {"type": "integer", "minimum": 0},
+        "poultry": {"type": "integer", "minimum": 0}
+      }
+    },
+    "houseDamage": {
+      "type": "object",
+      "required": [
+        "fully_kutcha",
+        "fully_pucca",
+        "fully_total",
+        "partially_kutcha",
+        "partially_pucca",
+        "partially_total"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "fully_kutcha": {"type": "integer", "minimum": 0},
+        "fully_pucca": {"type": "integer", "minimum": 0},
+        "fully_total": {"type": "integer", "minimum": 0},
+        "partially_kutcha": {"type": "integer", "minimum": 0},
+        "partially_pucca": {"type": "integer", "minimum": 0},
+        "partially_total": {"type": "integer", "minimum": 0}
+      }
+    },
+    "otherHouseDamage": {
+      "type": "object",
+      "required": ["other_huts", "cattle_sheds", "other_total"],
+      "additionalProperties": false,
+      "properties": {
+        "other_huts": {"type": "integer", "minimum": 0},
+        "cattle_sheds": {"type": "integer", "minimum": 0},
+        "other_total": {"type": "integer", "minimum": 0}
+      }
+    },
+    "rescueOperations": {
+      "type": "object",
+      "required": [
+        "medical_teams_deployed",
+        "boats_deployed",
+        "people_evacuated_by_boat",
+        "animals_evacuated_by_boat",
+        "helicopters_deployed",
+        "people_evacuated_by_helicopter"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "medical_teams_deployed": {"type": "integer", "minimum": 0},
+        "boats_deployed": {"type": "integer", "minimum": 0},
+        "people_evacuated_by_boat": {"type": "integer", "minimum": 0},
+        "animals_evacuated_by_boat": {"type": "integer", "minimum": 0},
+        "helicopters_deployed": {"type": "integer", "minimum": 0},
+        "people_evacuated_by_helicopter": {"type": "integer", "minimum": 0}
+      }
+    },
+    "reliefDistributed": {
+      "type": "object",
+      "required": [
+        "rice_quintals",
+        "dal_quintals",
+        "salt_quintals",
+        "mustard_oil_litres",
+        "green_fodder_quintals",
+        "wheat_bran_quintals",
+        "rice_bran_quintals"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "rice_quintals": {"$ref": "#/$defs/nonNegativeNumber"},
+        "dal_quintals": {"$ref": "#/$defs/nonNegativeNumber"},
+        "salt_quintals": {"$ref": "#/$defs/nonNegativeNumber"},
+        "mustard_oil_litres": {"$ref": "#/$defs/nonNegativeNumber"},
+        "green_fodder_quintals": {"$ref": "#/$defs/nonNegativeNumber"},
+        "wheat_bran_quintals": {"$ref": "#/$defs/nonNegativeNumber"},
+        "rice_bran_quintals": {"$ref": "#/$defs/nonNegativeNumber"}
+      }
+    },
+    "infrastructureCounts": {
+      "type": "object",
+      "required": ["road", "bridge", "embankment_breached", "embankment_affected"],
+      "additionalProperties": false,
+      "properties": {
+        "road": {"type": "integer", "minimum": 0},
+        "bridge": {"type": "integer", "minimum": 0},
+        "embankment_breached": {"type": "integer", "minimum": 0},
+        "embankment_affected": {"type": "integer", "minimum": 0}
+      }
+    },
+    "incidentType": {
+      "enum": ["road", "bridge", "embankment_breached", "embankment_affected"]
+    },
+    "sourceRow": {
+      "type": "object",
+      "required": [
+        "source_revision_sha256",
+        "report_date",
+        "extractor_version",
+        "page",
+        "table",
+        "row",
+        "section"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_revision_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "report_date": {"type": "string", "format": "date"},
+        "extractor_version": {"type": "integer", "minimum": 1},
+        "page": {"type": "integer", "minimum": 1},
+        "table": {"type": "integer", "minimum": 1},
+        "row": {"type": "integer", "minimum": 1},
+        "section": {"type": "string", "minLength": 1}
+      }
+    },
+    "infrastructureRecord": {
+      "type": "object",
+      "required": [
+        "incident_type",
+        "district",
+        "revenue_circle",
+        "name",
+        "department",
+        "village",
+        "source_location_text",
+        "longitude",
+        "latitude",
+        "longitude_source_text",
+        "latitude_source_text",
+        "coordinate_validation",
+        "remarks",
+        "match_scope",
+        "provenance"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "incident_type": {"$ref": "#/$defs/incidentType"},
+        "district": {"type": ["string", "null"]},
+        "revenue_circle": {"type": ["string", "null"]},
+        "name": {"type": "string", "minLength": 1},
+        "department": {"type": ["string", "null"]},
+        "village": {"type": ["string", "null"]},
+        "source_location_text": {"type": ["string", "null"]},
+        "longitude": {"type": ["number", "null"], "minimum": 89.5, "maximum": 97.5},
+        "latitude": {"type": ["number", "null"], "minimum": 24, "maximum": 29.5},
+        "longitude_source_text": {"type": ["string", "null"]},
+        "latitude_source_text": {"type": ["string", "null"]},
+        "coordinate_validation": {"enum": ["valid", "missing", "invalid"]},
+        "remarks": {"type": ["string", "null"]},
+        "match_scope": {
+          "enum": ["coordinates", "revenue_circle", "district", "unresolved"]
+        },
+        "provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/sourceRow"}
+        }
+      }
+    }
+  }
+}

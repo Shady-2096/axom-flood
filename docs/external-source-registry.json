@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-07-29T00:00:00+05:30",
+  "sources": [
+    {
+      "source_id": "nasa-gpm-imerg",
+      "name": "NASA GPM IMERG V07 Early and Late",
+      "official_urls": [
+        "https://gpm.nasa.gov/data/imerg",
+        "https://gpm.nasa.gov/resources/faq/what-determines-latency-imerg"
+      ],
+      "access_mode": "account_required",
+      "live_enabled_by_default": false,
+      "operational_role": "grid-cell rainfall-rate evidence with unit-safe time accumulation",
+      "credential_gate": "Earthdata Login or PPS registration and operator-provided credentials",
+      "geometry_gate": "reviewed analytical boundary required before any zonal result"
+    },
+    {
+      "source_id": "imd-statewise-rainfall",
+      "name": "India Meteorological Department rainfall API",
+      "official_urls": [
+        "https://mausam.imd.gov.in/imd_latest/contents/api.pdf",
+        "https://mausam.imd.gov.in/api/statewise_rainfall_api.php"
+      ],
+      "access_mode": "ip_whitelist_required",
+      "live_enabled_by_default": false,
+      "operational_role": "domestic rainfall cross-check; district data is not revenue-circle precision",
+      "credential_gate": "operator permission and source-host IP whitelisting",
+      "geometry_gate": "source administrative units retained; no inferred revenue-circle join"
+    },
+    {
+      "source_id": "cems-glofas-medium-range",
+      "name": "Copernicus GloFAS v4.5 medium-range forecast",
+      "official_urls": [
+        "https://ewds.climate.copernicus.eu/datasets/cems-glofas-forecast?tab=overview",
+        "https://cds.climate.copernicus.eu/licences/cems-floods"
+      ],
+      "access_mode": "account_required",
+      "live_enabled_by_default": false,
+      "operational_role": "15-day model advisory; never an authorised flood warning",
+      "credential_gate": "EWDS account, API token, and one-time licence acceptance",
+      "geometry_gate": "reviewed river topology and upstream-area association; nearest distance forbidden"
+    },
+    {
+      "source_id": "google-flood-status",
+      "name": "Google Flood Forecasting API",
+      "official_urls": [
+        "https://developers.google.com/flood-forecasting",
+        "https://developers.google.com/flood-forecasting/rest"
+      ],
+      "access_mode": "approval_required",
+      "live_enabled_by_default": false,
+      "operational_role": "typed flood-status and inundation parser after provider approval",
+      "credential_gate": "waitlist approval, approved email, enabled Cloud project, and API key",
+      "geometry_gate": "provider gauge and polygon identity retained; no locality inference"
+    },
+    {
+      "source_id": "copernicus-sentinel-1-grd-manifest",
+      "name": "Copernicus Sentinel-1 GRD",
+      "official_urls": [
+        "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD",
+        "https://documentation.dataspace.copernicus.eu/APIs/STAC.html"
+      ],
+      "access_mode": "registered_download",
+      "live_enabled_by_default": false,
+      "operational_role": "retrospective scene evidence, not automatic flood-extent truth",
+      "credential_gate": "Earth Engine project registration or Copernicus Data Space account",
+      "geometry_gate": "human-reviewed AOI and scene coverage required for event association"
+    },
+    {
+      "source_id": "merit-hydro-hand-manifest",
+      "name": "MERIT Hydro v1.0.1 existing HAND band",
+      "official_urls": [
+        "https://global-hydrodynamics.github.io/MERIT_Hydro/",
+        "https://developers.google.com/earth-engine/datasets/catalog/MERIT_Hydro_v1_0_1"
+      ],
+      "access_mode": "registered_download",
+      "live_enabled_by_default": false,
+      "operational_role": "approximately 90 m terrain prior using the provided hnd band",
+      "credential_gate": "dataset access and operator acceptance of the selected dual-licence route",
+      "geometry_gate": "reviewed AOI required before clipping; bifurcation limitation must remain visible"
+    }
+  ]
+}

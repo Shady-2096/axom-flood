@@ -1,0 +1,1272 @@
+{
+  "artifact_id": "2357dd93f05478d3c8c280a2b093d977036e1188153769dcb6fc9849658ada2c",
+  "items": [
+    {
+      "district": "Bajali",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "9418f5e0d744d57c6b7664124f699fb2b3a4763ae48f7933c0ef96d7044d849e",
+      "source_url": "https://bajali.assam.gov.in/sites/default/files/public_utility/FCP%20BRC%20%281%29.pdf",
+      "title": "Flood Contingency plan 2026 for Bajali Revenue Circle"
+    },
+    {
+      "district": "Bajali",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "a87add2c8fdb945dc77df56ef7c73bbc46778d6b4a77922e814ea6c5c55a8595",
+      "source_url": "https://bajali.assam.gov.in/sites/default/files/public_utility/FCP%20SRC%20%281%29.pdf",
+      "title": "Flood Contingency plan 2026 for Sarupeta Revenue Circle"
+    },
+    {
+      "district": "Charaideo",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "add99a96b50263ec6e701493e0f9cb2589450c361774c7ee9ffb684c6cd6dc3e",
+      "source_url": "https://charaideo.assam.gov.in/sites/default/files/public_utility/Flood%20Contingency%20Plan%202026.pdf",
+      "title": "Flood Contingency Plan 2026"
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Bijni Stadium",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "79 Moneswari JB School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "799 No.Puran Bijni LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Fagunagaon High School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Majrabari Nowapara High School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "252 No. Sishubari LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "128 No. Nowapara LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "850 No. Sarapet LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "No. 1 Sarapet Sub Centre & Library",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "No.1 Chowrabari L PS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "1 No. Khujurapguri LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Dongapeta LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Nawduba LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "373 No. Kathalguri LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Khujurapguri MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Ledopara LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Ledopara JK Club",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Odalguri LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Bhabanipur MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Uttar Manikpur LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Pachim Kaliagaon LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Amguri HS School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Patalmari LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "792 No. Narayanpur LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Kungkrajhora MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Kungkrajhora Community Hall",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "702 No. Dwisumjhora LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "No. 1 Uttar Boldi LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Ladangpara LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "419 No. Dologaon LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "538 No. Ladanguri LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "No.360 Symthaibari LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Nadhiyapara Library",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "127 No. Kashdoha LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "703 No. Bisdoba LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "877 No. Soregaon LPS (Boupara)",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "349 No. Fulerchar LPS (Bedlangkhaity LPS)",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Bedlangkhaity Yeer Mamood MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Panbari Model LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Chikajhora LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "894 No. Dahaldanda LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Jharbispani MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Bagargaon Anchalik High School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "1041 No. Simlabari LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Bijni Stadium",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "79 Moneswari JB School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "799 No.Puran Bijni LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Fagunagaon High School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Majrabari Nowapara High School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "252 No. Sishubari LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "128 No. Nowapara LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "850 No. Sarapet LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "No. 1 Sarapet Sub Centre & Library",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "No.1 Chowrabari L PS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "1 No. Khujurapguri LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Dongapeta LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Nawduba LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "373 No. Kathalguri LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Khujurapguri MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Ledopara LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 3
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Ledopara JK Club",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Odalguri LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Bhabanipur MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Uttar Manikpur LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Pachim Kaliagaon LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Amguri HS School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Patalmari LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "792 No. Narayanpur LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Kungkrajhora MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Kungkrajhora Community Hall",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "702 No. Dwisumjhora LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "No. 1 Uttar Boldi LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Ladangpara LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "419 No. Dologaon LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "538 No. Ladanguri LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "No.360 Symthaibari LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Nadhiyapara Library",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "127 No. Kashdoha LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "703 No. Bisdoba LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 4
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "877 No. Soregaon LPS (Boupara)",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "349 No. Fulerchar LPS (Bedlangkhaity LPS)",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Bedlangkhaity Yeer Mamood MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Panbari Model LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Chikajhora LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "894 No. Dahaldanda LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Jharbispani MES",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "Bagargaon Anchalik High School",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Chirang",
+      "name_raw": "1041 No. Simlabari LPS",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "33eb900f8774c3e46ee3dd03b8990ede9a642cbf51e7065cb691bae6751f6bca",
+      "source_page": 5
+    },
+    {
+      "district": "Hojai",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "5e15ddccc2d35b16a462934af895fd8a5160f93742ae56d5757c7b39d44a19f7",
+      "source_url": "https://hojai.assam.gov.in/sites/default/files/public_utility/DDMP%20compressed%20%281%29.pdf",
+      "title": "DISTRICT DISASTER MANAGEMENT PLAN HOJAI (2026 – 2027)"
+    },
+    {
+      "district": "Hojai",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "85d31aacc304992440f7085408e5670536cdea55809a8a01fb7580237580de6d",
+      "source_url": "https://hojai.assam.gov.in/sites/default/files/public_utility/final_sd_district_flood_contingency_plan22_compressed.pdf",
+      "title": "Flood contingency plan for Hojai District 2022-2023"
+    },
+    {
+      "district": "Kamrup",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "9b1e2135cacece4738aa8068c4351a1f1c4ee962bf81c48b111388c9dd848740",
+      "source_url": "https://kamrup.assam.gov.in/sites/default/files/public_utility/DDMP2024-25.pdf",
+      "title": "District Disaster Management Plan"
+    },
+    {
+      "district": "Kamrup",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "96ca89a04a96469b2b585840673c8b7dea2e00571ea7b0e1ad301f111a96584f",
+      "source_url": "https://kamrup.assam.gov.in/sites/default/files/public_utility/ddmp_2022-23.pdf",
+      "title": "District Disaster Management Plan"
+    },
+    {
+      "district": "Kamrup",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "f8082d6ab8edf3ef6d537b22bd5ae11f600c4ff33512c5bd378a69bcc2d5683b",
+      "source_url": "https://kamrup.assam.gov.in/sites/default/files/public_utility/ddmp_2023-24_3.pdf",
+      "title": "District Disaster Management Plan"
+    },
+    {
+      "district": "Nagaon",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "8f82c934f715db7fad65c0841d3be050d02ef21d808e640e050fabc8757f0846",
+      "source_url": "https://nagaon.assam.gov.in/sites/default/files/public_utility/DDMP-2026%20new_1.pdf",
+      "title": "District Disaster Management Plan"
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Training of camp in-charge in the wake of COVID-19",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 33
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Departmental list of camp wise designated officials received",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 33
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Mechanism for necessary transportation arrangements (road, water and air) to ensure GR is transported in time to each of the designated camps established",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 33
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Ensure that all measures of social distancing and other added actions as suggested in the addendum are ensured",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 33
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Instruction issued for setting up of camps",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 33
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Setting up of camps and provisions/functions of responsible departments reviewed",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 33
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Setting up of Child Friendly Spaces and breastfeeding corners in designated camps reviewed",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 33
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Ensuring special care is taken to evacuate home quarantined persons including separate camp arrangements",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 33
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Camps are safe from all hazards and appropriate protection and vigilance arrangements being made",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 33
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Grievance Redressal mechanism for collecting and addressing feedback/complains from camp inmates are established and functional at camp level",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 34
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Real time instructions/directives to concerned departments to address grievances issued",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 34
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Real time functional mechanisms for ensuring accountability in camp management are ensured",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 34
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Closure of the camps declared considering the on-ground situation",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 34
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Post Operation (Closure of camps) Visits conducted to assess the situation of the camps",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 34
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Designated camps (particularly schools) are provided with resources/ support towards cleanliness post closure of the camps",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 34
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Post closure review meeting conducted to understand challenges, gaps and areas of improvement in camp management",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 34
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "All related documents (needed for compliance) are properly managed",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 34
+    },
+    {
+      "district": "Nagaon",
+      "name_raw": "Departments are instructed to conduct internal debriefing on lessons learnt",
+      "queue_type": "camp_extraction_review",
+      "reasons": [
+        "missing_or_invalid_coordinates"
+      ],
+      "schema_version": 1,
+      "source_document_id": "d1ec3a7d871d4889d44f0f314e137620933f1f3578a32efca4903a4e6eb70a00",
+      "source_page": 34
+    },
+    {
+      "district": "Sivasagar",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "062cd30d35ac71adbf491b68bae5fc5d83b5fcd4cd7a8ed6a887ab301f3bf60b",
+      "source_url": "https://sivasagar.assam.gov.in/sites/default/files/public_utility/Flood%20Contingency%20Plan%202026%20Final%20pdf.pdf",
+      "title": "District Flood Contingency Plan 2026"
+    },
+    {
+      "district": "Sonitpur",
+      "queue_type": "document_parser_needed",
+      "reason": "contingency_plan_requires_document_specific_parser",
+      "schema_version": 1,
+      "source_document_id": "71dab2eafa7d5d599073a2b884c656cbf7f20d74694abe61a2bc6b5657907e1e",
+      "source_url": "https://sonitpur.assam.gov.in/sites/default/files/public_utility/District%20Flood%20Contingency%20Plan.pdf",
+      "title": "District Flood Contingency Plan 2026"
+    }
+  ],
+  "review_count": 117,
+  "schema_version": 1
+}

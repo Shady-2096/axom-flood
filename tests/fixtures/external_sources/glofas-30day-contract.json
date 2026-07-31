@@ -1,0 +1,38 @@
+{
+  "fixture_metadata": {
+    "kind": "synthetic_contract",
+    "fixture_provenance": "synthetic",
+    "provenance_note": "Hand-built to exercise the 30-day horizon and the day-15 resolution split. No GloFAS request has been made from this repository. Replace with a captured response once a CDS/EWDS token exists.",
+    "live_forecast": false
+  },
+  "dataset": "cems-glofas-forecast",
+  "system_version": "4.5",
+  "issued_at": "2026-07-01T00:00:00Z",
+  "forecast_horizon_days": 30,
+  "units": "m3/s",
+  "ensemble_statistic": "ensemble_median",
+  "grid_points": [
+    {
+      "grid_cell_id": "fixture-glofas-cell-26.0N-92.0E",
+      "coordinates": [92.0, 26.0],
+      "values": [
+        {
+          "valid_at": "2026-07-01T00:00:00Z",
+          "discharge_m3_per_second": 1200.0
+        },
+        {
+          "valid_at": "2026-07-16T00:00:00Z",
+          "discharge_m3_per_second": 1800.0
+        },
+        {
+          "valid_at": "2026-07-21T00:00:00Z",
+          "discharge_m3_per_second": 1650.0
+        },
+        {
+          "valid_at": "2026-07-31T00:00:00Z",
+          "discharge_m3_per_second": 1400.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://axom-flood.local/schemas/upstream-gauge-lag-review.schema.json",
+  "title": "Immutable upstream gauge lag review evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generated_at",
+    "review_queue",
+    "review_only",
+    "source",
+    "method_limitations",
+    "relationship_count",
+    "relationships_supporting_review",
+    "relationships"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_queue": {
+      "const": "upstream_gauge_lag_candidates"
+    },
+    "review_only": {
+      "const": true
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "name",
+        "endpoint",
+        "datatype",
+        "candidate_configuration",
+        "history"
+      ]
+    },
+    "method_limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "relationship_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "relationships_supporting_review": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "relationships": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship_id",
+          "upstream",
+          "downstream",
+          "topology",
+          "analysis",
+          "disposition",
+          "automatic_use_allowed",
+          "mapping_changed"
+        ],
+        "properties": {
+          "relationship_id": {
+            "type": "string"
+          },
+          "upstream": {
+            "$ref": "#/$defs/station"
+          },
+          "downstream": {
+            "$ref": "#/$defs/station"
+          },
+          "topology": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "basis",
+              "review_required",
+              "reviewed_by",
+              "reviewed_at"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "candidate_unreviewed",
+                  "hypothesis_unverified"
+                ]
+              },
+              "basis": {
+                "type": "string"
+              },
+              "review_required": {
+                "const": true
+              },
+              "reviewed_by": {
+                "type": "null"
+              },
+              "reviewed_at": {
+                "type": "null"
+              }
+            }
+          },
+          "analysis": {
+            "type": "object",
+            "required": [
+              "method",
+              "change_window_hours",
+              "lag_search_hours",
+              "quality_gate_thresholds",
+              "robustness",
+              "quality",
+              "year_results"
+            ]
+          },
+          "disposition": {
+            "enum": [
+              "evidence_supports_hydrology_review",
+              "insufficient_or_unstable_signal"
+            ]
+          },
+          "automatic_use_allowed": {
+            "const": false
+          },
+          "mapping_changed": {
+            "const": false
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "station": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cwc_station_code",
+        "site_name",
+        "river",
+        "district",
+        "state",
+        "coordinates"
+      ],
+      "properties": {
+        "cwc_station_code": {
+          "type": "string"
+        },
+        "site_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "river": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "district": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "coordinates": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "minItems": 2,
+              "maxItems": 2
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/glofas-advisory-v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source",
+    "system_version",
+    "issued_at",
+    "forecast_horizon_days",
+    "high_resolution_through_day",
+    "units",
+    "ensemble_statistic",
+    "advisory_only",
+    "warning_authority",
+    "disclaimer",
+    "source_revision",
+    "grid_points"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "source": {"const": "Copernicus Emergency Management Service GloFAS"},
+    "system_version": {"const": "4.5"},
+    "issued_at": {"type": "string", "format": "date-time"},
+    "forecast_horizon_days": {"const": 30},
+    "high_resolution_through_day": {"const": 15},
+    "units": {"const": "m3/s"},
+    "ensemble_statistic": {
+      "enum": ["ensemble_mean", "ensemble_median"]
+    },
+    "advisory_only": {"const": true},
+    "warning_authority": {"const": false},
+    "disclaimer": {"type": "string", "minLength": 1},
+    "source_revision": {"$ref": "#/$defs/source_revision"},
+    "grid_points": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["grid_cell_id", "coordinates", "values"],
+        "properties": {
+          "grid_cell_id": {"type": "string", "minLength": 1},
+          "coordinates": {
+            "type": "array",
+            "prefixItems": [
+              {"type": "number", "minimum": -180, "maximum": 180},
+              {"type": "number", "minimum": -90, "maximum": 90}
+            ],
+            "items": false
+          },
+          "values": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "valid_at",
+                "discharge_m3_per_second",
+                "resolution_tier"
+              ],
+              "properties": {
+                "valid_at": {"type": "string", "format": "date-time"},
+                "discharge_m3_per_second": {"type": "number", "minimum": 0},
+                "resolution_tier": {
+                  "enum": ["medium_range", "extended_range"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "source_revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "source_url",
+        "fetched_at",
+        "sha256",
+        "byte_length",
+        "media_type"
+      ],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "source_url": {"type": "string", "minLength": 1},
+        "fetched_at": {"type": "string", "format": "date-time"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "byte_length": {"type": "integer", "minimum": 0},
+        "media_type": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

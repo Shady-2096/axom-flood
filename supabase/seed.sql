@@ -1,0 +1,3 @@
+-- Reporting geography is imported from content-addressed repository artifacts
+-- by a separate deterministic generator. No hand-written production rows live
+-- in this seed file.

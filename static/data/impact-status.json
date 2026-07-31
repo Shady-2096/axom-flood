@@ -1,0 +1,19 @@
+{
+  "current_valid": {
+    "impact_url": "data/impact-4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7-extractor-v7-validator-v3.json",
+    "publication_state": "validated",
+    "report_date": "2026-07-27",
+    "revision_id": "4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7"
+  },
+  "latest_attempt": {
+    "extractor_version": 7,
+    "failures": [],
+    "report_date": "2026-07-27",
+    "revision_id": "4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7",
+    "state": "validated",
+    "validated_at": "2026-07-29T16:51:12.638304+05:30",
+    "validation_id": "validation-4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7-extractor-v7-validator-v3"
+  },
+  "schema_version": 1,
+  "updated_at": "2026-07-29T16:51:12.638304+05:30"
+}

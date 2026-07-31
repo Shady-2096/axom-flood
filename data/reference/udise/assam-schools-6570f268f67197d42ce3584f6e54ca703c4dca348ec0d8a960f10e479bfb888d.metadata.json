@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "school_count": 62393,
+  "schools_with_coordinates": 62393,
+  "source_label": "datameet_udise_2021_snapshot",
+  "source_sha256": "6570f268f67197d42ce3584f6e54ca703c4dca348ec0d8a960f10e479bfb888d",
+  "source_url": "https://raw.githubusercontent.com/datameet/udise_schools/master/data/udise_schools.zip",
+  "staleness_warning": "Community mirror snapshot dated 2021; refresh from an official UDISE export before operational navigation."
+}

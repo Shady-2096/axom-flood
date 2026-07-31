@@ -1,0 +1,19 @@
+{
+  "fixture_metadata": {
+    "kind": "synthetic_contract",
+    "fixture_provenance": "synthetic",
+    "provenance_note": "Hand-built from the documented flood-status response shape. Access is waitlisted, so no live Google Flood Forecasting call has been made. Replace with a captured response once approval and an API key exist.",
+    "live_forecast": false
+  },
+  "gaugeId": "fixture-google-gauge",
+  "issuedTime": "2026-07-01T00:00:00Z",
+  "forecastStartTime": "2026-07-01T00:00:00Z",
+  "forecastEndTime": "2026-07-08T00:00:00Z",
+  "severity": "ABOVE_NORMAL",
+  "qualityVerified": true,
+  "inundationSets": [
+    {
+      "id": "fixture-inundation-set"
+    }
+  ]
+}

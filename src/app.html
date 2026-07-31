@@ -1,0 +1,47 @@
+<!doctype html>
+<!--
+THESIS: Axom Flood is a river observation desk, not a dashboard of cards or a theatrical emergency broadcast.
+OWN-WORLD: Mineral daylight and deep night surfaces, river-blue controls, calibrated rules, and normal-width Archivo.
+STORY: Choose a place, understand the local situation in plain language, then report conditions or follow the safest next action.
+FIRST VIEWPORT: A full-width Assam map holds search, one briefing panel, one control dock, and one reporting action.
+FORM: Monsoon gauge-station instrument, sixth grounded direction, staged as one active working surface; seed e2906d8c.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#04171e">
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        document.documentElement.dataset.theme =
+          savedTheme === "light" || savedTheme === "dark"
+            ? savedTheme
+            : (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+
+        // The data bundle is restored asynchronously, but these two small
+        // preferences are available before CSS paints. Mark returning full-mode
+        // visits so the loading state can hold the atlas geometry instead of
+        // flashing an unrelated centred document screen first.
+        if (localStorage.getItem("locality")) {
+          const savedMode = localStorage.getItem("render-mode");
+          const connection = navigator.connection;
+          const constrained = connection?.saveData === true
+            || connection?.effectiveType === "slow-2g"
+            || connection?.effectiveType === "2g";
+          document.documentElement.dataset.returningView =
+            savedMode === "light" || (savedMode !== "full" && constrained)
+              ? "document"
+              : "atlas";
+        }
+      } catch (_) {}
+    </script>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+    %sveltekit.head%
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>

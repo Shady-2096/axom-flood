@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "axom-flood-data"
+version = "0.1.0"
+description = "Public, reproducible data pipelines for Assam flood information"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27,<1",
+  "jsonschema[format]>=4,<5",
+  "pdfplumber>=0.11,<1",
+  "pillow>=11,<13",
+  "rapidfuzz>=3.9,<4",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+  "ruff>=0.12,<1",
+  # Both of the below serve scripts/fetch_smart_axom_roster.py only.
+  # `cryptography` reproduces the AES-CBC request key the SMART AXOM front end
+  # sends; it is not hand-rolled.
+  "cryptography>=44,<50",
+  # Only for scripts/fetch_smart_axom_roster.py, which is hand-run to refresh
+  # reference data. SMART AXOM serves a chain certifi cannot build a path
+  # through; the OS trust store can. Kept out of the runtime dependencies
+  # because no scheduled pipeline touches that host.
+  "truststore>=0.10,<1",
+]
+
+[project.scripts]
+axom-flood = "axom_flood.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/axom_flood"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

@@ -1,0 +1,9 @@
+schema_version,extractor_version,report_date,revision_id,district,affected_revenue_circles,revenue_circles,affected_villages,affected_population,crop_area_submerged_hectares,relief_camps_open,relief_distribution_centres_open,relief_camp_occupants,confirmed_deaths
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Charaideo,3,Mahmora|Sonari|Sapekhati,149,188404,17649,11,6,1609,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Dhemaji,,,,0,0,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Dibrugarh,,,,0,0,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Golaghat,4,Golaghat|Khumtai|Bokakhat|Dergaon,111,38172,2411.5,7,22,618,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Jorhat,5,Teok|Mariani|Jorhat West|Titabor|Jorhat East,108,74458,3345.62,14,3,1773,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Kamrup (M),1,Dispur,1,0,0.9,0,0,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Nagaon,3,Nagaon|Samaguri|Kampur,30,0,319,0,4,0,0
+1,5,2026-07-27,4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7,Sivasagar,5,Nazira|Dimow|Sibsagar|Amguri|Sonari,232,144461,13413.5,58,59,24695,0

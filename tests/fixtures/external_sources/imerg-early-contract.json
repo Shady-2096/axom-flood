@@ -1,0 +1,30 @@
+{
+  "fixture_metadata": {
+    "kind": "synthetic_contract",
+    "fixture_provenance": "synthetic",
+    "provenance_note": "Hand-built to exercise Early-run latency semantics and mm/hour to mm accumulation. No NASA PPS/Earthdata request has been made. Replace with a captured granule subset once credentials exist.",
+    "live_observation": false
+  },
+  "product_short_name": "GPM_3IMERGHHE.07",
+  "product_version": "07",
+  "run": "early",
+  "units": "mm/hour",
+  "observations": [
+    {
+      "grid_cell_id": "fixture-cell-26.0N-92.0E",
+      "longitude": 92.0,
+      "latitude": 26.0,
+      "interval_start": "2026-07-01T00:00:00Z",
+      "interval_end": "2026-07-01T00:30:00Z",
+      "precipitation_rate": 10.0
+    },
+    {
+      "grid_cell_id": "fixture-cell-26.0N-92.0E",
+      "longitude": 92.0,
+      "latitude": 26.0,
+      "interval_start": "2026-07-01T00:30:00Z",
+      "interval_end": "2026-07-01T01:00:00Z",
+      "precipitation_rate": 20.0
+    }
+  ]
+}
