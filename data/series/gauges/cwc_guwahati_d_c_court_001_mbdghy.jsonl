@@ -127,3 +127,4 @@
 {"gauge_id": "cwc_guwahati_d_c_court_001_mbdghy", "level_m": 47.47, "observed_at": "2026-08-01T21:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "5f41064191a4360b94fbf9d9f17ea668dffd4555cdd0306d6320944227b9fa79"}
 {"gauge_id": "cwc_guwahati_d_c_court_001_mbdghy", "level_m": 47.47, "observed_at": "2026-08-01T22:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "5f41064191a4360b94fbf9d9f17ea668dffd4555cdd0306d6320944227b9fa79"}
 {"gauge_id": "cwc_guwahati_d_c_court_001_mbdghy", "level_m": 47.48, "observed_at": "2026-08-01T23:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d8b2e3d319b7f021c0362ec158ed4f0e4388d8a00860db0fb54d6611a76d964b"}
+{"gauge_id": "cwc_guwahati_d_c_court_001_mbdghy", "level_m": 47.48, "observed_at": "2026-08-02T00:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "503bc9dc36e983845338d0ea4956e09c97bef6c0e51a22a55e39c6ee937f8666"}

@@ -67,3 +67,4 @@
 {"gauge_id": "cwc_fulertal_01_11_01_008", "level_m": 21.63, "observed_at": "2026-08-01T22:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d8b2e3d319b7f021c0362ec158ed4f0e4388d8a00860db0fb54d6611a76d964b"}
 {"gauge_id": "cwc_fulertal_01_11_01_008", "level_m": 21.66, "observed_at": "2026-08-01T23:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d8b2e3d319b7f021c0362ec158ed4f0e4388d8a00860db0fb54d6611a76d964b"}
 {"gauge_id": "cwc_fulertal_01_11_01_008", "level_m": 21.68, "observed_at": "2026-08-02T00:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d8b2e3d319b7f021c0362ec158ed4f0e4388d8a00860db0fb54d6611a76d964b"}
+{"gauge_id": "cwc_fulertal_01_11_01_008", "level_m": 21.7, "observed_at": "2026-08-02T01:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "503bc9dc36e983845338d0ea4956e09c97bef6c0e51a22a55e39c6ee937f8666"}
