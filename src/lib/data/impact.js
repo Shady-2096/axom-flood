@@ -54,12 +54,17 @@ export const IMPACT_METRICS = {
 export const IMPACT_COLOURS = {
   noData: "#7b8887",
   zero: "#d7ddda",
-  stale: "#655f55",
   quarantined: "#744f59",
   // A single-hue ink ramp keeps the administrative layers comparable. The
   // map itself supplies the pale end: positive reports become progressively
   // darker instead of washing every revenue circle in bright cyan.
   steps: ["#78999a", "#486f73", "#28535a", "#0d343d"],
+  // A historical report still has to rank circles, otherwise every impact
+  // layer paints identically and the map says nothing. Violet-blue is the one
+  // family the basemap never uses: grey read as nothing, and warm tans read as
+  // the hillshade over Karbi Anglong. It also stays clear of the teal `steps`,
+  // so a historical overlay cannot be mistaken for a current one.
+  staleSteps: ["#b3aae2", "#8073ca", "#57499f", "#302a66"],
 };
 
 const numberFormatter = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 2 });
@@ -114,30 +119,41 @@ export function metricValue(record, metricKey) {
   return Number.isFinite(value) ? value : null;
 }
 
-export function metricColour(value, metricKey, state = "current") {
-  if (state === "quarantined") return IMPACT_COLOURS.quarantined;
-  if (state === "stale") return IMPACT_COLOURS.stale;
-  if (!Number.isFinite(value)) return IMPACT_COLOURS.noData;
-  if (value === 0) return IMPACT_COLOURS.zero;
+function rampIndex(value, metricKey) {
   const breaks = IMPACT_METRICS[metricKey].breaks;
-  let index = breaks.findLastIndex(breakpoint => value >= breakpoint);
-  index = Math.max(0, Math.min(index, IMPACT_COLOURS.steps.length - 1));
-  return IMPACT_COLOURS.steps[index];
-}
-
-export function metricFillOpacity(value, metricKey, state = "current", emphasized = false) {
-  if (state === "quarantined") return emphasized ? .48 : .28;
-  if (state === "stale") return emphasized ? .48 : .26;
-  if (!Number.isFinite(value)) return emphasized ? .2 : .06;
-  if (value === 0) return emphasized ? .28 : .12;
-  const breaks = IMPACT_METRICS[metricKey].breaks;
-  const index = Math.max(
+  return Math.max(
     0,
     Math.min(
       breaks.findLastIndex(breakpoint => value >= breakpoint),
       IMPACT_COLOURS.steps.length - 1,
     ),
   );
+}
+
+export function rampFor(state) {
+  return state === "stale" ? IMPACT_COLOURS.staleSteps : IMPACT_COLOURS.steps;
+}
+
+/* A quarantined report is one we are not allowed to show numbers from, so it
+   collapses to a single hold colour. A stale report is different: it is a real
+   validated report that has simply aged out of the current window. It keeps its
+   ramp — flattening it painted every circle in Assam the same shade, including
+   the ones the report never mentioned, which both made all six impact layers
+   look identical and implied coverage that was not there. */
+export function metricColour(value, metricKey, state = "current") {
+  if (state === "quarantined") return IMPACT_COLOURS.quarantined;
+  if (!Number.isFinite(value)) return IMPACT_COLOURS.noData;
+  if (value === 0) return IMPACT_COLOURS.zero;
+  return rampFor(state)[rampIndex(value, metricKey)];
+}
+
+export function metricFillOpacity(value, metricKey, state = "current", emphasized = false) {
+  if (state === "quarantined") return emphasized ? .48 : .28;
+  if (!Number.isFinite(value)) return emphasized ? .2 : .06;
+  if (value === 0) return emphasized ? .28 : .12;
+  const index = rampIndex(value, metricKey);
+  // A historical report sits back from a current one at every step of the ramp.
+  if (state === "stale") return (emphasized ? [.5, .58, .66, .72] : [.34, .44, .54, .62])[index];
   return (emphasized ? [.68, .76, .82, .88] : [.52, .62, .72, .82])[index];
 }
 
@@ -151,16 +167,17 @@ export function formatMetric(value, metricKey) {
   return `${formatted} ${unit}`;
 }
 
-export function impactLegendRows(metricKey) {
+export function impactLegendRows(metricKey, state = "current") {
   const metric = IMPACT_METRICS[metricKey];
   if (!metric) return [];
+  const steps = rampFor(state);
   return [
     { colour: IMPACT_COLOURS.noData, label: "Not reported" },
     { colour: IMPACT_COLOURS.zero, label: "0 reported" },
     ...metric.breaks.map((lower, index) => {
       const upper = metric.breaks[index + 1];
       return {
-        colour: IMPACT_COLOURS.steps[index],
+        colour: steps[index],
         label: upper === undefined
           ? `${formatMetric(lower, metricKey)} or more`
           : `${formatMetric(lower, metricKey)} to under ${formatMetric(upper, metricKey)}`,

@@ -4,7 +4,6 @@
   import { cacheFirst, siteUrl } from "$lib/data/cache.js";
   import { getBundle, statusInfo } from "$lib/data/index.js";
   import {
-    IMPACT_COLOURS,
     IMPACT_METRICS,
     aggregateImpact,
     formatMetric,
@@ -106,7 +105,9 @@
     MAP_LAYERS.find(option => option.key === selectedLayer) || MAP_LAYERS[0],
   );
   let selectedLegendRows = $derived(
-    selectedMetric ? impactLegendRows(selectedLayer) : [],
+    selectedMetric
+      ? impactLegendRows(selectedLayer, impactOverlay?.state || "current")
+      : [],
   );
 
   function isImpactLayer(value = selectedLayer) {
@@ -990,13 +991,10 @@
       <p class="impact-message">Loading the latest validated overlay.</p>
     {:else if impactLoadState === "error"}
       <p class="impact-message error">{impactError}</p>
-    {:else if impactOverlay?.state === "stale"}
-      <p class="impact-message stale">Historical overlay. The report is outside the three-day current window.</p>
-      <div class="legend-row">
-        <i style={`background:${IMPACT_COLOURS.stale}`}></i>
-        <span>Historical reported area</span>
-      </div>
     {:else if impactOverlay}
+      {#if impactOverlay.state === "stale"}
+        <p class="impact-message stale">Historical overlay. The report is outside the three-day current window.</p>
+      {/if}
       <div class="legend-rows">
         {#each selectedLegendRows as row}
           <div class="legend-row">

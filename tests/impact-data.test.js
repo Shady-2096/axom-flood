@@ -24,14 +24,10 @@ test("impact metric colours distinguish no data, zero, official steps, and stale
   assert.equal(metricColour(1_000, "affected_population"), IMPACT_COLOURS.steps[1]);
   assert.equal(metricColour(50_000, "affected_population"), IMPACT_COLOURS.steps[3]);
   assert.equal(
-    metricColour(50_000, "affected_population", "stale"),
-    IMPACT_COLOURS.stale,
-  );
-  assert.equal(
     metricColour(50_000, "affected_population", "quarantined"),
     IMPACT_COLOURS.quarantined,
   );
-  assert.notEqual(IMPACT_COLOURS.quarantined, IMPACT_COLOURS.stale);
+  assert.ok(!IMPACT_COLOURS.staleSteps.includes(IMPACT_COLOURS.quarantined));
   assert.equal(formatMetric(1, "affected_population"), "1 person");
   assert.equal(formatMetric(1, "affected_villages"), "1 village");
   assert.deepEqual(
@@ -44,6 +40,43 @@ test("impact metric colours distinguish no data, zero, official steps, and stale
       "10,000 people to under 50,000 people",
       "50,000 people or more",
     ],
+  );
+});
+
+test("a historical report still ranks circles instead of flattening the map", () => {
+  // Flattening stale reports painted every circle one shade, so all six impact
+  // layers rendered identically and unreported circles looked reported.
+  assert.equal(
+    metricColour(999, "affected_population", "stale"),
+    IMPACT_COLOURS.staleSteps[0],
+  );
+  assert.equal(
+    metricColour(50_000, "affected_population", "stale"),
+    IMPACT_COLOURS.staleSteps[3],
+  );
+  assert.notEqual(
+    metricColour(999, "affected_population", "stale"),
+    metricColour(50_000, "affected_population", "stale"),
+  );
+  // The historical ramp shares no colour with the current one, so a reader
+  // cannot mistake an aged report for today's.
+  for (const colour of IMPACT_COLOURS.staleSteps) {
+    assert.ok(!IMPACT_COLOURS.steps.includes(colour));
+  }
+  // An unmentioned circle stays unreported however old the report is.
+  assert.equal(metricColour(null, "affected_population", "stale"), IMPACT_COLOURS.noData);
+  assert.equal(metricColour(0, "affected_population", "stale"), IMPACT_COLOURS.zero);
+  assert.equal(metricFillOpacity(null, "affected_population", "stale"), .06);
+  // A historical report reads quieter than a current one at every step.
+  for (const value of [1, 1_000, 10_000, 50_000]) {
+    assert.ok(
+      metricFillOpacity(value, "affected_population", "stale")
+        < metricFillOpacity(value, "affected_population", "current"),
+    );
+  }
+  assert.deepEqual(
+    impactLegendRows("affected_population", "stale").map(row => row.colour),
+    [IMPACT_COLOURS.noData, IMPACT_COLOURS.zero, ...IMPACT_COLOURS.staleSteps],
   );
 });
 
