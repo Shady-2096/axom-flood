@@ -112,11 +112,19 @@
             "type": "string"
           },
           "boundary_geojson_ref": {
-            "type": "null"
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Path to a reviewed analysis boundary, populated only for circles that cleared the agreement threshold in scripts/build_circle_boundaries.py. Null means the circle has no boundary good enough to compute against. Grade zonal supports averaging a value over a circle; it does not support deciding whether an individual point lies inside one."
           },
           "primary_gauge": {
-            "type": "string",
-            "minLength": 1
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "description": "Null only when a reviewer decided no gauge sits on this circle's drainage. See primary_gauge_mapping.review."
           },
           "primary_gauge_mapping": {
             "type": "object",
@@ -135,26 +143,37 @@
                 "enum": [
                   "high",
                   "medium",
-                  "unverified"
-                ]
+                  "unverified",
+                  "not_applicable"
+                ],
+                "description": "not_applicable means a reviewer found no gauge fits, so there is no mapping to be confident about."
               },
               "basis": {
                 "type": "string",
                 "minLength": 1
               },
               "method": {
-                "const": "manual_river_topology"
+                "enum": [
+                  "manual_river_topology",
+                  "reviewed_river_topology"
+                ],
+                "description": "reviewed_river_topology means a person decided this mapping and the review block records who."
               },
               "reviewed": {
                 "type": "boolean"
               },
               "claimed_confidence": {
+                "type": [
+                  "string",
+                  "null"
+                ],
                 "enum": [
                   "high",
                   "medium",
-                  "unverified"
+                  "unverified",
+                  null
                 ],
-                "description": "The mapping table's own claim, before the distance audit."
+                "description": "The mapping table's own claim, before the distance audit. Null where a reviewed decision removed the gauge."
               },
               "distance_km": {
                 "type": [
@@ -188,9 +207,46 @@
               "much_nearer_gauge_exists": {
                 "type": "boolean",
                 "description": "A different gauge is materially closer than the assigned one."
+              },
+              "review": {
+                "type": "object",
+                "required": [
+                  "decision",
+                  "reasoning",
+                  "reviewer",
+                  "reviewer_qualification",
+                  "reviewed_at"
+                ],
+                "description": "Present only on a reviewed mapping. The one thing in this project that can promote a gauge mapping, and the only thing that can leave a circle with no gauge on purpose.",
+                "properties": {
+                  "decision": {
+                    "enum": [
+                      "keep",
+                      "reassign",
+                      "no_suitable_gauge_exists"
+                    ]
+                  },
+                  "reasoning": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reviewer": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reviewer_qualification": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Recorded verbatim. River knowledge is enough to answer these questions and must never be written up as a hydrologist sign-off."
+                  },
+                  "reviewed_at": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
               }
             },
-            "description": "Which gauge this circle reads from, and how much that mapping has been checked. `confidence` is the audited value: the distance audit in scripts/audit_gauge_mappings.py can demote a claim but never promote one, so `claimed_confidence` keeps what the mapping table asserted before the audit ran. `reviewed` is true only for an audited confidence of high."
+            "description": "Which gauge this circle reads from, and how much that mapping has been checked. `confidence` is the audited value: the distance audit in scripts/audit_gauge_mappings.py can demote a claim but never promote one, so `claimed_confidence` keeps what the mapping table asserted before the audit ran. A reviewed decision is the other direction and is exempt from the demotion, because the reviewer saw the distance before deciding; the distance fields are still measured and recorded. `reviewed` is true for an audited confidence of high or for any reviewed decision."
           },
           "population_estimate": {
             "type": [

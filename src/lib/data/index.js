@@ -1,9 +1,16 @@
 import { get, writable } from "svelte/store";
 import { cacheFirst, networkFirst, siteUrl } from "./cache.js";
+import {
+  isUngauged,
+  NO_READING_SENTENCE,
+  UNGAUGED_LABEL,
+  UNGAUGED_SENTENCE,
+} from "./coverage.js";
 import { store } from "./preferences.js";
 import { configureSearch } from "./search.js";
 
 export { geolocationErrorMessage, getPosition } from "./geolocation.js";
+export { isUngauged } from "./coverage.js";
 
 export const dataState = writable({
   status: "idle",
@@ -82,6 +89,10 @@ export function highestConcernLocality() {
   let best = null;
   let bestRank = [-1, -1];
   for (const locality of bundle.localities) {
+    // A circle with no gauge can never be the place where something is
+    // happening, and standing one in for a reader who has chosen nothing would
+    // open the app on a permanent blank.
+    if (isUngauged(locality)) continue;
     const gauge = gauges.get(locality.primary_gauge);
     const observed = gauge?.observed_at ? Date.parse(gauge.observed_at) : 0;
     const rank = [statusInfo(gauge).level, Number.isFinite(observed) ? observed : 0];
@@ -152,13 +163,14 @@ export function isCurrent(gauge) {
     && ageHours(gauge) <= bundle.stale_after_hours);
 }
 
-export function currentSentence(gauge) {
-  if (!isCurrent(gauge)) return "No recent river reading is available for this area. Check the official warning source before making a decision.";
+export function currentSentence(gauge, locality = null) {
+  if (isUngauged(locality)) return UNGAUGED_SENTENCE;
+  if (!isCurrent(gauge)) return NO_READING_SENTENCE;
   return gauge.sentence_en;
 }
 
-export function displaySentence(gauge) {
-  return currentSentence(gauge)
+export function displaySentence(gauge, locality = null) {
+  return currentSentence(gauge, locality)
     .replace(/\s+Official source: https?:\/\/\S+$/, "")
     .replace(/\s+No short-range projection is available\.$/, "");
 }
@@ -173,7 +185,14 @@ const RIVER_STATES = {
   normal: { state: "normal", level: 1, label: "Below warning level" },
 };
 
-export function statusInfo(gauge) {
+/* `state` stays "no-data" for an ungauged circle on purpose. The field colour,
+   the glyph, and the action order for "we cannot say" are already right, and a
+   fourth quiet state would only ask the CSS to say something the words say
+   better. `ungauged` is there for callers that need to know it is permanent. */
+export function statusInfo(gauge, locality = null) {
+  if (isUngauged(locality)) {
+    return { state: "no-data", level: 0, label: UNGAUGED_LABEL, ungauged: true };
+  }
   if (!isCurrent(gauge)) return { state: "no-data", level: 0, label: "No current reading" };
   return RIVER_STATES[gauge.status]
     || { state: "no-data", level: 0, label: "Reading not classified" };
@@ -193,14 +212,23 @@ export function stateOverview() {
   const bundle = getBundle();
   const gauges = new Map(bundle.gauges.map(gauge => [gauge.cwc_station_code, gauge]));
   const counts = { extreme: [], danger: [], warning: [], normal: [], "no-data": [] };
+  const ungauged = [];
   for (const locality of bundle.localities) {
+    if (isUngauged(locality)) {
+      ungauged.push(locality);
+      continue;
+    }
     const status = statusInfo(gauges.get(locality.primary_gauge));
     counts[status.state].push(locality);
   }
   const raised = [...counts.extreme, ...counts.danger, ...counts.warning];
   return {
     raised,
-    readable: bundle.localities.length - counts["no-data"].length,
+    // Both denominators stay honest: a circle nobody can gauge is not a circle
+    // whose gauge went quiet, and lumping the two would make the network look
+    // more broken than it is.
+    readable: bundle.localities.length - ungauged.length - counts["no-data"].length,
+    ungauged: ungauged.length,
     total: bundle.localities.length,
   };
 }

@@ -19,6 +19,7 @@
     dataState,
     displayContext,
     getPosition,
+    isUngauged,
     nearestLocality,
     selectionNote,
     statusInfo,
@@ -67,8 +68,15 @@
     $preferencesChanged;
     return bundle ? displayContext() : null;
   });
-  let status = $derived(context ? statusInfo(context.gauge) : null);
+  let status = $derived(context ? statusInfo(context.gauge, context.locality) : null);
   let urgent = $derived(Boolean(status) && status.level >= 2);
+  /* The river named beside the place. "Gauge review pending" is right while
+     nobody has checked the mapping, and wrong once somebody has checked and
+     found nothing fits — that circle is not waiting on a review. */
+  let riverLine = $derived(
+    context?.gauge?.river
+      || (isUngauged(context?.locality) ? "No gauge on its rivers" : "Gauge review pending"),
+  );
   /* The chosen layout is decided while the loading shell is still visible,
      before the selected locality paints. This used to also require RiverMap to
      have arrived, which meant every load rendered the document layout first and
@@ -244,7 +252,7 @@
   });
 
   async function share() {
-    const shareText = currentSentence(context.gauge);
+    const shareText = currentSentence(context.gauge, context.locality);
     try {
       if (navigator.share) {
         await navigator.share({
@@ -300,6 +308,7 @@
   {#snippet bulletin(withPlace = null)}
     <FloodBulletin
       gauge={context.gauge}
+      locality={context.locality}
       {shareLabel}
       {shareIcon}
       place={withPlace}
@@ -351,7 +360,7 @@
       <div class="atlas-panel" bind:this={atlasPanel}>
         {@render bulletin({
           name: `${place.name}${place.suffix ? ` ${place.suffix}` : ""}`,
-          meta: `${context.locality.district}, ${context.gauge?.river || "Gauge review pending"}`,
+          meta: `${context.locality.district}, ${riverLine}`,
         })}
       </div>
 
@@ -381,7 +390,7 @@
           >{place.name}{#if place.suffix}<span class="place-suffix">{place.suffix}</span>{/if}</h1>
           <p class="place-meta">
             <span>{context.locality.district}</span><span class="divider">/</span>
-            <span>{context.gauge?.river || "Gauge review pending"}</span>
+            <span>{riverLine}</span>
           </p>
           <p class="place-source">
             <span>{context.fallback

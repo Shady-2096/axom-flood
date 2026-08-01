@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/axom-flood/schemas/gauge-topology-decisions-v1.json",
+  "title": "Reviewed gauge-topology decisions",
+  "description": "One reviewed answer per revenue circle to the question of whether its gauge sits on water that reaches it. The only path in this project that can mark a gauge mapping reviewed.",
+  "type": "object",
+  "required": ["schema_version", "record", "provenance", "decisions"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": 1 },
+    "record": { "const": "gauge_topology_decisions" },
+    "provenance": { "type": "object" },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "locality_id",
+          "decision",
+          "basis",
+          "decision_reasoning",
+          "reviewer",
+          "reviewer_qualification",
+          "reviewed_at"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "locality_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Must exist in config/assam-localities.json."
+          },
+          "decision": {
+            "enum": ["keep", "reassign", "no_suitable_gauge_exists"],
+            "description": "no_suitable_gauge_exists is a first-class outcome, not a failure to decide."
+          },
+          "primary_gauge": {
+            "type": ["string", "null"],
+            "description": "Required for reassign and must name a reporting station in the CWC reference. Forbidden for no_suitable_gauge_exists. Optional for keep, where it may only repeat the gauge already assigned."
+          },
+          "basis": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The river relationship in one line, as it will be shown as the mapping basis."
+          },
+          "decision_reasoning": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Why, in the reviewer's own words. Kept so the decision can be re-examined without re-deriving it."
+          },
+          "reviewer": { "type": "string", "minLength": 1 },
+          "reviewer_qualification": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Recorded verbatim. Never write up river knowledge as a hydrologist sign-off."
+          },
+          "reviewed_at": {
+            "type": "string",
+            "minLength": 1,
+            "description": "ISO date the decision was made."
+          }
+        }
+      }
+    }
+  }
+}

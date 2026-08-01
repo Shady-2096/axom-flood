@@ -30,3 +30,15 @@ def test_daily_pipeline_remeasures_gauge_distances_before_it_builds_the_bundle()
     assert "git add config data static/data" in workflow
     assert "steps.gauge_audit.outcome == 'success'" in workflow
     assert 'test "$GAUGE_AUDIT_OUTCOME" = success' in workflow
+
+
+def test_ci_validates_reviewed_gauge_decisions() -> None:
+    """A bad decision must fail the push, not the next unattended run.
+
+    Reviewed decisions are the one path that can promote a gauge mapping, and
+    they land straight in a reader's bulletin. Catching a decision that names a
+    dead gauge only when the nightly job runs means it has already shipped.
+    """
+    workflow = (ROOT / ".github/workflows/phase1-ci.yml").read_text()
+
+    assert "uv run python scripts/apply_gauge_decisions.py --check" in workflow

@@ -1,13 +1,17 @@
 <script>
   import AgeBlock from "./AgeBlock.svelte";
   import Icon from "./Icon.svelte";
-  import { displaySentence, statusInfo } from "$lib/data/index.js";
+  import { displaySentence, isUngauged, statusInfo } from "$lib/data/index.js";
 
   /* `kicker` names what this panel is; it changes when the panel is standing in
      for a place nobody chose. `lead` is the one-line notice under it — today,
      the way back to your own area from that stand-in. */
   let {
     gauge,
+    /* Passed so the bulletin can tell "the gauge went quiet" from "no gauge
+       covers this circle". Optional: surfaces that only have a gauge in hand
+       keep the older wording, which is correct for them. */
+    locality = null,
     shareLabel,
     shareIcon,
     place = null,
@@ -23,7 +27,8 @@
     onmoreinfo = null,
   } = $props();
 
-  let status = $derived(statusInfo(gauge));
+  let status = $derived(statusInfo(gauge, locality));
+  let ungauged = $derived(isUngauged(locality));
   let urgent = $derived(status.level >= 2);
 
   /* The mark beside the status is the state's own glyph, never colour alone —
@@ -55,6 +60,10 @@
   let plan = $derived.by(() => {
     if (status.level >= 3) return { lead: emergency, second: camps, minor: [moreInfo], share: "minor" };
     if (status.level === 2) return { lead: camps, second: "share", minor: [moreInfo] };
+    // "More info" leads the no-data card because the reading is the thing
+    // missing and the panel explains why. When no gauge exists there is no
+    // reading to explain, so the useful thing to offer is somewhere to go.
+    if (ungauged) return { lead: camps, second: emergency, minor: [moreInfo] };
     if (status.level === 0) return { lead: moreInfo, second: camps, minor: [] };
     return { lead: "share", second: moreInfo, minor: [] };
   });
@@ -107,7 +116,7 @@
         <i class="status-mark" aria-hidden="true"></i>
         {kicker}
       </span>
-      <AgeBlock {gauge} />
+      <AgeBlock {gauge} {ungauged} />
     </div>
 
     {#if lead}
@@ -123,7 +132,7 @@
         <i class="status-icon" aria-hidden="true"><Icon name={stateIcon[status.state] || "level"} /></i>
         <span>{status.label}</span>
       </h2>
-      <p class="sentence" id="bulletin-detail">{displaySentence(gauge)}</p>
+      <p class="sentence" id="bulletin-detail">{displaySentence(gauge, locality)}</p>
     </div>
 
     <div class="actions">

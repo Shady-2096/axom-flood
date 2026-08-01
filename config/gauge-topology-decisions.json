@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "record": "gauge_topology_decisions",
+  "provenance": {
+    "questions": "docs/gauge-topology-questions.md",
+    "packets": "data/review/gauge-topology/current.json",
+    "applied_by": "scripts/apply_gauge_decisions.py",
+    "note": "One reviewed answer per revenue circle, from the questions built for a person who knows Assam's rivers. A hydrologist is not required to answer these and must never be implied: reviewer_qualification is stored verbatim and travels with every mapping it decided. Decisions are the only path that can call a gauge mapping reviewed. The nightly distance audit still cannot promote one."
+  },
+  "decisions": []
+}

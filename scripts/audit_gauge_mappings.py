@@ -38,8 +38,11 @@ _spec = importlib.util.spec_from_file_location(
 bl = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(bl)
 
+from axom_flood.gauges import decisions as gauge_decisions  # noqa: E402
+
 LOCALITIES = ROOT / "config" / "assam-localities.json"
 REVIEW = ROOT / "data" / "review" / "locality-gauge-mappings" / "current.json"
+DECISIONS = ROOT / "config" / "gauge-topology-decisions.json"
 
 
 def claimed_confidence(locality: dict[str, Any]) -> str:
@@ -81,8 +84,10 @@ def claimed_confidence(locality: dict[str, Any]) -> str:
 def audited(
     localities: list[dict[str, Any]],
     stations: dict[str, dict[str, Any]],
+    reviewed: dict[str, gauge_decisions.Decision] | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """The registry and review queue as the audit says they should be."""
+    reviewed = reviewed or {}
     updated: list[dict[str, Any]] = []
     queue: list[dict[str, Any]] = []
     for locality in localities:
@@ -91,6 +96,16 @@ def audited(
         code = locality.get("primary_gauge")
         if not centroid:
             updated.append(locality)
+            continue
+        decision = reviewed.get(locality["locality_id"])
+        if decision is not None:
+            # The reviewer answered this circle, distance included — their packet
+            # led with it. Re-demoting on distance here would overwrite the answer
+            # every night with the objection it was given to settle. The distance
+            # is still measured and still recorded; it just no longer decides.
+            code = gauge_decisions.gauge_for(decision, code)
+            geometry = bl.gauge_geometry(centroid, code, stations)
+            updated.append(gauge_decisions.apply(locality, decision, geometry))
             continue
         geometry = bl.gauge_geometry(centroid, code, stations)
         claimed = claimed_confidence(locality)
@@ -127,13 +142,14 @@ def audited(
     return updated, queue
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--check", action="store_true")
     mode.add_argument("--write", action="store_true")
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data")
-    args = parser.parse_args()
+    parser.add_argument("--decisions", type=Path, default=DECISIONS)
+    args = parser.parse_args(argv)
 
     stations = bl.load_station_reference(args.data_dir)
     if not stations:
@@ -141,7 +157,14 @@ def main() -> int:
         return 2
 
     document = json.loads(LOCALITIES.read_text())
-    localities, queue = audited(document["localities"], stations)
+    reviewed = gauge_decisions.load(args.decisions)
+    faults = gauge_decisions.problems(reviewed, document["localities"], stations)
+    if faults:
+        print("Reviewed gauge decisions cannot be applied:", file=sys.stderr)
+        for fault in faults:
+            print(f"  {fault}", file=sys.stderr)
+        return 2
+    localities, queue = audited(document["localities"], stations, reviewed)
 
     if args.write:
         document["localities"] = localities
@@ -150,7 +173,10 @@ def main() -> int:
             f"station reference. Beyond {bl.FAR_KM:.0f} km, or more than "
             f"{bl.MUCH_NEARER_KM:.0f} km further than the nearest station, a mapping "
             "is forced to unverified and queued for hydrology review whatever the "
-            "mapping table claimed. It never promotes a mapping or picks a gauge."
+            "mapping table claimed. It never promotes a mapping or picks a gauge. "
+            f"Circles with a reviewed decision in {DECISIONS.name} are exempt: a "
+            "person answered the distance question there, and this audit does not "
+            "get to overrule them nightly."
         )
         LOCALITIES.write_text(
             json.dumps(document, ensure_ascii=False, indent=2, sort_keys=True) + "\n"

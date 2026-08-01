@@ -13,7 +13,28 @@
   let notes = $derived.by(() => {
     const list = [];
     const mapping = locality?.primary_gauge_mapping;
-    if (gauge && mapping && mapping.confidence !== "high") {
+    const review = mapping?.review;
+    if (review?.decision === "no_suitable_gauge_exists") {
+      /* The one place on the site that explains a blank. Without it the circle
+         reads as broken, and somebody keeps refreshing for a number that is
+         never coming. It also names who decided, because a permanent absence
+         is a claim and claims carry an author. */
+      list.push({
+        label: "No gauge",
+        text: `${review.reasoning} Checked by ${review.reviewer} — `
+          + `${review.reviewer_qualification} — on ${review.reviewed_at}. `
+          + "Rainfall and official bulletins are the sources to watch for this area.",
+      });
+    } else if (review) {
+      // Never write river knowledge up as a hydrologist sign-off. The reviewer's
+      // stated qualification is shown as they gave it.
+      list.push({
+        label: "Gauge match",
+        text: `${gauge?.site_name || "This gauge"} was chosen for this circle by `
+          + `${review.reviewer} — ${review.reviewer_qualification} — on `
+          + `${review.reviewed_at}. ${review.reasoning}`,
+      });
+    } else if (gauge && mapping && mapping.confidence !== "high") {
       /* The distance is the part that used to be missing, and it is the part a
          reader can act on. "A hydrologist has not checked this" is a process
          fact. "This gauge is 101 km away and a nearer one exists" is the same

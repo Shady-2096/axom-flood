@@ -38,7 +38,7 @@
     const context = currentContext();
     if (!context) return "";
     const freshness = context.gauge?.observed_at ? ` Reading is ${ageLabel(context.gauge)}.` : "";
-    return `${statusInfo(context.gauge).label}. ${currentSentence(context.gauge)}${freshness}`;
+    return `${statusInfo(context.gauge, context.locality).label}. ${currentSentence(context.gauge, context.locality)}${freshness}`;
   });
 
   const routes = [

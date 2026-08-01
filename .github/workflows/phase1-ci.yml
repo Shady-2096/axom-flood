@@ -34,4 +34,8 @@ jobs:
       - run: uv sync --locked --all-extras
       - run: uv run ruff check .
       - run: uv run pytest
+      # A reviewed gauge decision reaches a reader's bulletin, so a decision
+      # naming a circle that does not exist or a gauge that stopped reporting
+      # has to fail here rather than at 04:00 in the nightly run.
+      - run: uv run python scripts/apply_gauge_decisions.py --check
       - run: uv run python scripts/check_pwa_budget.py

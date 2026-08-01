@@ -30,11 +30,19 @@ from axom_flood.cwc.pipeline import (
     load_station_reference,
 )
 
+# The reviewed answers to "does this gauge sit on water that reaches this
+# circle". Shared with scripts/audit_gauge_mappings.py so a full rebuild and the
+# nightly audit apply one decision the same way.
+from axom_flood.gauges import decisions as gauge_decisions
+
 # Same rule scripts/audit_locality_centroids.py enforces, imported rather than
 # copied so a rebuild and the audit can never disagree about a circle's centre.
 from axom_flood.geometry import corrected_centre, load_circle_outlines
 
 DISTRICT_LOOKUP = load_district_lookup()
+
+ROOT = Path(__file__).resolve().parent.parent
+DECISIONS = ROOT / "config" / "gauge-topology-decisions.json"
 
 # How far a circle may sit from the gauge it reads from before the mapping has to
 # be defended rather than assumed.
@@ -390,6 +398,7 @@ def review_reason(geometry: dict[str, Any], claimed: str) -> str:
 
 def build(args: argparse.Namespace) -> None:
     villages, census_sha = census_rows(args.census_xls)
+    reviewed = gauge_decisions.load(args.decisions)
     stations = load_station_reference(args.data_dir)
     if not stations:
         raise RuntimeError(
@@ -433,8 +442,11 @@ def build(args: argparse.Namespace) -> None:
         # 100 km west, in Tezpur.
         centre, centre_method = corrected_centre(locality_id, centre, circle_outlines)
         code, basis, claimed_confidence = mapping_for(district, source_circle)
+        decision = reviewed.get(locality_id)
+        if decision is not None:
+            code = gauge_decisions.gauge_for(decision, code)
         geometry = gauge_geometry(centre, code, stations)
-        # Geometry cannot promote a mapping — only a hydrologist can. It can
+        # Geometry cannot promote a mapping — only a reviewer can. It can
         # demote one, and that is the whole point: a claim of "high" that reads
         # from another basin is exactly the claim nobody was checking.
         mapping_confidence = (
@@ -517,8 +529,15 @@ def build(args: argparse.Namespace) -> None:
             "flood_threshold_confidence": None,
             "flood_threshold_n_events": None,
         }
+        # A reviewed decision is the only thing in this build that can call a
+        # mapping checked, and it also takes the circle out of the queue: the
+        # question has been answered, including the distance objection the
+        # reviewer saw in their packet before deciding.
+        if decision is not None:
+            locality = gauge_decisions.apply(locality, decision, geometry)
+            mapping_confidence = locality["primary_gauge_mapping"]["confidence"]
         localities.append(locality)
-        if mapping_confidence != "high":
+        if mapping_confidence not in {"high", gauge_decisions.NO_GAUGE_CONFIDENCE}:
             review.append(
                 {
                     "locality_id": locality_id,
@@ -556,9 +575,11 @@ def build(args: argparse.Namespace) -> None:
             raise RuntimeError(f"current-administration locality duplicates {locality_id}")
         # The hand-written supplements go through the same audit as the generated
         # ones. A mapping typed by a person is not a mapping checked by a person.
-        geometry = gauge_geometry(
-            supplement["centroid"], supplement["primary_gauge"], stations
-        )
+        decision = reviewed.get(locality_id)
+        code = supplement["primary_gauge"]
+        if decision is not None:
+            code = gauge_decisions.gauge_for(decision, code)
+        geometry = gauge_geometry(supplement["centroid"], code, stations)
         mapping_confidence = (
             "unverified"
             if geometry["far"] or geometry["much_nearer_gauge_exists"]
@@ -584,7 +605,7 @@ def build(args: argparse.Namespace) -> None:
             "centroid": supplement["centroid"],
             "centroid_method": supplement["centroid_method"],
             "boundary_geojson_ref": None,
-            "primary_gauge": supplement["primary_gauge"],
+            "primary_gauge": code,
             "primary_gauge_mapping": {
                 "confidence": mapping_confidence,
                 "basis": supplement["gauge_basis"],
@@ -597,6 +618,9 @@ def build(args: argparse.Namespace) -> None:
             "flood_threshold_confidence": None,
             "flood_threshold_n_events": None,
         }
+        if decision is not None:
+            locality = gauge_decisions.apply(locality, decision, geometry)
+            mapping_confidence = locality["primary_gauge_mapping"]["confidence"]
         district_positions = [
             index
             for index, item in enumerate(localities)
@@ -604,7 +628,7 @@ def build(args: argparse.Namespace) -> None:
         ]
         insert_at = district_positions[-1] + 1 if district_positions else len(localities)
         localities.insert(insert_at, locality)
-        if mapping_confidence != "high":
+        if mapping_confidence not in {"high", gauge_decisions.NO_GAUGE_CONFIDENCE}:
             review.append(
                 {
                     "locality_id": locality_id,
@@ -643,6 +667,14 @@ def build(args: argparse.Namespace) -> None:
             "forced to unverified and queued for hydrology review regardless of what "
             "the mapping table claimed. Distance is a smoke alarm, not a river model: "
             "it never promotes a mapping and never picks a replacement gauge."
+        ),
+        "gauge_topology_review": (
+            "A circle whose mapping was decided by a person reads "
+            "method reviewed_river_topology and carries the reviewer, their stated "
+            "qualification, and their reasoning. Those circles skip the distance "
+            "demotion, because the reviewer saw the distance before deciding. "
+            "Decisions are the only path that can mark a mapping reviewed. Source: "
+            f"{DECISIONS.relative_to(ROOT)}, {len(reviewed)} decided."
         ),
     }
     locality_provenance = {
@@ -683,6 +715,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--census-xls", type=Path, required=True)
     parser.add_argument("--data-dir", type=Path, default=Path("data"))
+    parser.add_argument("--decisions", type=Path, default=DECISIONS)
     parser.add_argument(
         "--udise-csv",
         type=Path,
