@@ -90,3 +90,4 @@
 {"gauge_id": "cwc_margherita_011_ubddib", "level_m": 134.29, "observed_at": "2026-08-02T21:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0f8393804c2fd49a1de2b235baacf05d55c5dd3f9a1456e4bf7de9314cf012c7"}
 {"gauge_id": "cwc_margherita_011_ubddib", "level_m": 134.29, "observed_at": "2026-08-02T22:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0f8393804c2fd49a1de2b235baacf05d55c5dd3f9a1456e4bf7de9314cf012c7"}
 {"gauge_id": "cwc_margherita_011_ubddib", "level_m": 134.29, "observed_at": "2026-08-02T23:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0f8393804c2fd49a1de2b235baacf05d55c5dd3f9a1456e4bf7de9314cf012c7"}
+{"gauge_id": "cwc_margherita_011_ubddib", "level_m": 134.28, "observed_at": "2026-08-03T00:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "6f0a065a41af3b67ce1c1dcef9a297e18cd601236c8cdd33459066da7b198c60"}
