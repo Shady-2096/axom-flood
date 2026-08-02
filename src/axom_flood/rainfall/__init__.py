@@ -10,6 +10,17 @@ from .imerg import (
     parse_imerg_observations,
     prepare_imerg_zonal_join,
 )
+from .imerg_client import (
+    EARTHDATA_REGISTRATION_URL,
+    GES_DISC_BASE,
+    ImergAuthError,
+    ImergClient,
+    ImergCredentialsMissing,
+    ImergDownload,
+    ImergGranule,
+    discover_granules,
+    granule_for,
+)
 from .provenance import (
     GeometryReference,
     GeometryReviewRequired,
@@ -33,6 +44,8 @@ from .zonal import (
 )
 
 __all__ = [
+    "EARTHDATA_REGISTRATION_URL",
+    "GES_DISC_BASE",
     "IMERG_CELL_DEGREES",
     "IMERG_POLICIES",
     "ZONAL_FORBIDS",
@@ -44,7 +57,12 @@ __all__ = [
     "GeometryReviewRequired",
     "ImdAccessRestrictedError",
     "ImdClient",
+    "ImergAuthError",
     "ImergCellAccumulation",
+    "ImergClient",
+    "ImergCredentialsMissing",
+    "ImergDownload",
+    "ImergGranule",
     "ImergGridCellObservation",
     "ImergRun",
     "MeasuredBoundary",
@@ -55,6 +73,8 @@ __all__ = [
     "accumulate_imerg_cell",
     "aggregate_over_circle",
     "cell_weights",
+    "discover_granules",
+    "granule_for",
     "grid_cell_id",
     "load_measured_boundaries",
     "parse_imerg_observations",

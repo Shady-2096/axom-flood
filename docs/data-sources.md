@@ -329,6 +329,38 @@ intermediate and routes up through a root certifi no longer carries, so the
 fetch script verifies against the OS trust store via `truststore`; verification
 is never disabled.
 
+## NASA GPM IMERG (rainfall)
+
+Half-hourly satellite rainfall estimates, used for circles the gauge network does
+not serve. Two runs matter: **Early**, which NASA attributes roughly four-hour
+availability to, and **Late**, which is the better estimate and arrives later.
+
+An earlier handoff to this project claimed the four-hour figure for Late. It is
+wrong, and the correction is not a better constant — it is to stop relying on a
+constant. `ImergDownload.observed_latency_hours` is measured from the archive's
+own publication time on every download. `IMERG_POLICIES[...].typical_latency_hours`
+is kept only as an expectation to compare a measurement against.
+
+**Access:** Earthdata Login, free registration, operator-supplied token. A valid
+token is not sufficient on its own — GES DISC must also be authorised once under
+Earthdata → Applications → Authorized Apps. A 403 with a working token almost
+always means that step was missed.
+
+⚠️ **Unverified as of 2026-08-02.** No Earthdata account exists yet, so every
+IMERG test runs against synthetic bytes. Those tests prove the refusals, the
+granule arithmetic, and that latency is measured rather than assumed. They do
+**not** prove the archive path, the `V07B` version suffix, or the token flow.
+
+```
+uv run python scripts/smoke_imerg.py --dry-run   # prints the URL, no account needed
+uv run python scripts/smoke_imerg.py             # the actual proof, needs EARTHDATA_TOKEN
+```
+
+Until that second command has passed once, granule URLs are a documented
+convention and not a confirmed fact. The zonal weights in
+`data/processed/rainfall-zones/` do not depend on any of this — they are geometry
+and were built without an account.
+
 ## Google Flood Forecasting API
 
 Google documents the API as free, CC BY 4.0, and pilot/waitlist access.
