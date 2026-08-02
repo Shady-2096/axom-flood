@@ -1,0 +1,6192 @@
+{
+  "aggregation": "area_weighted; no centre-point assignment",
+  "area_method": "equirectangular about each clipped piece's own mean latitude; weights are ratios, so the projection constant cancels",
+  "attribution": "\u00a9 OpenStreetMap contributors, ODbL",
+  "cell_degrees": 0.1,
+  "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+  "generated_at": "2026-08-02T07:24:36.833635+00:00",
+  "grid": "lat/lon cells named by their south-west corner; IMERG V07 native resolution when cell_degrees is 0.1",
+  "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+  "provenance": {
+    "boundary_geojson": "data/processed/circle-boundaries/f9a696c0531b252c13bcf3e509891b687c71c04295733a80ed5dedfde94332cc.geojson",
+    "boundary_review": "data/review/circle-boundaries/current.json",
+    "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+    "built_by": "scripts/build_rainfall_zones.py",
+    "note": "Circles absent from this file have no analysis-grade boundary and must be skipped explicitly rather than estimated."
+  },
+  "record": "rainfall_zone_weights",
+  "schema_version": 1,
+  "totals": {
+    "circles": 61,
+    "circles_in_one_cell": 0,
+    "distinct_cells": 518,
+    "largest_cell_count": 28
+  },
+  "zones": [
+    {
+      "boundary": {
+        "agreement": 0.9524,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Baksa",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 63,
+        "locality_id": "baksa-barama-pt",
+        "osm_id": "relation/10044734",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Barama (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 5,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.5386,
+          "grid_cell_id": "91.3000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.35,
+          "share": 0.00558916
+        },
+        {
+          "area_sq_km": 53.889,
+          "grid_cell_id": "91.3000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.35,
+          "share": 0.55924657
+        },
+        {
+          "area_sq_km": 6.4692,
+          "grid_cell_id": "91.3000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.35,
+          "share": 0.06713577
+        },
+        {
+          "area_sq_km": 29.3604,
+          "grid_cell_id": "91.4000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.45,
+          "share": 0.30469494
+        },
+        {
+          "area_sq_km": 6.1028,
+          "grid_cell_id": "91.4000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.45,
+          "share": 0.06333356
+        }
+      ],
+      "circle_area_sq_km": 96.36,
+      "locality_id": "baksa-barama-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9079,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Baksa",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 76,
+        "locality_id": "baksa-barnagar-pt",
+        "osm_id": "relation/10044729",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Barnagar (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 13,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 11.0123,
+          "grid_cell_id": "90.8000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.85,
+          "share": 0.02209817
+        },
+        {
+          "area_sq_km": 4.1343,
+          "grid_cell_id": "90.8000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.85,
+          "share": 0.00829619
+        },
+        {
+          "area_sq_km": 33.4637,
+          "grid_cell_id": "90.9000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.95,
+          "share": 0.06715092
+        },
+        {
+          "area_sq_km": 35.7034,
+          "grid_cell_id": "90.9000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.95,
+          "share": 0.07164513
+        },
+        {
+          "area_sq_km": 110.1976,
+          "grid_cell_id": "90.9000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.95,
+          "share": 0.22113108
+        },
+        {
+          "area_sq_km": 67.7374,
+          "grid_cell_id": "90.9000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.95,
+          "share": 0.13592708
+        },
+        {
+          "area_sq_km": 2.7888,
+          "grid_cell_id": "91.0000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.05,
+          "share": 0.00559626
+        },
+        {
+          "area_sq_km": 34.8997,
+          "grid_cell_id": "91.0000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.05,
+          "share": 0.07003246
+        },
+        {
+          "area_sq_km": 51.7817,
+          "grid_cell_id": "91.0000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.05,
+          "share": 0.10390916
+        },
+        {
+          "area_sq_km": 98.7791,
+          "grid_cell_id": "91.0000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.05,
+          "share": 0.1982179
+        },
+        {
+          "area_sq_km": 3.1861,
+          "grid_cell_id": "91.0000_26.8000",
+          "latitude": 26.85,
+          "longitude": 91.05,
+          "share": 0.00639357
+        },
+        {
+          "area_sq_km": 36.8896,
+          "grid_cell_id": "91.1000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.15,
+          "share": 0.07402555
+        },
+        {
+          "area_sq_km": 7.7623,
+          "grid_cell_id": "91.1000_26.8000",
+          "latitude": 26.85,
+          "longitude": 91.15,
+          "share": 0.01557653
+        }
+      ],
+      "circle_area_sq_km": 498.336,
+      "locality_id": "baksa-barnagar-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9299,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Baksa",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 157,
+        "locality_id": "baksa-baska",
+        "osm_id": "relation/10044735",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Baska"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 8,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 13.2151,
+          "grid_cell_id": "91.2000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.25,
+          "share": 0.04534501
+        },
+        {
+          "area_sq_km": 46.2974,
+          "grid_cell_id": "91.2000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.25,
+          "share": 0.15886022
+        },
+        {
+          "area_sq_km": 2.7085,
+          "grid_cell_id": "91.2000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.25,
+          "share": 0.00929384
+        },
+        {
+          "area_sq_km": 19.3424,
+          "grid_cell_id": "91.3000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.35,
+          "share": 0.0663697
+        },
+        {
+          "area_sq_km": 102.8864,
+          "grid_cell_id": "91.3000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.35,
+          "share": 0.35303395
+        },
+        {
+          "area_sq_km": 87.9995,
+          "grid_cell_id": "91.3000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.35,
+          "share": 0.30195258
+        },
+        {
+          "area_sq_km": 12.6424,
+          "grid_cell_id": "91.4000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.45,
+          "share": 0.04337989
+        },
+        {
+          "area_sq_km": 6.343,
+          "grid_cell_id": "91.4000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.45,
+          "share": 0.02176481
+        }
+      ],
+      "circle_area_sq_km": 291.435,
+      "locality_id": "baksa-baska"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9333,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Tamulpur",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 225,
+        "locality_id": "baksa-goreswar-pt",
+        "osm_id": "relation/10044738",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Goreswar (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 10,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 39.7206,
+          "grid_cell_id": "91.6000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.65,
+          "share": 0.1376679
+        },
+        {
+          "area_sq_km": 59.1924,
+          "grid_cell_id": "91.6000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.65,
+          "share": 0.20515548
+        },
+        {
+          "area_sq_km": 26.158,
+          "grid_cell_id": "91.6000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.65,
+          "share": 0.09066114
+        },
+        {
+          "area_sq_km": 0.6037,
+          "grid_cell_id": "91.6000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.65,
+          "share": 0.00209221
+        },
+        {
+          "area_sq_km": 15.4796,
+          "grid_cell_id": "91.7000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.75,
+          "share": 0.05365074
+        },
+        {
+          "area_sq_km": 77.9553,
+          "grid_cell_id": "91.7000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.75,
+          "share": 0.27018595
+        },
+        {
+          "area_sq_km": 46.2836,
+          "grid_cell_id": "91.7000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.75,
+          "share": 0.16041464
+        },
+        {
+          "area_sq_km": 22.741,
+          "grid_cell_id": "91.7000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.75,
+          "share": 0.07881835
+        },
+        {
+          "area_sq_km": 0.317,
+          "grid_cell_id": "91.7000_26.8000",
+          "latitude": 26.85,
+          "longitude": 91.75,
+          "share": 0.00109856
+        },
+        {
+          "area_sq_km": 0.0736,
+          "grid_cell_id": "91.8000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.85,
+          "share": 0.00025503
+        }
+      ],
+      "circle_area_sq_km": 288.525,
+      "locality_id": "baksa-goreswar-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9857,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Baksa",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 70,
+        "locality_id": "baksa-sarupeta-pt",
+        "osm_id": "relation/10044730",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Sarupeta (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 6,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 38.0511,
+          "grid_cell_id": "91.0000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.05,
+          "share": 0.27429783
+        },
+        {
+          "area_sq_km": 58.0415,
+          "grid_cell_id": "91.0000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.05,
+          "share": 0.41840158
+        },
+        {
+          "area_sq_km": 0.2707,
+          "grid_cell_id": "91.0000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.05,
+          "share": 0.00195109
+        },
+        {
+          "area_sq_km": 7.6079,
+          "grid_cell_id": "91.1000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.15,
+          "share": 0.05484301
+        },
+        {
+          "area_sq_km": 32.6725,
+          "grid_cell_id": "91.1000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.15,
+          "share": 0.23552481
+        },
+        {
+          "area_sq_km": 2.0783,
+          "grid_cell_id": "91.1000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.15,
+          "share": 0.01498168
+        }
+      ],
+      "circle_area_sq_km": 138.722,
+      "locality_id": "baksa-sarupeta-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9365,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Tamulpur",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 252,
+        "locality_id": "baksa-tamulpur",
+        "osm_id": "relation/10044737",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Tamulpur"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 14,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.0822,
+          "grid_cell_id": "91.4000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.45,
+          "share": 0.00014382
+        },
+        {
+          "area_sq_km": 5.1904,
+          "grid_cell_id": "91.4000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.45,
+          "share": 0.00908253
+        },
+        {
+          "area_sq_km": 47.8369,
+          "grid_cell_id": "91.4000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.45,
+          "share": 0.08370771
+        },
+        {
+          "area_sq_km": 9.2908,
+          "grid_cell_id": "91.4000_26.8000",
+          "latitude": 26.85,
+          "longitude": 91.45,
+          "share": 0.01625761
+        },
+        {
+          "area_sq_km": 37.9673,
+          "grid_cell_id": "91.5000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.55,
+          "share": 0.0664373
+        },
+        {
+          "area_sq_km": 108.805,
+          "grid_cell_id": "91.5000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.55,
+          "share": 0.19039334
+        },
+        {
+          "area_sq_km": 108.1225,
+          "grid_cell_id": "91.5000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.55,
+          "share": 0.18919897
+        },
+        {
+          "area_sq_km": 1.8194,
+          "grid_cell_id": "91.5000_26.8000",
+          "latitude": 26.85,
+          "longitude": 91.55,
+          "share": 0.00318374
+        },
+        {
+          "area_sq_km": 38.2228,
+          "grid_cell_id": "91.6000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.65,
+          "share": 0.06688451
+        },
+        {
+          "area_sq_km": 84.35,
+          "grid_cell_id": "91.6000_26.6000",
+          "latitude": 26.65,
+          "longitude": 91.65,
+          "share": 0.14760046
+        },
+        {
+          "area_sq_km": 109.8073,
+          "grid_cell_id": "91.6000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.65,
+          "share": 0.19214722
+        },
+        {
+          "area_sq_km": 15.351,
+          "grid_cell_id": "91.6000_26.8000",
+          "latitude": 26.85,
+          "longitude": 91.65,
+          "share": 0.02686207
+        },
+        {
+          "area_sq_km": 3.8641,
+          "grid_cell_id": "91.7000_26.7000",
+          "latitude": 26.75,
+          "longitude": 91.75,
+          "share": 0.00676165
+        },
+        {
+          "area_sq_km": 0.7653,
+          "grid_cell_id": "91.7000_26.8000",
+          "latitude": 26.85,
+          "longitude": 91.75,
+          "share": 0.00133908
+        }
+      ],
+      "circle_area_sq_km": 571.475,
+      "locality_id": "baksa-tamulpur"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9512,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Barpeta",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 205,
+        "locality_id": "barpeta-baghbor",
+        "osm_id": "relation/10044921",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Baghbor"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 13,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 9.5536,
+          "grid_cell_id": "90.6000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.65,
+          "share": 0.01807802
+        },
+        {
+          "area_sq_km": 71.7072,
+          "grid_cell_id": "90.7000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.75,
+          "share": 0.13568911
+        },
+        {
+          "area_sq_km": 16.4713,
+          "grid_cell_id": "90.7000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.75,
+          "share": 0.031168
+        },
+        {
+          "area_sq_km": 2.4399,
+          "grid_cell_id": "90.8000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.85,
+          "share": 0.00461689
+        },
+        {
+          "area_sq_km": 99.5605,
+          "grid_cell_id": "90.8000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.85,
+          "share": 0.18839499
+        },
+        {
+          "area_sq_km": 94.8926,
+          "grid_cell_id": "90.8000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.85,
+          "share": 0.179562
+        },
+        {
+          "area_sq_km": 15.0616,
+          "grid_cell_id": "90.8000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.85,
+          "share": 0.02850059
+        },
+        {
+          "area_sq_km": 3.6197,
+          "grid_cell_id": "90.9000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.95,
+          "share": 0.00684951
+        },
+        {
+          "area_sq_km": 56.7689,
+          "grid_cell_id": "90.9000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.95,
+          "share": 0.10742183
+        },
+        {
+          "area_sq_km": 105.1478,
+          "grid_cell_id": "90.9000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.95,
+          "share": 0.19896763
+        },
+        {
+          "area_sq_km": 32.9297,
+          "grid_cell_id": "90.9000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.95,
+          "share": 0.06231164
+        },
+        {
+          "area_sq_km": 1.0204,
+          "grid_cell_id": "91.0000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.05,
+          "share": 0.00193091
+        },
+        {
+          "area_sq_km": 19.2937,
+          "grid_cell_id": "91.0000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.05,
+          "share": 0.0365089
+        }
+      ],
+      "circle_area_sq_km": 528.467,
+      "locality_id": "barpeta-baghbor"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9754,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Bajali",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 122,
+        "locality_id": "barpeta-bajali-pt",
+        "osm_id": "relation/10044917",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Bajali (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 4,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 26.56,
+          "grid_cell_id": "91.1000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.15,
+          "share": 0.15760199
+        },
+        {
+          "area_sq_km": 49.4844,
+          "grid_cell_id": "91.1000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.15,
+          "share": 0.29363132
+        },
+        {
+          "area_sq_km": 35.9397,
+          "grid_cell_id": "91.2000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.25,
+          "share": 0.21325957
+        },
+        {
+          "area_sq_km": 56.5416,
+          "grid_cell_id": "91.2000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.25,
+          "share": 0.33550712
+        }
+      ],
+      "circle_area_sq_km": 168.526,
+      "locality_id": "barpeta-bajali-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9082,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Barpeta",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 294,
+        "locality_id": "barpeta-barpeta",
+        "osm_id": "relation/10044919",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Barpeta"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 8,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 1.6972,
+          "grid_cell_id": "90.9000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.95,
+          "share": 0.00529733
+        },
+        {
+          "area_sq_km": 67.891,
+          "grid_cell_id": "90.9000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.95,
+          "share": 0.21190707
+        },
+        {
+          "area_sq_km": 31.799,
+          "grid_cell_id": "90.9000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.95,
+          "share": 0.09925374
+        },
+        {
+          "area_sq_km": 71.4525,
+          "grid_cell_id": "91.0000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.05,
+          "share": 0.22302347
+        },
+        {
+          "area_sq_km": 94.1607,
+          "grid_cell_id": "91.0000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.05,
+          "share": 0.29390227
+        },
+        {
+          "area_sq_km": 26.2995,
+          "grid_cell_id": "91.0000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.05,
+          "share": 0.08208812
+        },
+        {
+          "area_sq_km": 2.4444,
+          "grid_cell_id": "91.1000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.15,
+          "share": 0.00762954
+        },
+        {
+          "area_sq_km": 24.6368,
+          "grid_cell_id": "91.1000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.15,
+          "share": 0.07689845
+        }
+      ],
+      "circle_area_sq_km": 320.381,
+      "locality_id": "barpeta-barpeta"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9554,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Cachar",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 112,
+        "locality_id": "cachar-silchar",
+        "osm_id": "relation/10052382",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Silchar"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 16,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 7.1813,
+          "grid_cell_id": "92.6000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.65,
+          "share": 0.00857648
+        },
+        {
+          "area_sq_km": 37.6105,
+          "grid_cell_id": "92.6000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.65,
+          "share": 0.04491719
+        },
+        {
+          "area_sq_km": 44.1462,
+          "grid_cell_id": "92.6000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.65,
+          "share": 0.05272264
+        },
+        {
+          "area_sq_km": 22.0612,
+          "grid_cell_id": "92.6000_24.8000",
+          "latitude": 24.85,
+          "longitude": 92.65,
+          "share": 0.0263471
+        },
+        {
+          "area_sq_km": 32.0393,
+          "grid_cell_id": "92.6000_24.9000",
+          "latitude": 24.95,
+          "longitude": 92.65,
+          "share": 0.03826368
+        },
+        {
+          "area_sq_km": 13.0472,
+          "grid_cell_id": "92.7000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.75,
+          "share": 0.01558195
+        },
+        {
+          "area_sq_km": 101.8822,
+          "grid_cell_id": "92.7000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.75,
+          "share": 0.12167519
+        },
+        {
+          "area_sq_km": 112.2859,
+          "grid_cell_id": "92.7000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.75,
+          "share": 0.13410009
+        },
+        {
+          "area_sq_km": 108.0037,
+          "grid_cell_id": "92.7000_24.8000",
+          "latitude": 24.85,
+          "longitude": 92.75,
+          "share": 0.12898589
+        },
+        {
+          "area_sq_km": 111.4822,
+          "grid_cell_id": "92.7000_24.9000",
+          "latitude": 24.95,
+          "longitude": 92.75,
+          "share": 0.13314015
+        },
+        {
+          "area_sq_km": 13.0699,
+          "grid_cell_id": "92.7000_25.0000",
+          "latitude": 25.05,
+          "longitude": 92.75,
+          "share": 0.01560899
+        },
+        {
+          "area_sq_km": 32.3631,
+          "grid_cell_id": "92.8000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.85,
+          "share": 0.03865035
+        },
+        {
+          "area_sq_km": 33.8665,
+          "grid_cell_id": "92.8000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.85,
+          "share": 0.04044588
+        },
+        {
+          "area_sq_km": 50.9311,
+          "grid_cell_id": "92.8000_24.8000",
+          "latitude": 24.85,
+          "longitude": 92.85,
+          "share": 0.06082562
+        },
+        {
+          "area_sq_km": 80.0623,
+          "grid_cell_id": "92.8000_24.9000",
+          "latitude": 24.95,
+          "longitude": 92.85,
+          "share": 0.09561629
+        },
+        {
+          "area_sq_km": 37.2968,
+          "grid_cell_id": "92.8000_25.0000",
+          "latitude": 25.05,
+          "longitude": 92.85,
+          "share": 0.04454251
+        }
+      ],
+      "circle_area_sq_km": 837.329,
+      "locality_id": "cachar-silchar"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9263,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Cachar",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 95,
+        "locality_id": "cachar-sonai",
+        "osm_id": "relation/10052379",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Sonai"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 19,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 11.8844,
+          "grid_cell_id": "92.7000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.75,
+          "share": 0.01187134
+        },
+        {
+          "area_sq_km": 41.3226,
+          "grid_cell_id": "92.7000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.75,
+          "share": 0.0412774
+        },
+        {
+          "area_sq_km": 10.4939,
+          "grid_cell_id": "92.7000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.75,
+          "share": 0.01048242
+        },
+        {
+          "area_sq_km": 7.8995,
+          "grid_cell_id": "92.8000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.85,
+          "share": 0.00789088
+        },
+        {
+          "area_sq_km": 108.9144,
+          "grid_cell_id": "92.8000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.85,
+          "share": 0.10879517
+        },
+        {
+          "area_sq_km": 112.466,
+          "grid_cell_id": "92.8000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.85,
+          "share": 0.11234286
+        },
+        {
+          "area_sq_km": 80.013,
+          "grid_cell_id": "92.8000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.85,
+          "share": 0.07992547
+        },
+        {
+          "area_sq_km": 47.4406,
+          "grid_cell_id": "92.8000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.85,
+          "share": 0.04738864
+        },
+        {
+          "area_sq_km": 1.9527,
+          "grid_cell_id": "92.9000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.95,
+          "share": 0.00195056
+        },
+        {
+          "area_sq_km": 109.7336,
+          "grid_cell_id": "92.9000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.95,
+          "share": 0.10961345
+        },
+        {
+          "area_sq_km": 112.466,
+          "grid_cell_id": "92.9000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.95,
+          "share": 0.11234286
+        },
+        {
+          "area_sq_km": 109.1162,
+          "grid_cell_id": "92.9000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.95,
+          "share": 0.10899677
+        },
+        {
+          "area_sq_km": 18.3893,
+          "grid_cell_id": "92.9000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.95,
+          "share": 0.01836917
+        },
+        {
+          "area_sq_km": 39.5271,
+          "grid_cell_id": "93.0000_24.4000",
+          "latitude": 24.45,
+          "longitude": 93.05,
+          "share": 0.03948381
+        },
+        {
+          "area_sq_km": 69.4798,
+          "grid_cell_id": "93.0000_24.5000",
+          "latitude": 24.55,
+          "longitude": 93.05,
+          "share": 0.06940379
+        },
+        {
+          "area_sq_km": 97.6014,
+          "grid_cell_id": "93.0000_24.6000",
+          "latitude": 24.65,
+          "longitude": 93.05,
+          "share": 0.09749456
+        },
+        {
+          "area_sq_km": 21.7497,
+          "grid_cell_id": "93.0000_24.7000",
+          "latitude": 24.75,
+          "longitude": 93.05,
+          "share": 0.02172591
+        },
+        {
+          "area_sq_km": 0.2691,
+          "grid_cell_id": "93.1000_24.5000",
+          "latitude": 24.55,
+          "longitude": 93.15,
+          "share": 0.00026884
+        },
+        {
+          "area_sq_km": 0.3765,
+          "grid_cell_id": "93.1000_24.6000",
+          "latitude": 24.65,
+          "longitude": 93.15,
+          "share": 0.00037609
+        }
+      ],
+      "circle_area_sq_km": 1001.096,
+      "locality_id": "cachar-sonai"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9333,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Cachar",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 15,
+        "locality_id": "cachar-udarbond",
+        "osm_id": "relation/10052381",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Udarbond"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 9,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 51.9664,
+          "grid_cell_id": "92.8000_24.8000",
+          "latitude": 24.85,
+          "longitude": 92.85,
+          "share": 0.1169914
+        },
+        {
+          "area_sq_km": 32.0422,
+          "grid_cell_id": "92.8000_24.9000",
+          "latitude": 24.95,
+          "longitude": 92.85,
+          "share": 0.07213636
+        },
+        {
+          "area_sq_km": 33.5902,
+          "grid_cell_id": "92.8000_25.0000",
+          "latitude": 25.05,
+          "longitude": 92.85,
+          "share": 0.0756213
+        },
+        {
+          "area_sq_km": 36.8585,
+          "grid_cell_id": "92.9000_24.8000",
+          "latitude": 24.85,
+          "longitude": 92.95,
+          "share": 0.08297912
+        },
+        {
+          "area_sq_km": 109.8605,
+          "grid_cell_id": "92.9000_24.9000",
+          "latitude": 24.95,
+          "longitude": 92.95,
+          "share": 0.24732782
+        },
+        {
+          "area_sq_km": 92.2,
+          "grid_cell_id": "92.9000_25.0000",
+          "latitude": 25.05,
+          "longitude": 92.95,
+          "share": 0.2075689
+        },
+        {
+          "area_sq_km": 43.5098,
+          "grid_cell_id": "93.0000_24.9000",
+          "latitude": 24.95,
+          "longitude": 93.05,
+          "share": 0.09795307
+        },
+        {
+          "area_sq_km": 43.138,
+          "grid_cell_id": "93.0000_25.0000",
+          "latitude": 25.05,
+          "longitude": 93.05,
+          "share": 0.09711619
+        },
+        {
+          "area_sq_km": 1.0242,
+          "grid_cell_id": "93.0000_25.1000",
+          "latitude": 25.15,
+          "longitude": 93.05,
+          "share": 0.00230585
+        }
+      ],
+      "circle_area_sq_km": 444.19,
+      "locality_id": "cachar-udarbond"
+    },
+    {
+      "boundary": {
+        "agreement": 0.913,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Chirang",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 69,
+        "locality_id": "chirang-bengtol",
+        "osm_id": "relation/10041978",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Bengtol"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 16,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.5065,
+          "grid_cell_id": "90.3000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.35,
+          "share": 0.00071852
+        },
+        {
+          "area_sq_km": 43.6561,
+          "grid_cell_id": "90.3000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.35,
+          "share": 0.0619317
+        },
+        {
+          "area_sq_km": 37.5818,
+          "grid_cell_id": "90.3000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.35,
+          "share": 0.05331457
+        },
+        {
+          "area_sq_km": 62.6181,
+          "grid_cell_id": "90.3000_26.8000",
+          "latitude": 26.85,
+          "longitude": 90.35,
+          "share": 0.08883173
+        },
+        {
+          "area_sq_km": 1.0782,
+          "grid_cell_id": "90.3000_26.9000",
+          "latitude": 26.95,
+          "longitude": 90.35,
+          "share": 0.0015296
+        },
+        {
+          "area_sq_km": 17.9391,
+          "grid_cell_id": "90.4000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.45,
+          "share": 0.02544889
+        },
+        {
+          "area_sq_km": 110.508,
+          "grid_cell_id": "90.4000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.45,
+          "share": 0.1567696
+        },
+        {
+          "area_sq_km": 110.411,
+          "grid_cell_id": "90.4000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.45,
+          "share": 0.15663204
+        },
+        {
+          "area_sq_km": 88.8625,
+          "grid_cell_id": "90.4000_26.8000",
+          "latitude": 26.85,
+          "longitude": 90.45,
+          "share": 0.12606276
+        },
+        {
+          "area_sq_km": 0.7548,
+          "grid_cell_id": "90.4000_26.9000",
+          "latitude": 26.95,
+          "longitude": 90.45,
+          "share": 0.00107082
+        },
+        {
+          "area_sq_km": 11.5216,
+          "grid_cell_id": "90.5000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.55,
+          "share": 0.01634491
+        },
+        {
+          "area_sq_km": 65.9744,
+          "grid_cell_id": "90.5000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.55,
+          "share": 0.09359314
+        },
+        {
+          "area_sq_km": 101.7549,
+          "grid_cell_id": "90.5000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.55,
+          "share": 0.1443523
+        },
+        {
+          "area_sq_km": 21.4865,
+          "grid_cell_id": "90.5000_26.8000",
+          "latitude": 26.85,
+          "longitude": 90.55,
+          "share": 0.03048128
+        },
+        {
+          "area_sq_km": 30.2301,
+          "grid_cell_id": "90.6000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.65,
+          "share": 0.04288526
+        },
+        {
+          "area_sq_km": 0.0232,
+          "grid_cell_id": "90.6000_26.8000",
+          "latitude": 26.85,
+          "longitude": 90.65,
+          "share": 3.29e-05
+        }
+      ],
+      "circle_area_sq_km": 704.907,
+      "locality_id": "chirang-bengtol"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9172,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Chirang",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 157,
+        "locality_id": "chirang-bijni-pt",
+        "osm_id": "relation/10041979",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Bijni (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 17,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 1.759,
+          "grid_cell_id": "90.5000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.55,
+          "share": 0.00180872
+        },
+        {
+          "area_sq_km": 49.2513,
+          "grid_cell_id": "90.5000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.55,
+          "share": 0.0506424
+        },
+        {
+          "area_sq_km": 44.5335,
+          "grid_cell_id": "90.5000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.55,
+          "share": 0.04579138
+        },
+        {
+          "area_sq_km": 8.6561,
+          "grid_cell_id": "90.5000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.55,
+          "share": 0.00890057
+        },
+        {
+          "area_sq_km": 4.2516,
+          "grid_cell_id": "90.6000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.65,
+          "share": 0.0043717
+        },
+        {
+          "area_sq_km": 106.7538,
+          "grid_cell_id": "90.6000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.65,
+          "share": 0.10976909
+        },
+        {
+          "area_sq_km": 110.508,
+          "grid_cell_id": "90.6000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.65,
+          "share": 0.11362928
+        },
+        {
+          "area_sq_km": 64.712,
+          "grid_cell_id": "90.6000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.65,
+          "share": 0.06653981
+        },
+        {
+          "area_sq_km": 21.8738,
+          "grid_cell_id": "90.7000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.75,
+          "share": 0.02249161
+        },
+        {
+          "area_sq_km": 101.7843,
+          "grid_cell_id": "90.7000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.75,
+          "share": 0.10465918
+        },
+        {
+          "area_sq_km": 110.508,
+          "grid_cell_id": "90.7000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.75,
+          "share": 0.11362928
+        },
+        {
+          "area_sq_km": 80.8645,
+          "grid_cell_id": "90.7000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.75,
+          "share": 0.08314858
+        },
+        {
+          "area_sq_km": 45.7096,
+          "grid_cell_id": "90.8000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.85,
+          "share": 0.04700067
+        },
+        {
+          "area_sq_km": 106.3737,
+          "grid_cell_id": "90.8000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.85,
+          "share": 0.10937821
+        },
+        {
+          "area_sq_km": 87.1895,
+          "grid_cell_id": "90.8000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.85,
+          "share": 0.08965223
+        },
+        {
+          "area_sq_km": 0.2541,
+          "grid_cell_id": "90.9000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.95,
+          "share": 0.00026129
+        },
+        {
+          "area_sq_km": 27.5479,
+          "grid_cell_id": "90.9000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.95,
+          "share": 0.028326
+        }
+      ],
+      "circle_area_sq_km": 972.531,
+      "locality_id": "chirang-bijni-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9498,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Darrang",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 219,
+        "locality_id": "darrang-dalgaon-pt",
+        "osm_id": "relation/10047541",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Dalgaon (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 12,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 29.317,
+          "grid_cell_id": "92.0000_26.4000",
+          "latitude": 26.45,
+          "longitude": 92.05,
+          "share": 0.04905954
+        },
+        {
+          "area_sq_km": 41.1417,
+          "grid_cell_id": "92.0000_26.5000",
+          "latitude": 26.55,
+          "longitude": 92.05,
+          "share": 0.0688473
+        },
+        {
+          "area_sq_km": 24.1871,
+          "grid_cell_id": "92.0000_26.6000",
+          "latitude": 26.65,
+          "longitude": 92.05,
+          "share": 0.04047506
+        },
+        {
+          "area_sq_km": 74.4533,
+          "grid_cell_id": "92.1000_26.4000",
+          "latitude": 26.45,
+          "longitude": 92.15,
+          "share": 0.12459142
+        },
+        {
+          "area_sq_km": 109.2751,
+          "grid_cell_id": "92.1000_26.5000",
+          "latitude": 26.55,
+          "longitude": 92.15,
+          "share": 0.18286292
+        },
+        {
+          "area_sq_km": 60.1782,
+          "grid_cell_id": "92.1000_26.6000",
+          "latitude": 26.65,
+          "longitude": 92.15,
+          "share": 0.10070336
+        },
+        {
+          "area_sq_km": 65.3704,
+          "grid_cell_id": "92.2000_26.4000",
+          "latitude": 26.45,
+          "longitude": 92.25,
+          "share": 0.10939206
+        },
+        {
+          "area_sq_km": 99.4731,
+          "grid_cell_id": "92.2000_26.5000",
+          "latitude": 26.55,
+          "longitude": 92.25,
+          "share": 0.16646003
+        },
+        {
+          "area_sq_km": 25.8628,
+          "grid_cell_id": "92.2000_26.6000",
+          "latitude": 26.65,
+          "longitude": 92.25,
+          "share": 0.04327934
+        },
+        {
+          "area_sq_km": 4.521,
+          "grid_cell_id": "92.3000_26.4000",
+          "latitude": 26.45,
+          "longitude": 92.35,
+          "share": 0.00756547
+        },
+        {
+          "area_sq_km": 57.9577,
+          "grid_cell_id": "92.3000_26.5000",
+          "latitude": 26.55,
+          "longitude": 92.35,
+          "share": 0.09698743
+        },
+        {
+          "area_sq_km": 5.842,
+          "grid_cell_id": "92.3000_26.6000",
+          "latitude": 26.65,
+          "longitude": 92.35,
+          "share": 0.00977607
+        }
+      ],
+      "circle_area_sq_km": 597.579,
+      "locality_id": "darrang-dalgaon-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9552,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Darrang",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 134,
+        "locality_id": "darrang-sipajhar",
+        "osm_id": "relation/10047543",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Sipajhar"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 10,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.0736,
+          "grid_cell_id": "91.7000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.75,
+          "share": 0.00024783
+        },
+        {
+          "area_sq_km": 29.4973,
+          "grid_cell_id": "91.7000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.75,
+          "share": 0.09927338
+        },
+        {
+          "area_sq_km": 2.8169,
+          "grid_cell_id": "91.7000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.75,
+          "share": 0.00948018
+        },
+        {
+          "area_sq_km": 0.0869,
+          "grid_cell_id": "91.7000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.75,
+          "share": 0.00029255
+        },
+        {
+          "area_sq_km": 93.6949,
+          "grid_cell_id": "91.8000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.85,
+          "share": 0.31533072
+        },
+        {
+          "area_sq_km": 96.4359,
+          "grid_cell_id": "91.8000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.85,
+          "share": 0.32455577
+        },
+        {
+          "area_sq_km": 11.0521,
+          "grid_cell_id": "91.8000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.85,
+          "share": 0.03719575
+        },
+        {
+          "area_sq_km": 20.7107,
+          "grid_cell_id": "91.9000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.95,
+          "share": 0.06970193
+        },
+        {
+          "area_sq_km": 29.312,
+          "grid_cell_id": "91.9000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.95,
+          "share": 0.09864961
+        },
+        {
+          "area_sq_km": 13.4518,
+          "grid_cell_id": "91.9000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.95,
+          "share": 0.04527227
+        }
+      ],
+      "circle_area_sq_km": 297.132,
+      "locality_id": "darrang-sipajhar"
+    },
+    {
+      "boundary": {
+        "agreement": 0.93,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Dhubri",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 243,
+        "locality_id": "dhubri-agamoni",
+        "osm_id": "relation/10041503",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Agamoni"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 8,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.0201,
+          "grid_cell_id": "89.6000_26.1000",
+          "latitude": 26.15,
+          "longitude": 89.65,
+          "share": 9.147e-05
+        },
+        {
+          "area_sq_km": 63.5213,
+          "grid_cell_id": "89.7000_26.1000",
+          "latitude": 26.15,
+          "longitude": 89.75,
+          "share": 0.2887833
+        },
+        {
+          "area_sq_km": 83.1672,
+          "grid_cell_id": "89.7000_26.2000",
+          "latitude": 26.25,
+          "longitude": 89.75,
+          "share": 0.37809844
+        },
+        {
+          "area_sq_km": 4.4374,
+          "grid_cell_id": "89.7000_26.3000",
+          "latitude": 26.35,
+          "longitude": 89.75,
+          "share": 0.02017354
+        },
+        {
+          "area_sq_km": 0.8477,
+          "grid_cell_id": "89.8000_26.0000",
+          "latitude": 26.05,
+          "longitude": 89.85,
+          "share": 0.0038539
+        },
+        {
+          "area_sq_km": 19.4413,
+          "grid_cell_id": "89.8000_26.1000",
+          "latitude": 26.15,
+          "longitude": 89.85,
+          "share": 0.08838496
+        },
+        {
+          "area_sq_km": 45.8036,
+          "grid_cell_id": "89.8000_26.2000",
+          "latitude": 26.25,
+          "longitude": 89.85,
+          "share": 0.20823436
+        },
+        {
+          "area_sq_km": 2.7231,
+          "grid_cell_id": "89.8000_26.3000",
+          "latitude": 26.35,
+          "longitude": 89.85,
+          "share": 0.01238002
+        }
+      ],
+      "circle_area_sq_km": 219.962,
+      "locality_id": "dhubri-agamoni"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9567,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Dhubri",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 208,
+        "locality_id": "dhubri-bagribari-pt",
+        "osm_id": "relation/10041506",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Bagribari (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 6,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 33.8183,
+          "grid_cell_id": "90.0000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.05,
+          "share": 0.15699441
+        },
+        {
+          "area_sq_km": 41.5531,
+          "grid_cell_id": "90.0000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.05,
+          "share": 0.19290182
+        },
+        {
+          "area_sq_km": 42.7407,
+          "grid_cell_id": "90.1000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.15,
+          "share": 0.19841482
+        },
+        {
+          "area_sq_km": 94.7783,
+          "grid_cell_id": "90.1000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.15,
+          "share": 0.43998906
+        },
+        {
+          "area_sq_km": 1.4136,
+          "grid_cell_id": "90.1000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.15,
+          "share": 0.00656255
+        },
+        {
+          "area_sq_km": 1.1066,
+          "grid_cell_id": "90.2000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.25,
+          "share": 0.00513734
+        }
+      ],
+      "circle_area_sq_km": 215.411,
+      "locality_id": "dhubri-bagribari-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9469,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Dhubri",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 113,
+        "locality_id": "dhubri-chapar-pt",
+        "osm_id": "relation/10041508",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Chapar (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 7,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.0326,
+          "grid_cell_id": "90.2000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.25,
+          "share": 0.00016581
+        },
+        {
+          "area_sq_km": 14.0355,
+          "grid_cell_id": "90.2000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.25,
+          "share": 0.07144669
+        },
+        {
+          "area_sq_km": 7.1038,
+          "grid_cell_id": "90.3000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.35,
+          "share": 0.03616133
+        },
+        {
+          "area_sq_km": 83.8202,
+          "grid_cell_id": "90.3000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.35,
+          "share": 0.42668198
+        },
+        {
+          "area_sq_km": 3.8009,
+          "grid_cell_id": "90.3000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.35,
+          "share": 0.01934842
+        },
+        {
+          "area_sq_km": 46.6535,
+          "grid_cell_id": "90.4000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.45,
+          "share": 0.2374871
+        },
+        {
+          "area_sq_km": 41.0001,
+          "grid_cell_id": "90.4000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.45,
+          "share": 0.20870866
+        }
+      ],
+      "circle_area_sq_km": 196.447,
+      "locality_id": "dhubri-chapar-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9778,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "South Salmara-Mankachar",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 316,
+        "locality_id": "dhubri-mankachar",
+        "osm_id": "relation/10041812",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Mankachar"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 9,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 7.8072,
+          "grid_cell_id": "89.8000_25.4000",
+          "latitude": 25.45,
+          "longitude": 89.85,
+          "share": 0.03148776
+        },
+        {
+          "area_sq_km": 24.0961,
+          "grid_cell_id": "89.8000_25.5000",
+          "latitude": 25.55,
+          "longitude": 89.85,
+          "share": 0.09718344
+        },
+        {
+          "area_sq_km": 33.1557,
+          "grid_cell_id": "89.8000_25.6000",
+          "latitude": 25.65,
+          "longitude": 89.85,
+          "share": 0.13372215
+        },
+        {
+          "area_sq_km": 59.9663,
+          "grid_cell_id": "89.8000_25.7000",
+          "latitude": 25.75,
+          "longitude": 89.85,
+          "share": 0.24185383
+        },
+        {
+          "area_sq_km": 30.9543,
+          "grid_cell_id": "89.9000_25.5000",
+          "latitude": 25.55,
+          "longitude": 89.95,
+          "share": 0.12484363
+        },
+        {
+          "area_sq_km": 71.8841,
+          "grid_cell_id": "89.9000_25.6000",
+          "latitude": 25.65,
+          "longitude": 89.95,
+          "share": 0.28992007
+        },
+        {
+          "area_sq_km": 15.3435,
+          "grid_cell_id": "89.9000_25.7000",
+          "latitude": 25.75,
+          "longitude": 89.95,
+          "share": 0.06188277
+        },
+        {
+          "area_sq_km": 1.3524,
+          "grid_cell_id": "90.0000_25.5000",
+          "latitude": 25.55,
+          "longitude": 90.05,
+          "share": 0.00545426
+        },
+        {
+          "area_sq_km": 3.385,
+          "grid_cell_id": "90.0000_25.6000",
+          "latitude": 25.65,
+          "longitude": 90.05,
+          "share": 0.01365211
+        }
+      ],
+      "circle_area_sq_km": 247.944,
+      "locality_id": "dhubri-mankachar"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9697,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Dibrugarh",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 33,
+        "locality_id": "dibrugarh-dibrugarh-west",
+        "osm_id": "relation/10056841",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Dibrugarh West"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 17,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 13.4018,
+          "grid_cell_id": "94.5000_27.1000",
+          "latitude": 27.15,
+          "longitude": 94.55,
+          "share": 0.01850239
+        },
+        {
+          "area_sq_km": 16.9369,
+          "grid_cell_id": "94.5000_27.2000",
+          "latitude": 27.25,
+          "longitude": 94.55,
+          "share": 0.02338284
+        },
+        {
+          "area_sq_km": 6.6528,
+          "grid_cell_id": "94.6000_27.1000",
+          "latitude": 27.15,
+          "longitude": 94.65,
+          "share": 0.00918474
+        },
+        {
+          "area_sq_km": 71.6519,
+          "grid_cell_id": "94.6000_27.2000",
+          "latitude": 27.25,
+          "longitude": 94.65,
+          "share": 0.09892161
+        },
+        {
+          "area_sq_km": 56.1725,
+          "grid_cell_id": "94.6000_27.3000",
+          "latitude": 27.35,
+          "longitude": 94.65,
+          "share": 0.07755103
+        },
+        {
+          "area_sq_km": 1.7734,
+          "grid_cell_id": "94.6000_27.4000",
+          "latitude": 27.45,
+          "longitude": 94.65,
+          "share": 0.00244828
+        },
+        {
+          "area_sq_km": 50.8883,
+          "grid_cell_id": "94.7000_27.2000",
+          "latitude": 27.25,
+          "longitude": 94.75,
+          "share": 0.07025579
+        },
+        {
+          "area_sq_km": 109.8222,
+          "grid_cell_id": "94.7000_27.3000",
+          "latitude": 27.35,
+          "longitude": 94.75,
+          "share": 0.15161904
+        },
+        {
+          "area_sq_km": 59.1126,
+          "grid_cell_id": "94.7000_27.4000",
+          "latitude": 27.45,
+          "longitude": 94.75,
+          "share": 0.08161011
+        },
+        {
+          "area_sq_km": 14.751,
+          "grid_cell_id": "94.8000_27.2000",
+          "latitude": 27.25,
+          "longitude": 94.85,
+          "share": 0.0203651
+        },
+        {
+          "area_sq_km": 109.6782,
+          "grid_cell_id": "94.8000_27.3000",
+          "latitude": 27.35,
+          "longitude": 94.85,
+          "share": 0.15142024
+        },
+        {
+          "area_sq_km": 92.7782,
+          "grid_cell_id": "94.8000_27.4000",
+          "latitude": 27.45,
+          "longitude": 94.85,
+          "share": 0.12808841
+        },
+        {
+          "area_sq_km": 3.4426,
+          "grid_cell_id": "94.8000_27.5000",
+          "latitude": 27.55,
+          "longitude": 94.85,
+          "share": 0.00475274
+        },
+        {
+          "area_sq_km": 2.6307,
+          "grid_cell_id": "94.9000_27.2000",
+          "latitude": 27.25,
+          "longitude": 94.95,
+          "share": 0.00363192
+        },
+        {
+          "area_sq_km": 64.4064,
+          "grid_cell_id": "94.9000_27.3000",
+          "latitude": 27.35,
+          "longitude": 94.95,
+          "share": 0.08891868
+        },
+        {
+          "area_sq_km": 50.0498,
+          "grid_cell_id": "94.9000_27.4000",
+          "latitude": 27.45,
+          "longitude": 94.95,
+          "share": 0.06909803
+        },
+        {
+          "area_sq_km": 0.1804,
+          "grid_cell_id": "95.0000_27.3000",
+          "latitude": 27.35,
+          "longitude": 95.05,
+          "share": 0.00024905
+        }
+      ],
+      "circle_area_sq_km": 724.33,
+      "locality_id": "dibrugarh-dibrugarh-west"
+    },
+    {
+      "boundary": {
+        "agreement": 1.0,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Dibrugarh",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 25,
+        "locality_id": "dibrugarh-naharkatiya",
+        "osm_id": "relation/10056836",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Naharkatiya"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 12,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 20.122,
+          "grid_cell_id": "95.1000_27.2000",
+          "latitude": 27.25,
+          "longitude": 95.15,
+          "share": 0.04282672
+        },
+        {
+          "area_sq_km": 34.6543,
+          "grid_cell_id": "95.1000_27.3000",
+          "latitude": 27.35,
+          "longitude": 95.15,
+          "share": 0.07375664
+        },
+        {
+          "area_sq_km": 2.2567,
+          "grid_cell_id": "95.2000_27.1000",
+          "latitude": 27.15,
+          "longitude": 95.25,
+          "share": 0.00480304
+        },
+        {
+          "area_sq_km": 81.5365,
+          "grid_cell_id": "95.2000_27.2000",
+          "latitude": 27.25,
+          "longitude": 95.25,
+          "share": 0.17353879
+        },
+        {
+          "area_sq_km": 36.7044,
+          "grid_cell_id": "95.2000_27.3000",
+          "latitude": 27.35,
+          "longitude": 95.25,
+          "share": 0.07811999
+        },
+        {
+          "area_sq_km": 0.7001,
+          "grid_cell_id": "95.3000_27.0000",
+          "latitude": 27.05,
+          "longitude": 95.35,
+          "share": 0.00149014
+        },
+        {
+          "area_sq_km": 50.2287,
+          "grid_cell_id": "95.3000_27.1000",
+          "latitude": 27.15,
+          "longitude": 95.35,
+          "share": 0.10690447
+        },
+        {
+          "area_sq_km": 107.6715,
+          "grid_cell_id": "95.3000_27.2000",
+          "latitude": 27.25,
+          "longitude": 95.35,
+          "share": 0.22916331
+        },
+        {
+          "area_sq_km": 17.7754,
+          "grid_cell_id": "95.3000_27.3000",
+          "latitude": 27.35,
+          "longitude": 95.35,
+          "share": 0.03783232
+        },
+        {
+          "area_sq_km": 50.4931,
+          "grid_cell_id": "95.4000_27.1000",
+          "latitude": 27.15,
+          "longitude": 95.45,
+          "share": 0.10746733
+        },
+        {
+          "area_sq_km": 66.7861,
+          "grid_cell_id": "95.4000_27.2000",
+          "latitude": 27.25,
+          "longitude": 95.45,
+          "share": 0.14214459
+        },
+        {
+          "area_sq_km": 0.9175,
+          "grid_cell_id": "95.4000_27.3000",
+          "latitude": 27.35,
+          "longitude": 95.45,
+          "share": 0.00195267
+        }
+      ],
+      "circle_area_sq_km": 469.846,
+      "locality_id": "dibrugarh-naharkatiya"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9669,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Dima Hasao",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 121,
+        "locality_id": "dima-hasao-maibong",
+        "osm_id": "relation/10052296",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Maibong"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 28,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 13.3927,
+          "grid_cell_id": "92.9000_25.2000",
+          "latitude": 25.25,
+          "longitude": 92.95,
+          "share": 0.00730051
+        },
+        {
+          "area_sq_km": 51.5069,
+          "grid_cell_id": "92.9000_25.3000",
+          "latitude": 25.35,
+          "longitude": 92.95,
+          "share": 0.02807698
+        },
+        {
+          "area_sq_km": 0.1005,
+          "grid_cell_id": "92.9000_25.4000",
+          "latitude": 25.45,
+          "longitude": 92.95,
+          "share": 5.477e-05
+        },
+        {
+          "area_sq_km": 19.9323,
+          "grid_cell_id": "92.9000_25.5000",
+          "latitude": 25.55,
+          "longitude": 92.95,
+          "share": 0.0108653
+        },
+        {
+          "area_sq_km": 18.2767,
+          "grid_cell_id": "92.9000_25.6000",
+          "latitude": 25.65,
+          "longitude": 92.95,
+          "share": 0.00996285
+        },
+        {
+          "area_sq_km": 90.3576,
+          "grid_cell_id": "93.0000_25.2000",
+          "latitude": 25.25,
+          "longitude": 93.05,
+          "share": 0.04925492
+        },
+        {
+          "area_sq_km": 111.7377,
+          "grid_cell_id": "93.0000_25.3000",
+          "latitude": 25.35,
+          "longitude": 93.05,
+          "share": 0.06090947
+        },
+        {
+          "area_sq_km": 80.8069,
+          "grid_cell_id": "93.0000_25.4000",
+          "latitude": 25.45,
+          "longitude": 93.05,
+          "share": 0.04404874
+        },
+        {
+          "area_sq_km": 106.6762,
+          "grid_cell_id": "93.0000_25.5000",
+          "latitude": 25.55,
+          "longitude": 93.05,
+          "share": 0.05815038
+        },
+        {
+          "area_sq_km": 104.6674,
+          "grid_cell_id": "93.0000_25.6000",
+          "latitude": 25.65,
+          "longitude": 93.05,
+          "share": 0.05705534
+        },
+        {
+          "area_sq_km": 7.0255,
+          "grid_cell_id": "93.0000_25.7000",
+          "latitude": 25.75,
+          "longitude": 93.05,
+          "share": 0.00382965
+        },
+        {
+          "area_sq_km": 80.6081,
+          "grid_cell_id": "93.1000_25.2000",
+          "latitude": 25.25,
+          "longitude": 93.15,
+          "share": 0.04394038
+        },
+        {
+          "area_sq_km": 111.7377,
+          "grid_cell_id": "93.1000_25.3000",
+          "latitude": 25.35,
+          "longitude": 93.15,
+          "share": 0.06090947
+        },
+        {
+          "area_sq_km": 111.6452,
+          "grid_cell_id": "93.1000_25.4000",
+          "latitude": 25.45,
+          "longitude": 93.15,
+          "share": 0.06085901
+        },
+        {
+          "area_sq_km": 105.7833,
+          "grid_cell_id": "93.1000_25.5000",
+          "latitude": 25.55,
+          "longitude": 93.15,
+          "share": 0.05766364
+        },
+        {
+          "area_sq_km": 70.9025,
+          "grid_cell_id": "93.1000_25.6000",
+          "latitude": 25.65,
+          "longitude": 93.15,
+          "share": 0.03864973
+        },
+        {
+          "area_sq_km": 27.1369,
+          "grid_cell_id": "93.1000_25.7000",
+          "latitude": 25.75,
+          "longitude": 93.15,
+          "share": 0.01479263
+        },
+        {
+          "area_sq_km": 69.3771,
+          "grid_cell_id": "93.2000_25.2000",
+          "latitude": 25.25,
+          "longitude": 93.25,
+          "share": 0.03781824
+        },
+        {
+          "area_sq_km": 111.7377,
+          "grid_cell_id": "93.2000_25.3000",
+          "latitude": 25.35,
+          "longitude": 93.25,
+          "share": 0.06090947
+        },
+        {
+          "area_sq_km": 111.6452,
+          "grid_cell_id": "93.2000_25.4000",
+          "latitude": 25.45,
+          "longitude": 93.25,
+          "share": 0.06085901
+        },
+        {
+          "area_sq_km": 50.2286,
+          "grid_cell_id": "93.2000_25.5000",
+          "latitude": 25.55,
+          "longitude": 93.25,
+          "share": 0.02738014
+        },
+        {
+          "area_sq_km": 42.8443,
+          "grid_cell_id": "93.3000_25.2000",
+          "latitude": 25.25,
+          "longitude": 93.35,
+          "share": 0.02335492
+        },
+        {
+          "area_sq_km": 111.7377,
+          "grid_cell_id": "93.3000_25.3000",
+          "latitude": 25.35,
+          "longitude": 93.35,
+          "share": 0.06090947
+        },
+        {
+          "area_sq_km": 104.8451,
+          "grid_cell_id": "93.3000_25.4000",
+          "latitude": 25.45,
+          "longitude": 93.35,
+          "share": 0.05715222
+        },
+        {
+          "area_sq_km": 22.5034,
+          "grid_cell_id": "93.3000_25.5000",
+          "latitude": 25.55,
+          "longitude": 93.35,
+          "share": 0.01226687
+        },
+        {
+          "area_sq_km": 1.8179,
+          "grid_cell_id": "93.4000_25.2000",
+          "latitude": 25.25,
+          "longitude": 93.45,
+          "share": 0.00099095
+        },
+        {
+          "area_sq_km": 65.8527,
+          "grid_cell_id": "93.4000_25.3000",
+          "latitude": 25.35,
+          "longitude": 93.45,
+          "share": 0.03589702
+        },
+        {
+          "area_sq_km": 29.6049,
+          "grid_cell_id": "93.4000_25.4000",
+          "latitude": 25.45,
+          "longitude": 93.45,
+          "share": 0.01613793
+        }
+      ],
+      "circle_area_sq_km": 1834.489,
+      "locality_id": "dima-hasao-maibong"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9302,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Dima Hasao",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 86,
+        "locality_id": "dima-hasao-umrangso",
+        "osm_id": "relation/10052297",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Umrangso"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 25,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 10.0571,
+          "grid_cell_id": "92.5000_25.4000",
+          "latitude": 25.45,
+          "longitude": 92.55,
+          "share": 0.00686454
+        },
+        {
+          "area_sq_km": 0.2687,
+          "grid_cell_id": "92.5000_25.5000",
+          "latitude": 25.55,
+          "longitude": 92.55,
+          "share": 0.00018343
+        },
+        {
+          "area_sq_km": 0.7704,
+          "grid_cell_id": "92.6000_25.3000",
+          "latitude": 25.35,
+          "longitude": 92.65,
+          "share": 0.00052584
+        },
+        {
+          "area_sq_km": 93.0201,
+          "grid_cell_id": "92.6000_25.4000",
+          "latitude": 25.45,
+          "longitude": 92.65,
+          "share": 0.06349123
+        },
+        {
+          "area_sq_km": 57.7702,
+          "grid_cell_id": "92.6000_25.5000",
+          "latitude": 25.55,
+          "longitude": 92.65,
+          "share": 0.0394313
+        },
+        {
+          "area_sq_km": 43.8277,
+          "grid_cell_id": "92.7000_25.3000",
+          "latitude": 25.35,
+          "longitude": 92.75,
+          "share": 0.02991474
+        },
+        {
+          "area_sq_km": 111.6452,
+          "grid_cell_id": "92.7000_25.4000",
+          "latitude": 25.45,
+          "longitude": 92.75,
+          "share": 0.07620385
+        },
+        {
+          "area_sq_km": 108.2738,
+          "grid_cell_id": "92.7000_25.5000",
+          "latitude": 25.55,
+          "longitude": 92.75,
+          "share": 0.07390274
+        },
+        {
+          "area_sq_km": 27.481,
+          "grid_cell_id": "92.7000_25.6000",
+          "latitude": 25.65,
+          "longitude": 92.75,
+          "share": 0.01875724
+        },
+        {
+          "area_sq_km": 74.2191,
+          "grid_cell_id": "92.8000_25.3000",
+          "latitude": 25.35,
+          "longitude": 92.85,
+          "share": 0.05065857
+        },
+        {
+          "area_sq_km": 111.6452,
+          "grid_cell_id": "92.8000_25.4000",
+          "latitude": 25.45,
+          "longitude": 92.85,
+          "share": 0.07620385
+        },
+        {
+          "area_sq_km": 111.5523,
+          "grid_cell_id": "92.8000_25.5000",
+          "latitude": 25.55,
+          "longitude": 92.85,
+          "share": 0.07614044
+        },
+        {
+          "area_sq_km": 111.3349,
+          "grid_cell_id": "92.8000_25.6000",
+          "latitude": 25.65,
+          "longitude": 92.85,
+          "share": 0.0759921
+        },
+        {
+          "area_sq_km": 46.8244,
+          "grid_cell_id": "92.8000_25.7000",
+          "latitude": 25.75,
+          "longitude": 92.85,
+          "share": 0.0319602
+        },
+        {
+          "area_sq_km": 27.6417,
+          "grid_cell_id": "92.9000_25.3000",
+          "latitude": 25.35,
+          "longitude": 92.95,
+          "share": 0.01886698
+        },
+        {
+          "area_sq_km": 111.5447,
+          "grid_cell_id": "92.9000_25.4000",
+          "latitude": 25.45,
+          "longitude": 92.95,
+          "share": 0.07613527
+        },
+        {
+          "area_sq_km": 91.62,
+          "grid_cell_id": "92.9000_25.5000",
+          "latitude": 25.55,
+          "longitude": 92.95,
+          "share": 0.06253558
+        },
+        {
+          "area_sq_km": 93.1823,
+          "grid_cell_id": "92.9000_25.6000",
+          "latitude": 25.65,
+          "longitude": 92.95,
+          "share": 0.06360194
+        },
+        {
+          "area_sq_km": 97.6769,
+          "grid_cell_id": "92.9000_25.7000",
+          "latitude": 25.75,
+          "longitude": 92.95,
+          "share": 0.06666978
+        },
+        {
+          "area_sq_km": 5.8717,
+          "grid_cell_id": "92.9000_25.8000",
+          "latitude": 25.85,
+          "longitude": 92.95,
+          "share": 0.00400774
+        },
+        {
+          "area_sq_km": 30.8382,
+          "grid_cell_id": "93.0000_25.4000",
+          "latitude": 25.45,
+          "longitude": 93.05,
+          "share": 0.02104876
+        },
+        {
+          "area_sq_km": 4.876,
+          "grid_cell_id": "93.0000_25.5000",
+          "latitude": 25.55,
+          "longitude": 93.05,
+          "share": 0.00332816
+        },
+        {
+          "area_sq_km": 6.7916,
+          "grid_cell_id": "93.0000_25.6000",
+          "latitude": 25.65,
+          "longitude": 93.05,
+          "share": 0.00463566
+        },
+        {
+          "area_sq_km": 85.5089,
+          "grid_cell_id": "93.0000_25.7000",
+          "latitude": 25.75,
+          "longitude": 93.05,
+          "share": 0.05836448
+        },
+        {
+          "area_sq_km": 0.8432,
+          "grid_cell_id": "93.0000_25.8000",
+          "latitude": 25.85,
+          "longitude": 93.05,
+          "share": 0.00057555
+        }
+      ],
+      "circle_area_sq_km": 1465.086,
+      "locality_id": "dima-hasao-umrangso"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9283,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Goalpara",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 223,
+        "locality_id": "goalpara-balijana",
+        "osm_id": "relation/10041778",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Balijana"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 14,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 24.1506,
+          "grid_cell_id": "90.3000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.35,
+          "share": 0.04455092
+        },
+        {
+          "area_sq_km": 24.295,
+          "grid_cell_id": "90.3000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.35,
+          "share": 0.04481729
+        },
+        {
+          "area_sq_km": 0.6952,
+          "grid_cell_id": "90.4000_25.9000",
+          "latitude": 25.95,
+          "longitude": 90.45,
+          "share": 0.00128244
+        },
+        {
+          "area_sq_km": 67.1415,
+          "grid_cell_id": "90.4000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.45,
+          "share": 0.12385672
+        },
+        {
+          "area_sq_km": 91.8034,
+          "grid_cell_id": "90.4000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.45,
+          "share": 0.16935085
+        },
+        {
+          "area_sq_km": 0.5026,
+          "grid_cell_id": "90.5000_25.8000",
+          "latitude": 25.85,
+          "longitude": 90.55,
+          "share": 0.00092724
+        },
+        {
+          "area_sq_km": 62.6216,
+          "grid_cell_id": "90.5000_25.9000",
+          "latitude": 25.95,
+          "longitude": 90.55,
+          "share": 0.11551887
+        },
+        {
+          "area_sq_km": 109.6642,
+          "grid_cell_id": "90.5000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.55,
+          "share": 0.20229884
+        },
+        {
+          "area_sq_km": 110.1006,
+          "grid_cell_id": "90.5000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.55,
+          "share": 0.2031039
+        },
+        {
+          "area_sq_km": 5.1545,
+          "grid_cell_id": "90.5000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.55,
+          "share": 0.0095085
+        },
+        {
+          "area_sq_km": 0.3493,
+          "grid_cell_id": "90.6000_25.9000",
+          "latitude": 25.95,
+          "longitude": 90.65,
+          "share": 0.00064437
+        },
+        {
+          "area_sq_km": 5.001,
+          "grid_cell_id": "90.6000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.65,
+          "share": 0.0092254
+        },
+        {
+          "area_sq_km": 36.9418,
+          "grid_cell_id": "90.6000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.65,
+          "share": 0.06814706
+        },
+        {
+          "area_sq_km": 3.6687,
+          "grid_cell_id": "90.6000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.65,
+          "share": 0.00676761
+        }
+      ],
+      "circle_area_sq_km": 542.09,
+      "locality_id": "goalpara-balijana"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9004,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Goalpara",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 241,
+        "locality_id": "goalpara-lakhipur",
+        "osm_id": "relation/10041777",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Lakhipur"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 12,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 27.6385,
+          "grid_cell_id": "90.1000_25.9000",
+          "latitude": 25.95,
+          "longitude": 90.15,
+          "share": 0.05672125
+        },
+        {
+          "area_sq_km": 21.7539,
+          "grid_cell_id": "90.1000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.15,
+          "share": 0.0446446
+        },
+        {
+          "area_sq_km": 4.5519,
+          "grid_cell_id": "90.1000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.15,
+          "share": 0.00934156
+        },
+        {
+          "area_sq_km": 45.5153,
+          "grid_cell_id": "90.2000_25.9000",
+          "latitude": 25.95,
+          "longitude": 90.25,
+          "share": 0.09340904
+        },
+        {
+          "area_sq_km": 111.0826,
+          "grid_cell_id": "90.2000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.25,
+          "share": 0.22797007
+        },
+        {
+          "area_sq_km": 61.5426,
+          "grid_cell_id": "90.2000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.25,
+          "share": 0.12630118
+        },
+        {
+          "area_sq_km": 11.1649,
+          "grid_cell_id": "90.3000_25.9000",
+          "latitude": 25.95,
+          "longitude": 90.35,
+          "share": 0.0229133
+        },
+        {
+          "area_sq_km": 81.1402,
+          "grid_cell_id": "90.3000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.35,
+          "share": 0.16652053
+        },
+        {
+          "area_sq_km": 78.4173,
+          "grid_cell_id": "90.3000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.35,
+          "share": 0.16093232
+        },
+        {
+          "area_sq_km": 0.1826,
+          "grid_cell_id": "90.3000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.35,
+          "share": 0.00037468
+        },
+        {
+          "area_sq_km": 2.8184,
+          "grid_cell_id": "90.4000_25.9000",
+          "latitude": 25.95,
+          "longitude": 90.45,
+          "share": 0.00578414
+        },
+        {
+          "area_sq_km": 41.4604,
+          "grid_cell_id": "90.4000_26.0000",
+          "latitude": 26.05,
+          "longitude": 90.45,
+          "share": 0.08508732
+        }
+      ],
+      "circle_area_sq_km": 487.269,
+      "locality_id": "goalpara-lakhipur"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9333,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Golaghat",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 75,
+        "locality_id": "golaghat-bokakhat",
+        "osm_id": "relation/10054502",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Bokakhat"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 20,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.9457,
+          "grid_cell_id": "93.2000_26.5000",
+          "latitude": 26.55,
+          "longitude": 93.25,
+          "share": 0.00109292
+        },
+        {
+          "area_sq_km": 2.1402,
+          "grid_cell_id": "93.2000_26.6000",
+          "latitude": 26.65,
+          "longitude": 93.25,
+          "share": 0.00247347
+        },
+        {
+          "area_sq_km": 19.912,
+          "grid_cell_id": "93.3000_26.5000",
+          "latitude": 26.55,
+          "longitude": 93.35,
+          "share": 0.02301263
+        },
+        {
+          "area_sq_km": 101.5924,
+          "grid_cell_id": "93.3000_26.6000",
+          "latitude": 26.65,
+          "longitude": 93.35,
+          "share": 0.11741177
+        },
+        {
+          "area_sq_km": 30.8623,
+          "grid_cell_id": "93.3000_26.7000",
+          "latitude": 26.75,
+          "longitude": 93.35,
+          "share": 0.03566795
+        },
+        {
+          "area_sq_km": 20.7144,
+          "grid_cell_id": "93.4000_26.5000",
+          "latitude": 26.55,
+          "longitude": 93.45,
+          "share": 0.02393998
+        },
+        {
+          "area_sq_km": 109.0874,
+          "grid_cell_id": "93.4000_26.6000",
+          "latitude": 26.65,
+          "longitude": 93.45,
+          "share": 0.12607387
+        },
+        {
+          "area_sq_km": 61.9826,
+          "grid_cell_id": "93.4000_26.7000",
+          "latitude": 26.75,
+          "longitude": 93.45,
+          "share": 0.07163413
+        },
+        {
+          "area_sq_km": 6.4033,
+          "grid_cell_id": "93.5000_26.5000",
+          "latitude": 26.55,
+          "longitude": 93.55,
+          "share": 0.00740034
+        },
+        {
+          "area_sq_km": 106.6575,
+          "grid_cell_id": "93.5000_26.6000",
+          "latitude": 26.65,
+          "longitude": 93.55,
+          "share": 0.12326561
+        },
+        {
+          "area_sq_km": 46.8832,
+          "grid_cell_id": "93.5000_26.7000",
+          "latitude": 26.75,
+          "longitude": 93.55,
+          "share": 0.05418354
+        },
+        {
+          "area_sq_km": 7.6488,
+          "grid_cell_id": "93.6000_26.5000",
+          "latitude": 26.55,
+          "longitude": 93.65,
+          "share": 0.00883978
+        },
+        {
+          "area_sq_km": 108.3073,
+          "grid_cell_id": "93.6000_26.6000",
+          "latitude": 26.65,
+          "longitude": 93.65,
+          "share": 0.12517234
+        },
+        {
+          "area_sq_km": 55.6587,
+          "grid_cell_id": "93.6000_26.7000",
+          "latitude": 26.75,
+          "longitude": 93.65,
+          "share": 0.06432558
+        },
+        {
+          "area_sq_km": 0.8719,
+          "grid_cell_id": "93.6000_26.8000",
+          "latitude": 26.85,
+          "longitude": 93.65,
+          "share": 0.00100771
+        },
+        {
+          "area_sq_km": 4.7684,
+          "grid_cell_id": "93.7000_26.5000",
+          "latitude": 26.55,
+          "longitude": 93.75,
+          "share": 0.00551092
+        },
+        {
+          "area_sq_km": 87.2606,
+          "grid_cell_id": "93.7000_26.6000",
+          "latitude": 26.65,
+          "longitude": 93.75,
+          "share": 0.10084826
+        },
+        {
+          "area_sq_km": 76.8055,
+          "grid_cell_id": "93.7000_26.7000",
+          "latitude": 26.75,
+          "longitude": 93.75,
+          "share": 0.08876518
+        },
+        {
+          "area_sq_km": 8.031,
+          "grid_cell_id": "93.7000_26.8000",
+          "latitude": 26.85,
+          "longitude": 93.75,
+          "share": 0.00928157
+        },
+        {
+          "area_sq_km": 8.7327,
+          "grid_cell_id": "93.8000_26.6000",
+          "latitude": 26.65,
+          "longitude": 93.85,
+          "share": 0.01009247
+        }
+      ],
+      "circle_area_sq_km": 865.266,
+      "locality_id": "golaghat-bokakhat"
+    },
+    {
+      "boundary": {
+        "agreement": 1.0,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Golaghat",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 59,
+        "locality_id": "golaghat-dergaon",
+        "osm_id": "relation/10054500",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Dergaon"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 9,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 10.4661,
+          "grid_cell_id": "93.8000_26.6000",
+          "latitude": 26.65,
+          "longitude": 93.85,
+          "share": 0.03254232
+        },
+        {
+          "area_sq_km": 17.6952,
+          "grid_cell_id": "93.8000_26.7000",
+          "latitude": 26.75,
+          "longitude": 93.85,
+          "share": 0.05501973
+        },
+        {
+          "area_sq_km": 2.2453,
+          "grid_cell_id": "93.9000_26.5000",
+          "latitude": 26.55,
+          "longitude": 93.95,
+          "share": 0.00698141
+        },
+        {
+          "area_sq_km": 84.9499,
+          "grid_cell_id": "93.9000_26.6000",
+          "latitude": 26.65,
+          "longitude": 93.95,
+          "share": 0.26413537
+        },
+        {
+          "area_sq_km": 91.6748,
+          "grid_cell_id": "93.9000_26.7000",
+          "latitude": 26.75,
+          "longitude": 93.95,
+          "share": 0.28504511
+        },
+        {
+          "area_sq_km": 2.7604,
+          "grid_cell_id": "93.9000_26.8000",
+          "latitude": 26.85,
+          "longitude": 93.95,
+          "share": 0.0085828
+        },
+        {
+          "area_sq_km": 10.2376,
+          "grid_cell_id": "94.0000_26.5000",
+          "latitude": 26.55,
+          "longitude": 94.05,
+          "share": 0.03183182
+        },
+        {
+          "area_sq_km": 81.0131,
+          "grid_cell_id": "94.0000_26.6000",
+          "latitude": 26.65,
+          "longitude": 94.05,
+          "share": 0.25189455
+        },
+        {
+          "area_sq_km": 20.5727,
+          "grid_cell_id": "94.0000_26.7000",
+          "latitude": 26.75,
+          "longitude": 94.05,
+          "share": 0.06396689
+        }
+      ],
+      "circle_area_sq_km": 321.615,
+      "locality_id": "golaghat-dergaon"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9615,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Golaghat",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 78,
+        "locality_id": "golaghat-sarupathar",
+        "osm_id": "relation/10054505",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Sarupathar"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 18,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 16.2126,
+          "grid_cell_id": "93.7000_25.8000",
+          "latitude": 25.85,
+          "longitude": 93.75,
+          "share": 0.01799022
+        },
+        {
+          "area_sq_km": 13.4222,
+          "grid_cell_id": "93.7000_25.9000",
+          "latitude": 25.95,
+          "longitude": 93.75,
+          "share": 0.01489389
+        },
+        {
+          "area_sq_km": 6.2832,
+          "grid_cell_id": "93.7000_26.0000",
+          "latitude": 26.05,
+          "longitude": 93.75,
+          "share": 0.00697207
+        },
+        {
+          "area_sq_km": 60.4135,
+          "grid_cell_id": "93.8000_25.8000",
+          "latitude": 25.85,
+          "longitude": 93.85,
+          "share": 0.06703756
+        },
+        {
+          "area_sq_km": 110.934,
+          "grid_cell_id": "93.8000_25.9000",
+          "latitude": 25.95,
+          "longitude": 93.85,
+          "share": 0.12309733
+        },
+        {
+          "area_sq_km": 108.8923,
+          "grid_cell_id": "93.8000_26.0000",
+          "latitude": 26.05,
+          "longitude": 93.85,
+          "share": 0.12083178
+        },
+        {
+          "area_sq_km": 83.4152,
+          "grid_cell_id": "93.8000_26.1000",
+          "latitude": 26.15,
+          "longitude": 93.85,
+          "share": 0.09256126
+        },
+        {
+          "area_sq_km": 42.0792,
+          "grid_cell_id": "93.8000_26.2000",
+          "latitude": 26.25,
+          "longitude": 93.85,
+          "share": 0.04669301
+        },
+        {
+          "area_sq_km": 15.4519,
+          "grid_cell_id": "93.8000_26.3000",
+          "latitude": 26.35,
+          "longitude": 93.85,
+          "share": 0.01714616
+        },
+        {
+          "area_sq_km": 1.2187,
+          "grid_cell_id": "93.8000_26.4000",
+          "latitude": 26.45,
+          "longitude": 93.85,
+          "share": 0.00135235
+        },
+        {
+          "area_sq_km": 8.096,
+          "grid_cell_id": "93.9000_25.8000",
+          "latitude": 25.85,
+          "longitude": 93.95,
+          "share": 0.00898364
+        },
+        {
+          "area_sq_km": 72.9799,
+          "grid_cell_id": "93.9000_25.9000",
+          "latitude": 25.95,
+          "longitude": 93.95,
+          "share": 0.0809818
+        },
+        {
+          "area_sq_km": 81.5834,
+          "grid_cell_id": "93.9000_26.0000",
+          "latitude": 26.05,
+          "longitude": 93.95,
+          "share": 0.09052858
+        },
+        {
+          "area_sq_km": 102.2962,
+          "grid_cell_id": "93.9000_26.1000",
+          "latitude": 26.15,
+          "longitude": 93.95,
+          "share": 0.11351238
+        },
+        {
+          "area_sq_km": 88.4448,
+          "grid_cell_id": "93.9000_26.2000",
+          "latitude": 26.25,
+          "longitude": 93.95,
+          "share": 0.09814232
+        },
+        {
+          "area_sq_km": 72.6928,
+          "grid_cell_id": "93.9000_26.3000",
+          "latitude": 26.35,
+          "longitude": 93.95,
+          "share": 0.08066319
+        },
+        {
+          "area_sq_km": 15.9645,
+          "grid_cell_id": "93.9000_26.4000",
+          "latitude": 26.45,
+          "longitude": 93.95,
+          "share": 0.01771492
+        },
+        {
+          "area_sq_km": 0.8089,
+          "grid_cell_id": "94.0000_26.1000",
+          "latitude": 26.15,
+          "longitude": 94.05,
+          "share": 0.00089754
+        }
+      ],
+      "circle_area_sq_km": 901.189,
+      "locality_id": "golaghat-sarupathar"
+    },
+    {
+      "boundary": {
+        "agreement": 1.0,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Hailakandi",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 45,
+        "locality_id": "hailakandi-algapur",
+        "osm_id": "relation/10053009",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Algapur"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 4,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 44.4822,
+          "grid_cell_id": "92.5000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.55,
+          "share": 0.28554568
+        },
+        {
+          "area_sq_km": 25.9932,
+          "grid_cell_id": "92.5000_24.8000",
+          "latitude": 24.85,
+          "longitude": 92.55,
+          "share": 0.16685894
+        },
+        {
+          "area_sq_km": 52.1323,
+          "grid_cell_id": "92.6000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.65,
+          "share": 0.33465455
+        },
+        {
+          "area_sq_km": 33.1718,
+          "grid_cell_id": "92.6000_24.8000",
+          "latitude": 24.85,
+          "longitude": 92.65,
+          "share": 0.21294083
+        }
+      ],
+      "circle_area_sq_km": 155.78,
+      "locality_id": "hailakandi-algapur"
+    },
+    {
+      "boundary": {
+        "agreement": 1.0,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Hailakandi",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 82,
+        "locality_id": "hailakandi-hailakandi",
+        "osm_id": "relation/10053008",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Hailakandi"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 5,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 1.1964,
+          "grid_cell_id": "92.4000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.45,
+          "share": 0.00740801
+        },
+        {
+          "area_sq_km": 60.4065,
+          "grid_cell_id": "92.5000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.55,
+          "share": 0.37403833
+        },
+        {
+          "area_sq_km": 35.8403,
+          "grid_cell_id": "92.5000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.55,
+          "share": 0.2219243
+        },
+        {
+          "area_sq_km": 48.0475,
+          "grid_cell_id": "92.6000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.65,
+          "share": 0.29751104
+        },
+        {
+          "area_sq_km": 16.0074,
+          "grid_cell_id": "92.6000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.65,
+          "share": 0.09911832
+        }
+      ],
+      "circle_area_sq_km": 161.498,
+      "locality_id": "hailakandi-hailakandi"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9474,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Hailakandi",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 57,
+        "locality_id": "hailakandi-katlichara",
+        "osm_id": "relation/10053006",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Katlichara"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 16,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 39.1479,
+          "grid_cell_id": "92.4000_24.1000",
+          "latitude": 24.15,
+          "longitude": 92.45,
+          "share": 0.05284437
+        },
+        {
+          "area_sq_km": 76.1649,
+          "grid_cell_id": "92.4000_24.2000",
+          "latitude": 24.25,
+          "longitude": 92.45,
+          "share": 0.10281229
+        },
+        {
+          "area_sq_km": 19.198,
+          "grid_cell_id": "92.4000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.45,
+          "share": 0.02591465
+        },
+        {
+          "area_sq_km": 0.0876,
+          "grid_cell_id": "92.4000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.45,
+          "share": 0.00011819
+        },
+        {
+          "area_sq_km": 10.8089,
+          "grid_cell_id": "92.5000_24.1000",
+          "latitude": 24.15,
+          "longitude": 92.55,
+          "share": 0.01459055
+        },
+        {
+          "area_sq_km": 81.9518,
+          "grid_cell_id": "92.5000_24.2000",
+          "latitude": 24.25,
+          "longitude": 92.55,
+          "share": 0.11062383
+        },
+        {
+          "area_sq_km": 112.6446,
+          "grid_cell_id": "92.5000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.55,
+          "share": 0.15205502
+        },
+        {
+          "area_sq_km": 106.4054,
+          "grid_cell_id": "92.5000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.55,
+          "share": 0.14363298
+        },
+        {
+          "area_sq_km": 19.8449,
+          "grid_cell_id": "92.5000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.55,
+          "share": 0.02678795
+        },
+        {
+          "area_sq_km": 8.6604,
+          "grid_cell_id": "92.6000_24.2000",
+          "latitude": 24.25,
+          "longitude": 92.65,
+          "share": 0.01169039
+        },
+        {
+          "area_sq_km": 69.1267,
+          "grid_cell_id": "92.6000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.65,
+          "share": 0.09331177
+        },
+        {
+          "area_sq_km": 112.5554,
+          "grid_cell_id": "92.6000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.65,
+          "share": 0.15193468
+        },
+        {
+          "area_sq_km": 38.5176,
+          "grid_cell_id": "92.6000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.65,
+          "share": 0.05199362
+        },
+        {
+          "area_sq_km": 1.5387,
+          "grid_cell_id": "92.7000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.75,
+          "share": 0.00207705
+        },
+        {
+          "area_sq_km": 34.1944,
+          "grid_cell_id": "92.7000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.75,
+          "share": 0.04615779
+        },
+        {
+          "area_sq_km": 9.9676,
+          "grid_cell_id": "92.7000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.75,
+          "share": 0.01345487
+        }
+      ],
+      "circle_area_sq_km": 740.815,
+      "locality_id": "hailakandi-katlichara"
+    },
+    {
+      "boundary": {
+        "agreement": 1.0,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Jorhat",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 13,
+        "locality_id": "jorhat-jorhat-east",
+        "osm_id": "relation/10055629",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Jorhat East"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 10,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 8.368,
+          "grid_cell_id": "94.1000_26.7000",
+          "latitude": 26.75,
+          "longitude": 94.15,
+          "share": 0.03383306
+        },
+        {
+          "area_sq_km": 2.0464,
+          "grid_cell_id": "94.1000_26.8000",
+          "latitude": 26.85,
+          "longitude": 94.15,
+          "share": 0.00827381
+        },
+        {
+          "area_sq_km": 2.9233,
+          "grid_cell_id": "94.2000_26.6000",
+          "latitude": 26.65,
+          "longitude": 94.25,
+          "share": 0.01181947
+        },
+        {
+          "area_sq_km": 70.3882,
+          "grid_cell_id": "94.2000_26.7000",
+          "latitude": 26.75,
+          "longitude": 94.25,
+          "share": 0.28459165
+        },
+        {
+          "area_sq_km": 105.7186,
+          "grid_cell_id": "94.2000_26.8000",
+          "latitude": 26.85,
+          "longitude": 94.25,
+          "share": 0.42743833
+        },
+        {
+          "area_sq_km": 6.553,
+          "grid_cell_id": "94.2000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.25,
+          "share": 0.02649496
+        },
+        {
+          "area_sq_km": 0.0144,
+          "grid_cell_id": "94.3000_26.6000",
+          "latitude": 26.65,
+          "longitude": 94.35,
+          "share": 5.828e-05
+        },
+        {
+          "area_sq_km": 1.8021,
+          "grid_cell_id": "94.3000_26.7000",
+          "latitude": 26.75,
+          "longitude": 94.35,
+          "share": 0.0072863
+        },
+        {
+          "area_sq_km": 48.9836,
+          "grid_cell_id": "94.3000_26.8000",
+          "latitude": 26.85,
+          "longitude": 94.35,
+          "share": 0.19804929
+        },
+        {
+          "area_sq_km": 0.533,
+          "grid_cell_id": "94.3000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.35,
+          "share": 0.00215484
+        }
+      ],
+      "circle_area_sq_km": 247.331,
+      "locality_id": "jorhat-jorhat-east"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9688,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Majuli",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 96,
+        "locality_id": "jorhat-majuli",
+        "osm_id": "relation/10055371",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Majuli"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 17,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 10.9072,
+          "grid_cell_id": "93.9000_26.8000",
+          "latitude": 26.85,
+          "longitude": 93.95,
+          "share": 0.01364448
+        },
+        {
+          "area_sq_km": 12.5687,
+          "grid_cell_id": "93.9000_26.9000",
+          "latitude": 26.95,
+          "longitude": 93.95,
+          "share": 0.01572293
+        },
+        {
+          "area_sq_km": 24.1566,
+          "grid_cell_id": "94.0000_26.8000",
+          "latitude": 26.85,
+          "longitude": 94.05,
+          "share": 0.03021898
+        },
+        {
+          "area_sq_km": 68.7137,
+          "grid_cell_id": "94.0000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.05,
+          "share": 0.08595801
+        },
+        {
+          "area_sq_km": 2.8147,
+          "grid_cell_id": "94.1000_26.8000",
+          "latitude": 26.85,
+          "longitude": 94.15,
+          "share": 0.00352106
+        },
+        {
+          "area_sq_km": 93.5942,
+          "grid_cell_id": "94.1000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.15,
+          "share": 0.11708252
+        },
+        {
+          "area_sq_km": 5.9281,
+          "grid_cell_id": "94.1000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.15,
+          "share": 0.0074158
+        },
+        {
+          "area_sq_km": 93.5906,
+          "grid_cell_id": "94.2000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.25,
+          "share": 0.11707797
+        },
+        {
+          "area_sq_km": 80.6261,
+          "grid_cell_id": "94.2000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.25,
+          "share": 0.10085994
+        },
+        {
+          "area_sq_km": 6.5141,
+          "grid_cell_id": "94.3000_26.8000",
+          "latitude": 26.85,
+          "longitude": 94.35,
+          "share": 0.00814882
+        },
+        {
+          "area_sq_km": 95.6273,
+          "grid_cell_id": "94.3000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.35,
+          "share": 0.11962587
+        },
+        {
+          "area_sq_km": 98.9574,
+          "grid_cell_id": "94.3000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.35,
+          "share": 0.12379168
+        },
+        {
+          "area_sq_km": 14.9961,
+          "grid_cell_id": "94.4000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.45,
+          "share": 0.01875952
+        },
+        {
+          "area_sq_km": 96.3061,
+          "grid_cell_id": "94.4000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.45,
+          "share": 0.12047501
+        },
+        {
+          "area_sq_km": 18.8269,
+          "grid_cell_id": "94.4000_27.1000",
+          "latitude": 27.15,
+          "longitude": 94.45,
+          "share": 0.02355171
+        },
+        {
+          "area_sq_km": 21.8665,
+          "grid_cell_id": "94.5000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.55,
+          "share": 0.02735404
+        },
+        {
+          "area_sq_km": 53.3924,
+          "grid_cell_id": "94.5000_27.1000",
+          "latitude": 27.15,
+          "longitude": 94.55,
+          "share": 0.06679166
+        }
+      ],
+      "circle_area_sq_km": 799.387,
+      "locality_id": "jorhat-majuli"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9537,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kamrup",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 108,
+        "locality_id": "kamrup-goroimari",
+        "osm_id": "relation/10045178",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Goroimari"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 6,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 15.4543,
+          "grid_cell_id": "91.1000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.15,
+          "share": 0.08744426
+        },
+        {
+          "area_sq_km": 16.7121,
+          "grid_cell_id": "91.1000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.15,
+          "share": 0.09456071
+        },
+        {
+          "area_sq_km": 36.6606,
+          "grid_cell_id": "91.2000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.25,
+          "share": 0.20743387
+        },
+        {
+          "area_sq_km": 70.2531,
+          "grid_cell_id": "91.2000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.25,
+          "share": 0.39750833
+        },
+        {
+          "area_sq_km": 18.9793,
+          "grid_cell_id": "91.3000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.35,
+          "share": 0.10738902
+        },
+        {
+          "area_sq_km": 18.6744,
+          "grid_cell_id": "91.3000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.35,
+          "share": 0.1056638
+        }
+      ],
+      "circle_area_sq_km": 176.734,
+      "locality_id": "kamrup-goroimari"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9359,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kamrup",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 234,
+        "locality_id": "kamrup-hajo",
+        "osm_id": "relation/10045173",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Hajo"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 9,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 48.8402,
+          "grid_cell_id": "91.4000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.45,
+          "share": 0.11720154
+        },
+        {
+          "area_sq_km": 80.0606,
+          "grid_cell_id": "91.4000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.45,
+          "share": 0.19212117
+        },
+        {
+          "area_sq_km": 12.7474,
+          "grid_cell_id": "91.4000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.45,
+          "share": 0.03058995
+        },
+        {
+          "area_sq_km": 61.097,
+          "grid_cell_id": "91.5000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.55,
+          "share": 0.1466142
+        },
+        {
+          "area_sq_km": 110.8924,
+          "grid_cell_id": "91.5000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.55,
+          "share": 0.26610812
+        },
+        {
+          "area_sq_km": 33.5656,
+          "grid_cell_id": "91.5000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.55,
+          "share": 0.08054721
+        },
+        {
+          "area_sq_km": 22.1435,
+          "grid_cell_id": "91.6000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.65,
+          "share": 0.05313768
+        },
+        {
+          "area_sq_km": 45.4468,
+          "grid_cell_id": "91.6000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.65,
+          "share": 0.10905847
+        },
+        {
+          "area_sq_km": 1.9259,
+          "grid_cell_id": "91.6000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.65,
+          "share": 0.00462165
+        }
+      ],
+      "circle_area_sq_km": 416.719,
+      "locality_id": "kamrup-hajo"
+    },
+    {
+      "boundary": {
+        "agreement": 0.919,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kamrup",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 247,
+        "locality_id": "kamrup-kamalpur",
+        "osm_id": "relation/10045171",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Kamalpur"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 8,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.1689,
+          "grid_cell_id": "91.5000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.55,
+          "share": 0.00067822
+        },
+        {
+          "area_sq_km": 29.3608,
+          "grid_cell_id": "91.6000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.65,
+          "share": 0.11790383
+        },
+        {
+          "area_sq_km": 74.738,
+          "grid_cell_id": "91.6000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.65,
+          "share": 0.30012452
+        },
+        {
+          "area_sq_km": 0.7966,
+          "grid_cell_id": "91.6000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.65,
+          "share": 0.00319899
+        },
+        {
+          "area_sq_km": 18.6163,
+          "grid_cell_id": "91.7000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.75,
+          "share": 0.07475718
+        },
+        {
+          "area_sq_km": 103.771,
+          "grid_cell_id": "91.7000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.75,
+          "share": 0.41671199
+        },
+        {
+          "area_sq_km": 7.9924,
+          "grid_cell_id": "91.7000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.75,
+          "share": 0.03209518
+        },
+        {
+          "area_sq_km": 13.5793,
+          "grid_cell_id": "91.8000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.85,
+          "share": 0.05453008
+        }
+      ],
+      "circle_area_sq_km": 249.023,
+      "locality_id": "kamrup-kamalpur"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9592,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kamrup",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 49,
+        "locality_id": "kamrup-koya",
+        "osm_id": "relation/10045170",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Koya"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 3,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 47.3321,
+          "grid_cell_id": "91.5000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.55,
+          "share": 0.86836819
+        },
+        {
+          "area_sq_km": 7.0398,
+          "grid_cell_id": "91.5000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.55,
+          "share": 0.12915391
+        },
+        {
+          "area_sq_km": 0.1351,
+          "grid_cell_id": "91.6000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.65,
+          "share": 0.00247791
+        }
+      ],
+      "circle_area_sq_km": 54.507,
+      "locality_id": "kamrup-koya"
+    },
+    {
+      "boundary": {
+        "agreement": 0.963,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kamrup Metropolitan",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 27,
+        "locality_id": "kamrup-metropolitan-chandrapur",
+        "osm_id": "relation/10045967",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Chandrapur"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 6,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 25.8719,
+          "grid_cell_id": "91.8000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.85,
+          "share": 0.20569081
+        },
+        {
+          "area_sq_km": 13.62,
+          "grid_cell_id": "91.8000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.85,
+          "share": 0.10828348
+        },
+        {
+          "area_sq_km": 26.3591,
+          "grid_cell_id": "91.9000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.95,
+          "share": 0.20956412
+        },
+        {
+          "area_sq_km": 45.1746,
+          "grid_cell_id": "91.9000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.95,
+          "share": 0.35915445
+        },
+        {
+          "area_sq_km": 0.0605,
+          "grid_cell_id": "92.0000_26.1000",
+          "latitude": 26.15,
+          "longitude": 92.05,
+          "share": 0.00048076
+        },
+        {
+          "area_sq_km": 14.6945,
+          "grid_cell_id": "92.0000_26.2000",
+          "latitude": 26.25,
+          "longitude": 92.05,
+          "share": 0.11682638
+        }
+      ],
+      "circle_area_sq_km": 125.781,
+      "locality_id": "kamrup-metropolitan-chandrapur"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9615,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kamrup Metropolitan",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 104,
+        "locality_id": "kamrup-metropolitan-sonapur",
+        "osm_id": "relation/10045966",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Sonapur"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 11,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 20.443,
+          "grid_cell_id": "91.8000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.85,
+          "share": 0.04120968
+        },
+        {
+          "area_sq_km": 27.9344,
+          "grid_cell_id": "91.8000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.85,
+          "share": 0.05631123
+        },
+        {
+          "area_sq_km": 0.3641,
+          "grid_cell_id": "91.9000_25.9000",
+          "latitude": 25.95,
+          "longitude": 91.95,
+          "share": 0.000734
+        },
+        {
+          "area_sq_km": 91.8571,
+          "grid_cell_id": "91.9000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.95,
+          "share": 0.18516903
+        },
+        {
+          "area_sq_km": 84.6286,
+          "grid_cell_id": "91.9000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.95,
+          "share": 0.17059754
+        },
+        {
+          "area_sq_km": 6.1905,
+          "grid_cell_id": "91.9000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.95,
+          "share": 0.01247903
+        },
+        {
+          "area_sq_km": 69.0763,
+          "grid_cell_id": "92.0000_26.0000",
+          "latitude": 26.05,
+          "longitude": 92.05,
+          "share": 0.13924662
+        },
+        {
+          "area_sq_km": 105.5298,
+          "grid_cell_id": "92.0000_26.1000",
+          "latitude": 26.15,
+          "longitude": 92.05,
+          "share": 0.21273093
+        },
+        {
+          "area_sq_km": 3.6911,
+          "grid_cell_id": "92.0000_26.2000",
+          "latitude": 26.25,
+          "longitude": 92.05,
+          "share": 0.00744066
+        },
+        {
+          "area_sq_km": 34.7524,
+          "grid_cell_id": "92.1000_26.0000",
+          "latitude": 26.05,
+          "longitude": 92.15,
+          "share": 0.07005528
+        },
+        {
+          "area_sq_km": 51.6044,
+          "grid_cell_id": "92.1000_26.1000",
+          "latitude": 26.15,
+          "longitude": 92.15,
+          "share": 0.10402601
+        }
+      ],
+      "circle_area_sq_km": 496.072,
+      "locality_id": "kamrup-metropolitan-sonapur"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9026,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kamrup",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 154,
+        "locality_id": "kamrup-palasbari",
+        "osm_id": "relation/10045175",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Palasbari"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 16,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 10.5803,
+          "grid_cell_id": "91.3000_25.8000",
+          "latitude": 25.85,
+          "longitude": 91.35,
+          "share": 0.0165423
+        },
+        {
+          "area_sq_km": 0.1595,
+          "grid_cell_id": "91.3000_25.9000",
+          "latitude": 25.95,
+          "longitude": 91.35,
+          "share": 0.00024946
+        },
+        {
+          "area_sq_km": 6.1148,
+          "grid_cell_id": "91.3000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.35,
+          "share": 0.00956053
+        },
+        {
+          "area_sq_km": 44.8175,
+          "grid_cell_id": "91.3000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.35,
+          "share": 0.07007215
+        },
+        {
+          "area_sq_km": 44.883,
+          "grid_cell_id": "91.4000_25.8000",
+          "latitude": 25.85,
+          "longitude": 91.45,
+          "share": 0.07017467
+        },
+        {
+          "area_sq_km": 95.6655,
+          "grid_cell_id": "91.4000_25.9000",
+          "latitude": 25.95,
+          "longitude": 91.45,
+          "share": 0.14957316
+        },
+        {
+          "area_sq_km": 83.2705,
+          "grid_cell_id": "91.4000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.45,
+          "share": 0.13019359
+        },
+        {
+          "area_sq_km": 51.0469,
+          "grid_cell_id": "91.4000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.45,
+          "share": 0.07981184
+        },
+        {
+          "area_sq_km": 2.6098,
+          "grid_cell_id": "91.5000_25.8000",
+          "latitude": 25.85,
+          "longitude": 91.55,
+          "share": 0.00408047
+        },
+        {
+          "area_sq_km": 29.7471,
+          "grid_cell_id": "91.5000_25.9000",
+          "latitude": 25.95,
+          "longitude": 91.55,
+          "share": 0.0465096
+        },
+        {
+          "area_sq_km": 91.5715,
+          "grid_cell_id": "91.5000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.55,
+          "share": 0.14317211
+        },
+        {
+          "area_sq_km": 28.6448,
+          "grid_cell_id": "91.5000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.55,
+          "share": 0.0447862
+        },
+        {
+          "area_sq_km": 67.4243,
+          "grid_cell_id": "91.6000_25.9000",
+          "latitude": 25.95,
+          "longitude": 91.65,
+          "share": 0.1054179
+        },
+        {
+          "area_sq_km": 59.58,
+          "grid_cell_id": "91.6000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.65,
+          "share": 0.09315338
+        },
+        {
+          "area_sq_km": 13.3693,
+          "grid_cell_id": "91.7000_25.9000",
+          "latitude": 25.95,
+          "longitude": 91.75,
+          "share": 0.02090294
+        },
+        {
+          "area_sq_km": 10.1053,
+          "grid_cell_id": "91.7000_26.0000",
+          "latitude": 26.05,
+          "longitude": 91.75,
+          "share": 0.01579972
+        }
+      ],
+      "circle_area_sq_km": 639.59,
+      "locality_id": "kamrup-palasbari"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9422,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Sribhumi",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 173,
+        "locality_id": "karimganj-patharkandi",
+        "osm_id": "relation/10053714",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Patharkandi"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 11,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 39.8734,
+          "grid_cell_id": "92.2000_24.2000",
+          "latitude": 24.25,
+          "longitude": 92.25,
+          "share": 0.06166308
+        },
+        {
+          "area_sq_km": 47.6831,
+          "grid_cell_id": "92.2000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.25,
+          "share": 0.07374055
+        },
+        {
+          "area_sq_km": 61.3216,
+          "grid_cell_id": "92.2000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.25,
+          "share": 0.09483216
+        },
+        {
+          "area_sq_km": 77.2712,
+          "grid_cell_id": "92.2000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.25,
+          "share": 0.11949773
+        },
+        {
+          "area_sq_km": 40.7476,
+          "grid_cell_id": "92.2000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.25,
+          "share": 0.06301497
+        },
+        {
+          "area_sq_km": 37.713,
+          "grid_cell_id": "92.3000_24.2000",
+          "latitude": 24.25,
+          "longitude": 92.35,
+          "share": 0.05832207
+        },
+        {
+          "area_sq_km": 82.7308,
+          "grid_cell_id": "92.3000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.35,
+          "share": 0.12794072
+        },
+        {
+          "area_sq_km": 100.6372,
+          "grid_cell_id": "92.3000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.35,
+          "share": 0.15563251
+        },
+        {
+          "area_sq_km": 92.7322,
+          "grid_cell_id": "92.3000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.35,
+          "share": 0.14340768
+        },
+        {
+          "area_sq_km": 63.3833,
+          "grid_cell_id": "92.3000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.35,
+          "share": 0.09802052
+        },
+        {
+          "area_sq_km": 2.54,
+          "grid_cell_id": "92.4000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.45,
+          "share": 0.00392803
+        }
+      ],
+      "circle_area_sq_km": 646.634,
+      "locality_id": "karimganj-patharkandi"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9207,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Sribhumi",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 164,
+        "locality_id": "karimganj-ramkrishna-nagar",
+        "osm_id": "relation/10053713",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Ramkrishna Nagar"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 16,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 14.517,
+          "grid_cell_id": "92.3000_24.2000",
+          "latitude": 24.25,
+          "longitude": 92.35,
+          "share": 0.02524984
+        },
+        {
+          "area_sq_km": 29.9138,
+          "grid_cell_id": "92.3000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.35,
+          "share": 0.05203014
+        },
+        {
+          "area_sq_km": 11.9183,
+          "grid_cell_id": "92.3000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.35,
+          "share": 0.02072982
+        },
+        {
+          "area_sq_km": 19.7337,
+          "grid_cell_id": "92.3000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.35,
+          "share": 0.03432356
+        },
+        {
+          "area_sq_km": 2.6749,
+          "grid_cell_id": "92.3000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.35,
+          "share": 0.00465258
+        },
+        {
+          "area_sq_km": 0.6798,
+          "grid_cell_id": "92.3000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.35,
+          "share": 0.0011824
+        },
+        {
+          "area_sq_km": 23.9857,
+          "grid_cell_id": "92.4000_24.2000",
+          "latitude": 24.25,
+          "longitude": 92.45,
+          "share": 0.04171911
+        },
+        {
+          "area_sq_km": 93.4466,
+          "grid_cell_id": "92.4000_24.3000",
+          "latitude": 24.35,
+          "longitude": 92.45,
+          "share": 0.16253484
+        },
+        {
+          "area_sq_km": 112.4679,
+          "grid_cell_id": "92.4000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.45,
+          "share": 0.19561914
+        },
+        {
+          "area_sq_km": 112.466,
+          "grid_cell_id": "92.4000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.45,
+          "share": 0.19561578
+        },
+        {
+          "area_sq_km": 108.2983,
+          "grid_cell_id": "92.4000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.45,
+          "share": 0.18836686
+        },
+        {
+          "area_sq_km": 22.6757,
+          "grid_cell_id": "92.4000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.45,
+          "share": 0.03944053
+        },
+        {
+          "area_sq_km": 6.15,
+          "grid_cell_id": "92.5000_24.4000",
+          "latitude": 24.45,
+          "longitude": 92.55,
+          "share": 0.01069694
+        },
+        {
+          "area_sq_km": 11.3161,
+          "grid_cell_id": "92.5000_24.5000",
+          "latitude": 24.55,
+          "longitude": 92.55,
+          "share": 0.01968246
+        },
+        {
+          "area_sq_km": 4.1547,
+          "grid_cell_id": "92.5000_24.6000",
+          "latitude": 24.65,
+          "longitude": 92.55,
+          "share": 0.00722648
+        },
+        {
+          "area_sq_km": 0.5344,
+          "grid_cell_id": "92.5000_24.7000",
+          "latitude": 24.75,
+          "longitude": 92.55,
+          "share": 0.00092954
+        }
+      ],
+      "circle_area_sq_km": 574.933,
+      "locality_id": "karimganj-ramkrishna-nagar"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9048,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kokrajhar",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 42,
+        "locality_id": "kokrajhar-dhubri-pt",
+        "osm_id": "relation/10041097",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Dhubri (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 4,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 67.0023,
+          "grid_cell_id": "89.9000_26.1000",
+          "latitude": 26.15,
+          "longitude": 89.95,
+          "share": 0.52724582
+        },
+        {
+          "area_sq_km": 21.2887,
+          "grid_cell_id": "89.9000_26.2000",
+          "latitude": 26.25,
+          "longitude": 89.95,
+          "share": 0.16752229
+        },
+        {
+          "area_sq_km": 29.4522,
+          "grid_cell_id": "90.0000_26.1000",
+          "latitude": 26.15,
+          "longitude": 90.05,
+          "share": 0.23176164
+        },
+        {
+          "area_sq_km": 9.3366,
+          "grid_cell_id": "90.0000_26.2000",
+          "latitude": 26.25,
+          "longitude": 90.05,
+          "share": 0.07347025
+        }
+      ],
+      "circle_area_sq_km": 127.08,
+      "locality_id": "kokrajhar-dhubri-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9818,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kokrajhar",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 55,
+        "locality_id": "kokrajhar-golokganj-pt",
+        "osm_id": "relation/10041096",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Golokganj (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 6,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 22.5292,
+          "grid_cell_id": "89.8000_26.1000",
+          "latitude": 26.15,
+          "longitude": 89.85,
+          "share": 0.21617255
+        },
+        {
+          "area_sq_km": 35.2638,
+          "grid_cell_id": "89.8000_26.2000",
+          "latitude": 26.25,
+          "longitude": 89.85,
+          "share": 0.33836405
+        },
+        {
+          "area_sq_km": 3.7718,
+          "grid_cell_id": "89.8000_26.3000",
+          "latitude": 26.35,
+          "longitude": 89.85,
+          "share": 0.03619144
+        },
+        {
+          "area_sq_km": 13.9131,
+          "grid_cell_id": "89.9000_26.1000",
+          "latitude": 26.15,
+          "longitude": 89.95,
+          "share": 0.13349954
+        },
+        {
+          "area_sq_km": 16.7095,
+          "grid_cell_id": "89.9000_26.2000",
+          "latitude": 26.25,
+          "longitude": 89.95,
+          "share": 0.16033112
+        },
+        {
+          "area_sq_km": 12.0311,
+          "grid_cell_id": "89.9000_26.3000",
+          "latitude": 26.35,
+          "longitude": 89.95,
+          "share": 0.1154413
+        }
+      ],
+      "circle_area_sq_km": 104.218,
+      "locality_id": "kokrajhar-golokganj-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9408,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kokrajhar",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 338,
+        "locality_id": "kokrajhar-gossaigaon-pt",
+        "osm_id": "relation/10041103",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Gossaigaon (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 19,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 26.6845,
+          "grid_cell_id": "89.8000_26.3000",
+          "latitude": 26.35,
+          "longitude": 89.85,
+          "share": 0.02562832
+        },
+        {
+          "area_sq_km": 46.4316,
+          "grid_cell_id": "89.8000_26.4000",
+          "latitude": 26.45,
+          "longitude": 89.85,
+          "share": 0.04459376
+        },
+        {
+          "area_sq_km": 37.4808,
+          "grid_cell_id": "89.8000_26.5000",
+          "latitude": 26.55,
+          "longitude": 89.85,
+          "share": 0.03599725
+        },
+        {
+          "area_sq_km": 32.3334,
+          "grid_cell_id": "89.8000_26.6000",
+          "latitude": 26.65,
+          "longitude": 89.85,
+          "share": 0.0310536
+        },
+        {
+          "area_sq_km": 12.4366,
+          "grid_cell_id": "89.8000_26.7000",
+          "latitude": 26.75,
+          "longitude": 89.85,
+          "share": 0.0119443
+        },
+        {
+          "area_sq_km": 55.5033,
+          "grid_cell_id": "89.9000_26.3000",
+          "latitude": 26.35,
+          "longitude": 89.95,
+          "share": 0.05330642
+        },
+        {
+          "area_sq_km": 110.7009,
+          "grid_cell_id": "89.9000_26.4000",
+          "latitude": 26.45,
+          "longitude": 89.95,
+          "share": 0.10631923
+        },
+        {
+          "area_sq_km": 110.6046,
+          "grid_cell_id": "89.9000_26.5000",
+          "latitude": 26.55,
+          "longitude": 89.95,
+          "share": 0.10622675
+        },
+        {
+          "area_sq_km": 110.508,
+          "grid_cell_id": "89.9000_26.6000",
+          "latitude": 26.65,
+          "longitude": 89.95,
+          "share": 0.10613395
+        },
+        {
+          "area_sq_km": 25.7812,
+          "grid_cell_id": "89.9000_26.7000",
+          "latitude": 26.75,
+          "longitude": 89.95,
+          "share": 0.02476074
+        },
+        {
+          "area_sq_km": 0.1063,
+          "grid_cell_id": "90.0000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.05,
+          "share": 0.00010208
+        },
+        {
+          "area_sq_km": 66.9509,
+          "grid_cell_id": "90.0000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.05,
+          "share": 0.06430093
+        },
+        {
+          "area_sq_km": 110.5869,
+          "grid_cell_id": "90.0000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.05,
+          "share": 0.10620977
+        },
+        {
+          "area_sq_km": 110.508,
+          "grid_cell_id": "90.0000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.05,
+          "share": 0.10613395
+        },
+        {
+          "area_sq_km": 37.2639,
+          "grid_cell_id": "90.0000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.05,
+          "share": 0.03578895
+        },
+        {
+          "area_sq_km": 1.356,
+          "grid_cell_id": "90.1000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.15,
+          "share": 0.00130233
+        },
+        {
+          "area_sq_km": 21.8118,
+          "grid_cell_id": "90.1000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.15,
+          "share": 0.02094848
+        },
+        {
+          "area_sq_km": 91.5574,
+          "grid_cell_id": "90.1000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.15,
+          "share": 0.08793346
+        },
+        {
+          "area_sq_km": 32.6063,
+          "grid_cell_id": "90.1000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.15,
+          "share": 0.03131574
+        }
+      ],
+      "circle_area_sq_km": 1041.212,
+      "locality_id": "kokrajhar-gossaigaon-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.959,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Kokrajhar",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 244,
+        "locality_id": "kokrajhar-kokrajhar-pt",
+        "osm_id": "relation/10041102",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Kokrajhar (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 20,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 2.5408,
+          "grid_cell_id": "90.1000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.15,
+          "share": 0.00256441
+        },
+        {
+          "area_sq_km": 4.7486,
+          "grid_cell_id": "90.1000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.15,
+          "share": 0.00479267
+        },
+        {
+          "area_sq_km": 5.5002,
+          "grid_cell_id": "90.1000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.15,
+          "share": 0.0055513
+        },
+        {
+          "area_sq_km": 33.737,
+          "grid_cell_id": "90.1000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.15,
+          "share": 0.03405018
+        },
+        {
+          "area_sq_km": 2.9184,
+          "grid_cell_id": "90.1000_26.8000",
+          "latitude": 26.85,
+          "longitude": 90.15,
+          "share": 0.00294551
+        },
+        {
+          "area_sq_km": 66.5094,
+          "grid_cell_id": "90.2000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.25,
+          "share": 0.0671269
+        },
+        {
+          "area_sq_km": 80.9762,
+          "grid_cell_id": "90.2000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.25,
+          "share": 0.081728
+        },
+        {
+          "area_sq_km": 95.4685,
+          "grid_cell_id": "90.2000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.25,
+          "share": 0.09635479
+        },
+        {
+          "area_sq_km": 99.8719,
+          "grid_cell_id": "90.2000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.25,
+          "share": 0.10079909
+        },
+        {
+          "area_sq_km": 110.411,
+          "grid_cell_id": "90.2000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.25,
+          "share": 0.11143606
+        },
+        {
+          "area_sq_km": 58.2863,
+          "grid_cell_id": "90.2000_26.8000",
+          "latitude": 26.85,
+          "longitude": 90.25,
+          "share": 0.05882742
+        },
+        {
+          "area_sq_km": 57.9384,
+          "grid_cell_id": "90.3000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.35,
+          "share": 0.05847627
+        },
+        {
+          "area_sq_km": 104.9048,
+          "grid_cell_id": "90.3000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.35,
+          "share": 0.1058787
+        },
+        {
+          "area_sq_km": 83.1709,
+          "grid_cell_id": "90.3000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.35,
+          "share": 0.08394309
+        },
+        {
+          "area_sq_km": 65.822,
+          "grid_cell_id": "90.3000_26.6000",
+          "latitude": 26.65,
+          "longitude": 90.35,
+          "share": 0.06643306
+        },
+        {
+          "area_sq_km": 72.8292,
+          "grid_cell_id": "90.3000_26.7000",
+          "latitude": 26.75,
+          "longitude": 90.35,
+          "share": 0.07350535
+        },
+        {
+          "area_sq_km": 26.9377,
+          "grid_cell_id": "90.3000_26.8000",
+          "latitude": 26.85,
+          "longitude": 90.35,
+          "share": 0.02718781
+        },
+        {
+          "area_sq_km": 11.9826,
+          "grid_cell_id": "90.4000_26.3000",
+          "latitude": 26.35,
+          "longitude": 90.45,
+          "share": 0.01209385
+        },
+        {
+          "area_sq_km": 5.8739,
+          "grid_cell_id": "90.4000_26.4000",
+          "latitude": 26.45,
+          "longitude": 90.45,
+          "share": 0.00592843
+        },
+        {
+          "area_sq_km": 0.3736,
+          "grid_cell_id": "90.4000_26.5000",
+          "latitude": 26.55,
+          "longitude": 90.45,
+          "share": 0.00037711
+        }
+      ],
+      "circle_area_sq_km": 990.801,
+      "locality_id": "kokrajhar-kokrajhar-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9625,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Lakhimpur",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 80,
+        "locality_id": "lakhimpur-dhakuakhana-pt-i",
+        "osm_id": "relation/10054867",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Dhakuakhana (Pt-I)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 12,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.7419,
+          "grid_cell_id": "94.3000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.35,
+          "share": 0.00159333
+        },
+        {
+          "area_sq_km": 47.7281,
+          "grid_cell_id": "94.3000_27.1000",
+          "latitude": 27.15,
+          "longitude": 94.35,
+          "share": 0.10250787
+        },
+        {
+          "area_sq_km": 10.2859,
+          "grid_cell_id": "94.3000_27.2000",
+          "latitude": 27.25,
+          "longitude": 94.35,
+          "share": 0.02209143
+        },
+        {
+          "area_sq_km": 1.187,
+          "grid_cell_id": "94.4000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.45,
+          "share": 0.00254945
+        },
+        {
+          "area_sq_km": 91.1929,
+          "grid_cell_id": "94.4000_27.1000",
+          "latitude": 27.15,
+          "longitude": 94.45,
+          "share": 0.19585917
+        },
+        {
+          "area_sq_km": 98.03,
+          "grid_cell_id": "94.4000_27.2000",
+          "latitude": 27.25,
+          "longitude": 94.45,
+          "share": 0.21054352
+        },
+        {
+          "area_sq_km": 19.5067,
+          "grid_cell_id": "94.4000_27.3000",
+          "latitude": 27.35,
+          "longitude": 94.45,
+          "share": 0.04189548
+        },
+        {
+          "area_sq_km": 30.72,
+          "grid_cell_id": "94.5000_27.1000",
+          "latitude": 27.15,
+          "longitude": 94.55,
+          "share": 0.0659787
+        },
+        {
+          "area_sq_km": 92.9843,
+          "grid_cell_id": "94.5000_27.2000",
+          "latitude": 27.25,
+          "longitude": 94.55,
+          "share": 0.19970664
+        },
+        {
+          "area_sq_km": 62.7467,
+          "grid_cell_id": "94.5000_27.3000",
+          "latitude": 27.35,
+          "longitude": 94.55,
+          "share": 0.13476413
+        },
+        {
+          "area_sq_km": 0.3563,
+          "grid_cell_id": "94.6000_27.2000",
+          "latitude": 27.25,
+          "longitude": 94.65,
+          "share": 0.00076528
+        },
+        {
+          "area_sq_km": 10.1246,
+          "grid_cell_id": "94.6000_27.3000",
+          "latitude": 27.35,
+          "longitude": 94.65,
+          "share": 0.02174501
+        }
+      ],
+      "circle_area_sq_km": 465.604,
+      "locality_id": "lakhimpur-dhakuakhana-pt-i"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9174,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Lakhimpur",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 121,
+        "locality_id": "lakhimpur-narayanpur",
+        "osm_id": "relation/10054861",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Narayanpur"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 9,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.05,
+          "grid_cell_id": "93.6000_26.9000",
+          "latitude": 26.95,
+          "longitude": 93.65,
+          "share": 0.00013534
+        },
+        {
+          "area_sq_km": 16.2597,
+          "grid_cell_id": "93.7000_26.8000",
+          "latitude": 26.85,
+          "longitude": 93.75,
+          "share": 0.04402563
+        },
+        {
+          "area_sq_km": 70.7246,
+          "grid_cell_id": "93.7000_26.9000",
+          "latitude": 26.95,
+          "longitude": 93.75,
+          "share": 0.19149714
+        },
+        {
+          "area_sq_km": 36.6505,
+          "grid_cell_id": "93.7000_27.0000",
+          "latitude": 27.05,
+          "longitude": 93.75,
+          "share": 0.09923656
+        },
+        {
+          "area_sq_km": 53.6954,
+          "grid_cell_id": "93.8000_26.8000",
+          "latitude": 26.85,
+          "longitude": 93.85,
+          "share": 0.1453882
+        },
+        {
+          "area_sq_km": 109.3192,
+          "grid_cell_id": "93.8000_26.9000",
+          "latitude": 26.95,
+          "longitude": 93.85,
+          "share": 0.29599776
+        },
+        {
+          "area_sq_km": 72.9398,
+          "grid_cell_id": "93.8000_27.0000",
+          "latitude": 27.05,
+          "longitude": 93.85,
+          "share": 0.19749528
+        },
+        {
+          "area_sq_km": 0.0086,
+          "grid_cell_id": "93.9000_26.8000",
+          "latitude": 26.85,
+          "longitude": 93.95,
+          "share": 2.336e-05
+        },
+        {
+          "area_sq_km": 9.6766,
+          "grid_cell_id": "93.9000_26.9000",
+          "latitude": 26.95,
+          "longitude": 93.95,
+          "share": 0.02620073
+        }
+      ],
+      "circle_area_sq_km": 369.324,
+      "locality_id": "lakhimpur-narayanpur"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9914,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Morigaon",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 116,
+        "locality_id": "morigaon-morigaon",
+        "osm_id": "relation/10047759",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Morigaon"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 10,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 5.8156,
+          "grid_cell_id": "92.2000_26.0000",
+          "latitude": 26.05,
+          "longitude": 92.25,
+          "share": 0.01481189
+        },
+        {
+          "area_sq_km": 29.3544,
+          "grid_cell_id": "92.2000_26.1000",
+          "latitude": 26.15,
+          "longitude": 92.25,
+          "share": 0.07476358
+        },
+        {
+          "area_sq_km": 44.9304,
+          "grid_cell_id": "92.2000_26.2000",
+          "latitude": 26.25,
+          "longitude": 92.25,
+          "share": 0.11443436
+        },
+        {
+          "area_sq_km": 20.089,
+          "grid_cell_id": "92.2000_26.3000",
+          "latitude": 26.35,
+          "longitude": 92.25,
+          "share": 0.05116517
+        },
+        {
+          "area_sq_km": 14.0809,
+          "grid_cell_id": "92.3000_26.0000",
+          "latitude": 26.05,
+          "longitude": 92.35,
+          "share": 0.03586303
+        },
+        {
+          "area_sq_km": 109.1276,
+          "grid_cell_id": "92.3000_26.1000",
+          "latitude": 26.15,
+          "longitude": 92.35,
+          "share": 0.27794012
+        },
+        {
+          "area_sq_km": 109.8661,
+          "grid_cell_id": "92.3000_26.2000",
+          "latitude": 26.25,
+          "longitude": 92.35,
+          "share": 0.27982092
+        },
+        {
+          "area_sq_km": 27.5401,
+          "grid_cell_id": "92.3000_26.3000",
+          "latitude": 26.35,
+          "longitude": 92.35,
+          "share": 0.07014255
+        },
+        {
+          "area_sq_km": 14.1203,
+          "grid_cell_id": "92.4000_26.1000",
+          "latitude": 26.15,
+          "longitude": 92.45,
+          "share": 0.03596328
+        },
+        {
+          "area_sq_km": 17.7057,
+          "grid_cell_id": "92.4000_26.2000",
+          "latitude": 26.25,
+          "longitude": 92.45,
+          "share": 0.0450951
+        }
+      ],
+      "circle_area_sq_km": 392.63,
+      "locality_id": "morigaon-morigaon"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9424,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Nagaon",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 139,
+        "locality_id": "nagaon-dhing",
+        "osm_id": "relation/10048517",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Dhing"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 8,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 19.6683,
+          "grid_cell_id": "92.4000_26.3000",
+          "latitude": 26.35,
+          "longitude": 92.45,
+          "share": 0.078198
+        },
+        {
+          "area_sq_km": 78.9759,
+          "grid_cell_id": "92.4000_26.4000",
+          "latitude": 26.45,
+          "longitude": 92.45,
+          "share": 0.31399584
+        },
+        {
+          "area_sq_km": 9.1679,
+          "grid_cell_id": "92.4000_26.5000",
+          "latitude": 26.55,
+          "longitude": 92.45,
+          "share": 0.03645025
+        },
+        {
+          "area_sq_km": 17.1105,
+          "grid_cell_id": "92.5000_26.3000",
+          "latitude": 26.35,
+          "longitude": 92.55,
+          "share": 0.06802876
+        },
+        {
+          "area_sq_km": 108.9324,
+          "grid_cell_id": "92.5000_26.4000",
+          "latitude": 26.45,
+          "longitude": 92.55,
+          "share": 0.43309833
+        },
+        {
+          "area_sq_km": 5.7573,
+          "grid_cell_id": "92.5000_26.5000",
+          "latitude": 26.55,
+          "longitude": 92.55,
+          "share": 0.0228901
+        },
+        {
+          "area_sq_km": 11.4833,
+          "grid_cell_id": "92.6000_26.4000",
+          "latitude": 26.45,
+          "longitude": 92.65,
+          "share": 0.0456558
+        },
+        {
+          "area_sq_km": 0.4233,
+          "grid_cell_id": "92.6000_26.5000",
+          "latitude": 26.55,
+          "longitude": 92.65,
+          "share": 0.00168293
+        }
+      ],
+      "circle_area_sq_km": 251.519,
+      "locality_id": "nagaon-dhing"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9474,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Nagaon",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 114,
+        "locality_id": "nagaon-kampur",
+        "osm_id": "relation/10048512",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Kampur"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 11,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 17.0664,
+          "grid_cell_id": "92.5000_25.9000",
+          "latitude": 25.95,
+          "longitude": 92.55,
+          "share": 0.04509607
+        },
+        {
+          "area_sq_km": 18.9019,
+          "grid_cell_id": "92.5000_26.0000",
+          "latitude": 26.05,
+          "longitude": 92.55,
+          "share": 0.04994604
+        },
+        {
+          "area_sq_km": 23.1017,
+          "grid_cell_id": "92.5000_26.1000",
+          "latitude": 26.15,
+          "longitude": 92.55,
+          "share": 0.06104365
+        },
+        {
+          "area_sq_km": 0.0075,
+          "grid_cell_id": "92.5000_26.2000",
+          "latitude": 26.25,
+          "longitude": 92.55,
+          "share": 1.98e-05
+        },
+        {
+          "area_sq_km": 6.8704,
+          "grid_cell_id": "92.6000_25.9000",
+          "latitude": 25.95,
+          "longitude": 92.65,
+          "share": 0.01815411
+        },
+        {
+          "area_sq_km": 99.206,
+          "grid_cell_id": "92.6000_26.0000",
+          "latitude": 26.05,
+          "longitude": 92.65,
+          "share": 0.26214032
+        },
+        {
+          "area_sq_km": 110.9673,
+          "grid_cell_id": "92.6000_26.1000",
+          "latitude": 26.15,
+          "longitude": 92.65,
+          "share": 0.2932184
+        },
+        {
+          "area_sq_km": 15.1275,
+          "grid_cell_id": "92.6000_26.2000",
+          "latitude": 26.25,
+          "longitude": 92.65,
+          "share": 0.03997255
+        },
+        {
+          "area_sq_km": 25.8232,
+          "grid_cell_id": "92.7000_26.0000",
+          "latitude": 26.05,
+          "longitude": 92.75,
+          "share": 0.06823475
+        },
+        {
+          "area_sq_km": 47.1971,
+          "grid_cell_id": "92.7000_26.1000",
+          "latitude": 26.15,
+          "longitude": 92.75,
+          "share": 0.124713
+        },
+        {
+          "area_sq_km": 14.1771,
+          "grid_cell_id": "92.7000_26.2000",
+          "latitude": 26.25,
+          "longitude": 92.75,
+          "share": 0.03746131
+        }
+      ],
+      "circle_area_sq_km": 378.446,
+      "locality_id": "nagaon-kampur"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9429,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Nalbari",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 70,
+        "locality_id": "nalbari-banekuchi",
+        "osm_id": "relation/10045993",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Banekuchi"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 5,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 1.249,
+          "grid_cell_id": "91.2000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.25,
+          "share": 0.02064482
+        },
+        {
+          "area_sq_km": 34.1763,
+          "grid_cell_id": "91.3000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.35,
+          "share": 0.56491868
+        },
+        {
+          "area_sq_km": 6.504,
+          "grid_cell_id": "91.3000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.35,
+          "share": 0.10750746
+        },
+        {
+          "area_sq_km": 9.0939,
+          "grid_cell_id": "91.4000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.45,
+          "share": 0.15031817
+        },
+        {
+          "area_sq_km": 9.4746,
+          "grid_cell_id": "91.4000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.45,
+          "share": 0.15661087
+        }
+      ],
+      "circle_area_sq_km": 60.498,
+      "locality_id": "nalbari-banekuchi"
+    },
+    {
+      "boundary": {
+        "agreement": 0.95,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Nalbari",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 20,
+        "locality_id": "nalbari-barama-pt",
+        "osm_id": "relation/10045992",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Barama (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 2,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 9.6402,
+          "grid_cell_id": "91.3000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.35,
+          "share": 0.53636077
+        },
+        {
+          "area_sq_km": 8.3332,
+          "grid_cell_id": "91.3000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.35,
+          "share": 0.46363923
+        }
+      ],
+      "circle_area_sq_km": 17.973,
+      "locality_id": "nalbari-barama-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9834,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Nalbari",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 241,
+        "locality_id": "nalbari-barkhetri",
+        "osm_id": "relation/10045989",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Barkhetri"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 9,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 26.2313,
+          "grid_cell_id": "91.2000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.25,
+          "share": 0.07018124
+        },
+        {
+          "area_sq_km": 76.7579,
+          "grid_cell_id": "91.2000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.25,
+          "share": 0.20536428
+        },
+        {
+          "area_sq_km": 16.1217,
+          "grid_cell_id": "91.2000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.25,
+          "share": 0.0431332
+        },
+        {
+          "area_sq_km": 47.4959,
+          "grid_cell_id": "91.3000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.35,
+          "share": 0.12707439
+        },
+        {
+          "area_sq_km": 110.8924,
+          "grid_cell_id": "91.3000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.35,
+          "share": 0.29669064
+        },
+        {
+          "area_sq_km": 42.8011,
+          "grid_cell_id": "91.3000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.35,
+          "share": 0.1145136
+        },
+        {
+          "area_sq_km": 11.1007,
+          "grid_cell_id": "91.4000_26.1000",
+          "latitude": 26.15,
+          "longitude": 91.45,
+          "share": 0.02969966
+        },
+        {
+          "area_sq_km": 30.8318,
+          "grid_cell_id": "91.4000_26.2000",
+          "latitude": 26.25,
+          "longitude": 91.45,
+          "share": 0.08248992
+        },
+        {
+          "area_sq_km": 11.5318,
+          "grid_cell_id": "91.4000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.45,
+          "share": 0.03085307
+        }
+      ],
+      "circle_area_sq_km": 373.765,
+      "locality_id": "nalbari-barkhetri"
+    },
+    {
+      "boundary": {
+        "agreement": 0.931,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Nalbari",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 116,
+        "locality_id": "nalbari-pachim-nalbari",
+        "osm_id": "relation/10045990",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Pachim Nalbari"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 6,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 30.0359,
+          "grid_cell_id": "91.2000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.25,
+          "share": 0.20162128
+        },
+        {
+          "area_sq_km": 9.4737,
+          "grid_cell_id": "91.2000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.25,
+          "share": 0.06359384
+        },
+        {
+          "area_sq_km": 62.3233,
+          "grid_cell_id": "91.3000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.35,
+          "share": 0.41835583
+        },
+        {
+          "area_sq_km": 37.4053,
+          "grid_cell_id": "91.3000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.35,
+          "share": 0.25108932
+        },
+        {
+          "area_sq_km": 5.1136,
+          "grid_cell_id": "91.4000_26.3000",
+          "latitude": 26.35,
+          "longitude": 91.45,
+          "share": 0.03432622
+        },
+        {
+          "area_sq_km": 4.6201,
+          "grid_cell_id": "91.4000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.45,
+          "share": 0.03101351
+        }
+      ],
+      "circle_area_sq_km": 148.972,
+      "locality_id": "nalbari-pachim-nalbari"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9464,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Nalbari",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 112,
+        "locality_id": "nalbari-tihu-pt",
+        "osm_id": "relation/10045991",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Tihu (Pt)"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 4,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 50.9152,
+          "grid_cell_id": "91.2000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.25,
+          "share": 0.53395835
+        },
+        {
+          "area_sq_km": 17.4811,
+          "grid_cell_id": "91.2000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.25,
+          "share": 0.18332776
+        },
+        {
+          "area_sq_km": 24.6853,
+          "grid_cell_id": "91.3000_26.4000",
+          "latitude": 26.45,
+          "longitude": 91.35,
+          "share": 0.25888037
+        },
+        {
+          "area_sq_km": 2.2726,
+          "grid_cell_id": "91.3000_26.5000",
+          "latitude": 26.55,
+          "longitude": 91.35,
+          "share": 0.02383353
+        }
+      ],
+      "circle_area_sq_km": 95.354,
+      "locality_id": "nalbari-tihu-pt"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9054,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Sivasagar",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 74,
+        "locality_id": "sivasagar-sibsagar",
+        "osm_id": "relation/10056596",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Sibsagar"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 11,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.1329,
+          "grid_cell_id": "94.3000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.35,
+          "share": 0.00033863
+        },
+        {
+          "area_sq_km": 6.6622,
+          "grid_cell_id": "94.4000_26.8000",
+          "latitude": 26.85,
+          "longitude": 94.45,
+          "share": 0.01697864
+        },
+        {
+          "area_sq_km": 61.4907,
+          "grid_cell_id": "94.4000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.45,
+          "share": 0.15671019
+        },
+        {
+          "area_sq_km": 12.6249,
+          "grid_cell_id": "94.4000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.45,
+          "share": 0.03217487
+        },
+        {
+          "area_sq_km": 4.3744,
+          "grid_cell_id": "94.5000_26.8000",
+          "latitude": 26.85,
+          "longitude": 94.55,
+          "share": 0.01114823
+        },
+        {
+          "area_sq_km": 66.1099,
+          "grid_cell_id": "94.5000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.55,
+          "share": 0.16848231
+        },
+        {
+          "area_sq_km": 74.6227,
+          "grid_cell_id": "94.5000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.55,
+          "share": 0.19017719
+        },
+        {
+          "area_sq_km": 48.0159,
+          "grid_cell_id": "94.6000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.65,
+          "share": 0.12236944
+        },
+        {
+          "area_sq_km": 64.7797,
+          "grid_cell_id": "94.6000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.65,
+          "share": 0.16509212
+        },
+        {
+          "area_sq_km": 37.8587,
+          "grid_cell_id": "94.7000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.75,
+          "share": 0.09648349
+        },
+        {
+          "area_sq_km": 15.713,
+          "grid_cell_id": "94.7000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.75,
+          "share": 0.04004489
+        }
+      ],
+      "circle_area_sq_km": 392.385,
+      "locality_id": "sivasagar-sibsagar"
+    },
+    {
+      "boundary": {
+        "agreement": 1.0,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Charaideo",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 49,
+        "locality_id": "sivasagar-sonari",
+        "osm_id": "relation/10056724",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Sonari"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 16,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 32.6887,
+          "grid_cell_id": "94.7000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.75,
+          "share": 0.04220365
+        },
+        {
+          "area_sq_km": 0.0544,
+          "grid_cell_id": "94.7000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.75,
+          "share": 7.02e-05
+        },
+        {
+          "area_sq_km": 66.4728,
+          "grid_cell_id": "94.8000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.85,
+          "share": 0.08582158
+        },
+        {
+          "area_sq_km": 26.267,
+          "grid_cell_id": "94.8000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.85,
+          "share": 0.03391281
+        },
+        {
+          "area_sq_km": 58.264,
+          "grid_cell_id": "94.9000_26.9000",
+          "latitude": 26.95,
+          "longitude": 94.95,
+          "share": 0.07522343
+        },
+        {
+          "area_sq_km": 58.2598,
+          "grid_cell_id": "94.9000_27.0000",
+          "latitude": 27.05,
+          "longitude": 94.95,
+          "share": 0.07521801
+        },
+        {
+          "area_sq_km": 66.9764,
+          "grid_cell_id": "95.0000_26.9000",
+          "latitude": 26.95,
+          "longitude": 95.05,
+          "share": 0.08647178
+        },
+        {
+          "area_sq_km": 91.3989,
+          "grid_cell_id": "95.0000_27.0000",
+          "latitude": 27.05,
+          "longitude": 95.05,
+          "share": 0.11800315
+        },
+        {
+          "area_sq_km": 2.3371,
+          "grid_cell_id": "95.0000_27.1000",
+          "latitude": 27.15,
+          "longitude": 95.05,
+          "share": 0.00301734
+        },
+        {
+          "area_sq_km": 8.3129,
+          "grid_cell_id": "95.1000_26.9000",
+          "latitude": 26.95,
+          "longitude": 95.15,
+          "share": 0.01073259
+        },
+        {
+          "area_sq_km": 99.4771,
+          "grid_cell_id": "95.1000_27.0000",
+          "latitude": 27.05,
+          "longitude": 95.15,
+          "share": 0.12843278
+        },
+        {
+          "area_sq_km": 42.4258,
+          "grid_cell_id": "95.1000_27.1000",
+          "latitude": 27.15,
+          "longitude": 95.15,
+          "share": 0.05477502
+        },
+        {
+          "area_sq_km": 65.0093,
+          "grid_cell_id": "95.2000_27.0000",
+          "latitude": 27.05,
+          "longitude": 95.25,
+          "share": 0.08393215
+        },
+        {
+          "area_sq_km": 91.7833,
+          "grid_cell_id": "95.2000_27.1000",
+          "latitude": 27.15,
+          "longitude": 95.25,
+          "share": 0.11849946
+        },
+        {
+          "area_sq_km": 7.5134,
+          "grid_cell_id": "95.3000_27.0000",
+          "latitude": 27.05,
+          "longitude": 95.35,
+          "share": 0.00970033
+        },
+        {
+          "area_sq_km": 57.3054,
+          "grid_cell_id": "95.3000_27.1000",
+          "latitude": 27.15,
+          "longitude": 95.35,
+          "share": 0.07398574
+        }
+      ],
+      "circle_area_sq_km": 774.546,
+      "locality_id": "sivasagar-sonari"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9167,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Tinsukia",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 24,
+        "locality_id": "tinsukia-doom-dooma",
+        "osm_id": "relation/10057652",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Doom Dooma"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 17,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.0459,
+          "grid_cell_id": "95.3000_27.4000",
+          "latitude": 27.45,
+          "longitude": 95.35,
+          "share": 4.893e-05
+        },
+        {
+          "area_sq_km": 22.6804,
+          "grid_cell_id": "95.3000_27.5000",
+          "latitude": 27.55,
+          "longitude": 95.35,
+          "share": 0.02419106
+        },
+        {
+          "area_sq_km": 2.5256,
+          "grid_cell_id": "95.3000_27.6000",
+          "latitude": 27.65,
+          "longitude": 95.35,
+          "share": 0.00269378
+        },
+        {
+          "area_sq_km": 1.7691,
+          "grid_cell_id": "95.4000_27.4000",
+          "latitude": 27.45,
+          "longitude": 95.45,
+          "share": 0.00188688
+        },
+        {
+          "area_sq_km": 98.1817,
+          "grid_cell_id": "95.4000_27.5000",
+          "latitude": 27.55,
+          "longitude": 95.45,
+          "share": 0.10472104
+        },
+        {
+          "area_sq_km": 71.692,
+          "grid_cell_id": "95.4000_27.6000",
+          "latitude": 27.65,
+          "longitude": 95.45,
+          "share": 0.07646704
+        },
+        {
+          "area_sq_km": 18.4559,
+          "grid_cell_id": "95.4000_27.7000",
+          "latitude": 27.75,
+          "longitude": 95.45,
+          "share": 0.01968516
+        },
+        {
+          "area_sq_km": 56.9828,
+          "grid_cell_id": "95.5000_27.5000",
+          "latitude": 27.55,
+          "longitude": 95.55,
+          "share": 0.06077813
+        },
+        {
+          "area_sq_km": 109.5232,
+          "grid_cell_id": "95.5000_27.6000",
+          "latitude": 27.65,
+          "longitude": 95.55,
+          "share": 0.11681802
+        },
+        {
+          "area_sq_km": 85.7448,
+          "grid_cell_id": "95.5000_27.7000",
+          "latitude": 27.75,
+          "longitude": 95.55,
+          "share": 0.09145585
+        },
+        {
+          "area_sq_km": 15.7576,
+          "grid_cell_id": "95.6000_27.4000",
+          "latitude": 27.45,
+          "longitude": 95.65,
+          "share": 0.0168071
+        },
+        {
+          "area_sq_km": 104.8442,
+          "grid_cell_id": "95.6000_27.5000",
+          "latitude": 27.55,
+          "longitude": 95.65,
+          "share": 0.11182733
+        },
+        {
+          "area_sq_km": 109.5232,
+          "grid_cell_id": "95.6000_27.6000",
+          "latitude": 27.65,
+          "longitude": 95.65,
+          "share": 0.11681802
+        },
+        {
+          "area_sq_km": 93.3734,
+          "grid_cell_id": "95.6000_27.7000",
+          "latitude": 27.75,
+          "longitude": 95.65,
+          "share": 0.09959249
+        },
+        {
+          "area_sq_km": 38.1715,
+          "grid_cell_id": "95.7000_27.5000",
+          "latitude": 27.55,
+          "longitude": 95.75,
+          "share": 0.04071389
+        },
+        {
+          "area_sq_km": 69.0718,
+          "grid_cell_id": "95.7000_27.6000",
+          "latitude": 27.65,
+          "longitude": 95.75,
+          "share": 0.07367232
+        },
+        {
+          "area_sq_km": 39.2113,
+          "grid_cell_id": "95.7000_27.7000",
+          "latitude": 27.75,
+          "longitude": 95.75,
+          "share": 0.04182296
+        }
+      ],
+      "circle_area_sq_km": 937.554,
+      "locality_id": "tinsukia-doom-dooma"
+    },
+    {
+      "boundary": {
+        "agreement": 0.9302,
+        "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+        "district": "Tinsukia",
+        "forbids": "deciding whether an individual point, household, or report lies inside the circle; that needs a separate review this score cannot stand in for",
+        "grade": "zonal",
+        "independent_points": 43,
+        "locality_id": "tinsukia-sadiya",
+        "osm_id": "relation/10057655",
+        "permits": "averaging a value over the whole circle \u2014 rainfall, a terrain band, a share of low ground",
+        "promoted_by": "measurement",
+        "revenue_circle": "Sadiya"
+      },
+      "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+      "cell_count": 17,
+      "cell_degrees": 0.1,
+      "cells": [
+        {
+          "area_sq_km": 0.0637,
+          "grid_cell_id": "95.4000_27.6000",
+          "latitude": 27.65,
+          "longitude": 95.45,
+          "share": 7.524e-05
+        },
+        {
+          "area_sq_km": 64.047,
+          "grid_cell_id": "95.4000_27.7000",
+          "latitude": 27.75,
+          "longitude": 95.45,
+          "share": 0.07560547
+        },
+        {
+          "area_sq_km": 15.7777,
+          "grid_cell_id": "95.4000_27.8000",
+          "latitude": 27.85,
+          "longitude": 95.45,
+          "share": 0.01862504
+        },
+        {
+          "area_sq_km": 23.6781,
+          "grid_cell_id": "95.5000_27.7000",
+          "latitude": 27.75,
+          "longitude": 95.55,
+          "share": 0.02795123
+        },
+        {
+          "area_sq_km": 99.8978,
+          "grid_cell_id": "95.5000_27.8000",
+          "latitude": 27.85,
+          "longitude": 95.55,
+          "share": 0.11792609
+        },
+        {
+          "area_sq_km": 19.3001,
+          "grid_cell_id": "95.5000_27.9000",
+          "latitude": 27.95,
+          "longitude": 95.55,
+          "share": 0.0227831
+        },
+        {
+          "area_sq_km": 16.0496,
+          "grid_cell_id": "95.6000_27.7000",
+          "latitude": 27.75,
+          "longitude": 95.65,
+          "share": 0.01894599
+        },
+        {
+          "area_sq_km": 109.3223,
+          "grid_cell_id": "95.6000_27.8000",
+          "latitude": 27.85,
+          "longitude": 95.65,
+          "share": 0.12905142
+        },
+        {
+          "area_sq_km": 63.76,
+          "grid_cell_id": "95.6000_27.9000",
+          "latitude": 27.95,
+          "longitude": 95.65,
+          "share": 0.07526663
+        },
+        {
+          "area_sq_km": 50.5135,
+          "grid_cell_id": "95.7000_27.7000",
+          "latitude": 27.75,
+          "longitude": 95.75,
+          "share": 0.0596296
+        },
+        {
+          "area_sq_km": 109.3223,
+          "grid_cell_id": "95.7000_27.8000",
+          "latitude": 27.85,
+          "longitude": 95.75,
+          "share": 0.12905142
+        },
+        {
+          "area_sq_km": 72.3405,
+          "grid_cell_id": "95.7000_27.9000",
+          "latitude": 27.95,
+          "longitude": 95.75,
+          "share": 0.08539561
+        },
+        {
+          "area_sq_km": 1.8946,
+          "grid_cell_id": "95.8000_27.7000",
+          "latitude": 27.75,
+          "longitude": 95.85,
+          "share": 0.00223648
+        },
+        {
+          "area_sq_km": 81.8188,
+          "grid_cell_id": "95.8000_27.8000",
+          "latitude": 27.85,
+          "longitude": 95.85,
+          "share": 0.09658442
+        },
+        {
+          "area_sq_km": 75.8145,
+          "grid_cell_id": "95.8000_27.9000",
+          "latitude": 27.95,
+          "longitude": 95.85,
+          "share": 0.08949656
+        },
+        {
+          "area_sq_km": 6.5297,
+          "grid_cell_id": "95.9000_27.8000",
+          "latitude": 27.85,
+          "longitude": 95.95,
+          "share": 0.00770812
+        },
+        {
+          "area_sq_km": 36.9918,
+          "grid_cell_id": "95.9000_27.9000",
+          "latitude": 27.95,
+          "longitude": 95.95,
+          "share": 0.04366761
+        }
+      ],
+      "circle_area_sq_km": 847.122,
+      "locality_id": "tinsukia-sadiya"
+    }
+  ]
+}
