@@ -17,6 +17,7 @@ data/cache/
 # must never be committed, so an accidental `git add -A` can't publish them.
 CLAUDE.md
 docs/circle-boundary-questions.md
+MASTER_PLAN_LOCAL_ACCURACY_AND_REPORTING.md
 .impeccable/
 
 # Local agent skills support development but are not application dependencies.
