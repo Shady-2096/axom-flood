@@ -10,7 +10,7 @@ Two parts:
 - **Part 2** — 7 pairs of gauges, where a rise
   at one may give warning time to the other. Quick.
 
-Built 2026-08-01 by
+Built 2026-08-02 by
 `scripts/build_gauge_decision_packets.py` from
 `data/review/locality-gauge-mappings/current.json`.
 
@@ -50,9 +50,11 @@ uv run python scripts/apply_gauge_decisions.py --write   # applies them
 `--check` refuses a circle that does not exist, a gauge that is not in the
 CWC reference, and a reassign to a gauge that has stopped reporting.
 
-**Your stated qualification is recorded as you give it and is shown to
-readers.** Knowing Assam's rivers is enough to answer these questions.
-Nothing here is written up as a hydrologist sign-off.
+**Your stated qualification is recorded as you give it** and travels with
+every mapping it decided. It is a record-keeping field, not something the
+site prints — the bulletin names you and stops there. Knowing Assam's
+rivers is enough to answer these questions. Nothing here is written up as
+a hydrologist sign-off.
 
 **53 circles.** 22 are in the first
 group: those are both far from their gauge *and* have a much closer one.

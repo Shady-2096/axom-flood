@@ -21,18 +21,22 @@
          is a claim and claims carry an author. */
       list.push({
         label: "No gauge",
-        text: `${review.reasoning} Checked by ${review.reviewer} — `
-          + `${review.reviewer_qualification} — on ${review.reviewed_at}. `
+        text: `${review.reasoning} Checked by ${review.reviewer} on ${review.reviewed_at}. `
           + "Rainfall and official bulletins are the sources to watch for this area.",
       });
     } else if (review) {
-      // Never write river knowledge up as a hydrologist sign-off. The reviewer's
-      // stated qualification is shown as they gave it.
+      /* The reviewer is named, their qualification is not. `reviewer_qualification`
+         is still recorded verbatim in config/gauge-topology-decisions.json and
+         still travels with the mapping — it is a record-keeping field, not
+         reader-facing copy. A stranger's credential line on a phone screen is
+         noise to somebody deciding whether to move; the name is enough to make
+         the claim attributable. What must never appear is the opposite: river
+         knowledge dressed up as a hydrologist sign-off. Not printing the
+         qualification is the safe direction, printing an upgraded one is not. */
       list.push({
         label: "Gauge match",
         text: `${gauge?.site_name || "This gauge"} was chosen for this circle by `
-          + `${review.reviewer} — ${review.reviewer_qualification} — on `
-          + `${review.reviewed_at}. ${review.reasoning}`,
+          + `${review.reviewer} on ${review.reviewed_at}. ${review.reasoning}`,
       });
     } else if (gauge && mapping && mapping.confidence !== "high") {
       /* The distance is the part that used to be missing, and it is the part a
