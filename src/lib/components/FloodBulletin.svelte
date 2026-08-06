@@ -12,6 +12,10 @@
        covers this circle". Optional: surfaces that only have a gauge in hand
        keep the older wording, which is correct for them. */
     locality = null,
+    /* One circle's satellite rainfall, already chosen and worded by
+       `data/rainfall.js`. Null on every surface that has no rainfall artifact,
+       which is every surface until the pipeline has run once. */
+    rainfall = null,
     shareLabel,
     shareIcon,
     place = null,
@@ -133,6 +137,19 @@
         <span>{status.label}</span>
       </h2>
       <p class="sentence" id="bulletin-detail">{displaySentence(gauge, locality)}</p>
+      {#if rainfall}
+        <!-- Rain is not a river reading, and this line is built so it can never
+             be mistaken for one. It sits below the sentence, at the quiet
+             weight, behind a label that names the instrument as a satellite,
+             and it carries no status colour of its own. A circle with no usable
+             estimate still prints a line here saying so: the gap where rainfall
+             belongs would otherwise be read as no rain. -->
+        <p class="rainfall" data-rain-status={rainfall.status}>
+          <span class="rain-label">Satellite rainfall</span>
+          {rainfall.headline}
+          <span class="rain-note">{rainfall.estimateNote} {rainfall.hedge}</span>
+        </p>
+      {/if}
     </div>
 
     <div class="actions">
@@ -285,6 +302,7 @@
   :global(.atlas-panel) .fold { display: grid; }
 
   :global(.atlas-panel) .folded .sentence,
+  :global(.atlas-panel) .folded .rainfall,
   :global(.atlas-panel) .folded .actions,
   :global(.atlas-panel) .folded .minor,
   :global(.atlas-panel) .folded .attribution,
@@ -509,6 +527,41 @@
     line-height: 1.55;
   }
 
+  /* Deliberately not on the ramp for weight: this line is quieter than the
+     status sentence above it at every size, because it is context and the
+     sentence is the reading. */
+  .rainfall {
+    max-width: 58ch;
+    margin: 12px 0 0;
+    color: var(--on-field-quiet);
+    font-size: 14px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums lining-nums;
+    line-height: 1.5;
+  }
+
+  .rain-label {
+    display: block;
+    color: var(--on-field-quiet);
+    font-size: 11px;
+    font-weight: 620;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  /* The estimate note and the hedge travel with every number, so they are set
+     smaller rather than dropped. Dropping them is how a satellite estimate
+     turns into a statement about somebody's house. */
+  .rain-note {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: .86;
+  }
+
+  .rainfall[data-rain-status="unavailable"] .rain-note { display: none; }
+
   .bulletin.urgent .status {
     font-size: clamp(24px, 3vw, 36px);
   }
@@ -641,6 +694,7 @@
        reading is, and what state the river is in. The sentence, the actions and
        the stand-in notice are what the reader folded away to see terrain. */
     :global(.atlas-panel) .folded .sentence,
+    :global(.atlas-panel) .folded .rainfall,
     :global(.atlas-panel) .folded .actions,
     :global(.atlas-panel) .folded .minor,
     :global(.atlas-panel) .folded .lead-note {
@@ -662,6 +716,11 @@
     :global(.atlas-panel) .place-line + .message { margin-top: 12px; }
 
     :global(.atlas-panel) .status { font-size: 20px; }
+
+    /* On the phone atlas the panel floats over the map, so the rainfall note
+       gives up its explanatory second line. The label and the estimate word
+       inside the headline still say what it is. */
+    :global(.atlas-panel) .rain-note { display: none; }
 
     :global(.atlas-panel) .sentence {
       margin-top: 6px;

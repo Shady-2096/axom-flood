@@ -274,6 +274,21 @@ class ImergClient:
         if self._token is None:
             raise ImergCredentialsMissing()
 
+    def get(self, url: str) -> httpx.Response:
+        """One authenticated GET, with Earthdata's two failure modes named.
+
+        Public because the OPeNDAP subset path and the smoke test's `--describe`
+        step need the same auth handling against URLs that are not granule
+        downloads.
+        """
+
+        self.check_configuration()
+        response = self._client.get(url, headers={"Authorization": f"Bearer {self._token}"})
+        if response.status_code in {401, 403}:
+            raise ImergAuthError(status_code=response.status_code)
+        response.raise_for_status()
+        return response
+
     def fetch_granule(
         self,
         granule: ImergGranule,
@@ -281,19 +296,12 @@ class ImergClient:
         fetched_at: datetime,
     ) -> ImergDownload:
         require_aware(fetched_at, "fetched_at")
-        self.check_configuration()
-
-        response = self._client.get(
-            granule.url, headers={"Authorization": f"Bearer {self._token}"}
-        )
-        if response.status_code in {401, 403}:
-            raise ImergAuthError(status_code=response.status_code)
-        response.raise_for_status()
+        response = self.get(granule.url)
         content = response.content
         if not content:
             raise ValueError(f"{granule.filename} returned an empty body")
 
-        published_at, published_source = _publication_time(response, fetched_at)
+        published_at, published_source = publication_time(response)
         latency = None
         if published_at is not None:
             delta = published_at - granule.interval_end
@@ -318,9 +326,7 @@ class ImergClient:
         )
 
 
-def _publication_time(
-    response: httpx.Response, fetched_at: datetime
-) -> tuple[datetime | None, str]:
+def publication_time(response: httpx.Response) -> tuple[datetime | None, str]:
     """When the archive says these bytes appeared, and how we know.
 
     `Last-Modified` is the archive's own statement and is preferred. When it is

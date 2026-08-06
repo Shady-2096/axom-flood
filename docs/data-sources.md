@@ -346,15 +346,23 @@ token is not sufficient on its own — GES DISC must also be authorised once und
 Earthdata → Applications → Authorized Apps. A 403 with a working token almost
 always means that step was missed.
 
-⚠️ **Unverified as of 2026-08-02.** No Earthdata account exists yet, so every
-IMERG test runs against synthetic bytes. Those tests prove the refusals, the
-granule arithmetic, and that latency is measured rather than assumed. They do
-**not** prove the archive path, the `V07B` version suffix, or the token flow.
+⚠️ **Unverified as of 2026-08-07.** An Earthdata account now exists, but no live
+request has been made from it yet, so every IMERG test still runs against
+synthetic bytes. Those tests prove the refusals, the granule arithmetic, the
+subset parse, and that latency is measured rather than assumed. They do **not**
+prove the archive path, the `V07B` version suffix, the OPeNDAP variable names, or
+the token flow.
 
 ```
-uv run python scripts/smoke_imerg.py --dry-run   # prints the URL, no account needed
-uv run python scripts/smoke_imerg.py             # the actual proof, needs EARTHDATA_TOKEN
+uv run python scripts/smoke_imerg.py --dry-run    # prints the URL, no account needed
+uv run python scripts/smoke_imerg.py --describe   # what the server calls its variables
+uv run python scripts/smoke_imerg.py --subset     # the Assam box, the path the pipeline uses
+uv run python scripts/smoke_imerg.py              # one whole global granule
 ```
+
+`--describe` is the one to run first. It asks OPeNDAP for the server's own
+listing of variable names, which is the single thing this repository is guessing
+about. `--subset` then exercises the real path end to end.
 
 Until that second command has passed once, granule URLs are a documented
 convention and not a confirmed fact. The zonal weights in
@@ -378,11 +386,51 @@ therefore computed and refused on its own, with a machine-readable reason.
 An unavailable window publishes `null` and a reason, never `0`. On a phone a
 blank space reads as "no rain", which is the one wrong answer that looks right.
 
-⚠️ **The chain is not joined yet.** Nothing turns an IMERG HDF5 granule into the
-observations `windows.py` consumes; `parse_imerg_observations` reads a normalized
-JSON shape that no code currently produces. Writing that reader against a
-guessed HDF5 or OPeNDAP layout would be a synthetic success path for a second
-source, which the plan's fixture rule forbids. It waits on one real granule.
+**Assam only, over OPeNDAP.** `rainfall/subset.py` asks GES DISC to cut the box
+out server-side rather than downloading global granules. A half-hourly granule
+covers the planet and Assam is 518 of its cells, so a 72-hour window would mean
+gigabytes of transfer to keep a few kilobytes. The subset arrives as text, which
+also keeps the runtime at httpx with no HDF5 reader and no compiled wheels.
+
+⚠️ **The variable names and the index convention are still unverified.** They are
+written from NASA's published grid documentation, not read off the live server.
+What makes that safe to ship rather than a synthetic success path is the one rule
+the parser is built around: **cell coordinates are read from the `lon` and `lat`
+arrays the server returns, never computed from the array index.** The index
+arithmetic only chooses which slice to ask for. If the convention is wrong, the
+coordinates that come back fall outside the requested box and the whole subset is
+refused. A wrong guess can therefore produce a refusal; it cannot produce
+rainfall pinned to the wrong place.
+
+The remaining unverifiable pieces are the variable spelling, the ASCII response
+flavour, and the `V07B` suffix. All three fail loudly and all three are what
+`--describe` and `--subset` settle in one run.
+
+**The pipeline.** `scripts/build_rainfall.py` runs the chain and publishes:
+
+```
+uv run python scripts/build_rainfall.py --plan      # no network, prints the run
+uv run python scripts/build_rainfall.py             # needs EARTHDATA_TOKEN
+uv run python scripts/build_rainfall.py --publish   # …and writes into static/data
+```
+
+Subsets are cached under `data/processed/imerg-subsets/<run>/` and written once.
+The same granule filename arriving with different numbers means NASA reprocessed
+the record without changing the version letter, and the build stops rather than
+adopting it silently.
+
+The published artifact carries no build timestamp, so two runs that compute the
+same rainfall produce one file under one digest and a rebuild is not a fresh
+download for every phone. When the run happened lives in the mutable pointer,
+`static/data/rainfall-current.json`.
+
+**Two headlines per circle.** The artifact publishes both the present-tense
+sentence and the dated "nothing newer has arrived" one, because the reader's
+clock is not the build's clock. A phone opening a cached artifact two days later
+would otherwise read "the last 24 hours" about a period that ended on another
+day. `src/lib/data/rainfall.js` picks between them against the run's own
+staleness threshold, and drops the layer entirely past 72 hours — the longest
+window the data describes.
 
 ## Google Flood Forecasting API
 

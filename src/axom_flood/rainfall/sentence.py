@@ -161,16 +161,21 @@ def describe_circle_rainfall(
         }
 
     amount = _amount_phrase(chosen.total_mm)
-    headline = (
+    fresh_headline = (
         f"Satellite estimates show {amount} of rain over {place_name} in "
         f"{_window_phrase(chosen.hours)}."
     )
-    if is_stale:
-        headline = (
-            f"Satellite estimates show {amount} of rain over {place_name} in the "
-            f"{chosen.hours} hours up to {period_end:%-I:%M %p} on "
-            f"{period_end:%-d %b}. Nothing newer has arrived."
-        )
+    # Both wordings are always produced, because the reader's clock is not the
+    # build's clock. A phone opening a cached artifact two days later would
+    # otherwise read "the last 24 hours" about a period that ended on another
+    # day. The site picks between these two by comparing `as_of` to its own
+    # clock against `stale_after_hours`, which is the same threshold used here.
+    stale_headline = (
+        f"Satellite estimates show {amount} of rain over {place_name} in the "
+        f"{chosen.hours} hours up to {period_end:%-I:%M %p} on "
+        f"{period_end:%-d %b}. Nothing newer has arrived."
+    )
+    headline = stale_headline if is_stale else fresh_headline
     return {
         **base,
         "status": "stale_estimate" if is_stale else "estimate",
@@ -178,5 +183,7 @@ def describe_circle_rainfall(
         "window_hours": chosen.hours,
         "total_precipitation_mm": float(chosen.total_mm),
         "headline": headline,
+        "stale_headline": stale_headline,
+        "stale_after_hours": stale_after,
         "text": f"{headline} {ESTIMATE_NOTE} {HEDGE}",
     }

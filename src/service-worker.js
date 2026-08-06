@@ -35,6 +35,7 @@ const MUTABLE_DATA_PATHS = new Set([
   "/data/impact-history.json",
   "/data/impact-status.json",
   "/data/asdma-season-losses.json",
+  "/data/rainfall-current.json",
 ]);
 
 async function fetchFresh(path) {

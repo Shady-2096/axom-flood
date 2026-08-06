@@ -2,7 +2,16 @@
 
 Run with:
   uv run python scripts/smoke_imerg.py --dry-run     # no network, no account
-  uv run python scripts/smoke_imerg.py               # needs EARTHDATA_TOKEN
+  uv run python scripts/smoke_imerg.py --describe    # what the server calls things
+  uv run python scripts/smoke_imerg.py --subset      # the Assam box, the real path
+  uv run python scripts/smoke_imerg.py               # one whole global granule
+
+The one to run first is `--describe`. It asks the OPeNDAP server for its own
+listing of variable names, which is the single thing this repository is guessing
+about. `--subset` then exercises the path the pipeline actually uses: request the
+Assam box, parse the ASCII, and refuse it if the coordinates that come back are
+not the ones asked for. Plain `--run` downloads a whole global granule and only
+proves the archive path and the token, which is a weaker statement.
 
 Everything else about IMERG is tested against synthetic bytes. That proves the
 refusals and the arithmetic; it cannot prove the archive path is right, the
@@ -41,13 +50,45 @@ from axom_flood.rainfall.imerg_client import (  # noqa: E402
     granule_for,
 )
 from axom_flood.rainfall.provenance import write_immutable_revision  # noqa: E402
+from axom_flood.rainfall.subset import (  # noqa: E402
+    GridBox,
+    SubsetError,
+    fetch_subset,
+    subset_request,
+)
 
 RAW_DIR = ROOT / "data" / "raw"
+ZONES_DIR = ROOT / "data" / "processed" / "rainfall-zones"
+
+
+def assam_box() -> GridBox:
+    """The box the real pipeline asks for: whatever the zone weights cover.
+
+    Taken from the same artifact `build_rainfall.py` uses, so a passing smoke
+    test is a statement about the box the pipeline will really request rather
+    than about a rounder one written here.
+    """
+
+    zones = json.loads(
+        max(ZONES_DIR.glob("*.json"), key=lambda path: path.stat().st_mtime).read_text()
+    )
+    cells = [cell["grid_cell_id"] for zone in zones["zones"] for cell in zone["cells"]]
+    return GridBox.around_cells(cells, cell_degrees=zones["cell_degrees"])
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--describe",
+        action="store_true",
+        help="print the server's own variable listing instead of downloading data",
+    )
+    parser.add_argument(
+        "--subset",
+        action="store_true",
+        help="fetch the Assam box over OPeNDAP instead of the whole global granule",
+    )
     parser.add_argument("--run", choices=[item.value for item in ImergRun], default="late")
     parser.add_argument(
         "--hours-ago",
@@ -73,7 +114,13 @@ def main() -> int:
     print(f"asking for          {granule.interval_start:%Y-%m-%d %H:%M} UTC (+30 min)")
     print(f"that is             {hours_ago:.1f} hours ago")
     print(f"documented latency  {policy.typical_latency_hours} h (expectation, not fact)")
-    print(f"url                 {granule.url}")
+    request = subset_request(granule, assam_box())
+    if args.subset or args.describe:
+        print(f"box                 {request.box.as_dict()}")
+        print(f"cells asked         {request.cell_count}")
+        print(f"url                 {request.describe_url if args.describe else request.url}")
+    else:
+        print(f"url                 {granule.url}")
 
     if args.dry_run:
         print("\ndry run: nothing was requested.")
@@ -86,6 +133,41 @@ def main() -> int:
         except ImergCredentialsMissing as error:
             print(f"\nnot configured: {error}")
             return 2
+
+        if args.describe:
+            # The listing is the point. Whatever the server calls the
+            # precipitation field and its coordinate arrays is what the subset
+            # request has to spell, and reading it off the server beats
+            # guessing from documentation.
+            try:
+                text = client.get(request.describe_url).text
+            except ImergAuthError as error:
+                print(f"\nrejected: {error}")
+                return 3
+            print(f"\n{text.strip()[:4000]}")
+            print("\nPASS — the server answered. Compare the names above with")
+            print("DEFAULT_VARIABLE, DEFAULT_LON_VARIABLE and DEFAULT_LAT_VARIABLE")
+            print("in src/axom_flood/rainfall/subset.py.")
+            return 0
+
+        if args.subset:
+            try:
+                subset = fetch_subset(client, request, fetched_at=datetime.now(UTC))
+            except ImergAuthError as error:
+                print(f"\nrejected: {error}")
+                return 3
+            except SubsetError as error:
+                print(f"\nrefused: {error}")
+                return 4
+            print(f"\nreceived            {len(subset.content):,} bytes of normalized JSON")
+            print(f"cells with a rate   {len(subset.payload['observations'])}")
+            print(f"cells marked empty  {len(subset.payload['missing_cell_ids'])}")
+            print(f"sha256              {subset.revision.sha256}")
+            if subset.observed_latency_hours is not None:
+                print(f"observed latency    {subset.observed_latency_hours:.2f} h")
+            print("\nPASS — the OPeNDAP path, the token, and the ASCII parse all work.")
+            return 0
+
         try:
             download = client.fetch_granule(granule, fetched_at=datetime.now(UTC))
         except ImergAuthError as error:

@@ -33,6 +33,7 @@
     store,
   } from "$lib/data/preferences.js";
   import { serializeJsonLd, websiteSchema } from "$lib/landing-seo.js";
+  import { loadRainfall, rainfallFor } from "$lib/data/rainfall.js";
   import { resolveRenderMode, shouldOfferFullMode } from "$lib/mode.js";
   import { onMount } from "svelte";
 
@@ -69,6 +70,10 @@
     return bundle ? displayContext() : null;
   });
   let status = $derived(context ? statusInfo(context.gauge, context.locality) : null);
+  let rainfallData = $state(null);
+  let rainfall = $derived(
+    context ? rainfallFor(rainfallData, context.locality.locality_id) : null,
+  );
   let urgent = $derived(Boolean(status) && status.level >= 2);
   /* The river named beside the place. "Gauge review pending" is right while
      nobody has checked the mapping, and wrong once somebody has checked and
@@ -208,6 +213,18 @@
     if (bundle) offerLocationOnce();
   });
 
+  /* Rainfall arrives after the bulletin has painted and never gates it. The
+     river reading is the page; an estimate about rain is context beside it, and
+     a slow or missing rainfall file must not hold up the one number a reader
+     came for. Requested once per visit — the artifact covers every circle, so
+     changing place does not need another fetch. */
+  let rainfallRequested = false;
+  $effect(() => {
+    if (!bundle || rainfallRequested) return;
+    rainfallRequested = true;
+    loadRainfall().then(loaded => { rainfallData = loaded; }).catch(() => {});
+  });
+
   /* The header switch writes the mode too, so this screen follows it rather
      than owning it. Coming back to the map re-imports the two lazy chunks; the
      module cache makes that free after the first time. */
@@ -309,6 +326,7 @@
     <FloodBulletin
       gauge={context.gauge}
       locality={context.locality}
+      {rainfall}
       {shareLabel}
       {shareIcon}
       place={withPlace}
