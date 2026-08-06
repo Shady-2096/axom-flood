@@ -1479,7 +1479,7 @@
     top: 20px;
     left: 50%;
     display: flex;
-    gap: 14px;
+    gap: 16px;
     align-items: baseline;
     max-width: calc(100% - 420px);
     color: #06333d;
@@ -1498,7 +1498,7 @@
     margin: 0;
   }
   .atlas-readout strong,
-  .atlas-readout b { font-size: 17px; font-weight: 780; letter-spacing: -.01em; }
+  .atlas-readout b { font-size: 16px; font-weight: 780; letter-spacing: -.01em; }
   .atlas-readout span,
   .atlas-readout small { color: #2b5b67; font-size: 12px; font-weight: 650; }
 

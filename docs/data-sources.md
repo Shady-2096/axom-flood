@@ -361,6 +361,29 @@ convention and not a confirmed fact. The zonal weights in
 `data/processed/rainfall-zones/` do not depend on any of this — they are geometry
 and were built without an account.
 
+**From a grid to a sentence.** Three steps sit between a downloaded granule and
+something a person reads, and each refuses rather than estimates:
+
+| Step | Module | Refuses |
+| --- | --- | --- |
+| Grid cells to one circle number | `rainfall/zonal.py` | any circle missing a cell |
+| A series to 1/3/6/24/72-hour totals | `rainfall/windows.py` | gaps, short series, mixed runs |
+| A total to reviewed English | `rainfall/sentence.py` | a severity word, a flood claim, a blank |
+
+Windows fail one at a time. A 72-hour total reaching back three days meets a
+missing granule long before a 1-hour total does, and losing the recent hours to
+that would throw away the most complete number on the page. Each window is
+therefore computed and refused on its own, with a machine-readable reason.
+
+An unavailable window publishes `null` and a reason, never `0`. On a phone a
+blank space reads as "no rain", which is the one wrong answer that looks right.
+
+⚠️ **The chain is not joined yet.** Nothing turns an IMERG HDF5 granule into the
+observations `windows.py` consumes; `parse_imerg_observations` reads a normalized
+JSON shape that no code currently produces. Writing that reader against a
+guessed HDF5 or OPeNDAP layout would be a synthetic success path for a second
+source, which the plan's fixture rule forbids. It waits on one real granule.
+
 ## Google Flood Forecasting API
 
 Google documents the API as free, CC BY 4.0, and pilot/waitlist access.

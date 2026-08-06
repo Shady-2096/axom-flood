@@ -68,8 +68,8 @@ def build(cell_degrees: float) -> dict[str, Any]:
         ),
         "aggregation": "area_weighted; no centre-point assignment",
         "area_method": (
-            "equirectangular about each clipped piece's own mean latitude; "
-            "weights are ratios, so the projection constant cancels"
+            "spherical, by the boundary integral -∮sin(φ)dλ; exactly additive, "
+            "so the clipped pieces of a circle sum to the whole circle"
         ),
         "permits": ZONAL_PERMITS,
         "forbids": ZONAL_FORBIDS,
