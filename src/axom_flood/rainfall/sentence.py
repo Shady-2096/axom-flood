@@ -53,6 +53,23 @@ PREFERRED_WINDOW_HOURS = 24
 #: purpose: the point is to catch a stalled pipeline, not to hide a normal wait.
 STALE_MARGIN_HOURS = 6
 
+#: How recently a window must have ended for "the last 24 hours" to be a true
+#: description of it.
+#:
+#: This is a different question from staleness and was originally conflated with
+#: it. Staleness asks whether the pipeline is stuck. This asks whether the
+#: sentence is accurate. Measured against the live archive on 2026-08-07, the
+#: Late run publishes about 15 hours behind its own observation window and the
+#: Early run about 5 — both perfectly healthy. Deciding the wording on staleness
+#: alone therefore printed "in the last 24 hours" on every card in the country
+#: for a window that had ended most of a day earlier, which is the exact failure
+#: the plan names: a window that ends early, labelled as though it did not.
+#:
+#: One hour is a granule and a half, so it holds only for a source that really is
+#: nearly live. Every other case names the hour the window ended, and lets the
+#: reader see it for themselves.
+PRESENT_TENSE_WITHIN_HOURS = 1
+
 ATTRIBUTION = "NASA GPM IMERG"
 
 #: Plain-language versions of the refusal codes in `windows.py`. Kept here rather
@@ -84,6 +101,16 @@ def _window_phrase(hours: int) -> str:
     if hours == 72:
         return "the last 3 days"
     return f"the last {hours} hours"
+
+
+def _dated_window_phrase(hours: int) -> str:
+    """The same window, described by its length rather than by "the last …"."""
+
+    if hours == 1:
+        return "the hour"
+    if hours == 72:
+        return "the 3 days"
+    return f"the {hours} hours"
 
 
 def _amount_phrase(total_mm: Decimal) -> str:
@@ -165,17 +192,29 @@ def describe_circle_rainfall(
         f"Satellite estimates show {amount} of rain over {place_name} in "
         f"{_window_phrase(chosen.hours)}."
     )
-    # Both wordings are always produced, because the reader's clock is not the
-    # build's clock. A phone opening a cached artifact two days later would
-    # otherwise read "the last 24 hours" about a period that ended on another
-    # day. The site picks between these two by comparing `as_of` to its own
-    # clock against `stale_after_hours`, which is the same threshold used here.
-    stale_headline = (
-        f"Satellite estimates show {amount} of rain over {place_name} in the "
-        f"{chosen.hours} hours up to {period_end:%-I:%M %p} on "
-        f"{period_end:%-d %b}. Nothing newer has arrived."
+    # Naming the hour the window ended is the normal case, not the failure case.
+    # A satellite product that runs hours behind by design is not broken, and
+    # saying so plainly costs one clause.
+    dated_headline = (
+        f"Satellite estimates show {amount} of rain over {place_name} in "
+        f"{_dated_window_phrase(chosen.hours)} up to {period_end:%-I:%M %p} on "
+        f"{period_end:%-d %b}."
     )
-    headline = stale_headline if is_stale else fresh_headline
+    # Only this one adds the note that the pipeline has fallen behind. It is also
+    # published alongside whichever headline is chosen, because the reader's
+    # clock is not the build's: a phone opening a cached artifact a day later
+    # needs the sentence that stays true as the file ages.
+    stale_headline = f"{dated_headline} Nothing newer has arrived."
+
+    # Two separate questions, deliberately not one: `is_stale` asks whether the
+    # pipeline is stuck, and how long ago the window ended asks whether the
+    # present tense is a true sentence.
+    if is_stale:
+        headline = stale_headline
+    elif age_hours <= PRESENT_TENSE_WITHIN_HOURS:
+        headline = fresh_headline
+    else:
+        headline = dated_headline
     return {
         **base,
         "status": "stale_estimate" if is_stale else "estimate",

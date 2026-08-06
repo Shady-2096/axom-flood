@@ -33,6 +33,7 @@ import argparse
 import json
 import os
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import UTC, datetime, timedelta
 from hashlib import sha256
 from pathlib import Path
@@ -83,6 +84,10 @@ LOOKBACK_HOURS = max(RAINFALL_WINDOW_HOURS)
 
 _GRANULE_MINUTES = 30
 
+#: How many half hours to fetch at once. See the comment at the call site: this
+#: is a courtesy limit on a shared public archive, not a tuning knob.
+FETCH_WORKERS = 6
+
 
 def newest_zones() -> tuple[Path, dict[str, Any]]:
     candidates = sorted(ZONES_DIR.glob("*.json"))
@@ -130,6 +135,49 @@ def latest_expected_as_of(run: ImergRun, now: datetime) -> datetime:
     )
 
 
+def resolve_as_of(
+    client: ImergClient,
+    *,
+    run: ImergRun,
+    box: GridBox,
+    expected: datetime,
+    max_steps: int = 48,
+) -> tuple[datetime, int]:
+    """Walk back from the expected newest half hour to one that really exists.
+
+    The documented latency is an expectation and lands slightly ahead of the
+    archive even on a healthy day. Ending every window at a granule that has not
+    been published yet would refuse all five windows for every circle, every run
+    — an honest answer to a question nobody asked, since the newest *published*
+    half hour is a perfectly good window end and the copy already names the hour
+    it ended.
+
+    Probes the OPeNDAP metadata document, which is a few kilobytes, rather than
+    the data. Returns the window end and how many half hours it had to give up,
+    so a growing number is visible as the archive falling behind.
+    """
+
+    for step in range(max_steps):
+        candidate = expected - timedelta(minutes=_GRANULE_MINUTES * step)
+        granule = discover_granules(
+            run=run,
+            window_start=candidate - timedelta(minutes=_GRANULE_MINUTES),
+            window_end=candidate,
+        )[0]
+        try:
+            client.get(subset_request(granule, box).describe_url)
+        except httpx.HTTPStatusError as error:
+            if error.response.status_code == 404:
+                continue
+            raise
+        return candidate, step
+    raise SystemExit(
+        f"no {run.value} granule found in the {max_steps // 2} hours before "
+        f"{expected:%Y-%m-%d %H:%M} UTC; the archive is further behind than any "
+        "window this pipeline publishes"
+    )
+
+
 def cached_subset_path(run: ImergRun, filename: str) -> Path:
     return SUBSET_DIR / run.value / f"{filename}.json"
 
@@ -169,46 +217,79 @@ def collect_observations(
         run=run, window_start=as_of - timedelta(hours=LOOKBACK_HOURS), window_end=as_of
     )
     observations: list[Any] = []
-    from_cache = 0
-    downloaded = 0
     absent: list[str] = []
     latencies: list[float] = []
 
+    missing = [
+        granule
+        for granule in granules
+        if not cached_subset_path(run, granule.filename).exists()
+    ]
+    from_cache = len(granules) - len(missing)
+    downloaded = 0
+
+    if missing and client is None:
+        absent.extend(granule.filename for granule in missing)
+        missing = []
+
+    if missing:
+        # Measured at about 40 seconds per half hour: GES DISC cuts the box out
+        # of a global HDF5 file for every request, and that dominates. Serially
+        # a cold 72-hour window is an hour and a half, which is longer than the
+        # two hours between runs leaves room for.
+        #
+        # Modest on purpose. This is a shared public archive, and the point is
+        # to stop waiting on one round trip at a time, not to pull as hard as
+        # the server will allow.
+        if verbose:
+            print(f"fetching       {len(missing)} half hours, {FETCH_WORKERS} at a time")
+        with ThreadPoolExecutor(max_workers=FETCH_WORKERS) as pool:
+            futures = {
+                pool.submit(
+                    fetch_subset,
+                    client,
+                    subset_request(granule, box),
+                    fetched_at=fetched_at,
+                    keep_cell_ids=keep_cells,
+                ): granule
+                for granule in missing
+            }
+            for done, future in enumerate(as_completed(futures), start=1):
+                granule = futures[future]
+                try:
+                    download = future.result()
+                except httpx.HTTPStatusError as error:
+                    if error.response.status_code == 404:
+                        absent.append(granule.filename)
+                        continue
+                    raise
+                except SubsetError as error:
+                    raise SystemExit(f"{granule.filename}: {error}") from error
+                store_subset(cached_subset_path(run, granule.filename), download.content)
+                downloaded += 1
+                if download.observed_latency_hours is not None:
+                    latencies.append(download.observed_latency_hours)
+                if verbose and done % 24 == 0:
+                    print(f"  … {done}/{len(missing)}")
+
+    # Parsed in granule order, from disk, after every fetch has settled. The
+    # windows care about a continuous series, and reading it back in one pass
+    # keeps that ordering independent of which download happened to finish first.
     for granule in granules:
         cached = cached_subset_path(run, granule.filename)
-        content: bytes | None = None
-        if cached.exists():
-            content = cached.read_bytes()
-            from_cache += 1
-        elif client is not None:
-            request = subset_request(granule, box)
-            try:
-                download = fetch_subset(
-                    client, request, fetched_at=fetched_at, keep_cell_ids=keep_cells
-                )
-            except httpx.HTTPStatusError as error:
-                if error.response.status_code == 404:
-                    absent.append(granule.filename)
-                    continue
-                raise
-            except SubsetError as error:
-                raise SystemExit(f"{granule.filename}: {error}") from error
-            content = download.content
-            store_subset(cached, content)
-            downloaded += 1
-            if download.observed_latency_hours is not None:
-                latencies.append(download.observed_latency_hours)
-        else:
-            absent.append(granule.filename)
+        if not cached.exists():
             continue
-
+        content = cached.read_bytes()
+        # The URL that travels with the observations is the one the payload
+        # recorded when it was fetched, not the path it happens to be cached at.
+        # A cached file re-read a week later must still point at NASA.
         observations.extend(
             parse_imerg_observations(
-                content, fetched_at=fetched_at, source_url=str(cached.relative_to(ROOT))
+                content,
+                fetched_at=fetched_at,
+                source_url=json.loads(content)["source_url"],
             )
         )
-        if verbose and (downloaded + from_cache) % 24 == 0:
-            print(f"  … {downloaded + from_cache}/{len(granules)} half hours")
 
     return observations, {
         "granules_expected": len(granules),
@@ -388,10 +469,9 @@ def main() -> int:
 
     run = ImergRun(args.run)
     now = datetime.now(UTC)
+    expected = latest_expected_as_of(run, now)
     as_of = (
-        datetime.fromisoformat(args.as_of).astimezone(UTC)
-        if args.as_of
-        else latest_expected_as_of(run, now)
+        datetime.fromisoformat(args.as_of).astimezone(UTC) if args.as_of else expected
     )
 
     zones_path, zones = newest_zones()
@@ -401,7 +481,7 @@ def main() -> int:
     box = GridBox.around_cells(sorted(keep_cells), cell_degrees=zones["cell_degrees"])
 
     print(f"run            {run.value} ({IMERG_POLICIES[run].product_short_name})")
-    print(f"windows end    {as_of:%Y-%m-%d %H:%M} UTC")
+    print(f"expected end   {expected:%Y-%m-%d %H:%M} UTC (documented latency)")
     print(f"reaching back  {LOOKBACK_HOURS} h ({LOOKBACK_HOURS * 2} half hours)")
     print(f"circles        {zones['totals']['circles']} over {len(keep_cells)} cells")
     print(
@@ -428,6 +508,21 @@ def main() -> int:
     except ImergCredentialsMissing as error:
         print(f"\nnot configured: {error}")
         return 2
+
+    if not args.as_of:
+        try:
+            as_of, gave_up = resolve_as_of(client, run=run, box=box, expected=expected)
+        except ImergAuthError as error:
+            client.close()
+            print(f"\nrejected: {error}")
+            return 3
+        behind = (now - as_of).total_seconds() / 3600
+        print(
+            f"windows end    {as_of:%Y-%m-%d %H:%M} UTC — {behind:.1f} h behind now, "
+            f"{gave_up} half hours past the documented expectation"
+        )
+    else:
+        print(f"windows end    {as_of:%Y-%m-%d %H:%M} UTC (given)")
 
     try:
         observations, coverage = collect_observations(

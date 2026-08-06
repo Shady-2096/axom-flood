@@ -64,11 +64,13 @@ GRID_LON_COUNT = 3600
 GRID_LAT_COUNT = 1800
 
 #: The precipitation field, and the two coordinate arrays that must come back
-#: with it. IMERG V07 puts everything under a `Grid` group; OPeNDAP flattens
-#: group paths, and the exact spelling is what `--describe` is for.
-DEFAULT_VARIABLE = "Grid/precipitation"
-DEFAULT_LON_VARIABLE = "Grid/lon"
-DEFAULT_LAT_VARIABLE = "Grid/lat"
+#: with it. IMERG V07 puts everything under a `Grid` group in the HDF5 file, but
+#: Hyrax presents them flattened at the top level — the group only survives as a
+#: `fullnamepath` attribute. Confirmed against the live DMR on 2026-08-07, along
+#: with the `[time][lon][lat]` dimension order below and the -9999.9 fill.
+DEFAULT_VARIABLE = "precipitation"
+DEFAULT_LON_VARIABLE = "lon"
+DEFAULT_LAT_VARIABLE = "lat"
 
 #: GES DISC serves the same files over OPeNDAP as over plain HTTP, under a
 #: different path prefix.

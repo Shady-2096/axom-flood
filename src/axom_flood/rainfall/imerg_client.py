@@ -52,7 +52,14 @@ EARTHDATA_REGISTRATION_URL = "https://urs.earthdata.nasa.gov/users/new"
 #: IMERG V07 ships revised letters (V07A, V07B, …) as the record is reprocessed.
 #: Pinned rather than guessed at runtime, and overridable, so a revision is a
 #: recorded decision instead of a silent change in what was downloaded.
-DEFAULT_VERSION_SUFFIX = "V07B"
+#:
+#: V07C confirmed against the live archive on 2026-08-07 — the whole Late-run
+#: directory for that day carried it, and V07B (the letter this was written with)
+#: 404s. Every other character of the filename convention below was right.
+#: When this letter changes again the symptom is a 404 on every granule, which
+#: `scripts/build_rainfall.py` reports as "not published" rather than as an error;
+#: check a directory listing before believing the archive is simply behind.
+DEFAULT_VERSION_SUFFIX = "V07C"
 
 #: Half-hourly. A granule covers [start, start + 30 minutes).
 GRANULE_MINUTES = 30

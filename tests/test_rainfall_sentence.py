@@ -54,13 +54,54 @@ def describe(record, *, now=NOW, place="Barama circle", preferred_hours=24):
 # --- what it says when there is a number ---------------------------------
 
 
-def test_the_headline_leads_with_the_last_24_hours():
+def test_the_headline_leads_with_the_24_hour_window():
     result = describe(rainfall(window(3, 12), window(24, 72)))
     assert result["status"] == "estimate"
     assert result["window_hours"] == 24
     assert "about 72 mm" in result["headline"]
-    assert "the last 24 hours" in result["headline"]
+    assert "24 hours" in result["headline"]
     assert "Barama circle" in result["headline"]
+
+
+def test_the_present_tense_is_used_only_while_it_is_still_true():
+    """"The last 24 hours" is a claim about now, not a label for any window.
+
+    The Late run publishes about 15 hours behind by design, so deciding this on
+    staleness alone printed a window that had ended most of a day earlier as
+    though it had just closed.
+    """
+
+    just_closed = describe(
+        rainfall(window(24, 72)), now=AS_OF + timedelta(minutes=30)
+    )
+    assert "the last 24 hours" in just_closed["headline"]
+
+    hours_later = describe(rainfall(window(24, 72)), now=AS_OF + timedelta(hours=6))
+    assert "the last 24 hours" not in hours_later["headline"]
+    assert "24 hours up to" in hours_later["headline"]
+
+
+def test_a_normal_wait_is_not_reported_as_a_stalled_pipeline():
+    """A source that runs hours behind by design is not broken."""
+
+    result = describe(rainfall(window(24, 72)), now=AS_OF + timedelta(hours=15))
+    assert result["status"] == "estimate"
+    assert "Nothing newer has arrived" not in result["headline"]
+    assert "24 hours up to" in result["headline"]
+
+
+def test_a_stalled_pipeline_says_so_in_the_sentence():
+    result = describe(rainfall(window(24, 72)), now=AS_OF + timedelta(hours=40))
+    assert result["status"] == "stale_estimate"
+    assert "Nothing newer has arrived" in result["headline"]
+
+
+def test_the_ageing_sentence_is_always_published_alongside_the_chosen_one():
+    """The reader's clock is not the build's clock."""
+
+    result = describe(rainfall(window(24, 72)), now=AS_OF + timedelta(minutes=30))
+    assert "the last 24 hours" in result["headline"]
+    assert "Nothing newer has arrived" in result["stale_headline"]
 
 
 def test_every_sentence_says_it_is_an_estimate_and_not_proof_of_flooding():
@@ -101,7 +142,7 @@ def test_it_falls_back_to_the_longest_window_that_actually_exists():
         )
     )
     assert result["window_hours"] == 6
-    assert "the last 6 hours" in result["headline"]
+    assert "the 6 hours up to" in result["headline"]
     assert result["total_precipitation_mm"] == pytest.approx(20.0)
 
 
@@ -109,7 +150,7 @@ def test_the_label_never_claims_a_window_it_did_not_use():
     result = describe(
         rainfall(window(1, 5), window(24, reason=REASON_WINDOW_NOT_COVERED))
     )
-    assert "the last hour" in result["headline"]
+    assert "the hour up to" in result["headline"]
     assert "24 hours" not in result["headline"]
 
 

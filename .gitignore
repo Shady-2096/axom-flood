@@ -12,12 +12,19 @@ build/
 # Runtime status files are operational artifacts, not public data.
 data/run-status/
 data/cache/
+# IMERG Assam subsets: a local cache, not a record. About 126 KB per half hour,
+# so a 72-hour window is ~18 MB and a year of them would be gigabytes in a repo
+# that is otherwise text. Every one is reproducible from NASA by its granule
+# name, and the numbers that matter are already published in the digest-named
+# rainfall artifact with the source URL attached.
+data/processed/imerg-subsets/
 
 # Internal working files kept out of the public repo. They live on disk but
 # must never be committed, so an accidental `git add -A` can't publish them.
 CLAUDE.md
 docs/circle-boundary-questions.md
 MASTER_PLAN_LOCAL_ACCURACY_AND_REPORTING.md
+notes/
 .impeccable/
 
 # Local agent skills support development but are not application dependencies.

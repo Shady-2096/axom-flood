@@ -102,7 +102,7 @@ def test_a_moment_snaps_down_to_the_half_hour_it_falls_in():
 def test_the_filename_carries_the_run_letter_and_minutes_since_midnight():
     granule = granule_for(datetime(2026, 7, 1, 4, 30, tzinfo=UTC), run=ImergRun.LATE)
     assert granule.filename == (
-        "3B-HHR-L.MS.MRG.3IMERG.20260701-S043000-E045959.0270.V07B.HDF5"
+        "3B-HHR-L.MS.MRG.3IMERG.20260701-S043000-E045959.0270.V07C.HDF5"
     )
     early = granule_for(datetime(2026, 7, 1, 0, 0, tzinfo=UTC), run=ImergRun.EARLY)
     assert early.filename.startswith("3B-HHR-E.")
