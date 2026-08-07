@@ -2,6 +2,9 @@ import { cacheFirst } from "$lib/data/cache.js";
 import { crowdUrl, getBundle } from "$lib/data/index.js";
 import { store } from "$lib/data/preferences.js";
 import { syncReportConversation } from "./conversation.js";
+import { isHeldOnDevice } from "./records.js";
+
+export { isHeldOnDevice };
 
 let dbPromise = null;
 
@@ -121,18 +124,30 @@ async function syncOne(record) {
   }
 }
 
+// Whether a queued report has anywhere to go. Reports are queued locally first
+// either way, but the screen must not promise a sync that cannot happen: the
+// difference between "it will send when you are back online" and "it is on this
+// phone and nowhere else" is the whole difference to the person who wrote it.
+export function canSync() {
+  return Boolean(getBundle()?.runtime?.crowd_submission_url);
+}
+
 export async function flushOutbox() {
   const records = await dbAll();
   let queued = 0;
   let synced = 0;
+  let held = 0;
   for (const record of records) {
     if (record.status === "syncing") continue;
-    if (record.record_type === "hwm") continue;
+    if (isHeldOnDevice(record)) {
+      held += 1;
+      continue;
+    }
     const outcome = await syncOne(record);
     if (outcome.status === "synced") synced += 1;
     else queued += 1;
   }
-  return { queued, synced };
+  return { queued, synced, held };
 }
 
 export function uuid() {

@@ -1,6 +1,7 @@
 <script>
   import { getBundle, resolvedStrings } from "$lib/data/index.js";
   import {
+    canSync,
     dbAdd,
     deviceToken,
     flushOutbox,
@@ -121,7 +122,10 @@
         status: "queued",
         attempts: 0,
       });
-      hwmStatus = t("report_queued");
+      // Never "it will sync when the network returns". A high-water mark has no
+      // route off the device at all, so saying it is waiting for a network would
+      // be false on a phone with a perfect connection.
+      hwmStatus = t("hwm_kept_on_this_phone");
     } catch (_) {
       hwmStatus = "This phone could not save the mark. Check available storage and try again.";
     }
@@ -188,7 +192,10 @@
   <p class="report-loc">{locationText || t("report_geolocation_prompt")}</p>
   <button id="report-submit" type="button" disabled={!chosen || lat == null || lon == null} onclick={submitReport}>{t("report_submit")}</button>
   <p class="report-note small" aria-live="polite">{reportStatus}</p>
-  {#if justQueued}<p class="report-note">{t("report_queued")}</p>{/if}
+  <!-- No submission endpoint is configured yet, so today this always reads
+       "nothing is sent anywhere". Promising a sync that cannot happen is worse
+       than saying the report is only on this phone. -->
+  {#if justQueued}<p class="report-note">{t(canSync() ? "report_queued" : "report_kept_on_this_phone")}</p>{/if}
   <h2 class="report-h2">What nearby reports can say</h2>
   {#if !aggregateLoaded || !aggregate}
     <p class="report-note">{t("aggregate_none")}</p>
@@ -220,5 +227,17 @@
     <button type="button" class="secondary" onclick={submitHwm}>{t("hwm_submit")}</button>
     <p class="report-note small">{hwmStatus}</p>
   </details>
-  <p class="source-note">{online ? "Online · queued reports will sync now." : "OFFLINE · reports are queued on this phone."}</p>
+  <!-- Being online only matters if there is somewhere to send to. Until an
+       endpoint is configured, "queued reports will sync now" is false for a
+       phone with a perfect connection, which is the reader most likely to
+       believe it. -->
+  <p class="source-note">
+    {#if !canSync()}
+      Reports stay on this phone. Sending is not switched on yet.
+    {:else if online}
+      Online · queued reports will sync now.
+    {:else}
+      OFFLINE · reports are queued on this phone.
+    {/if}
+  </p>
 </section>

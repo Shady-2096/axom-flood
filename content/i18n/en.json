@@ -25,6 +25,8 @@
     "report_geolocation_unsupported": "Location is unavailable on this device. Pick your circle in Settings instead.",
     "report_rounded_to": "Location rounded to ~50 m: {lat}, {lon}",
     "report_queued": "Saved on this phone. It will sync when the network returns.",
+    "report_kept_on_this_phone": "Saved on this phone. Nothing is sent anywhere yet.",
+    "hwm_kept_on_this_phone": "High-water mark saved on this phone. Nothing is sent anywhere yet.",
     "report_syncing": "Syncing\u2026",
     "report_synced": "Sent. Thank you.",
     "report_sync_unconfigured": "Kept locally. Sync endpoint is not configured yet.",

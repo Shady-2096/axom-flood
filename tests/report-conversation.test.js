@@ -15,6 +15,7 @@ import {
   transition,
 } from "../supabase/functions/_shared/conversation.js";
 import { syncReportConversation } from "../src/lib/report/conversation.js";
+import { isHeldOnDevice } from "../src/lib/report/records.js";
 
 const URL = "https://example.invalid/web-intake";
 
@@ -279,4 +280,17 @@ test("a coordinate outside the reporting boundary is refused by the flow", async
     /outside the reporting boundary/,
   );
   assert.equal(server.persisted.length, 0);
+});
+
+// --- what leaves the device, and what does not ---------------------------
+//
+// `flushOutbox` needs IndexedDB, so it is not exercised here. This checks the
+// predicate it is built on, which is where the honesty actually lives.
+
+test("a high-water mark is held on the device, not queued for sync", () => {
+  // It records a past flood, and the conversation state machine the sync loop
+  // drives has no step for one. There is no route off the phone, so the screen
+  // must not say it is waiting for a network.
+  assert.equal(isHeldOnDevice(record({ record_type: "hwm" })), true);
+  assert.equal(isHeldOnDevice(record()), false);
 });
