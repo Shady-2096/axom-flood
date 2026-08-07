@@ -19,6 +19,19 @@ terrain band, a flood extent share — aggregates through the same weights.
 The artifact is content-addressed and never overwritten in place, matching how
 gauge and boundary artifacts are handled. A rebuild that changes nothing rewrites
 the same digest; a rebuild that changes something leaves the old one readable.
+
+Which one is current is written down
+------------------------------------
+Content-addressed files need something mutable to say which is live, and this
+one has to be a file rather than a filesystem detail. The reader used to take the
+newest modification time, which is right on a working copy and wrong everywhere
+else: a fresh `git clone` stamps every file with the checkout time, so the
+"newest" becomes whichever hash sorts first. Measured on a clean clone of this
+repository, that picked the 82-circle table over the 101-circle one — no error,
+no warning, just nineteen circles quietly missing from a scheduled publish.
+
+So the pointer is `current.json`, the same shape the published rainfall and
+gauge artifacts already use.
 """
 
 from __future__ import annotations
@@ -44,6 +57,7 @@ from axom_flood.rainfall.zonal import (  # noqa: E402
 
 REVIEW = ROOT / "data" / "review" / "circle-boundaries" / "current.json"
 OUT_DIR = ROOT / "data" / "processed" / "rainfall-zones"
+POINTER = OUT_DIR / "current.json"
 
 
 def build(cell_degrees: float) -> dict[str, Any]:
@@ -115,16 +129,44 @@ def main() -> int:
         f"largest spans {totals['largest_cell_count']}"
     )
 
+    pointed_at = (
+        json.loads(POINTER.read_text()).get("revision_id") if POINTER.exists() else None
+    )
+
     if args.check:
         state = "present" if target.exists() else "NOT WRITTEN"
         print(f"would write {target.relative_to(ROOT)} ({state})")
+        if pointed_at != digest:
+            print(
+                f"current.json points at {pointed_at or 'nothing'}, not {digest}",
+                file=sys.stderr,
+            )
+            return 1
         return 0 if target.exists() else 1
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     if not target.exists():
         document["generated_at"] = datetime.now(UTC).isoformat()
         target.write_text(json.dumps(document, indent=2, sort_keys=True) + "\n")
+    # Rewritten every run, including when the digest did not change. It is the
+    # only mutable file here and the only thing that says which table is live.
+    POINTER.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "record": "rainfall_zone_weights_pointer",
+                "revision_id": digest,
+                "zones_url": f"data/processed/rainfall-zones/{digest}.json",
+                "generated_at": datetime.now(UTC).isoformat(),
+                "totals": totals,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
+    )
     print(f"wrote {target.relative_to(ROOT)}")
+    print(f"pointer {POINTER.relative_to(ROOT)} -> {digest[:12]}")
     return 0
 
 

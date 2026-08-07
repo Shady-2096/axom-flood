@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-08-07T17:46:39.452093+00:00",
+  "record": "rainfall_zone_weights_pointer",
+  "revision_id": "49572883699fa85f0048161376297f751483bb3fade16a731ad1d347c85b05da",
+  "schema_version": 1,
+  "totals": {
+    "circles": 101,
+    "circles_in_one_cell": 0,
+    "distinct_cells": 605,
+    "largest_cell_count": 28
+  },
+  "zones_url": "data/processed/rainfall-zones/49572883699fa85f0048161376297f751483bb3fade16a731ad1d347c85b05da.json"
+}

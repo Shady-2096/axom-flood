@@ -2,7 +2,10 @@
 set -euo pipefail
 
 mode="${1:-probe}"
-repository="${AXOM_GITHUB_REPOSITORY:-Shady-2096/Axom-floods}"
+# The public repository the site is built from. `Shady-2096/Axom-floods` was the
+# private predecessor and is decommissioned, so a deploy that forgot to set
+# AXOM_GITHUB_REPOSITORY used to push data into a repository nobody serves.
+repository="${AXOM_GITHUB_REPOSITORY:-Shady-2096/axom-flood}"
 
 publish_changes() {
   local message="$1"
@@ -37,7 +40,18 @@ publish_changes() {
   chmod 0600 "$key_path"
   export GIT_SSH_COMMAND="ssh -i ${key_path} -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
   git remote set-url origin "git@github.com:${repository}.git"
-  git push origin HEAD:main
+  # Two scheduled jobs now write here, and a person can push between the clone
+  # and the push. A rainfall run spends about six minutes fetching, so the window
+  # is wide enough to matter. The jobs touch different files — gauges write the
+  # content bundle, rainfall writes its own artifact — so a rebase resolves
+  # cleanly, and a genuine conflict should still fail the run rather than be
+  # forced through.
+  if ! git push origin HEAD:main; then
+    echo "Push rejected; the remote moved. Rebasing onto it and retrying." >&2
+    git fetch --depth 50 origin main
+    git rebase origin/main
+    git push origin HEAD:main
+  fi
 }
 
 prepare_checkout() {
@@ -110,6 +124,24 @@ case "$mode" in
     fi
     uv run python scripts/build_pwa_bundle.py
     publish_changes "data: refresh CWC gauges from Cloud Run"
+    ;;
+  rainfall)
+    prepare_checkout
+    # Its own job rather than a step inside the CWC one. Rainfall is context and
+    # river level is the thing people came for, so a NASA outage, an expired
+    # Earthdata token, or a slow archive must never be able to hold up a gauge
+    # reading. They also fail differently: CWC is one request, this is 144.
+    #
+    # No bundle rebuild. `--publish` writes the rainfall artifact and its own
+    # pointer, both of which the site loads separately from the content bundle,
+    # after first paint. Rebuilding the bundle here would only add a way for two
+    # jobs to fight over the same file.
+    if [[ -z "${EARTHDATA_TOKEN:-}" ]]; then
+      echo "EARTHDATA_TOKEN is required to fetch IMERG." >&2
+      exit 1
+    fi
+    uv run python scripts/build_rainfall.py --publish
+    publish_changes "data: refresh satellite rainfall from Cloud Run"
     ;;
   daily)
     prepare_checkout

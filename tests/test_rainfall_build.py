@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
@@ -236,3 +237,52 @@ def test_the_subset_cache_is_keyed_on_the_cells_it_was_cut_down_to(script, tmp_p
     # Neither overwrites the other: the old cut stays readable under its own name.
     assert narrow_path.parent != wide_path.parent
     assert narrow_path.name == wide_path.name
+
+
+def test_the_zone_table_is_chosen_by_the_pointer_not_the_newest_file(script, tmp_path,
+                                                                    monkeypatch):
+    """`git checkout` stamps every file at once, so on a fresh clone "newest
+    modification time" collapses to whichever hash sorts first. Measured on a
+    clean clone of this repository, that chose the 82-circle table over the
+    101-circle one — silently, which is what a scheduled job would never report."""
+
+    zones = tmp_path / "rainfall-zones"
+    zones.mkdir()
+    stale = "a" * 64
+    live = "b" * 64
+    (zones / f"{stale}.json").write_text(json.dumps({"totals": {"circles": 82}}))
+    (zones / f"{live}.json").write_text(json.dumps({"totals": {"circles": 101}}))
+    (zones / "current.json").write_text(json.dumps({"revision_id": live}))
+    # Both files stamped together, exactly as a checkout leaves them.
+    for path in sorted(zones.glob("*.json")):
+        os.utime(path, (1_000_000, 1_000_000))
+
+    monkeypatch.setattr(script, "ZONES_DIR", zones)
+    path, document = script.newest_zones()
+
+    assert path.name == f"{live}.json"
+    assert document["totals"]["circles"] == 101
+
+
+def test_a_missing_zone_pointer_stops_the_run_rather_than_guessing(script, tmp_path,
+                                                                  monkeypatch):
+    """Publishing rainfall for the wrong set of circles looks entirely normal in
+    the output, so there is nothing to fall back to."""
+    zones = tmp_path / "rainfall-zones"
+    zones.mkdir()
+    (zones / f"{'c' * 64}.json").write_text("{}")
+    monkeypatch.setattr(script, "ZONES_DIR", zones)
+
+    with pytest.raises(SystemExit, match="current.json"):
+        script.newest_zones()
+
+
+def test_a_pointer_naming_a_table_that_is_not_there_is_fatal(script, tmp_path,
+                                                             monkeypatch):
+    zones = tmp_path / "rainfall-zones"
+    zones.mkdir()
+    (zones / "current.json").write_text(json.dumps({"revision_id": "d" * 64}))
+    monkeypatch.setattr(script, "ZONES_DIR", zones)
+
+    with pytest.raises(SystemExit, match="not on disk"):
+        script.newest_zones()

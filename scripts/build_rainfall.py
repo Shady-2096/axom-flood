@@ -76,7 +76,17 @@ from axom_flood.rainfall.windows import RAINFALL_WINDOW_HOURS, accumulate_window
 from axom_flood.rainfall.zonal import CellWeight, ZonalWeights  # noqa: E402
 
 ZONES_DIR = ROOT / "data" / "processed" / "rainfall-zones"
-SUBSET_DIR = ROOT / "data" / "processed" / "imerg-subsets"
+
+#: Where fetched subsets are kept between runs. Overridable because the only
+#: thing standing between a scheduled run and a five-and-a-half-minute refetch of
+#: all 144 half hours is a cache that survives the container. Cloud Run clones
+#: the repository into a fresh temporary directory every execution, so the
+#: default path is thrown away with it; pointing this at a mounted bucket turns a
+#: run into the four granules that are actually new. The pipeline is correct
+#: either way — an empty cache costs time, never accuracy.
+SUBSET_DIR = Path(
+    os.environ.get("RAINFALL_SUBSET_DIR") or ROOT / "data" / "processed" / "imerg-subsets"
+)
 OUT_DIR = ROOT / "data" / "processed" / "rainfall"
 STATIC_DIR = ROOT / "static" / "data"
 POINTER = STATIC_DIR / "rainfall-current.json"
@@ -103,14 +113,41 @@ _GRANULE_MINUTES = 30
 FETCH_WORKERS = int(os.environ.get("RAINFALL_FETCH_WORKERS", "1"))
 
 
+def _under_root(path: Path) -> str:
+    """A repository-relative path when it is one, and the full path otherwise.
+
+    The subset cache can be pointed anywhere, so a message about it must not
+    itself raise when the path lies outside the checkout.
+    """
+
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
 def newest_zones() -> tuple[Path, dict[str, Any]]:
-    candidates = sorted(ZONES_DIR.glob("*.json"))
-    if not candidates:
-        raise SystemExit(
-            "no zone weights found; run scripts/build_rainfall_zones.py first"
-        )
-    newest = max(candidates, key=lambda path: path.stat().st_mtime)
-    return newest, json.loads(newest.read_text())
+    """The zone table `current.json` points at.
+
+    This used to take the newest modification time, which is correct on a working
+    copy and wrong on a fresh clone: `git checkout` stamps every file at once, so
+    "newest" collapses to whichever hash sorts first. On a clean clone of this
+    repository that chose the 82-circle table over the 101-circle one, silently,
+    which is exactly the failure a scheduled job would never report.
+
+    A missing pointer is fatal rather than a fallback to guessing. Publishing
+    rainfall for the wrong set of circles looks entirely normal in the output.
+    """
+
+    pointer = ZONES_DIR / "current.json"
+    shown = _under_root(pointer)
+    if not pointer.exists():
+        raise SystemExit(f"no {shown}; run scripts/build_rainfall_zones.py first")
+    revision = json.loads(pointer.read_text())["revision_id"]
+    target = ZONES_DIR / f"{revision}.json"
+    if not target.exists():
+        raise SystemExit(f"{shown} points at {revision}, which is not on disk")
+    return target, json.loads(target.read_text())
 
 
 def weights_from_zone(zone: dict[str, Any], cell_degrees: float) -> ZonalWeights:

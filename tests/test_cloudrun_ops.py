@@ -86,3 +86,40 @@ def test_retired_public_watchdog_is_manual_only() -> None:
     assert "workflow_dispatch:" in trigger_block
     assert "schedule:" not in trigger_block
     assert "cron:" not in trigger_block
+
+
+def test_rainfall_is_its_own_job_and_refuses_to_run_without_a_token() -> None:
+    """Separate from the CWC job on purpose. River level is what people came for
+    and rainfall is context, so a NASA outage or an expired Earthdata token must
+    not be able to hold up a gauge reading."""
+    entrypoint = (ROOT / "ops/cloudrun/run-job.sh").read_text()
+    rainfall = entrypoint.split("  rainfall)", 1)[1].split("    ;;", 1)[0]
+
+    assert "prepare_checkout" in rainfall
+    assert "EARTHDATA_TOKEN is required" in rainfall
+    assert "uv run python scripts/build_rainfall.py --publish" in rainfall
+    assert 'publish_changes "data: refresh satellite rainfall from Cloud Run"' in rainfall
+    # No bundle rebuild: the rainfall artifact and its pointer load separately
+    # from the content bundle, and rebuilding it here would only give two jobs a
+    # file to fight over.
+    assert "build_pwa_bundle" not in rainfall
+
+    cwc = entrypoint.split("  cwc)", 1)[1].split("    ;;", 1)[0]
+    assert "build_rainfall" not in cwc
+
+
+def test_a_publish_that_lost_the_race_rebases_instead_of_forcing() -> None:
+    entrypoint = (ROOT / "ops/cloudrun/run-job.sh").read_text()
+
+    assert "git fetch --depth 50 origin main" in entrypoint
+    assert "git rebase origin/main" in entrypoint
+    assert "--force" not in entrypoint
+    assert "-f origin" not in entrypoint
+
+
+def test_the_publisher_defaults_to_the_public_repository() -> None:
+    """`Shady-2096/Axom-floods` is the decommissioned private predecessor. A
+    deploy that forgot the environment variable used to push into it."""
+    entrypoint = (ROOT / "ops/cloudrun/run-job.sh").read_text()
+
+    assert "AXOM_GITHUB_REPOSITORY:-Shady-2096/axom-flood}" in entrypoint
