@@ -50,7 +50,12 @@ from math import floor
 from typing import Any
 
 from .imerg import IMERG_POLICIES, ImergRun
-from .imerg_client import ImergClient, ImergGranule, publication_time
+from .imerg_client import (
+    PATH_VERIFIED_AGAINST_LIVE_ARCHIVE,
+    ImergClient,
+    ImergGranule,
+    publication_time,
+)
 from .provenance import SourceRevision, require_aware
 from .zonal import grid_cell_id
 
@@ -237,7 +242,7 @@ class SubsetRequest:
             "requested_cells": self.cell_count,
             "url": self.url,
             "describe_url": self.describe_url,
-            "path_verified_against_live_archive": False,
+            "path_verified_against_live_archive": PATH_VERIFIED_AGAINST_LIVE_ARCHIVE,
         }
 
 

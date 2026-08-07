@@ -33,6 +33,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import UTC, datetime, timedelta
 from hashlib import sha256
@@ -50,9 +51,11 @@ from axom_flood.rainfall.imerg import (  # noqa: E402
     parse_imerg_observations,
 )
 from axom_flood.rainfall.imerg_client import (  # noqa: E402
+    PATH_VERIFIED_AGAINST_LIVE_ARCHIVE,
     ImergAuthError,
     ImergClient,
     ImergCredentialsMissing,
+    ImergRequestTimeout,
     discover_granules,
 )
 from axom_flood.rainfall.sentence import (  # noqa: E402
@@ -84,9 +87,17 @@ LOOKBACK_HOURS = max(RAINFALL_WINDOW_HOURS)
 
 _GRANULE_MINUTES = 30
 
-#: How many half hours to fetch at once. See the comment at the call site: this
-#: is a courtesy limit on a shared public archive, not a tuning knob.
-FETCH_WORKERS = 6
+#: How many half hours to fetch at once.
+#:
+#: Started at 6 and was lowered to 2 after the first concurrent run stalled: six
+#: requests in flight for fifteen minutes, nothing downloaded, nothing raised.
+#: The cause was never proved — either GES DISC serialises OPeNDAP requests per
+#: user, or it was trickling responses under a read timeout that restarts on
+#: every chunk. `ImergClient` now measures each request and fails on a deadline,
+#: so the next run says which. Two is the conservative setting to learn from; it
+#: is also a courtesy limit on a shared public archive, not a tuning knob to
+#: turn up until something breaks.
+FETCH_WORKERS = int(os.environ.get("RAINFALL_FETCH_WORKERS", "2"))
 
 
 def newest_zones() -> tuple[Path, dict[str, Any]]:
@@ -201,6 +212,28 @@ def store_subset(path: Path, content: bytes) -> None:
     path.write_bytes(content)
 
 
+def _timed_fetch(
+    client: ImergClient,
+    request: Any,
+    *,
+    fetched_at: datetime,
+    keep_cell_ids: set[str],
+) -> tuple[Any, float]:
+    """`fetch_subset` with a stopwatch on it.
+
+    The per-request wall time is the number that tells an operator whether the
+    archive is slow, whether concurrency is helping, or whether requests are
+    being queued behind each other — none of which was visible when this only
+    reported a total.
+    """
+
+    started = time.monotonic()
+    download = fetch_subset(
+        client, request, fetched_at=fetched_at, keep_cell_ids=keep_cell_ids
+    )
+    return download, time.monotonic() - started
+
+
 def collect_observations(
     *,
     client: ImergClient | None,
@@ -232,6 +265,7 @@ def collect_observations(
         absent.extend(granule.filename for granule in missing)
         missing = []
 
+    fetch_seconds: list[float] = []
     if missing:
         # Measured at about 40 seconds per half hour: GES DISC cuts the box out
         # of a global HDF5 file for every request, and that dominates. Serially
@@ -241,12 +275,13 @@ def collect_observations(
         # Modest on purpose. This is a shared public archive, and the point is
         # to stop waiting on one round trip at a time, not to pull as hard as
         # the server will allow.
+        started = time.monotonic()
         if verbose:
             print(f"fetching       {len(missing)} half hours, {FETCH_WORKERS} at a time")
         with ThreadPoolExecutor(max_workers=FETCH_WORKERS) as pool:
             futures = {
                 pool.submit(
-                    fetch_subset,
+                    _timed_fetch,
                     client,
                     subset_request(granule, box),
                     fetched_at=fetched_at,
@@ -257,20 +292,50 @@ def collect_observations(
             for done, future in enumerate(as_completed(futures), start=1):
                 granule = futures[future]
                 try:
-                    download = future.result()
+                    download, seconds = future.result()
                 except httpx.HTTPStatusError as error:
                     if error.response.status_code == 404:
                         absent.append(granule.filename)
                         continue
                     raise
+                except ImergRequestTimeout as error:
+                    # Loud on purpose. The failure this replaces was a run that
+                    # sat for fifteen minutes and then reported success with no
+                    # new files, which is the worst possible way to be wrong.
+                    raise SystemExit(
+                        f"{granule.filename}: {error}\n"
+                        f"  {downloaded} of {len(missing)} half hours had been "
+                        f"downloaded when this stalled. Cached subsets are kept, "
+                        f"so re-running resumes. If this repeats, try "
+                        f"RAINFALL_FETCH_WORKERS=1."
+                    ) from error
                 except SubsetError as error:
                     raise SystemExit(f"{granule.filename}: {error}") from error
                 store_subset(cached_subset_path(run, granule.filename), download.content)
                 downloaded += 1
+                fetch_seconds.append(seconds)
                 if download.observed_latency_hours is not None:
                     latencies.append(download.observed_latency_hours)
-                if verbose and done % 24 == 0:
-                    print(f"  … {done}/{len(missing)}")
+                # Every tenth, not every twenty-fourth. A cold 72-hour window is
+                # 144 granules at roughly 40 seconds each, and a line every 16
+                # minutes is indistinguishable from a hung process.
+                if verbose and done % 10 == 0:
+                    rate = (time.monotonic() - started) / done
+                    left = (len(missing) - done) * rate
+                    print(
+                        f"  … {done}/{len(missing)}  "
+                        f"{seconds:.0f}s last, {rate:.0f}s each, "
+                        f"~{left / 60:.0f} min left"
+                    )
+        if verbose and fetch_seconds:
+            ordered = sorted(fetch_seconds)
+            print(
+                f"request times  fastest {ordered[0]:.0f}s, "
+                f"median {ordered[len(ordered) // 2]:.0f}s, "
+                f"slowest {ordered[-1]:.0f}s, "
+                f"{time.monotonic() - started:.0f}s of wall clock for "
+                f"{len(fetch_seconds)} at {FETCH_WORKERS} at a time"
+            )
 
     # Parsed in granule order, from disk, after every fetch has settled. The
     # windows care about a continuous series, and reading it back in one pass
@@ -300,6 +365,19 @@ def collect_observations(
         "first_absent": absent[:5],
         "observed_latency_hours": (
             round(sum(latencies) / len(latencies), 3) if latencies else None
+        ),
+        # How long the archive took, kept with the numbers it produced. A run
+        # that took four times as long as the last one is the first sign that
+        # the two-hourly schedule is about to stop fitting, and it should be
+        # readable from the artifact rather than from a lost terminal.
+        "fetch_workers": FETCH_WORKERS if downloaded else None,
+        "median_request_seconds": (
+            round(sorted(fetch_seconds)[len(fetch_seconds) // 2], 1)
+            if fetch_seconds
+            else None
+        ),
+        "slowest_request_seconds": (
+            round(max(fetch_seconds), 1) if fetch_seconds else None
         ),
     }
 
@@ -396,7 +474,7 @@ def build_document(
             "documented_typical_latency_hours": policy.typical_latency_hours,
             "stale_after_hours": policy.typical_latency_hours + STALE_MARGIN_HOURS,
             "use_note": policy.use_note,
-            "path_verified_against_live_archive": False,
+            "path_verified_against_live_archive": PATH_VERIFIED_AGAINST_LIVE_ARCHIVE,
         },
         "shared_text": {
             "estimate_note": ESTIMATE_NOTE,

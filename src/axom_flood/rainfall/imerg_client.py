@@ -24,15 +24,31 @@ window that was. `ImergDownload.observed_latency_hours` is that measurement.
 `IMERG_POLICIES[...].typical_latency_hours` stays a documented expectation to
 compare against, and nothing in the pipeline is allowed to treat it as fact.
 
-⚠️ The archive path convention below is written from NASA's published naming and
-has **not** been confirmed against the live archive**,** because no credentials
-exist yet. `scripts/smoke_imerg.py` is the one command that confirms it. Until
-that has been run against a real account, treat granule URLs as unverified —
-the fixtures prove the parsing and the arithmetic, not the path.
+The archive path was confirmed on 2026-08-07
+--------------------------------------------
+
+The path convention below started as a reading of NASA's published naming, with
+no account to test it against. `scripts/smoke_imerg.py` has since run against a
+real Earthdata token and the live archive answered: the version letter was wrong
+(`V07C`, not `V07B`) and the OPeNDAP variable name was wrong (Hyrax flattens
+`Grid/precipitation` to `precipitation`). Everything else was right. Both are
+fixed, and `PATH_VERIFIED_AGAINST_LIVE_ARCHIVE` is now true.
+
+Requests are measured, not merely attempted
+-------------------------------------------
+
+One subset takes about 40 seconds, because GES DISC cuts the Assam box out of a
+global file per request. The first concurrent run of the pipeline hung for
+fifteen minutes with six requests in flight, produced nothing, and raised
+nothing, because httpx's read timeout restarts on every chunk and never fires
+against a server that trickles. `ImergClient.get` therefore streams under a
+wall-clock deadline and records how long every request took, so the next time it
+is slow the run says so instead of sitting there.
 """
 
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from typing import Any
@@ -64,6 +80,34 @@ DEFAULT_VERSION_SUFFIX = "V07C"
 #: Half-hourly. A granule covers [start, start + 30 minutes).
 GRANULE_MINUTES = 30
 
+#: Whether the archive path convention has been confirmed against live GES DISC.
+#:
+#: True since 2026-08-07, when real Late-run granules came back, parsed, and
+#: matched the box that was asked for. It was written as a hard-coded `False` in
+#: four artifacts while nobody had credentials; leaving it that way after the
+#: archive had answered would put a false disclaimer on every record we publish,
+#: which is the same failure as a false confidence in the other direction.
+PATH_VERIFIED_AGAINST_LIVE_ARCHIVE = True
+
+#: The date of that confirmation, for the record. Not published in artifacts —
+#: the boolean is the contract, and this is what it is based on.
+PATH_VERIFIED_ON = "2026-08-07"
+
+#: How long one request may take, wall clock, before it is called a failure.
+#:
+#: A single OPeNDAP subset takes roughly 40 seconds because GES DISC cuts the
+#: Assam box out of a global HDF5 file on every request. httpx's read timeout is
+#: no protection against that going wrong: it restarts on every chunk received,
+#: so a server trickling one byte a minute never trips it and the request hangs
+#: for as long as the process lives. This is a deadline on the whole exchange,
+#: generous enough that a merely slow archive still succeeds.
+REQUEST_DEADLINE_SECONDS = 300.0
+
+#: Connect, read, write, and pool timeouts. The read timeout stays well below the
+#: deadline so an archive that stops sending entirely fails quickly, while
+#: `REQUEST_DEADLINE_SECONDS` catches the trickle the read timeout cannot see.
+DEFAULT_TIMEOUT_SECONDS = 120.0
+
 _RUN_FILE_LETTER = {ImergRun.EARLY: "E", ImergRun.LATE: "L"}
 
 
@@ -86,6 +130,25 @@ class ImergAuthError(RuntimeError):
             f"Earthdata returned HTTP {status_code}. A valid token is not enough: "
             "the GES DISC application must also be authorised once, under "
             f"{EARTHDATA_LOGIN_URL} Applications → Authorized Apps"
+        )
+
+
+class ImergRequestTimeout(RuntimeError):
+    """One request ran past its wall-clock deadline instead of finishing.
+
+    Named separately from httpx's own timeouts because it means something
+    different. An httpx read timeout means the archive went quiet. This means the
+    archive kept talking and never finished, which is the failure that hung the
+    first concurrent run of this pipeline for fifteen minutes without an error.
+    """
+
+    def __init__(self, *, url: str, elapsed_seconds: float, bytes_received: int) -> None:
+        self.url = url
+        self.elapsed_seconds = elapsed_seconds
+        self.bytes_received = bytes_received
+        super().__init__(
+            f"gave up after {elapsed_seconds:.0f}s with {bytes_received} bytes "
+            f"received; the archive was still sending. {url}"
         )
 
 
@@ -113,7 +176,7 @@ class ImergGranule:
             "filename": self.filename,
             "url": self.url,
             "version_suffix": self.version_suffix,
-            "path_verified_against_live_archive": False,
+            "path_verified_against_live_archive": PATH_VERIFIED_AGAINST_LIVE_ARCHIVE,
         }
 
 
@@ -235,7 +298,8 @@ class ImergClient:
         *,
         enabled: bool = False,
         bearer_token: str | None = None,
-        timeout: float = 120,
+        timeout: float = DEFAULT_TIMEOUT_SECONDS,
+        deadline_seconds: float = REQUEST_DEADLINE_SECONDS,
         transport: httpx.BaseTransport | None = None,
         archive_base: str = GES_DISC_BASE,
         version_suffix: str = DEFAULT_VERSION_SUFFIX,
@@ -243,6 +307,12 @@ class ImergClient:
         self.enabled = enabled
         self.archive_base = archive_base
         self.version_suffix = version_suffix
+        self.deadline_seconds = deadline_seconds
+        #: Wall-clock seconds for every completed request, newest last. Threads
+        #: append to it, and `list.append` is atomic under the GIL, so no lock is
+        #: needed for the one thing this is for: telling an operator afterwards
+        #: how long the archive actually took per granule.
+        self.request_seconds: list[float] = []
         self._token = (bearer_token or "").strip() or None
         self._client = httpx.Client(
             timeout=timeout, transport=transport, follow_redirects=True
@@ -268,7 +338,7 @@ class ImergClient:
             "archive_base": self.archive_base,
             "version_suffix": self.version_suffix,
             "ready": self.enabled and self._token is not None,
-            "path_verified_against_live_archive": False,
+            "path_verified_against_live_archive": PATH_VERIFIED_AGAINST_LIVE_ARCHIVE,
         }
 
     def check_configuration(self) -> None:
@@ -287,14 +357,54 @@ class ImergClient:
         Public because the OPeNDAP subset path and the smoke test's `--describe`
         step need the same auth handling against URLs that are not granule
         downloads.
+
+        Streamed rather than read in one call so the body can be measured against
+        a wall clock while it arrives. That is the only way to notice an archive
+        that answers, starts sending, and then never stops — see
+        `ImergRequestTimeout`. Every completed request's duration is appended to
+        `request_seconds`, which is what makes a slow run legible instead of
+        merely slow.
         """
 
         self.check_configuration()
-        response = self._client.get(url, headers={"Authorization": f"Bearer {self._token}"})
-        if response.status_code in {401, 403}:
-            raise ImergAuthError(status_code=response.status_code)
-        response.raise_for_status()
-        return response
+        started = time.monotonic()
+        deadline = started + self.deadline_seconds
+        with self._client.stream(
+            "GET", url, headers={"Authorization": f"Bearer {self._token}"}
+        ) as streaming:
+            if streaming.status_code in {401, 403}:
+                raise ImergAuthError(status_code=streaming.status_code)
+            if streaming.status_code >= 400:
+                # Hyrax puts the reason in the body, and `raise_for_status` on an
+                # unread streaming response would report nothing at all.
+                streaming.read()
+                streaming.raise_for_status()
+
+            chunks: list[bytes] = []
+            received = 0
+            for chunk in streaming.iter_bytes():
+                chunks.append(chunk)
+                received += len(chunk)
+                if time.monotonic() > deadline:
+                    raise ImergRequestTimeout(
+                        url=url,
+                        elapsed_seconds=time.monotonic() - started,
+                        bytes_received=received,
+                    )
+            headers = streaming.headers
+            request = streaming.request
+            status_code = streaming.status_code
+
+        self.request_seconds.append(time.monotonic() - started)
+        # Rebuilt rather than returned, because a streamed response's body is
+        # gone once its context closes. Same status, headers, and final URL, with
+        # the bytes now in hand.
+        return httpx.Response(
+            status_code=status_code,
+            headers=headers,
+            content=b"".join(chunks),
+            request=request,
+        )
 
     def fetch_granule(
         self,

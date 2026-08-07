@@ -346,12 +346,30 @@ token is not sufficient on its own — GES DISC must also be authorised once und
 Earthdata → Applications → Authorized Apps. A 403 with a working token almost
 always means that step was missed.
 
-⚠️ **Unverified as of 2026-08-07.** An Earthdata account now exists, but no live
-request has been made from it yet, so every IMERG test still runs against
-synthetic bytes. Those tests prove the refusals, the granule arithmetic, the
-subset parse, and that latency is measured rather than assumed. They do **not**
-prove the archive path, the `V07B` version suffix, the OPeNDAP variable names, or
-the token flow.
+**Verified against the live archive on 2026-08-07.** Real Assam rainfall came
+back, parsed, and landed inside the box that was asked for. Two things this
+repository had written down were wrong, and neither could have been caught by a
+test:
+
+| Thing | Written from the docs | What the archive returns |
+| --- | --- | --- |
+| Version suffix | `V07B` | **`V07C`** — `V07B` 404s on every granule |
+| OPeNDAP variable | `Grid/precipitation` | **`precipitation`** — Hyrax flattens the group |
+| Dimension order | `[time][lon][lat]` | confirmed correct |
+| Fill value | −9999.9 | confirmed correct (`-9999.900391`) |
+
+Both are fixed. Everything else in the filename convention was right first time.
+
+**Measured latency, 2026-08-06 19:05 UTC.** Late run 15.1 hours behind its own
+newest window, against a documented expectation of 14. Early run 5.1 hours,
+against a documented 4. Both healthy, both slower than the documentation, which
+is the reason the pipeline measures rather than assumes.
+
+That measurement forced a copy change. The Late run is never *fresh* by any
+sensible threshold, so a rule that said "the last 24 hours" whenever the estimate
+was not stale would have said it about a window that closed most of a day
+earlier. The wording now depends on how long ago the window ended, and staleness
+stays a separate question about whether the pipeline is stuck.
 
 ```
 uv run python scripts/smoke_imerg.py --dry-run    # prints the URL, no account needed
@@ -360,14 +378,12 @@ uv run python scripts/smoke_imerg.py --subset     # the Assam box, the path the 
 uv run python scripts/smoke_imerg.py              # one whole global granule
 ```
 
-`--describe` is the one to run first. It asks OPeNDAP for the server's own
-listing of variable names, which is the single thing this repository is guessing
-about. `--subset` then exercises the real path end to end.
+`--describe` remains the command to run first when anything about the path stops
+working, because it asks OPeNDAP for the server's own listing of variable names.
+That is how the two corrections above were found.
 
-Until that second command has passed once, granule URLs are a documented
-convention and not a confirmed fact. The zonal weights in
-`data/processed/rainfall-zones/` do not depend on any of this — they are geometry
-and were built without an account.
+The zonal weights in `data/processed/rainfall-zones/` do not depend on any of
+this — they are geometry and were built without an account.
 
 **From a grid to a sentence.** Three steps sit between a downloaded granule and
 something a person reads, and each refuses rather than estimates:
@@ -392,19 +408,13 @@ covers the planet and Assam is 518 of its cells, so a 72-hour window would mean
 gigabytes of transfer to keep a few kilobytes. The subset arrives as text, which
 also keeps the runtime at httpx with no HDF5 reader and no compiled wheels.
 
-⚠️ **The variable names and the index convention are still unverified.** They are
-written from NASA's published grid documentation, not read off the live server.
-What makes that safe to ship rather than a synthetic success path is the one rule
-the parser is built around: **cell coordinates are read from the `lon` and `lat`
-arrays the server returns, never computed from the array index.** The index
-arithmetic only chooses which slice to ask for. If the convention is wrong, the
-coordinates that come back fall outside the requested box and the whole subset is
-refused. A wrong guess can therefore produce a refusal; it cannot produce
-rainfall pinned to the wrong place.
-
-The remaining unverifiable pieces are the variable spelling, the ASCII response
-flavour, and the `V07B` suffix. All three fail loudly and all three are what
-`--describe` and `--subset` settle in one run.
+The index convention held up against the live server, but the rule that made it
+safe to ship before anyone knew that is worth keeping in mind: **cell coordinates
+are read from the `lon` and `lat` arrays the server returns, never computed from
+the array index.** The index arithmetic only chooses which slice to ask for. If
+the convention were wrong, the coordinates coming back would fall outside the
+requested box and the whole subset would be refused. A wrong guess can produce a
+refusal; it cannot produce rainfall pinned to the wrong place.
 
 **The pipeline.** `scripts/build_rainfall.py` runs the chain and publishes:
 
@@ -418,6 +428,27 @@ Subsets are cached under `data/processed/imerg-subsets/<run>/` and written once.
 The same granule filename arriving with different numbers means NASA reprocessed
 the record without changing the version letter, and the build stops rather than
 adopting it silently.
+
+⚠️ **This is slow, and the cache is the whole difference.** One subset takes
+about 40 seconds, because GES DISC cuts the Assam box out of a global file on
+every request. A cold 72-hour window is 144 granules, so roughly 95 minutes
+serially. With a warm cache a two-hourly run needs only the 4 new half hours,
+about three minutes. Cloud Run has no persistent disk, so a job scheduled there
+pays the cold price every time unless the cache lives somewhere it survives.
+**That decision is open.** The options are a GCS bucket, a shorter lookback that
+gives up the 72-hour window, or publishing from the owner's Mac the way the
+ASDMA bulletin already does. Committing the subsets was rejected: they are about
+126 KB each, 6 MB a day, in a repository that is otherwise text.
+
+Raising `RAINFALL_FETCH_WORKERS` is not the fix, and may be the opposite. The
+first concurrent run — six at a time — sat for fifteen minutes, downloaded
+nothing, and raised nothing. The cause was never proved: either GES DISC
+serialises OPeNDAP requests per user, or it trickled responses slowly enough
+that httpx's read timeout, which restarts on every chunk, never fired. The
+client now streams under a wall-clock deadline and records how long each request
+took, and the build prints the fastest, median, and slowest and writes the median
+and slowest into the artifact's `coverage` block. So the next slow run says which
+of the two it is instead of hanging. The default is 2.
 
 The published artifact carries no build timestamp, so two runs that compute the
 same rainfall produce one file under one digest and a rebuild is not a fresh

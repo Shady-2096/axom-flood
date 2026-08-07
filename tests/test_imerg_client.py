@@ -1,13 +1,16 @@
 """What the IMERG client must refuse, and what it must record.
 
-No NASA account exists yet, so every response here is synthetic. That limits what
-these tests can prove: they prove the refusals, the granule arithmetic, and that
-a measured latency is recorded rather than assumed. They do **not** prove the
-archive path is right. Only `scripts/smoke_imerg.py` against a real account can.
+Every response here is synthetic, which bounds what these tests can prove: the
+refusals, the granule arithmetic, the wall-clock deadline, and that a measured
+latency is recorded rather than assumed. They do **not** prove the archive path
+is right. `scripts/smoke_imerg.py` did that, against a real Earthdata account on
+2026-08-07, and found two things wrong that no synthetic fixture could have
+caught — the version letter and the OPeNDAP variable name.
 """
 
 from __future__ import annotations
 
+import time
 from datetime import UTC, datetime
 
 import httpx
@@ -19,6 +22,7 @@ from axom_flood.rainfall.imerg_client import (
     ImergAuthError,
     ImergClient,
     ImergCredentialsMissing,
+    ImergRequestTimeout,
     discover_granules,
     granule_for,
 )
@@ -28,6 +32,23 @@ FETCHED_AT = datetime(2026, 8, 2, 12, 0, tzinfo=UTC)
 
 def transport(handler) -> httpx.MockTransport:
     return httpx.MockTransport(handler)
+
+
+class Trickle(httpx.SyncByteStream):
+    """A server that answers, keeps sending, and takes forever about it.
+
+    This is the shape of the failure that hung the pipeline: bytes keep arriving,
+    so httpx's read timeout restarts on every one of them and never fires.
+    """
+
+    def __init__(self, chunks: int, pause: float) -> None:
+        self._chunks = chunks
+        self._pause = pause
+
+    def __iter__(self):
+        for _ in range(self._chunks):
+            time.sleep(self._pause)
+            yield b"x"
 
 
 def ok(headers=None):
@@ -83,11 +104,61 @@ def test_an_empty_body_is_an_error_and_never_a_dry_half_hour():
             client.fetch_granule(granule, fetched_at=FETCHED_AT)
 
 
-def test_access_state_says_the_path_is_still_unverified():
+def test_access_state_separates_not_ready_from_an_unverified_path():
+    """Two different facts that used to move together, and no longer do.
+
+    `ready` is about this process: enabled, with a token. The path claim is about
+    the archive, and it has been true since the live check on 2026-08-07. A
+    client with no credentials still reports the verified path, because that is
+    a property of the code, not of whoever is running it.
+    """
+
     with ImergClient() as client:
         state = client.access_state()
     assert state["ready"] is False
-    assert state["path_verified_against_live_archive"] is False
+    assert state["path_verified_against_live_archive"] is True
+
+
+# --- the wall clock ------------------------------------------------------
+
+
+def test_a_response_that_never_finishes_fails_instead_of_hanging():
+    def handler(request):
+        return httpx.Response(200, stream=Trickle(chunks=200, pause=0.01))
+
+    with ImergClient(
+        enabled=True,
+        bearer_token="t",
+        deadline_seconds=0.05,
+        transport=transport(handler),
+    ) as client, pytest.raises(ImergRequestTimeout) as caught:
+        client.get("https://example.invalid/granule.ascii")
+
+    # The message has to carry enough to tell a trickle apart from a dead
+    # connection: bytes did arrive, and it still did not finish.
+    assert caught.value.bytes_received > 0
+    assert "still sending" in str(caught.value)
+
+
+def test_a_finished_request_records_how_long_it_took():
+    with ImergClient(
+        enabled=True, bearer_token="t", transport=transport(ok())
+    ) as client:
+        client.get("https://example.invalid/granule.ascii")
+        client.get("https://example.invalid/granule.ascii")
+        assert len(client.request_seconds) == 2
+        assert all(seconds >= 0 for seconds in client.request_seconds)
+
+
+def test_a_streamed_body_survives_the_stream_closing():
+    """The bytes must still be there once `get` returns, not a closed stream."""
+
+    with ImergClient(
+        enabled=True, bearer_token="t", transport=transport(ok())
+    ) as client:
+        response = client.get("https://example.invalid/granule.ascii")
+    assert response.content == b"hdf5-bytes"
+    assert response.status_code == 200
 
 
 # --- granule arithmetic --------------------------------------------------
