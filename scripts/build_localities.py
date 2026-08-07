@@ -39,6 +39,11 @@ from axom_flood.gauges import decisions as gauge_decisions
 # copied so a rebuild and the audit can never disagree about a circle's centre.
 from axom_flood.geometry import corrected_centre, load_circle_outlines
 
+# One village name can be recorded for schools 100 km apart, and the district
+# column is too coarse to tell them apart. Shared with the boundary scorer so a
+# centre and the boundary it is scored against are built from the same points.
+from axom_flood.udise.villages import coherent_village_points
+
 DISTRICT_LOOKUP = load_district_lookup()
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -300,6 +305,13 @@ def census_rows(path: Path) -> tuple[list[dict[str, str]], str]:
 
 
 def udise_centres(path: Path) -> dict[tuple[str, str], list[tuple[float, float]]]:
+    """School coordinates per district-and-village-name key.
+
+    A key whose schools are scattered is thrown away rather than averaged. The
+    district is too coarse to separate repeated village names inside it, so a
+    name can collect schools 100 km apart, and the median of those lands in
+    empty ground between them. See `axom_flood.udise.villages`.
+    """
     points: dict[tuple[str, str], list[tuple[float, float]]] = defaultdict(list)
     with path.open(newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
@@ -308,7 +320,12 @@ def udise_centres(path: Path) -> dict[tuple[str, str], list[tuple[float, float]]
             except (TypeError, ValueError):
                 continue
             points[(fold(row["district"]), fold(row["village"]))].append(point)
-    return points
+    coherent = {
+        key: kept
+        for key, group in points.items()
+        if (kept := coherent_village_points(group))
+    }
+    return defaultdict(list, coherent)
 
 
 def udise_district_key(value: str) -> str:

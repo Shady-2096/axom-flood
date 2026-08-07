@@ -78,6 +78,20 @@ school in three is not its own is describing a neighbour's land, and a rainfall
 average over it would be attributed to the wrong place — which is worse than
 publishing nothing.
 
+A share can still hide a swallowed neighbour
+--------------------------------------------
+A share has a denominator, and a big outline with many of its own points can
+absorb a small circle whole without the share ever reaching a third. Phuloni does
+exactly this to Donka once the village-name join is cleaned up: it holds all six
+points Donka has left, and Donka has none anywhere else, but that is only 18% of
+Phuloni's contents. The share test lets it through; the fact that a circle has
+nowhere left to be does not.
+
+So `swallowed` records any circle whose every known point sits inside this
+outline. It is deliberately not a share. It fires on the circle whose evidence
+has been taken, however little evidence that is, and a circle it fires on is
+refused regardless of how good its own agreement looks.
+
 What a score is not
 -------------------
 A low score means the outline and the school points disagree. It does not say
@@ -98,6 +112,7 @@ from math import ceil, cos, floor, hypot, isinf, radians
 from pathlib import Path
 
 from axom_flood.geometry import Ring, point_in_rings
+from axom_flood.udise.villages import coherent_village_points
 
 # Below this many independent points a percentage is not evidence. Twelve is not
 # a statistical threshold; it is the point at which one bad village name stops
@@ -110,6 +125,13 @@ MIN_POINTS_FOR_A_SCORE = 12
 #: over a neighbour's ground, and an average computed over it belongs to the
 #: neighbour. See `measure_contamination`.
 MAX_FOREIGN_SHARE = 0.33
+
+#: How many points a circle must have before an outline holding all of them
+#: counts as having swallowed it. Three, because one or two points inside a
+#: neighbour is the border fringe `MAX_FOREIGN_SHARE` already tolerates, while a
+#: circle with no point left outside somebody else's outline has nowhere to be.
+#: See `measure_contamination`.
+MIN_POINTS_TO_BE_SWALLOWED = 3
 
 #: How far outside its own outline a point may sit and still count as agreement.
 #: See the module docstring: this is the resolution of the question, not a
@@ -246,7 +268,13 @@ def school_points_by_locality(
         # schools belong to, so it is dropped rather than counted for both.
         if not claimants or len(claimants) != 1:
             continue
-        points[next(iter(claimants))].extend(owners)
+        # Being claimed by one circle is not the same as being one village. The
+        # district is too coarse to separate repeated names inside it, so the
+        # schools themselves have to agree on where the village is.
+        coherent = coherent_village_points(owners)
+        if not coherent:
+            continue
+        points[next(iter(claimants))].extend(coherent)
     return dict(points)
 
 
@@ -520,6 +548,9 @@ class Contamination:
     #: The biggest contributors, worst first. Names the neighbour whose ground
     #: this outline has taken, which is the first thing a repair needs.
     worst_sources: tuple[tuple[str, int], ...] = ()
+    #: Circles of which this outline holds every known point, with that count.
+    #: See `MIN_POINTS_TO_BE_SWALLOWED`.
+    swallowed: tuple[tuple[str, int], ...] = ()
 
     @property
     def foreign_share(self) -> float | None:
@@ -562,12 +593,18 @@ def measure_contamination(
                     foreign[holder] += 1
                     sources[holder][owner] += 1
 
+    totals = {owner: len(owned) for owner, owned in points.items()}
     return {
         locality_id: Contamination(
             locality_id=locality_id,
             own_inside=own[locality_id],
             foreign_inside=foreign[locality_id],
             worst_sources=tuple(sources[locality_id].most_common(5)),
+            swallowed=tuple(
+                (owner, held)
+                for owner, held in sources[locality_id].most_common()
+                if held >= MIN_POINTS_TO_BE_SWALLOWED and held == totals.get(owner)
+            ),
         )
         for locality_id in cells
     }

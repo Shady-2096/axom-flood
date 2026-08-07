@@ -17,6 +17,7 @@ from axom_flood.boundaries.osm import (
     stitch_rings,
 )
 from axom_flood.boundaries.quality import (
+    MAX_FOREIGN_SHARE,
     MIN_POINTS_FOR_A_SCORE,
     TOLERANCE_KM,
     CircleScore,
@@ -267,6 +268,35 @@ def test_a_circle_holding_only_its_own_points_is_not_contaminated():
     assert dirt["b"].foreign_share == 0.0
 
 
+def test_an_outline_holding_a_whole_circle_is_named_even_below_the_share_bar():
+    """Phuloni holds every point Donka has left while that is only 18% of its own
+    contents. A share cannot see it; a circle with nowhere to be is the signal."""
+    outlines = {"wide": [square(0.0, 26.0, 2.0)], "small": [square(0.2, 26.2, 0.2)]}
+    cells, _ = measure_topology(outlines)
+    points = {
+        "wide": [(1.5, 27.5), (1.6, 27.5), (1.7, 27.5), (1.8, 27.5), (1.9, 27.5)] * 4,
+        "small": [(0.25, 26.25), (0.28, 26.28), (0.22, 26.22)],
+    }
+
+    dirt = measure_contamination(cells, points)
+
+    assert dirt["wide"].foreign_share == pytest.approx(3 / 23)
+    assert dirt["wide"].foreign_share < MAX_FOREIGN_SHARE
+    assert dirt["wide"].swallowed == (("small", 3),)
+    # And the circle being stood on has swallowed nobody.
+    assert dirt["small"].swallowed == ()
+
+
+def test_one_or_two_points_over_a_border_are_not_a_swallowed_circle():
+    """Border fringe. The share test already tolerates it, and a circle with two
+    points has not proved anything either way."""
+    outlines = {"wide": [square(0.0, 26.0, 2.0)], "small": [square(2.0, 26.0, 1.0)]}
+    cells, _ = measure_topology(outlines)
+    points = {"wide": [(1.0, 27.0)], "small": [(1.99, 26.5), (1.98, 26.6)]}
+
+    assert measure_contamination(cells, points)["wide"].swallowed == ()
+
+
 def test_a_circle_with_nothing_inside_it_has_no_foreign_share():
     """None, not zero. Zero would read as a clean outline rather than no evidence."""
     outlines = {"a": [square(0.0, 26.0, 1.0)]}
@@ -308,6 +338,23 @@ def test_school_points_drop_a_village_name_shared_by_two_circles(tmp_path):
     )
     points = school_points_by_locality(index, csv_path)
     assert points == {"a": [(92.8, 24.8)]}
+
+
+def test_school_points_drop_a_village_name_matched_across_the_district(tmp_path):
+    """Being claimed by one circle is not the same as being one village. Biswanath
+    is about 130 km across and repeats its village names, so the district column
+    cannot separate them — the schools have to agree where the village is."""
+    index = [{"locality_id": "a", "district": "Cachar", "village_name": "Jamuguri"}]
+    csv_path = tmp_path / "schools.csv"
+    csv_path.write_text(
+        "district,village,longitude,latitude\n"
+        "CACHAR,Jamuguri,92.80,24.80\n"
+        "CACHAR,Jamuguri,92.81,24.80\n"
+        "CACHAR,Jamuguri,93.60,25.40\n"
+    )
+    assert school_points_by_locality(index, csv_path) == {
+        "a": [(92.80, 24.80), (92.81, 24.80)]
+    }
 
 
 def test_rasterize_fills_the_interior_and_stops_at_the_edge():

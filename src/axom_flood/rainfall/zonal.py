@@ -65,7 +65,16 @@ _SLIVER_SHARE = 1e-9
 #: tiling is treated as broken. Area here is a line integral around the ring, so
 #: cutting a ring into pieces splits the integral exactly and the tolerance only
 #: has to absorb floating-point noise.
-_AREA_CLOSURE_TOLERANCE = 1e-9
+#:
+#: That noise is relative to the terms of the integral, not to the answer, so a
+#: small circle drawn in fine detail is where it shows. Gossaigaon (Pt) is 71 km²
+#: over 263 vertices and closes to 1.3e-9 — above the 1e-9 this started at, while
+#: the absolute miss is 90 microsquare kilometres, or about 90 m². At 1e-7 the
+#: largest circle in Assam could still only hide about 500 m² of dropped area,
+#: which is four orders of magnitude below one IMERG cell and cannot move a
+#: rainfall number. A real clipping failure drops a whole cell and lands orders
+#: of magnitude above this, so the check keeps its teeth.
+_AREA_CLOSURE_TOLERANCE = 1e-7
 
 #: What a measured boundary may and may not be used for. These are the strings
 #: from `data/review/circle-boundaries/current.json`, kept identical on purpose:

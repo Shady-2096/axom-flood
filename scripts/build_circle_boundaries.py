@@ -62,6 +62,7 @@ from axom_flood.boundaries.quality import (
     CELL_DEGREES,
     MAX_FOREIGN_SHARE,
     MIN_POINTS_FOR_A_SCORE,
+    MIN_POINTS_TO_BE_SWALLOWED,
     TOLERANCE_KM,
     cell_area_sq_km,
     cell_of,
@@ -249,6 +250,12 @@ def main() -> None:
             # error: an outline large enough to score well on its own points
             # while standing over a neighbour's ground.
             grade, blocked = "none", "outline_holds_other_circles_points"
+        elif dirt.swallowed:
+            # And the case a share cannot reach: a large outline with plenty of
+            # its own points can hold every point a small circle has while still
+            # sitting well under the share bar. The small circle then has nowhere
+            # left to be, which is the same error the share test exists for.
+            grade, blocked = "none", "outline_holds_every_point_of_another_circle"
         else:
             grade, blocked = "zonal", None
 
@@ -308,6 +315,8 @@ def main() -> None:
                 None if dirt.foreign_share is None else round(dirt.foreign_share, 4)
             ),
             "foreign_points_from": dict(dirt.worst_sources),
+            # Circles this outline holds entirely, which no share can show.
+            "swallowed_circles": dict(dirt.swallowed),
             "villages_with_independent_centre": score.villages,
             "area_sq_km": round(area, 2),
             "overlap_area_sq_km": round(shared_area, 2),
@@ -396,6 +405,13 @@ def main() -> None:
             "max_overlap_share": args.max_overlap,
             "topology_cell_degrees": CELL_DEGREES,
             "max_foreign_share": args.max_foreign_share,
+            "min_points_to_be_swallowed": MIN_POINTS_TO_BE_SWALLOWED,
+            "min_points_to_be_swallowed_reason": (
+                "a share has a denominator, so a large outline with many of its own "
+                "points can hold a small circle whole without the share reaching a "
+                "third. An outline holding every point another circle has leaves that "
+                "circle nowhere to be, whatever fraction of this one it amounts to"
+            ),
             "max_foreign_share_reason": (
                 "agreement can only rise as an outline grows, so it cannot see an "
                 "outline standing over a neighbour's ground. Among circles that "

@@ -36,8 +36,9 @@ Bringing several sources into one view — and being honest about the state of e
 | **NWDP gauges** | Secondary gauge cross-check | Reachable but its last real reading is old; shown as *no data* |
 | **SMART AXOM (water levels)** | Station-to-revenue-circle name crosswalk CWC does not expose | Live, but only a 1-hour-stale mirror of CWC's own levels, so used for names only |
 | **SMART AXOM (alerts)** | Per-circle flood severity | Frozen since Aug 2023; shown as *no data*, never relied on |
+| **NASA GPM IMERG** | Satellite rainfall estimate, for circles the gauge network doesn't serve | Live, for the revenue circles whose boundary has been checked; labelled an estimate and dated by the hour its window ended |
 
-More sources are on the way — Sentinel-1 radar, rainfall, and model forecasts among them. See [Where it's headed](#where-its-headed) for the plan. Several adapters already exist in the codebase but run on placeholder data until their real feeds and reviews are in place, and the README will say which is which until each one is live.
+More sources are on the way — Sentinel-1 radar and model forecasts among them. See [Where it's headed](#where-its-headed) for the plan. Several adapters already exist in the codebase but run on placeholder data until their real feeds and reviews are in place, and the README will say which is which until each one is live.
 
 ## How it's built
 
@@ -62,7 +63,7 @@ Today the site answers the first one well, through CWC gauges and ASDMA reports.
 Roughly in order:
 
 - **Right river, right gauge.** Finish reviewing which river each revenue circle actually drains, so no place shows a confident level borrowed from a river that doesn't reach it — and where no gauge fits, say so plainly. This is the review task under [Contributing](#contributing).
-- **Context where there's no gauge.** Recent rainfall (NASA IMERG) and a terrain-susceptibility picture (MERIT Hydro), so circles the gauge network doesn't serve still get something useful — marked clearly as estimates, not readings.
+- **Context where there's no gauge.** Recent rainfall (NASA IMERG) is live and reaches every circle whose boundary has been checked. A terrain-susceptibility picture (MERIT Hydro) is still to come, so that circles the gauge network doesn't serve get more than rain — marked clearly as estimates, not readings.
 - **Flood extent from satellite.** Sentinel-1 radar to see standing water directly, independent of any gauge.
 - **Community reports.** A way for people to report conditions where they are, starting on Telegram, kept visually and clearly separate from official data.
 - **Forecasts and lead time.** Upstream gauges for travel-time warnings, and model forecasts (GloFAS, and Google's flood API once access clears) shown as probabilities with an issue time, never as a gauge-like number.
