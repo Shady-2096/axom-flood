@@ -452,6 +452,10 @@ def build_document(
                 "status": described["status"],
                 "unavailable_reason": described["unavailable_reason"],
                 "window_hours": described["window_hours"],
+                # Which longer window the headline also mentions, if any. Named
+                # in the record so a reader can tell the two totals in one
+                # sentence apart without parsing the sentence.
+                "context_window_hours": described.get("context_window_hours"),
                 "total_precipitation_mm": described["total_precipitation_mm"],
                 "windows": {
                     str(window.hours): (

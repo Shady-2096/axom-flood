@@ -48,6 +48,23 @@ IST = ZoneInfo("Asia/Kolkata")
 #: last day is the one that gets forwarded.
 PREFERRED_WINDOW_HOURS = 24
 
+#: The context window. Rain that fell two days ago is still in the catchment, and
+#: a river that has been fed for days rises without a drop falling today.
+CONTEXT_WINDOW_HOURS = 72
+
+#: How much more rain the context window must hold before it earns a sentence.
+#:
+#: ⚠️ This exists because the first real run published the worst possible true
+#: sentence. Kamalpur circle had the highest 3-day total in Assam — 125 mm — and
+#: its headline read "less than 1 mm of rain in the 24 hours", because the last
+#: day happened to be dry. Every word of that was accurate and the effect was to
+#: hide the number that mattered.
+#:
+#: Ten millimetres is an editorial threshold, not a hydrological one: below it
+#: the extra is not worth a second sentence. It deliberately makes no claim about
+#: what any amount of rain means, which stays out of this module entirely.
+CONTEXT_WORTH_MENTIONING_MM = Decimal(10)
+
 #: How far past the run's own documented latency an estimate may fall behind
 #: before the copy stops presenting it as the current picture. Generous on
 #: purpose: the point is to catch a stalled pipeline, not to hide a normal wait.
@@ -130,6 +147,42 @@ def _age_hours(as_of: datetime, now: datetime) -> float:
     return round((now - as_of).total_seconds() / 3600, 2)
 
 
+def _context_clause(rainfall: CircleRainfall, chosen_hours: int) -> str | None:
+    """One extra sentence when a longer window holds materially more rain.
+
+    The headline window answers "is it raining now". This answers "has this
+    catchment been taking water for days", which is a different question and the
+    one a river responds to. Without it, a dry day after three wet ones reads as
+    a dry week.
+
+    Additive on purpose. It never replaces the headline and never reinterprets
+    it — it states a second total against its own named window and stops there.
+    """
+
+    if chosen_hours >= CONTEXT_WINDOW_HOURS:
+        return None
+    context = next(
+        (
+            entry
+            for entry in rainfall.windows
+            if entry.hours == CONTEXT_WINDOW_HOURS and entry.available
+        ),
+        None,
+    )
+    if context is None:
+        return None
+    headline = next(
+        (entry for entry in rainfall.windows if entry.hours == chosen_hours), None
+    )
+    already_said = headline.total_mm if headline and headline.available else Decimal(0)
+    if context.total_mm - already_said < CONTEXT_WORTH_MENTIONING_MM:
+        return None
+    return (
+        f"About {context.total_mm.quantize(Decimal(1), rounding=ROUND_HALF_UP)} mm "
+        f"fell over the 3 days up to then."
+    )
+
+
 def describe_circle_rainfall(
     rainfall: CircleRainfall,
     *,
@@ -206,6 +259,15 @@ def describe_circle_rainfall(
     # needs the sentence that stays true as the file ages.
     stale_headline = f"{dated_headline} Nothing newer has arrived."
 
+    # Appended to every variant, because the reason it exists — a dry day
+    # following three wet ones — is just as true of a cached artifact as a fresh
+    # one, and the sentence names its own window either way.
+    context = _context_clause(rainfall, chosen.hours)
+    if context:
+        fresh_headline = f"{fresh_headline} {context}"
+        dated_headline = f"{dated_headline} {context}"
+        stale_headline = f"{stale_headline} {context}"
+
     # Two separate questions, deliberately not one: `is_stale` asks whether the
     # pipeline is stuck, and how long ago the window ended asks whether the
     # present tense is a true sentence.
@@ -221,6 +283,7 @@ def describe_circle_rainfall(
         "unavailable_reason": None,
         "window_hours": chosen.hours,
         "total_precipitation_mm": float(chosen.total_mm),
+        "context_window_hours": CONTEXT_WINDOW_HOURS if context else None,
         "headline": headline,
         "stale_headline": stale_headline,
         "stale_after_hours": stale_after,

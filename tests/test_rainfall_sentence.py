@@ -203,3 +203,66 @@ def test_the_early_run_goes_stale_sooner_than_the_late_run():
     )
     assert late["status"] == "estimate"
     assert early["status"] == "stale_estimate"
+
+
+# --- the three days behind the last one ----------------------------------
+
+
+def test_a_dry_day_after_three_wet_ones_does_not_read_as_a_dry_week():
+    """The failure this exists for, found in the first real run.
+
+    Kamalpur had the highest 3-day total in Assam at 125 mm and a dry last day,
+    so its headline read "less than 1 mm of rain in the 24 hours". Every word
+    true, and it hid the only number that mattered.
+    """
+
+    result = describe(rainfall(window(24, 0), window(72, 124.6)))
+
+    assert "less than 1 mm" in result["headline"]
+    assert "125 mm fell over the 3 days" in result["headline"]
+    # The headline window is unchanged. The extra sentence is additive.
+    assert result["window_hours"] == 24
+    assert result["context_window_hours"] == 72
+
+
+def test_the_context_sentence_is_absent_when_it_would_add_nothing():
+    """A wet day inside a wet three days needs no second number."""
+
+    result = describe(rainfall(window(24, 60), window(72, 64)))
+
+    assert "fell over the 3 days" not in result["headline"]
+    assert result["context_window_hours"] is None
+
+
+def test_a_small_three_day_total_earns_no_extra_sentence():
+    result = describe(rainfall(window(24, 0), window(72, 8)))
+    assert "fell over the 3 days" not in result["headline"]
+
+
+def test_the_context_sentence_survives_into_the_stale_wording():
+    """A cached artifact read a day later still needs the three-day number. The
+    dry day that hid it does not become less misleading with age."""
+
+    result = describe(rainfall(window(24, 0), window(72, 124.6)))
+    assert "fell over the 3 days" in result["stale_headline"]
+
+
+def test_the_context_sentence_is_skipped_when_72_h_is_the_headline():
+    """No circle should be told its own number twice."""
+
+    result = describe(rainfall(window(72, 124.6)), preferred_hours=72)
+    assert result["window_hours"] == 72
+    assert result["headline"].count("124") + result["headline"].count("125") == 1
+
+
+def test_an_unavailable_three_day_window_adds_nothing():
+    result = describe(
+        rainfall(window(24, 0), window(72, reason=REASON_MISSING_CELLS))
+    )
+    assert "fell over the 3 days" not in result["headline"]
+
+
+def test_the_context_sentence_claims_nothing_about_what_the_rain_means():
+    result = describe(rainfall(window(24, 0), window(72, 124.6)))
+    for banned in ("heavy", "severe", "danger", "warning", "will flood"):
+        assert banned not in result["headline"].casefold()
