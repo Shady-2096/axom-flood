@@ -108,6 +108,22 @@ REQUEST_DEADLINE_SECONDS = 300.0
 #: `REQUEST_DEADLINE_SECONDS` catches the trickle the read timeout cannot see.
 DEFAULT_TIMEOUT_SECONDS = 120.0
 
+#: How many times to ask for the same granule before giving up. Three, because
+#: the archive resets roughly one connection in four and the failure is
+#: independent of the request: a granule that resets twice in a row is unlucky,
+#: and one that resets three times is worth reporting.
+RETRY_ATTEMPTS = 3
+
+#: Multiplied by the attempt number, so waits go 5 s then 10 s. Long enough to
+#: be a courtesy to a public archive that has just dropped us, short enough that
+#: three attempts still fit inside a granule's normal 30 seconds many times over.
+RETRY_BACKOFF_SECONDS = 5.0
+
+#: Server-side failures worth asking again about. A 404 is deliberately absent:
+#: on this archive it means "not published yet", which the caller handles as a
+#: fact about the data rather than as an error.
+RETRY_STATUSES = frozenset({500, 502, 503, 504})
+
 _RUN_FILE_LETTER = {ImergRun.EARLY: "E", ImergRun.LATE: "L"}
 
 
@@ -313,6 +329,12 @@ class ImergClient:
         #: needed for the one thing this is for: telling an operator afterwards
         #: how long the archive actually took per granule.
         self.request_seconds: list[float] = []
+        #: How many attempts had to be repeated. A run whose retry count climbs
+        #: is the archive getting worse, and that is worth seeing before it
+        #: becomes a failure.
+        self.retries = 0
+        #: Instance-level so a test can set it to zero. A real run must not.
+        self._backoff_seconds = RETRY_BACKOFF_SECONDS
         self._token = (bearer_token or "").strip() or None
         self._client = httpx.Client(
             timeout=timeout, transport=transport, follow_redirects=True
@@ -352,21 +374,48 @@ class ImergClient:
             raise ImergCredentialsMissing()
 
     def get(self, url: str) -> httpx.Response:
-        """One authenticated GET, with Earthdata's two failure modes named.
+        """One authenticated GET, retried through the archive's flakiness.
 
         Public because the OPeNDAP subset path and the smoke test's `--describe`
         step need the same auth handling against URLs that are not granule
         downloads.
 
-        Streamed rather than read in one call so the body can be measured against
-        a wall clock while it arrives. That is the only way to notice an archive
-        that answers, starts sending, and then never stops — see
-        `ImergRequestTimeout`. Every completed request's duration is appended to
-        `request_seconds`, which is what makes a slow run legible instead of
-        merely slow.
+        GES DISC resets connections. Measured 2026-08-07 over four consecutive
+        serial requests, one came back `Connection reset by peer` after 3.6
+        seconds while the other three succeeded in about 30. At that rate a cold
+        144-granule window has effectively no chance of completing without
+        retries, which is what killed the first attempt at one.
+
+        Only transport failures and 5xx are retried. A 401, 403, or 404 is the
+        archive answering, and asking again would only be slower — 404 in
+        particular is how "not published yet" arrives, which the caller handles.
         """
 
         self.check_configuration()
+        for attempt in range(RETRY_ATTEMPTS):
+            try:
+                return self._get_once(url)
+            except (httpx.TransportError, ImergRequestTimeout) as error:
+                last: Exception = error
+            except httpx.HTTPStatusError as error:
+                if error.response.status_code not in RETRY_STATUSES:
+                    raise
+                last = error
+            if attempt < RETRY_ATTEMPTS - 1:
+                self.retries += 1
+                time.sleep(self._backoff_seconds * (attempt + 1))
+        raise last
+
+    def _get_once(self, url: str) -> httpx.Response:
+        """One attempt, streamed under a wall clock.
+
+        Streamed rather than read in one call so the body can be measured while
+        it arrives. That is the only way to notice an archive that answers,
+        starts sending, and then never stops — see `ImergRequestTimeout`. Every
+        completed request's duration is appended to `request_seconds`, which is
+        what makes a slow run legible instead of merely slow.
+        """
+
         started = time.monotonic()
         deadline = started + self.deadline_seconds
         with self._client.stream(

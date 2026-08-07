@@ -87,17 +87,20 @@ LOOKBACK_HOURS = max(RAINFALL_WINDOW_HOURS)
 
 _GRANULE_MINUTES = 30
 
-#: How many half hours to fetch at once.
+#: How many half hours to fetch at once. One. Concurrency does not work here.
 #:
-#: Started at 6 and was lowered to 2 after the first concurrent run stalled: six
-#: requests in flight for fifteen minutes, nothing downloaded, nothing raised.
-#: The cause was never proved — either GES DISC serialises OPeNDAP requests per
-#: user, or it was trickling responses under a read timeout that restarts on
-#: every chunk. `ImergClient` now measures each request and fails on a deadline,
-#: so the next run says which. Two is the conservative setting to learn from; it
-#: is also a courtesy limit on a shared public archive, not a tuning knob to
-#: turn up until something breaks.
-FETCH_WORKERS = int(os.environ.get("RAINFALL_FETCH_WORKERS", "2"))
+#: This started at 6, stalled, was lowered to 2, and stalled again. Diagnosed
+#: 2026-08-07 by watching the sockets: with two workers the first connection
+#: establishes and serves normally, and the **second sits in `SYN_SENT` and
+#: never completes** — the SYN goes out and no reply ever comes. It stayed that
+#: way for twenty minutes. GES DISC accepts one connection from us and
+#: black-holes the rest, so a second worker is not slow, it is wedged forever.
+#:
+#: Serial is the only mode that works, at roughly 30 seconds per half hour. The
+#: environment variable stays for experiments, but raising it is not a speed-up.
+#: The cold-start cost is a scheduling problem to solve with a surviving cache,
+#: not a concurrency problem to solve with more workers.
+FETCH_WORKERS = int(os.environ.get("RAINFALL_FETCH_WORKERS", "1"))
 
 
 def newest_zones() -> tuple[Path, dict[str, Any]]:
@@ -336,6 +339,11 @@ def collect_observations(
                 f"{time.monotonic() - started:.0f}s of wall clock for "
                 f"{len(fetch_seconds)} at {FETCH_WORKERS} at a time"
             )
+            if client is not None and client.retries:
+                print(
+                    f"retries        {client.retries} attempts repeated after the "
+                    f"archive dropped the connection"
+                )
 
     # Parsed in granule order, from disk, after every fetch has settled. The
     # windows care about a continuous series, and reading it back in one pass
@@ -371,6 +379,9 @@ def collect_observations(
         # the two-hourly schedule is about to stop fitting, and it should be
         # readable from the artifact rather than from a lost terminal.
         "fetch_workers": FETCH_WORKERS if downloaded else None,
+        # A climbing retry count is the archive getting worse, and it is worth
+        # seeing in the record before it turns into a failed run.
+        "fetch_retries": client.retries if client is not None else None,
         "median_request_seconds": (
             round(sorted(fetch_seconds)[len(fetch_seconds) // 2], 1)
             if fetch_seconds
@@ -534,6 +545,13 @@ def publish(document: dict[str, Any], *, digest: str, generated_at: datetime) ->
 
 
 def main() -> int:
+    # A cold run takes over an hour, and Python block-buffers stdout whenever it
+    # is not a terminal. Piped to a file or collected by Cloud Run that means no
+    # progress at all while it works, and nothing whatsoever if it is killed —
+    # which is exactly the run whose output is worth having. The first attempt at
+    # a 72-hour window was killed after twenty minutes and produced an empty log.
+    sys.stdout.reconfigure(line_buffering=True)
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--plan", action="store_true", help="no network; print the run")
     parser.add_argument("--run", choices=[item.value for item in ImergRun], default="late")

@@ -269,3 +269,79 @@ def test_the_token_is_sent_as_a_bearer_header():
         client.fetch_granule(granule, fetched_at=FETCHED_AT)
 
     assert seen["authorization"] == "Bearer secret"
+
+
+# --- the archive's flakiness ---------------------------------------------
+
+
+def test_a_reset_connection_is_retried_rather_than_failing_the_run():
+    """Measured on 2026-08-07: one serial request in four came back
+    `Connection reset by peer` after 3.6 s while the rest served in about 30.
+    Without a retry, a cold 144-granule window has no chance of completing."""
+
+    attempts = {"n": 0}
+
+    def handler(request):
+        attempts["n"] += 1
+        if attempts["n"] == 1:
+            raise httpx.ConnectError("[Errno 54] Connection reset by peer")
+        return httpx.Response(200, content=b"hdf5-bytes")
+
+    with ImergClient(
+        enabled=True, bearer_token="t", transport=transport(handler)
+    ) as client:
+        client._backoff_seconds = 0
+        response = client.get("https://example.invalid/granule.ascii")
+
+    assert response.content == b"hdf5-bytes"
+    assert attempts["n"] == 2
+    assert client.retries == 1
+
+
+def test_a_granule_that_never_comes_back_still_raises():
+    def handler(request):
+        raise httpx.ConnectError("[Errno 54] Connection reset by peer")
+
+    with ImergClient(
+        enabled=True, bearer_token="t", transport=transport(handler)
+    ) as client:
+        client._backoff_seconds = 0
+        with pytest.raises(httpx.ConnectError):
+            client.get("https://example.invalid/granule.ascii")
+
+
+def test_a_missing_granule_is_not_retried():
+    """404 is how "not published yet" arrives. Asking three times is only slower,
+    and the caller already treats it as a fact about the data."""
+
+    attempts = {"n": 0}
+
+    def handler(request):
+        attempts["n"] += 1
+        return httpx.Response(404)
+
+    with ImergClient(
+        enabled=True, bearer_token="t", transport=transport(handler)
+    ) as client:
+        client._backoff_seconds = 0
+        with pytest.raises(httpx.HTTPStatusError):
+            client.get("https://example.invalid/granule.ascii")
+
+    assert attempts["n"] == 1
+
+
+def test_a_rejected_token_is_not_retried():
+    attempts = {"n": 0}
+
+    def handler(request):
+        attempts["n"] += 1
+        return httpx.Response(403)
+
+    with ImergClient(
+        enabled=True, bearer_token="t", transport=transport(handler)
+    ) as client:
+        client._backoff_seconds = 0
+        with pytest.raises(ImergAuthError):
+            client.get("https://example.invalid/granule.ascii")
+
+    assert attempts["n"] == 1

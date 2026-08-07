@@ -430,25 +430,50 @@ the record without changing the version letter, and the build stops rather than
 adopting it silently.
 
 ⚠️ **This is slow, and the cache is the whole difference.** One subset takes
-about 40 seconds, because GES DISC cuts the Assam box out of a global file on
-every request. A cold 72-hour window is 144 granules, so roughly 95 minutes
-serially. With a warm cache a two-hourly run needs only the 4 new half hours,
-about three minutes. Cloud Run has no persistent disk, so a job scheduled there
-pays the cold price every time unless the cache lives somewhere it survives.
-**That decision is open.** The options are a GCS bucket, a shorter lookback that
-gives up the 72-hour window, or publishing from the owner's Mac the way the
-ASDMA bulletin already does. Committing the subsets was rejected: they are about
-126 KB each, 6 MB a day, in a repository that is otherwise text.
+about 30 seconds, because GES DISC cuts the Assam box out of a global file on
+every request. A cold 72-hour window is 144 granules, so around 75 minutes. With
+a warm cache a two-hourly run needs only the 4 new half hours, about two
+minutes. Cloud Run has no persistent disk, so a job scheduled there pays the
+cold price every time unless the cache lives somewhere it survives.
 
-Raising `RAINFALL_FETCH_WORKERS` is not the fix, and may be the opposite. The
-first concurrent run — six at a time — sat for fifteen minutes, downloaded
-nothing, and raised nothing. The cause was never proved: either GES DISC
-serialises OPeNDAP requests per user, or it trickled responses slowly enough
-that httpx's read timeout, which restarts on every chunk, never fired. The
-client now streams under a wall-clock deadline and records how long each request
-took, and the build prints the fastest, median, and slowest and writes the median
-and slowest into the artifact's `coverage` block. So the next slow run says which
-of the two it is instead of hanging. The default is 2.
+**That decision is open, and serial-only makes it sharper.** A cold run does not
+fit inside a two-hour schedule with any margin, and there is no concurrency to
+buy the time back with — see below. A surviving cache is no longer an
+optimisation. The options are a GCS bucket, a shorter lookback that gives up the
+72-hour window, or publishing from the owner's Mac the way the ASDMA bulletin
+already does. Committing the subsets was rejected: they are about 126 KB each,
+6 MB a day, in a repository that is otherwise text.
+
+⚠️ **Fetching must be serial. This is settled, not a preference.**
+
+Two runs stalled — six workers, then two — and the cause was found on
+2026-08-07 by watching the sockets rather than the logs. With two workers the
+first connection establishes and serves normally, and the **second sits in
+`SYN_SENT` and never completes**: the SYN goes out and no reply ever comes. It
+stayed that way for twenty minutes while the process burned 0.6 seconds of CPU.
+GES DISC accepts one connection from this client and black-holes the rest.
+
+So `RAINFALL_FETCH_WORKERS` defaults to 1 and raising it is not a speed-up — it
+wedges a thread permanently. The cold-start cost is a scheduling problem to
+solve with a cache that survives, not a concurrency problem to solve with more
+workers.
+
+⚠️ **The archive resets roughly one connection in four.** Measured over four
+consecutive serial requests: 30 s, `[Errno 54] Connection reset by peer` after
+3.6 s, 29 s, 52 s. Nothing caught that error, so it would have killed a cold
+144-granule run within the first few minutes — and did.
+
+`ImergClient.get` now retries three times with a 5 s and then 10 s backoff.
+Transport failures and 5xx are retried; 401, 403 and 404 are not, because those
+are the archive answering, and on this archive a 404 is how "not published yet"
+arrives. The retry count is printed and written into the artifact's `coverage`
+block, so an archive getting worse is visible before it becomes a failed run.
+
+**Progress is line-buffered on purpose.** Python block-buffers stdout whenever it
+is not a terminal, so the first attempt at a 72-hour window ran for twenty
+minutes, was killed, and produced a completely empty log. `main()` calls
+`sys.stdout.reconfigure(line_buffering=True)` before anything else. On Cloud Run
+that is the difference between diagnosing a stall and guessing at one.
 
 The published artifact carries no build timestamp, so two runs that compute the
 same rainfall produce one file under one digest and a rebuild is not a fresh
