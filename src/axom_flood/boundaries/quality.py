@@ -25,12 +25,45 @@ individual schools instead uses the same evidence at full resolution, gives smal
 circles enough points to say anything at all, and exposes the villages whose name
 match pulled in a school from the other end of the state.
 
+A point just outside the line is not a disagreement
+---------------------------------------------------
+Scoring started as a plain containment test, which counted a school 130 m over
+the boundary and a school 76 km away as the same evidence. They are not. Measured
+across the 97 circles that failed, the strays split into three clean groups: a
+median stray under 2 km (the outline and the point differ about exactly where a
+shared border runs), a median stray beyond 10 km (the outline covers the wrong
+ground, or the school join is wrong), and a cluster 20-50 km out where the
+village-name join pulled in schools from another district entirely.
+
+So a point within `TOLERANCE_KM` of the outline counts as agreement. The
+justification is the grade being granted, not a wish for more circles to pass.
+`zonal` permits averaging a value over a whole circle of a few hundred square
+kilometres, and the coarsest consumer is IMERG rainfall on a 0.1-degree grid —
+cells about 11 km across. A boundary uncertain by half a kilometre cannot change
+which of those cells a circle overlaps.
+
+Half a kilometre is also not a new number. It is the 0.005-degree topology cell
+this module already uses, already argued as fine enough to see a real overlap and
+coarse enough to ignore a shared border.
+
+The measured curve says the same thing. Passing circles go 61 → 78 → 88 at 0,
+250 m, and 500 m, and then 90 at a full kilometre and 92 at two. It is steep to
+500 m and flat after, which is what a measurement artefact looks like. A circle
+that still fails at 500 m is not rescued by loosening further, so this is not a
+slope to slide down.
+
+Both numbers are published. `agreement` is the tolerant one and decides
+promotion; `agreement_strict` is the plain containment test, so nobody has to
+take the tolerance on trust.
+
 What a score is not
 -------------------
 A low score means the outline and the school points disagree. It does not say
 which of them is wrong: a village name matched to a school in a different
 district produces exactly the same signal as a misdrawn boundary. Any circle that
-fails is a circle to look at, not a circle proved bad.
+fails is a circle to look at, not a circle proved bad. That is what the stray
+distances are for — they say how far the disagreement is, which is the first
+thing that separates the two.
 """
 
 from __future__ import annotations
@@ -39,7 +72,7 @@ import csv
 import re
 from collections import defaultdict
 from dataclasses import dataclass
-from math import ceil, cos, floor, radians
+from math import ceil, cos, floor, hypot, isinf, radians
 from pathlib import Path
 
 from axom_flood.geometry import Ring, point_in_rings
@@ -48,6 +81,21 @@ from axom_flood.geometry import Ring, point_in_rings
 # a statistical threshold; it is the point at which one bad village name stops
 # being able to swing the result by more than about eight points.
 MIN_POINTS_FOR_A_SCORE = 12
+
+#: How far outside its own outline a point may sit and still count as agreement.
+#: See the module docstring: this is the resolution of the question, not a
+#: relaxation of the bar, and it matches the 0.005-degree topology cell below.
+TOLERANCE_KM = 0.5
+
+#: A degree of latitude is 110.57 km throughout Assam; a degree of longitude is
+#: 111.32 km at the equator and shrinks with the cosine of the latitude. Distance
+#: here is only ever compared against a half-kilometre threshold, so a local
+#: planar approximation about a fixed reference latitude is ample.
+_KM_PER_DEGREE_LAT = 110.57
+_KM_PER_DEGREE_LON_EQUATOR = 111.32
+#: Assam spans roughly 24-28°N. Taking the middle costs at most about 2% in the
+#: longitude scale at the edges, which is centimetres on a 500 m threshold.
+_REFERENCE_LATITUDE = 26.0
 
 
 def fold(value: str) -> str:
@@ -60,10 +108,39 @@ class CircleScore:
     points: int
     inside: int
     villages: int
+    #: Inside, or outside by no more than `TOLERANCE_KM`. Never below `inside`.
+    within_tolerance: int = 0
+    #: How far outside the outline every point that failed even the tolerant
+    #: test landed, in kilometres, ascending. Empty when nothing strayed.
+    stray_distances_km: tuple[float, ...] = ()
+
+    def __post_init__(self) -> None:
+        # A tolerant test that accepted fewer points than the strict one would
+        # mean the distance measure and the containment test disagree about the
+        # same polygon, which is a bug rather than a low score.
+        self.within_tolerance = max(self.within_tolerance, self.inside)
 
     @property
     def agreement(self) -> float | None:
+        """The share that decides promotion: inside, or within tolerance."""
+        return None if not self.points else self.within_tolerance / self.points
+
+    @property
+    def agreement_strict(self) -> float | None:
+        """The plain containment test, published so the tolerance is inspectable."""
         return None if not self.points else self.inside / self.points
+
+    @property
+    def median_stray_km(self) -> float | None:
+        """How far the typical real disagreement is. Near means a border; far means
+        the outline covers different ground, or the school join is wrong."""
+        if not self.stray_distances_km:
+            return None
+        return self.stray_distances_km[len(self.stray_distances_km) // 2]
+
+    @property
+    def max_stray_km(self) -> float | None:
+        return self.stray_distances_km[-1] if self.stray_distances_km else None
 
     @property
     def has_enough_points(self) -> bool:
@@ -153,15 +230,107 @@ def village_counts(village_index: list[dict]) -> dict[str, int]:
     return dict(counts)
 
 
+def _segment_distance_km(
+    point: tuple[float, float],
+    start: tuple[float, float],
+    end: tuple[float, float],
+) -> float:
+    """Kilometres from a point to a line segment, in the local planar frame."""
+    scale_lon = _KM_PER_DEGREE_LON_EQUATOR * cos(radians(_REFERENCE_LATITUDE))
+    px, py = point[0] * scale_lon, point[1] * _KM_PER_DEGREE_LAT
+    ax, ay = start[0] * scale_lon, start[1] * _KM_PER_DEGREE_LAT
+    bx, by = end[0] * scale_lon, end[1] * _KM_PER_DEGREE_LAT
+    dx, dy = bx - ax, by - ay
+    if dx == 0.0 and dy == 0.0:
+        return hypot(px - ax, py - ay)
+    # Projection of the point onto the segment, clamped to its ends so a point
+    # beyond a vertex measures to the vertex rather than to the infinite line.
+    along = max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy)))
+    return hypot(px - (ax + along * dx), py - (ay + along * dy))
+
+
+def distance_to_outline_km(point: tuple[float, float], rings: list[Ring]) -> float:
+    """Shortest distance from a point to any edge of an outline.
+
+    Unsigned: a point just inside and a point just outside measure the same. Only
+    ever asked about points already known to be outside, so the sign is not in
+    question and computing it would cost a second pass for nothing.
+
+    Two passes. The first skips any segment whose bounding box is further away
+    than the tolerance, which answers the only question most points raise — "is
+    this within half a kilometre?" — while touching almost no segments. A point
+    that rejects every segment is further out than that, and gets a second pass
+    over the whole outline to find its real distance. Circle rings run to
+    thousands of vertices, so the cheap first pass is what keeps this quick.
+    """
+    padding = TOLERANCE_KM / _KM_PER_DEGREE_LAT
+    longitude, latitude = point
+    best = float("inf")
+    for ring in rings:
+        for index in range(len(ring)):
+            start = (ring[index][0], ring[index][1])
+            end = (ring[(index + 1) % len(ring)][0], ring[(index + 1) % len(ring)][1])
+            if (
+                min(start[0], end[0]) - padding > longitude
+                or max(start[0], end[0]) + padding < longitude
+                or min(start[1], end[1]) - padding > latitude
+                or max(start[1], end[1]) + padding < latitude
+            ):
+                continue
+            best = min(best, _segment_distance_km(point, start, end))
+    if isinf(best):
+        # Nothing survived the rejection, so this point is further out than the
+        # tolerance and the fast pass cannot say how much further. That is the
+        # common case for a genuinely misplaced point, and the answer still has
+        # to be a real distance, so measure again against every segment.
+        for ring in rings:
+            for index in range(len(ring)):
+                best = min(
+                    best,
+                    _segment_distance_km(
+                        point,
+                        (ring[index][0], ring[index][1]),
+                        (ring[(index + 1) % len(ring)][0], ring[(index + 1) % len(ring)][1]),
+                    ),
+                )
+    return best
+
+
 def score_circle(
     locality_id: str,
     rings: list[Ring],
     points: list[tuple[float, float]],
     villages: int = 0,
+    tolerance_km: float = TOLERANCE_KM,
 ) -> CircleScore:
-    inside = sum(1 for point in points if point_in_rings(list(point), rings))
+    """Count how many of a circle's own points its outline accounts for.
+
+    Two counts, deliberately: `inside` is plain containment, and
+    `within_tolerance` also accepts a point sitting no further than
+    `tolerance_km` outside. Every point that fails even the tolerant test
+    contributes its distance, because how far a stray landed is what separates a
+    border drawn slightly differently from an outline over the wrong ground.
+    """
+
+    inside = 0
+    tolerated = 0
+    strays: list[float] = []
+    for point in points:
+        if point_in_rings(list(point), rings):
+            inside += 1
+            continue
+        distance = distance_to_outline_km(point, rings)
+        if distance <= tolerance_km:
+            tolerated += 1
+        else:
+            strays.append(distance)
     return CircleScore(
-        locality_id=locality_id, points=len(points), inside=inside, villages=villages
+        locality_id=locality_id,
+        points=len(points),
+        inside=inside,
+        villages=villages,
+        within_tolerance=inside + tolerated,
+        stray_distances_km=tuple(sorted(strays)),
     )
 
 

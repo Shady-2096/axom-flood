@@ -3,7 +3,7 @@
 Workstream C of the local-accuracy master plan, and the step Workstream 0 was
 blocking. `prepare_imerg_zonal_join` could only ever describe this operation and
 hand it to "a geospatial worker", because no circle had a boundary worth
-computing against. Sixty-one now do.
+computing against. Eighty-eight now do.
 
 What this module is allowed to claim
 ------------------------------------

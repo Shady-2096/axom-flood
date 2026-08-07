@@ -4,11 +4,10 @@ Run with:
   uv run python scripts/build_circle_boundaries.py \
     --boundaries data/reference/osm/assam-boundaries-<sha>.json
 
-This is Workstream 0, Track 2 of the master plan. All 184 `boundary_geojson_ref`
-fields are null, and until a circle has a polygon somebody has measured, five
-other workstreams stall at their last step: zonal rainfall, HAND membership,
-model-reach mapping, satellite overlap, and placing a citizen report without
-asking the person.
+This is Workstream 0, Track 2 of the master plan. Until a circle has a polygon
+somebody has measured, five other workstreams stall at their last step: zonal
+rainfall, HAND membership, model-reach mapping, satellite overlap, and placing a
+citizen report without asking the person.
 
 Two outputs, deliberately separate:
 
@@ -20,8 +19,15 @@ Two outputs, deliberately separate:
   data/review/circle-boundaries/current.json
       The quality record for *every* circle, passed or failed: how it was
       matched, how many independent points it was tested against, what share of
-      them landed inside, whether it overlaps a neighbour, and what it is
-      therefore allowed to be used for.
+      them landed inside, how far the ones that did not landed, whether it
+      overlaps a neighbour, and what it is therefore allowed to be used for.
+
+A point is counted as agreeing if it falls inside the outline or within 500 m of
+it. `quality.py` carries the argument; the short version is that the grade being
+granted is averaging over a few hundred square kilometres, the coarsest consumer
+is rainfall on cells about 11 km across, and a school 300 m over a shared border
+says nothing about either. Every record publishes the strict containment share
+next to the tolerant one, so the tolerance is checkable rather than trusted.
 
 Promotion is per circle, never in bulk, and the bar is recorded in the artifact
 rather than assumed by the reader. A circle that fails stays null and every
@@ -55,6 +61,7 @@ from axom_flood.boundaries.osm import (
 from axom_flood.boundaries.quality import (
     CELL_DEGREES,
     MIN_POINTS_FOR_A_SCORE,
+    TOLERANCE_KM,
     cell_area_sq_km,
     cell_of,
     measure_topology,
@@ -241,7 +248,7 @@ def main() -> None:
         # which means a village name matched a school somewhere else entirely.
         # Neither is proof, and both keep the circle out of the analysis set —
         # but they lead to different repairs, so the record says which.
-        outside = score.points - score.inside
+        outside = score.points - score.within_tolerance
         failure_mode = None
         if grade != "zonal" and outside:
             if stray_district >= outside * 0.8:
@@ -260,7 +267,25 @@ def main() -> None:
             "osm_district_share": round(relation.district_share, 4),
             "independent_points": score.points,
             "points_inside": score.inside,
+            "points_within_tolerance": score.within_tolerance,
+            # `agreement` is the tolerant share and is what promotion uses.
+            # `agreement_strict` is plain containment, published beside it so the
+            # tolerance never has to be taken on trust.
             "agreement": None if score.agreement is None else round(score.agreement, 4),
+            "agreement_strict": (
+                None if score.agreement_strict is None else round(score.agreement_strict, 4)
+            ),
+            "tolerance_m": round(TOLERANCE_KM * 1000),
+            # How far the real disagreements are. A median under about 2 km is
+            # two records differing about where a shared border runs; beyond
+            # 10 km the outline covers different ground or the school join is
+            # wrong, and those need different repairs.
+            "median_stray_km": (
+                None if score.median_stray_km is None else round(score.median_stray_km, 2)
+            ),
+            "max_stray_km": (
+                None if score.max_stray_km is None else round(score.max_stray_km, 2)
+            ),
             "villages_with_independent_centre": score.villages,
             "area_sq_km": round(area, 2),
             "overlap_area_sq_km": round(shared_area, 2),
@@ -348,6 +373,13 @@ def main() -> None:
             "min_independent_points": MIN_POINTS_FOR_A_SCORE,
             "max_overlap_share": args.max_overlap,
             "topology_cell_degrees": CELL_DEGREES,
+            "agreement_tolerance_m": round(TOLERANCE_KM * 1000),
+            "agreement_tolerance_reason": (
+                "a point this far outside the outline is not a disagreement at the "
+                "resolution this grade is for: the coarsest consumer is rainfall on a "
+                "0.1-degree grid, whose cells are about 11 km across. Both the tolerant "
+                "and the strict share are published per circle"
+            ),
             "grade_zonal_permits": (
                 "averaging a value over the whole circle — rainfall, a terrain band, a share "
                 "of low ground"
@@ -387,7 +419,10 @@ def main() -> None:
 
     print(f"matched      {len(match.matched)} of {len(localities)} localities")
     print(f"scored       {len(scored)} (at least {MIN_POINTS_FOR_A_SCORE} independent points)")
-    print(f"passed       {len(graded)} at >= {args.pass_agreement:.0%} agreement")
+    print(
+        f"passed       {len(graded)} at >= {args.pass_agreement:.0%} agreement "
+        f"(points within {TOLERANCE_KM * 1000:.0f} m of the outline count as inside)"
+    )
     print(f"overlaps     {len(overlap_pairs)} pairs")
     print(f"unresolved   {len(match.unresolved)}")
     print(f"boundaries   {geojson_path.relative_to(ROOT)} "
