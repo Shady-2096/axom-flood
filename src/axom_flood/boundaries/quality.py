@@ -56,6 +56,28 @@ Both numbers are published. `agreement` is the tolerant one and decides
 promotion; `agreement_strict` is the plain containment test, so nobody has to
 take the tolerance on trust.
 
+Agreement alone can be gamed by drawing a bigger polygon
+--------------------------------------------------------
+The agreement test is one-sided. It asks a circle whether its own points are
+inside it, and never asks whose else are. An outline covering twice the right
+ground scores *better* on that question, not worse, because containing more
+ground can only contain more of its own points.
+
+Karbi Anglong showed exactly that. The OSM relation named Phuloni is 3,286 km²,
+scored 96% against its own schools, and passed — while also swallowing 74 schools
+belonging to Donka, Silonijan, Biswanath and Gohpur. Donka, next door, scored
+zero: all 47 of its schools sat inside its neighbours. One outline had claimed
+the other's ground and the score could not see it.
+
+`measure_contamination` asks the other half of the question: of everything inside
+this outline, how much belongs to somebody else? Some always will — a neighbour's
+school a few hundred metres over a shared border lands inside, and across the
+passing circles that fringe runs to about 11% at the median and 24% at the
+ninetieth percentile. Beyond a third it is not a fringe. A circle where one
+school in three is not its own is describing a neighbour's land, and a rainfall
+average over it would be attributed to the wrong place — which is worse than
+publishing nothing.
+
 What a score is not
 -------------------
 A low score means the outline and the school points disagree. It does not say
@@ -70,7 +92,7 @@ from __future__ import annotations
 
 import csv
 import re
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 from math import ceil, cos, floor, hypot, isinf, radians
 from pathlib import Path
@@ -81,6 +103,13 @@ from axom_flood.geometry import Ring, point_in_rings
 # a statistical threshold; it is the point at which one bad village name stops
 # being able to swing the result by more than about eight points.
 MIN_POINTS_FOR_A_SCORE = 12
+
+#: The most of another circle's points an outline may contain and still be used.
+#: Border fringe is normal and runs to about a quarter at its worst among circles
+#: that otherwise look sound. A third is past that: at that level the outline is
+#: over a neighbour's ground, and an average computed over it belongs to the
+#: neighbour. See `measure_contamination`.
+MAX_FOREIGN_SHARE = 0.33
 
 #: How far outside its own outline a point may sit and still count as agreement.
 #: See the module docstring: this is the resolution of the question, not a
@@ -479,3 +508,66 @@ def measure_topology(
                 if left != right:
                     shared[left][right] += 1
     return cells, {key: dict(value) for key, value in shared.items()}
+
+
+@dataclass
+class Contamination:
+    """What sits inside one outline, split by who it belongs to."""
+
+    locality_id: str
+    own_inside: int
+    foreign_inside: int
+    #: The biggest contributors, worst first. Names the neighbour whose ground
+    #: this outline has taken, which is the first thing a repair needs.
+    worst_sources: tuple[tuple[str, int], ...] = ()
+
+    @property
+    def foreign_share(self) -> float | None:
+        total = self.own_inside + self.foreign_inside
+        return None if not total else self.foreign_inside / total
+
+
+def measure_contamination(
+    cells: dict[str, set[Cell]],
+    points: dict[str, list[tuple[float, float]]],
+    step: float = CELL_DEGREES,
+) -> dict[str, Contamination]:
+    """For every circle, how much of what is inside it belongs to someone else.
+
+    The complement of `score_circle`, and the reason both are needed: agreement
+    can only improve as an outline grows, so it cannot detect an outline that has
+    grown over a neighbour. This can.
+
+    Counted on the rasterised cells rather than by exact containment, because
+    every point has to be tested against every circle and one dictionary lookup
+    per point is the difference between a second and several minutes. At 0.005
+    degrees a cell is about 550 m, which is the same resolution the tolerance
+    already works at.
+    """
+
+    holders: dict[Cell, list[str]] = defaultdict(list)
+    for locality_id, filled in cells.items():
+        for cell in filled:
+            holders[cell].append(locality_id)
+
+    own: Counter[str] = Counter()
+    foreign: Counter[str] = Counter()
+    sources: dict[str, Counter[str]] = defaultdict(Counter)
+    for owner, owned_points in points.items():
+        for longitude, latitude in owned_points:
+            for holder in holders.get(cell_of(longitude, latitude, step), ()):
+                if holder == owner:
+                    own[holder] += 1
+                else:
+                    foreign[holder] += 1
+                    sources[holder][owner] += 1
+
+    return {
+        locality_id: Contamination(
+            locality_id=locality_id,
+            own_inside=own[locality_id],
+            foreign_inside=foreign[locality_id],
+            worst_sources=tuple(sources[locality_id].most_common(5)),
+        )
+        for locality_id in cells
+    }

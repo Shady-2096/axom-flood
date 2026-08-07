@@ -60,10 +60,12 @@ from axom_flood.boundaries.osm import (
 )
 from axom_flood.boundaries.quality import (
     CELL_DEGREES,
+    MAX_FOREIGN_SHARE,
     MIN_POINTS_FOR_A_SCORE,
     TOLERANCE_KM,
     cell_area_sq_km,
     cell_of,
+    measure_contamination,
     measure_topology,
     school_points_by_locality,
     score_circle,
@@ -109,6 +111,7 @@ def main() -> None:
     parser.add_argument("--udise-csv", type=Path, default=None)
     parser.add_argument("--pass-agreement", type=float, default=PASS_AGREEMENT)
     parser.add_argument("--max-overlap", type=float, default=MAX_OVERLAP_SHARE)
+    parser.add_argument("--max-foreign-share", type=float, default=MAX_FOREIGN_SHARE)
     parser.add_argument(
         "--write-refs",
         action="store_true",
@@ -139,6 +142,9 @@ def main() -> None:
         locality_id: relation.rings for locality_id, relation in match.matched.items()
     }
     cells, shared_cells = measure_topology(outlines)
+    # The other half of the question agreement cannot ask: how much of what sits
+    # inside each outline belongs to a different circle.
+    contamination = measure_contamination(cells, points)
     # Which circle owns each grid cell, so a point that fell outside its own
     # circle can be told where it did land. A stray point that landed in the
     # neighbouring circle means the outline and the village-to-circle join
@@ -188,6 +194,7 @@ def main() -> None:
             })
             continue
 
+        dirt = contamination[locality_id]
         own_points = points.get(locality_id, [])
         score = score_circle(
             locality_id, relation.rings, own_points, villages.get(locality_id, 0)
@@ -236,6 +243,12 @@ def main() -> None:
             grade, blocked = "none", "overlaps_another_circle"
         elif (score.agreement or 0) < args.pass_agreement:
             grade, blocked = "none", "agreement_below_threshold"
+        elif (dirt.foreign_share or 0) > args.max_foreign_share:
+            # Checked after agreement, because a circle failing both should be
+            # reported against the simpler test. This one catches the opposite
+            # error: an outline large enough to score well on its own points
+            # while standing over a neighbour's ground.
+            grade, blocked = "none", "outline_holds_other_circles_points"
         else:
             grade, blocked = "zonal", None
 
@@ -286,6 +299,15 @@ def main() -> None:
             "max_stray_km": (
                 None if score.max_stray_km is None else round(score.max_stray_km, 2)
             ),
+            # What this outline holds that is not its own. Agreement can only go
+            # up as an outline grows, so this is the only number that can see an
+            # outline standing over a neighbour.
+            "own_points_held": dirt.own_inside,
+            "foreign_points_held": dirt.foreign_inside,
+            "foreign_share": (
+                None if dirt.foreign_share is None else round(dirt.foreign_share, 4)
+            ),
+            "foreign_points_from": dict(dirt.worst_sources),
             "villages_with_independent_centre": score.villages,
             "area_sq_km": round(area, 2),
             "overlap_area_sq_km": round(shared_area, 2),
@@ -373,6 +395,15 @@ def main() -> None:
             "min_independent_points": MIN_POINTS_FOR_A_SCORE,
             "max_overlap_share": args.max_overlap,
             "topology_cell_degrees": CELL_DEGREES,
+            "max_foreign_share": args.max_foreign_share,
+            "max_foreign_share_reason": (
+                "agreement can only rise as an outline grows, so it cannot see an "
+                "outline standing over a neighbour's ground. Among circles that "
+                "otherwise look sound the fringe of neighbours' points near a shared "
+                "border reaches about a quarter; past a third the outline is "
+                "describing somebody else's land and an average over it would be "
+                "attributed to the wrong circle"
+            ),
             "agreement_tolerance_m": round(TOLERANCE_KM * 1000),
             "agreement_tolerance_reason": (
                 "a point this far outside the outline is not a disagreement at the "

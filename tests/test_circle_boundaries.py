@@ -21,6 +21,7 @@ from axom_flood.boundaries.quality import (
     TOLERANCE_KM,
     CircleScore,
     cell_area_sq_km,
+    measure_contamination,
     measure_topology,
     rasterize,
     school_points_by_locality,
@@ -226,6 +227,54 @@ def test_stray_distance_is_reported_for_a_point_nowhere_near_the_circle():
     assert 190 < score.max_stray_km < 210  # ~2 degrees of longitude at 26°N
 
 
+def test_an_outline_over_a_neighbour_is_caught_even_at_full_agreement():
+    """The failure agreement cannot see, and the reason contamination exists.
+
+    `wide` covers both circles' ground. It scores 100% against its own points —
+    growing an outline can only contain more of them — while holding every one of
+    `narrow`'s as well. Only asking whose points are inside finds that.
+    """
+
+    outlines = {
+        "wide": [square(0.0, 26.0, 2.0)],
+        "narrow": [square(1.0, 26.0, 1.0)],
+    }
+    cells, _ = measure_topology(outlines)
+    points = {
+        "wide": [(0.5, 26.5), (0.5, 27.0)],
+        "narrow": [(1.5, 26.5), (1.2, 26.8), (1.8, 26.2)],
+    }
+
+    dirt = measure_contamination(cells, points)
+
+    assert score_circle("wide", outlines["wide"], points["wide"]).agreement == 1.0
+    assert dirt["wide"].own_inside == 2
+    assert dirt["wide"].foreign_inside == 3
+    assert dirt["wide"].foreign_share == pytest.approx(3 / 5)
+    assert dirt["wide"].worst_sources[0] == ("narrow", 3)
+    # The circle being stood on holds nothing of anyone else's.
+    assert dirt["narrow"].foreign_inside == 0
+
+
+def test_a_circle_holding_only_its_own_points_is_not_contaminated():
+    outlines = {"a": [square(0.0, 26.0, 1.0)], "b": [square(2.0, 26.0, 1.0)]}
+    cells, _ = measure_topology(outlines)
+    points = {"a": [(0.5, 26.5)], "b": [(2.5, 26.5)]}
+
+    dirt = measure_contamination(cells, points)
+
+    assert dirt["a"].foreign_share == 0.0
+    assert dirt["b"].foreign_share == 0.0
+
+
+def test_a_circle_with_nothing_inside_it_has_no_foreign_share():
+    """None, not zero. Zero would read as a clean outline rather than no evidence."""
+    outlines = {"a": [square(0.0, 26.0, 1.0)]}
+    cells, _ = measure_topology(outlines)
+
+    assert measure_contamination(cells, {"a": []})["a"].foreign_share is None
+
+
 def test_the_tolerant_count_is_never_below_the_strict_one():
     """A disagreement between the distance measure and the containment test is a
     bug in this module, not a low score, so it cannot be published as one."""
@@ -329,6 +378,32 @@ class TestPublishedQualityRecord:
 
     def test_min_points_matches_the_module(self, review):
         assert review["rules"]["min_independent_points"] == MIN_POINTS_FOR_A_SCORE
+
+    def test_no_promoted_circle_stands_on_a_neighbour(self, review):
+        """Karbi Anglong's Phuloni passed at 96% on a 3,286 km² outline holding
+        81 of its neighbours' schools. Agreement rises as an outline grows, so
+        this is the only check that can refuse it."""
+
+        limit = review["rules"]["max_foreign_share"]
+        assert review["rules"]["max_foreign_share_reason"]
+        for record in review["records"]:
+            if record["grade"] != "zonal":
+                continue
+            share = record.get("foreign_share")
+            assert share is not None, record["locality_id"]
+            assert share <= limit, (record["locality_id"], share)
+
+    def test_a_circle_refused_for_contamination_names_whose_points_it_holds(self, review):
+        blocked = [
+            record for record in review["records"]
+            if record.get("blocked_by") == "outline_holds_other_circles_points"
+        ]
+        assert blocked, "the contamination rule refused nothing, so it proves nothing"
+        for record in blocked:
+            # A repair needs to know which neighbour was taken from, not only
+            # that something was.
+            assert record["foreign_points_from"], record["locality_id"]
+            assert record["foreign_share"] > review["rules"]["max_foreign_share"]
 
     def test_the_tolerance_is_recorded_with_its_reason(self, review):
         assert review["rules"]["agreement_tolerance_m"] == round(TOLERANCE_KM * 1000)
