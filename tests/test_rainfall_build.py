@@ -208,3 +208,31 @@ def test_the_expected_window_end_lands_on_a_half_hour(script):
     assert as_of.minute in {0, 30}
     assert as_of.second == 0
     assert as_of < datetime(2026, 8, 6, 23, 47, 31, tzinfo=UTC)
+
+
+def test_the_subset_cache_is_keyed_on_the_cells_it_was_cut_down_to(script, tmp_path):
+    """A cached subset holds only the cells asked for when it was fetched. When a
+    circle is promoted to an analysis boundary its cells join the set, and a cache
+    keyed on the granule alone would keep serving the narrower cut — no error, and
+    the new circles silently publish nothing for any window reaching back past the
+    granules downloaded since. It happened: 13 of 19 new circles came out with no
+    24-hour and no 72-hour number."""
+
+    narrow = {WET}
+    wide = {WET, DRY}
+
+    assert script.cells_digest(narrow) != script.cells_digest(wide)
+    # Order and type of the set never move the name.
+    assert script.cells_digest(wide) == script.cells_digest({DRY, WET})
+
+    granule = "3B-HHR-L.MS.MRG.3IMERG.20260806-S050000-E052959.0300.V07C.HDF5"
+    narrow_path = script.cached_subset_path(
+        ImergRun.LATE, granule, script.cells_digest(narrow)
+    )
+    wide_path = script.cached_subset_path(
+        ImergRun.LATE, granule, script.cells_digest(wide)
+    )
+    assert narrow_path != wide_path
+    # Neither overwrites the other: the old cut stays readable under its own name.
+    assert narrow_path.parent != wide_path.parent
+    assert narrow_path.name == wide_path.name

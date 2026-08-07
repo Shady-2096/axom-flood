@@ -1,0 +1,2084 @@
+{
+  "as_of": "2026-08-07T02:00:00+00:00",
+  "attribution": "\u00a9 OpenStreetMap contributors, ODbL",
+  "circles": [
+    {
+      "context_window_hours": 72,
+      "district": "Baksa",
+      "headline": "Satellite estimates show less than 1 mm of rain over Baganpara (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 16 mm fell over the 3 days up to then.",
+      "locality_id": "baksa-baganpara-pt",
+      "revenue_circle": "Baganpara (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Baganpara (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 16 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 16.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Baksa",
+      "headline": "Satellite estimates show less than 1 mm of rain over Barama (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 17 mm fell over the 3 days up to then.",
+      "locality_id": "baksa-barama-pt",
+      "revenue_circle": "Barama (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Barama (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 17 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 16.6
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Baksa",
+      "headline": "Satellite estimates show less than 1 mm of rain over Barnagar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 52 mm fell over the 3 days up to then.",
+      "locality_id": "baksa-barnagar-pt",
+      "revenue_circle": "Barnagar (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Barnagar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 52 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.035305626,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 51.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Baksa",
+      "headline": "Satellite estimates show less than 1 mm of rain over Baska circle in the 24 hours up to 7:30 AM on 7 Aug. About 17 mm fell over the 3 days up to then.",
+      "locality_id": "baksa-baska",
+      "revenue_circle": "Baska",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Baska circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 17 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 17.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Tamulpur",
+      "headline": "Satellite estimates show less than 1 mm of rain over Goreswar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 39 mm fell over the 3 days up to then.",
+      "locality_id": "baksa-goreswar-pt",
+      "revenue_circle": "Goreswar (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Goreswar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 39 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 38.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Baksa",
+      "headline": "Satellite estimates show less than 1 mm of rain over Sarupeta (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 33 mm fell over the 3 days up to then.",
+      "locality_id": "baksa-sarupeta-pt",
+      "revenue_circle": "Sarupeta (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Sarupeta (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 33 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0020319324,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 32.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Tamulpur",
+      "headline": "Satellite estimates show less than 1 mm of rain over Tamulpur circle in the 24 hours up to 7:30 AM on 7 Aug. About 23 mm fell over the 3 days up to then.",
+      "locality_id": "baksa-tamulpur",
+      "revenue_circle": "Tamulpur",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Tamulpur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 23 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 23.0
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Baksa",
+      "headline": "Satellite estimates show less than 1 mm of rain over Tihu (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 19 mm fell over the 3 days up to then.",
+      "locality_id": "baksa-tihu-pt",
+      "revenue_circle": "Tihu (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Tihu (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 19 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 18.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Barpeta",
+      "headline": "Satellite estimates show less than 1 mm of rain over Baghbor circle in the 24 hours up to 7:30 AM on 7 Aug. About 39 mm fell over the 3 days up to then.",
+      "locality_id": "barpeta-baghbor",
+      "revenue_circle": "Baghbor",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Baghbor circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 39 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 39.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Bajali",
+      "headline": "Satellite estimates show less than 1 mm of rain over Bajali (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 23 mm fell over the 3 days up to then.",
+      "locality_id": "barpeta-bajali-pt",
+      "revenue_circle": "Bajali (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Bajali (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 23 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 23.4
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Barpeta",
+      "headline": "Satellite estimates show less than 1 mm of rain over Barpeta circle in the 24 hours up to 7:30 AM on 7 Aug. About 41 mm fell over the 3 days up to then.",
+      "locality_id": "barpeta-barpeta",
+      "revenue_circle": "Barpeta",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Barpeta circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 41 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 41.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Barpeta",
+      "headline": "Satellite estimates show less than 1 mm of rain over Kalgachia circle in the 24 hours up to 7:30 AM on 7 Aug. About 46 mm fell over the 3 days up to then.",
+      "locality_id": "barpeta-kalgachia",
+      "revenue_circle": "Kalgachia",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Kalgachia circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 46 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 46.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Barpeta",
+      "headline": "Satellite estimates show less than 1 mm of rain over Sarthebari circle in the 24 hours up to 7:30 AM on 7 Aug. About 35 mm fell over the 3 days up to then.",
+      "locality_id": "barpeta-sarthebari",
+      "revenue_circle": "Sarthebari",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Sarthebari circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 35 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 35.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Cachar",
+      "headline": "Satellite estimates show about 6 mm of rain over Silchar circle in the 24 hours up to 7:30 AM on 7 Aug. About 62 mm fell over the 3 days up to then.",
+      "locality_id": "cachar-silchar",
+      "revenue_circle": "Silchar",
+      "stale_headline": "Satellite estimates show about 6 mm of rain over Silchar circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 62 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 5.73717013385,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 5.7,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 61.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Cachar",
+      "headline": "Satellite estimates show less than 1 mm of rain over Sonai circle in the 24 hours up to 7:30 AM on 7 Aug. About 41 mm fell over the 3 days up to then.",
+      "locality_id": "cachar-sonai",
+      "revenue_circle": "Sonai",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Sonai circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 41 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.6769069172,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.7,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 41.4
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Cachar",
+      "headline": "Satellite estimates show about 2 mm of rain over Udarbond circle in the 24 hours up to 7:30 AM on 7 Aug. About 48 mm fell over the 3 days up to then.",
+      "locality_id": "cachar-udarbond",
+      "revenue_circle": "Udarbond",
+      "stale_headline": "Satellite estimates show about 2 mm of rain over Udarbond circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 48 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 2.1373069302,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 2.1,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 48.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Chirang",
+      "headline": "Satellite estimates show less than 1 mm of rain over Bijni (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 54 mm fell over the 3 days up to then.",
+      "locality_id": "chirang-bijni-pt",
+      "revenue_circle": "Bijni (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Bijni (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 54 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 54.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Darrang",
+      "headline": "Satellite estimates show less than 1 mm of rain over Dalgaon (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 44 mm fell over the 3 days up to then.",
+      "locality_id": "darrang-dalgaon-pt",
+      "revenue_circle": "Dalgaon (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Dalgaon (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 44 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.2041753997,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.2,
+        "3": 0.0,
+        "6": 0.1,
+        "72": 44.2
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Darrang",
+      "headline": "Satellite estimates show less than 1 mm of rain over Kalaigaon (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 51 mm fell over the 3 days up to then.",
+      "locality_id": "darrang-kalaigaon-pt",
+      "revenue_circle": "Kalaigaon (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Kalaigaon (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 51 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0753941916,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.1,
+        "3": 0.0,
+        "6": 0.1,
+        "72": 51.2
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Darrang",
+      "headline": "Satellite estimates show less than 1 mm of rain over Mangaldoi (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 53 mm fell over the 3 days up to then.",
+      "locality_id": "darrang-mangaldoi-pt",
+      "revenue_circle": "Mangaldoi (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Mangaldoi (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 53 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.09832744395,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.1,
+        "3": 0.0,
+        "6": 0.1,
+        "72": 52.7
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Darrang",
+      "headline": "Satellite estimates show less than 1 mm of rain over Sipajhar circle in the 24 hours up to 7:30 AM on 7 Aug. About 70 mm fell over the 3 days up to then.",
+      "locality_id": "darrang-sipajhar",
+      "revenue_circle": "Sipajhar",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Sipajhar circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 70 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.08458235435,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.1,
+        "3": 0.0,
+        "6": 0.1,
+        "72": 70.0
+      }
+    },
+    {
+      "context_window_hours": null,
+      "district": "Dhemaji",
+      "headline": "Satellite estimates show about 11 mm of rain over Sissibargaon circle in the 24 hours up to 7:30 AM on 7 Aug.",
+      "locality_id": "dhemaji-sissibargaon",
+      "revenue_circle": "Sissibargaon",
+      "stale_headline": "Satellite estimates show about 11 mm of rain over Sissibargaon circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived.",
+      "status": "estimate",
+      "total_precipitation_mm": 10.6812211637,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 10.7,
+        "3": 0.1,
+        "6": 5.6,
+        "72": 19.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Dhubri",
+      "headline": "Satellite estimates show less than 1 mm of rain over Agamoni circle in the 24 hours up to 7:30 AM on 7 Aug. About 89 mm fell over the 3 days up to then.",
+      "locality_id": "dhubri-agamoni",
+      "revenue_circle": "Agamoni",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Agamoni circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 89 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.002042567,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 89.0
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Dhubri",
+      "headline": "Satellite estimates show about 5 mm of rain over Bagribari (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 72 mm fell over the 3 days up to then.",
+      "locality_id": "dhubri-bagribari-pt",
+      "revenue_circle": "Bagribari (Pt)",
+      "stale_headline": "Satellite estimates show about 5 mm of rain over Bagribari (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 72 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 4.57321021365,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 4.6,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 72.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Dhubri",
+      "headline": "Satellite estimates show less than 1 mm of rain over Chapar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 57 mm fell over the 3 days up to then.",
+      "locality_id": "dhubri-chapar-pt",
+      "revenue_circle": "Chapar (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Chapar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 57 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0652558508,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.1,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 56.7
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Dhubri",
+      "headline": "Satellite estimates show about 2 mm of rain over Dhubri (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 76 mm fell over the 3 days up to then.",
+      "locality_id": "dhubri-dhubri-pt",
+      "revenue_circle": "Dhubri (Pt)",
+      "stale_headline": "Satellite estimates show about 2 mm of rain over Dhubri (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 76 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 1.89974388115,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 1.9,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 76.2
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Dhubri",
+      "headline": "Satellite estimates show less than 1 mm of rain over Golokganj (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 81 mm fell over the 3 days up to then.",
+      "locality_id": "dhubri-golokganj-pt",
+      "revenue_circle": "Golokganj (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Golokganj (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 81 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.2684993168,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.3,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 81.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Dhubri",
+      "headline": "Satellite estimates show less than 1 mm of rain over Gossaigaon (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 110 mm fell over the 3 days up to then.",
+      "locality_id": "dhubri-gossaigaon-pt",
+      "revenue_circle": "Gossaigaon (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Gossaigaon (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 110 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 109.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "South Salmara-Mankachar",
+      "headline": "Satellite estimates show about 11 mm of rain over Mankachar circle in the 24 hours up to 7:30 AM on 7 Aug. About 75 mm fell over the 3 days up to then.",
+      "locality_id": "dhubri-mankachar",
+      "revenue_circle": "Mankachar",
+      "stale_headline": "Satellite estimates show about 11 mm of rain over Mankachar circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 75 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 11.11963165145,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 11.1,
+        "3": 0.0,
+        "6": 0.1,
+        "72": 75.2
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "South Salmara-Mankachar",
+      "headline": "Satellite estimates show about 5 mm of rain over South Salmara circle in the 24 hours up to 7:30 AM on 7 Aug. About 76 mm fell over the 3 days up to then.",
+      "locality_id": "dhubri-south-salmara",
+      "revenue_circle": "South Salmara",
+      "stale_headline": "Satellite estimates show about 5 mm of rain over South Salmara circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 76 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 4.56390827995,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 4.6,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 76.5
+      }
+    },
+    {
+      "context_window_hours": null,
+      "district": "Dibrugarh",
+      "headline": "Satellite estimates show about 33 mm of rain over Dibrugarh West circle in the 24 hours up to 7:30 AM on 7 Aug.",
+      "locality_id": "dibrugarh-dibrugarh-west",
+      "revenue_circle": "Dibrugarh West",
+      "stale_headline": "Satellite estimates show about 33 mm of rain over Dibrugarh West circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived.",
+      "status": "estimate",
+      "total_precipitation_mm": 32.7841917714,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 32.8,
+        "3": 0.1,
+        "6": 12.8,
+        "72": 40.7
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Dibrugarh",
+      "headline": "Satellite estimates show less than 1 mm of rain over Naharkatiya circle in the 24 hours up to 7:30 AM on 7 Aug. About 30 mm fell over the 3 days up to then.",
+      "locality_id": "dibrugarh-naharkatiya",
+      "revenue_circle": "Naharkatiya",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Naharkatiya circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 30 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.61349602045,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.6,
+        "3": 0.0,
+        "6": 0.5,
+        "72": 29.6
+      }
+    },
+    {
+      "context_window_hours": null,
+      "district": "Dibrugarh",
+      "headline": "Satellite estimates show about 1 mm of rain over Tingkhong circle in the 24 hours up to 7:30 AM on 7 Aug.",
+      "locality_id": "dibrugarh-tingkhong",
+      "revenue_circle": "Tingkhong",
+      "stale_headline": "Satellite estimates show about 1 mm of rain over Tingkhong circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived.",
+      "status": "estimate",
+      "total_precipitation_mm": 1.4253116674,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 1.4,
+        "3": 0.0,
+        "6": 0.2,
+        "72": 11.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Dima Hasao",
+      "headline": "Satellite estimates show about 3 mm of rain over Maibong circle in the 24 hours up to 7:30 AM on 7 Aug. About 34 mm fell over the 3 days up to then.",
+      "locality_id": "dima-hasao-maibong",
+      "revenue_circle": "Maibong",
+      "stale_headline": "Satellite estimates show about 3 mm of rain over Maibong circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 34 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 3.25728564715,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 3.3,
+        "3": 0.3,
+        "6": 0.4,
+        "72": 34.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Dima Hasao",
+      "headline": "Satellite estimates show about 4 mm of rain over Umrangso circle in the 24 hours up to 7:30 AM on 7 Aug. About 47 mm fell over the 3 days up to then.",
+      "locality_id": "dima-hasao-umrangso",
+      "revenue_circle": "Umrangso",
+      "stale_headline": "Satellite estimates show about 4 mm of rain over Umrangso circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 47 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 4.1280899216,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 4.1,
+        "3": 1.4,
+        "6": 1.7,
+        "72": 47.0
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Goalpara",
+      "headline": "Satellite estimates show less than 1 mm of rain over Balijana circle in the 24 hours up to 7:30 AM on 7 Aug. About 40 mm fell over the 3 days up to then.",
+      "locality_id": "goalpara-balijana",
+      "revenue_circle": "Balijana",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Balijana circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 40 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.01685341625,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 40.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Goalpara",
+      "headline": "Satellite estimates show about 1 mm of rain over Lakhipur circle in the 24 hours up to 7:30 AM on 7 Aug. About 58 mm fell over the 3 days up to then.",
+      "locality_id": "goalpara-lakhipur",
+      "revenue_circle": "Lakhipur",
+      "stale_headline": "Satellite estimates show about 1 mm of rain over Lakhipur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 58 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 1.43863598915,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 1.4,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 57.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Goalpara",
+      "headline": "Satellite estimates show less than 1 mm of rain over Matia circle in the 24 hours up to 7:30 AM on 7 Aug. About 35 mm fell over the 3 days up to then.",
+      "locality_id": "goalpara-matia",
+      "revenue_circle": "Matia",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Matia circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 35 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.06291982365,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.1,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 34.6
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Goalpara",
+      "headline": "Satellite estimates show less than 1 mm of rain over Rangjuli circle in the 24 hours up to 7:30 AM on 7 Aug. About 36 mm fell over the 3 days up to then.",
+      "locality_id": "goalpara-rangjuli",
+      "revenue_circle": "Rangjuli",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Rangjuli circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 36 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.09059014935,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.1,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 36.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Golaghat",
+      "headline": "Satellite estimates show about 10 mm of rain over Bokakhat circle in the 24 hours up to 7:30 AM on 7 Aug. About 52 mm fell over the 3 days up to then.",
+      "locality_id": "golaghat-bokakhat",
+      "revenue_circle": "Bokakhat",
+      "stale_headline": "Satellite estimates show about 10 mm of rain over Bokakhat circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 52 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 10.145912773,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 10.1,
+        "3": 2.2,
+        "6": 8.2,
+        "72": 51.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Golaghat",
+      "headline": "Satellite estimates show about 7 mm of rain over Dergaon circle in the 24 hours up to 7:30 AM on 7 Aug. About 49 mm fell over the 3 days up to then.",
+      "locality_id": "golaghat-dergaon",
+      "revenue_circle": "Dergaon",
+      "stale_headline": "Satellite estimates show about 7 mm of rain over Dergaon circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 49 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 7.39780778335,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 7.4,
+        "3": 0.4,
+        "6": 5.5,
+        "72": 49.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Golaghat",
+      "headline": "Satellite estimates show about 12 mm of rain over Morangi circle in the 24 hours up to 7:30 AM on 7 Aug. About 67 mm fell over the 3 days up to then.",
+      "locality_id": "golaghat-morangi",
+      "revenue_circle": "Morangi",
+      "stale_headline": "Satellite estimates show about 12 mm of rain over Morangi circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 67 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 11.9721940529,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 12.0,
+        "3": 1.4,
+        "6": 6.0,
+        "72": 66.7
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Golaghat",
+      "headline": "Satellite estimates show about 8 mm of rain over Sarupathar circle in the 24 hours up to 7:30 AM on 7 Aug. About 52 mm fell over the 3 days up to then.",
+      "locality_id": "golaghat-sarupathar",
+      "revenue_circle": "Sarupathar",
+      "stale_headline": "Satellite estimates show about 8 mm of rain over Sarupathar circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 52 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 8.489324952,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.1,
+        "24": 8.5,
+        "3": 1.4,
+        "6": 3.9,
+        "72": 51.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Hailakandi",
+      "headline": "Satellite estimates show about 8 mm of rain over Algapur circle in the 24 hours up to 7:30 AM on 7 Aug. About 66 mm fell over the 3 days up to then.",
+      "locality_id": "hailakandi-algapur",
+      "revenue_circle": "Algapur",
+      "stale_headline": "Satellite estimates show about 8 mm of rain over Algapur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 66 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 8.16541152305,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 8.2,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 66.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Hailakandi",
+      "headline": "Satellite estimates show about 4 mm of rain over Hailakandi circle in the 24 hours up to 7:30 AM on 7 Aug. About 46 mm fell over the 3 days up to then.",
+      "locality_id": "hailakandi-hailakandi",
+      "revenue_circle": "Hailakandi",
+      "stale_headline": "Satellite estimates show about 4 mm of rain over Hailakandi circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 46 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 3.74507304395,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 3.7,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 45.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Jorhat",
+      "headline": "Satellite estimates show about 3 mm of rain over Jorhat East circle in the 24 hours up to 7:30 AM on 7 Aug. About 27 mm fell over the 3 days up to then.",
+      "locality_id": "jorhat-jorhat-east",
+      "revenue_circle": "Jorhat East",
+      "stale_headline": "Satellite estimates show about 3 mm of rain over Jorhat East circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 27 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 3.2805721806,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 3.3,
+        "3": 0.0,
+        "6": 2.8,
+        "72": 27.0
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Majuli",
+      "headline": "Satellite estimates show about 13 mm of rain over Majuli circle in the 24 hours up to 7:30 AM on 7 Aug. About 39 mm fell over the 3 days up to then.",
+      "locality_id": "jorhat-majuli",
+      "revenue_circle": "Majuli",
+      "stale_headline": "Satellite estimates show about 13 mm of rain over Majuli circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 39 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 12.726537289,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 12.7,
+        "3": 0.0,
+        "6": 3.6,
+        "72": 38.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup",
+      "headline": "Satellite estimates show about 3 mm of rain over Boko circle in the 24 hours up to 7:30 AM on 7 Aug. About 48 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-boko",
+      "revenue_circle": "Boko",
+      "stale_headline": "Satellite estimates show about 3 mm of rain over Boko circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 48 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 2.69040346985,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 2.7,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 48.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup",
+      "headline": "Satellite estimates show less than 1 mm of rain over Chamaria circle in the 24 hours up to 7:30 AM on 7 Aug. About 46 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-chamaria",
+      "revenue_circle": "Chamaria",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Chamaria circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 46 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.00302797205,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 45.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup",
+      "headline": "Satellite estimates show less than 1 mm of rain over Goreswar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 58 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-goreswar-pt",
+      "revenue_circle": "Goreswar (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Goreswar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 58 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 58.2
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup",
+      "headline": "Satellite estimates show less than 1 mm of rain over Goroimari circle in the 24 hours up to 7:30 AM on 7 Aug. About 62 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-goroimari",
+      "revenue_circle": "Goroimari",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Goroimari circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 62 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.04279485695,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 61.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup",
+      "headline": "Satellite estimates show less than 1 mm of rain over Hajo circle in the 24 hours up to 7:30 AM on 7 Aug. About 113 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-hajo",
+      "revenue_circle": "Hajo",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Hajo circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 113 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0395875716,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 113.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup",
+      "headline": "Satellite estimates show less than 1 mm of rain over Kamalpur circle in the 24 hours up to 7:30 AM on 7 Aug. About 117 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-kamalpur",
+      "revenue_circle": "Kamalpur",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Kamalpur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 117 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0046350568,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 117.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup",
+      "headline": "Satellite estimates show less than 1 mm of rain over Koya circle in the 24 hours up to 7:30 AM on 7 Aug. About 92 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-koya",
+      "revenue_circle": "Koya",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Koya circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 92 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 92.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup Metropolitan",
+      "headline": "Satellite estimates show less than 1 mm of rain over Chandrapur circle in the 24 hours up to 7:30 AM on 7 Aug. About 53 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-metropolitan-chandrapur",
+      "revenue_circle": "Chandrapur",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Chandrapur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 53 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.2657297266,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.3,
+        "3": 0.0,
+        "6": 0.1,
+        "72": 53.0
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup Metropolitan",
+      "headline": "Satellite estimates show about 3 mm of rain over Sonapur circle in the 24 hours up to 7:30 AM on 7 Aug. About 52 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-metropolitan-sonapur",
+      "revenue_circle": "Sonapur",
+      "stale_headline": "Satellite estimates show about 3 mm of rain over Sonapur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 52 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 2.5434224355,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 2.5,
+        "3": 0.0,
+        "6": 0.2,
+        "72": 51.6
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup",
+      "headline": "Satellite estimates show less than 1 mm of rain over Nagarbera circle in the 24 hours up to 7:30 AM on 7 Aug. About 38 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-nagarbera",
+      "revenue_circle": "Nagarbera",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Nagarbera circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 38 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 37.7
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kamrup",
+      "headline": "Satellite estimates show about 8 mm of rain over Palasbari circle in the 24 hours up to 7:30 AM on 7 Aug. About 100 mm fell over the 3 days up to then.",
+      "locality_id": "kamrup-palasbari",
+      "revenue_circle": "Palasbari",
+      "stale_headline": "Satellite estimates show about 8 mm of rain over Palasbari circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 100 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 7.67219475015,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 7.7,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 99.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Sribhumi",
+      "headline": "Satellite estimates show about 9 mm of rain over Badarpur circle in the 24 hours up to 7:30 AM on 7 Aug. About 66 mm fell over the 3 days up to then.",
+      "locality_id": "karimganj-badarpur",
+      "revenue_circle": "Badarpur",
+      "stale_headline": "Satellite estimates show about 9 mm of rain over Badarpur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 66 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 8.62588172365,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 8.6,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 66.0
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Sribhumi",
+      "headline": "Satellite estimates show about 6 mm of rain over Karimganj circle in the 24 hours up to 7:30 AM on 7 Aug. About 78 mm fell over the 3 days up to then.",
+      "locality_id": "karimganj-karimganj",
+      "revenue_circle": "Karimganj",
+      "stale_headline": "Satellite estimates show about 6 mm of rain over Karimganj circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 78 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 6.12677035,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 6.1,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 77.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Sribhumi",
+      "headline": "Satellite estimates show about 2 mm of rain over Nilambazar circle in the 24 hours up to 7:30 AM on 7 Aug. About 56 mm fell over the 3 days up to then.",
+      "locality_id": "karimganj-nilambazar",
+      "revenue_circle": "Nilambazar",
+      "stale_headline": "Satellite estimates show about 2 mm of rain over Nilambazar circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 56 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 2.3458075338,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 2.3,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 55.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Sribhumi",
+      "headline": "Satellite estimates show about 2 mm of rain over Patharkandi circle in the 24 hours up to 7:30 AM on 7 Aug. About 51 mm fell over the 3 days up to then.",
+      "locality_id": "karimganj-patharkandi",
+      "revenue_circle": "Patharkandi",
+      "stale_headline": "Satellite estimates show about 2 mm of rain over Patharkandi circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 51 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 2.16610290545,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 2.2,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 51.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Sribhumi",
+      "headline": "Satellite estimates show about 3 mm of rain over Ramkrishna Nagar circle in the 24 hours up to 7:30 AM on 7 Aug. About 35 mm fell over the 3 days up to then.",
+      "locality_id": "karimganj-ramkrishna-nagar",
+      "revenue_circle": "Ramkrishna Nagar",
+      "stale_headline": "Satellite estimates show about 3 mm of rain over Ramkrishna Nagar circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 35 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 2.6293701058,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 2.6,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 35.0
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kokrajhar",
+      "headline": "Satellite estimates show less than 1 mm of rain over Bagribari (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 68 mm fell over the 3 days up to then.",
+      "locality_id": "kokrajhar-bagribari-pt",
+      "revenue_circle": "Bagribari (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Bagribari (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 68 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.2871620236,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.3,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 68.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kokrajhar",
+      "headline": "Satellite estimates show less than 1 mm of rain over Bhowraguri circle in the 24 hours up to 7:30 AM on 7 Aug. About 65 mm fell over the 3 days up to then.",
+      "locality_id": "kokrajhar-bhowraguri",
+      "revenue_circle": "Bhowraguri",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Bhowraguri circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 65 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 3.06108e-05,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 64.7
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kokrajhar",
+      "headline": "Satellite estimates show less than 1 mm of rain over Chapar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 62 mm fell over the 3 days up to then.",
+      "locality_id": "kokrajhar-chapar-pt",
+      "revenue_circle": "Chapar (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Chapar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 62 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0757257648,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.1,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 61.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kokrajhar",
+      "headline": "Satellite estimates show about 1 mm of rain over Dhubri (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 74 mm fell over the 3 days up to then.",
+      "locality_id": "kokrajhar-dhubri-pt",
+      "revenue_circle": "Dhubri (Pt)",
+      "stale_headline": "Satellite estimates show about 1 mm of rain over Dhubri (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 74 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 1.2174820919,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 1.2,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 73.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kokrajhar",
+      "headline": "Satellite estimates show less than 1 mm of rain over Golokganj (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 85 mm fell over the 3 days up to then.",
+      "locality_id": "kokrajhar-golokganj-pt",
+      "revenue_circle": "Golokganj (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Golokganj (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 85 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.2156017571,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.2,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 85.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kokrajhar",
+      "headline": "Satellite estimates show less than 1 mm of rain over Gossaigaon (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 79 mm fell over the 3 days up to then.",
+      "locality_id": "kokrajhar-gossaigaon-pt",
+      "revenue_circle": "Gossaigaon (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Gossaigaon (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 79 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 79.2
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Kokrajhar",
+      "headline": "Satellite estimates show less than 1 mm of rain over Kokrajhar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 64 mm fell over the 3 days up to then.",
+      "locality_id": "kokrajhar-kokrajhar-pt",
+      "revenue_circle": "Kokrajhar (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Kokrajhar (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 64 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.00906418855,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 64.4
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Lakhimpur",
+      "headline": "Satellite estimates show about 5 mm of rain over Bihpuria circle in the 24 hours up to 7:30 AM on 7 Aug. About 19 mm fell over the 3 days up to then.",
+      "locality_id": "lakhimpur-bihpuria",
+      "revenue_circle": "Bihpuria",
+      "stale_headline": "Satellite estimates show about 5 mm of rain over Bihpuria circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 19 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 4.9021948353,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 4.9,
+        "3": 0.0,
+        "6": 2.6,
+        "72": 19.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Lakhimpur",
+      "headline": "Satellite estimates show about 92 mm of rain over Dhakuakhana (Pt-I) circle in the 24 hours up to 7:30 AM on 7 Aug. About 117 mm fell over the 3 days up to then.",
+      "locality_id": "lakhimpur-dhakuakhana-pt-i",
+      "revenue_circle": "Dhakuakhana (Pt-I)",
+      "stale_headline": "Satellite estimates show about 92 mm of rain over Dhakuakhana (Pt-I) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 117 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 92.167006415,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 92.2,
+        "3": 0.2,
+        "6": 37.6,
+        "72": 117.0
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Lakhimpur",
+      "headline": "Satellite estimates show about 38 mm of rain over Kadam circle in the 24 hours up to 7:30 AM on 7 Aug. About 51 mm fell over the 3 days up to then.",
+      "locality_id": "lakhimpur-kadam",
+      "revenue_circle": "Kadam",
+      "stale_headline": "Satellite estimates show about 38 mm of rain over Kadam circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 51 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 38.4648141478,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 38.5,
+        "3": 0.3,
+        "6": 29.3,
+        "72": 51.4
+      }
+    },
+    {
+      "context_window_hours": null,
+      "district": "Lakhimpur",
+      "headline": "Satellite estimates show about 10 mm of rain over Naobaicha circle in the 24 hours up to 7:30 AM on 7 Aug.",
+      "locality_id": "lakhimpur-naobaicha",
+      "revenue_circle": "Naobaicha",
+      "stale_headline": "Satellite estimates show about 10 mm of rain over Naobaicha circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived.",
+      "status": "estimate",
+      "total_precipitation_mm": 9.52048984375,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 9.5,
+        "3": 0.0,
+        "6": 7.0,
+        "72": 18.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Lakhimpur",
+      "headline": "Satellite estimates show about 6 mm of rain over Narayanpur circle in the 24 hours up to 7:30 AM on 7 Aug. About 35 mm fell over the 3 days up to then.",
+      "locality_id": "lakhimpur-narayanpur",
+      "revenue_circle": "Narayanpur",
+      "stale_headline": "Satellite estimates show about 6 mm of rain over Narayanpur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 35 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 6.1700771182,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 6.2,
+        "3": 0.0,
+        "6": 4.5,
+        "72": 34.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Lakhimpur",
+      "headline": "Satellite estimates show about 22 mm of rain over North Lakhimpur circle in the 24 hours up to 7:30 AM on 7 Aug. About 34 mm fell over the 3 days up to then.",
+      "locality_id": "lakhimpur-north-lakhimpur",
+      "revenue_circle": "North Lakhimpur",
+      "stale_headline": "Satellite estimates show about 22 mm of rain over North Lakhimpur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 34 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 22.0694245386,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 22.1,
+        "3": 0.1,
+        "6": 16.9,
+        "72": 33.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Lakhimpur",
+      "headline": "Satellite estimates show about 77 mm of rain over Subansiri (Pt-I) circle in the 24 hours up to 7:30 AM on 7 Aug. About 95 mm fell over the 3 days up to then.",
+      "locality_id": "lakhimpur-subansiri-pt-i",
+      "revenue_circle": "Subansiri (Pt-I)",
+      "stale_headline": "Satellite estimates show about 77 mm of rain over Subansiri (Pt-I) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 95 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 76.920536443,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 76.9,
+        "3": 0.4,
+        "6": 46.3,
+        "72": 94.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Morigaon",
+      "headline": "Satellite estimates show less than 1 mm of rain over Bhuragaon circle in the 24 hours up to 7:30 AM on 7 Aug. About 39 mm fell over the 3 days up to then.",
+      "locality_id": "morigaon-bhuragaon",
+      "revenue_circle": "Bhuragaon",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Bhuragaon circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 39 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.2525350887,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.3,
+        "3": 0.0,
+        "6": 0.2,
+        "72": 38.6
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Morigaon",
+      "headline": "Satellite estimates show less than 1 mm of rain over Laharighat circle in the 24 hours up to 7:30 AM on 7 Aug. About 42 mm fell over the 3 days up to then.",
+      "locality_id": "morigaon-laharighat",
+      "revenue_circle": "Laharighat",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Laharighat circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 42 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.65487798955,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.7,
+        "3": 0.1,
+        "6": 0.3,
+        "72": 41.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Morigaon",
+      "headline": "Satellite estimates show less than 1 mm of rain over Mayong circle in the 24 hours up to 7:30 AM on 7 Aug. About 37 mm fell over the 3 days up to then.",
+      "locality_id": "morigaon-mayong",
+      "revenue_circle": "Mayong",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Mayong circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 37 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.587157884,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.6,
+        "3": 0.0,
+        "6": 0.3,
+        "72": 36.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Morigaon",
+      "headline": "Satellite estimates show about 3 mm of rain over Mikirbheta circle in the 24 hours up to 7:30 AM on 7 Aug. About 33 mm fell over the 3 days up to then.",
+      "locality_id": "morigaon-mikirbheta",
+      "revenue_circle": "Mikirbheta",
+      "stale_headline": "Satellite estimates show about 3 mm of rain over Mikirbheta circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 33 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 3.2127034815,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 3.2,
+        "3": 0.1,
+        "6": 0.3,
+        "72": 33.4
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Morigaon",
+      "headline": "Satellite estimates show about 1 mm of rain over Morigaon circle in the 24 hours up to 7:30 AM on 7 Aug. About 35 mm fell over the 3 days up to then.",
+      "locality_id": "morigaon-morigaon",
+      "revenue_circle": "Morigaon",
+      "stale_headline": "Satellite estimates show about 1 mm of rain over Morigaon circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 35 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 1.00527037185,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 1.0,
+        "3": 0.0,
+        "6": 0.5,
+        "72": 34.7
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nagaon",
+      "headline": "Satellite estimates show about 3 mm of rain over Dhing circle in the 24 hours up to 7:30 AM on 7 Aug. About 47 mm fell over the 3 days up to then.",
+      "locality_id": "nagaon-dhing",
+      "revenue_circle": "Dhing",
+      "stale_headline": "Satellite estimates show about 3 mm of rain over Dhing circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 47 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 3.4535553782,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 3.5,
+        "3": 0.2,
+        "6": 1.2,
+        "72": 47.3
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Hojai",
+      "headline": "Satellite estimates show about 1 mm of rain over Hojai circle in the 24 hours up to 7:30 AM on 7 Aug. About 34 mm fell over the 3 days up to then.",
+      "locality_id": "nagaon-hojai",
+      "revenue_circle": "Hojai",
+      "stale_headline": "Satellite estimates show about 1 mm of rain over Hojai circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 34 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 1.1741279864,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.1,
+        "24": 1.2,
+        "3": 0.8,
+        "6": 1.0,
+        "72": 33.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nagaon",
+      "headline": "Satellite estimates show about 2 mm of rain over Kampur circle in the 24 hours up to 7:30 AM on 7 Aug. About 42 mm fell over the 3 days up to then.",
+      "locality_id": "nagaon-kampur",
+      "revenue_circle": "Kampur",
+      "stale_headline": "Satellite estimates show about 2 mm of rain over Kampur circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 42 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 2.0694633609,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.1,
+        "24": 2.1,
+        "3": 0.6,
+        "6": 1.1,
+        "72": 42.2
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Hojai",
+      "headline": "Satellite estimates show about 2 mm of rain over Lanka circle in the 24 hours up to 7:30 AM on 7 Aug. About 28 mm fell over the 3 days up to then.",
+      "locality_id": "nagaon-lanka",
+      "revenue_circle": "Lanka",
+      "stale_headline": "Satellite estimates show about 2 mm of rain over Lanka circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 28 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 2.0703552614,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.3,
+        "24": 2.1,
+        "3": 1.2,
+        "6": 1.7,
+        "72": 28.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nagaon",
+      "headline": "Satellite estimates show about 9 mm of rain over Nagaon circle in the 24 hours up to 7:30 AM on 7 Aug. About 70 mm fell over the 3 days up to then.",
+      "locality_id": "nagaon-nagaon",
+      "revenue_circle": "Nagaon",
+      "stale_headline": "Satellite estimates show about 9 mm of rain over Nagaon circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 70 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 9.43686637555,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 9.4,
+        "3": 0.9,
+        "6": 1.2,
+        "72": 69.9
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nagaon",
+      "headline": "Satellite estimates show about 24 mm of rain over Rupahi circle in the 24 hours up to 7:30 AM on 7 Aug. About 80 mm fell over the 3 days up to then.",
+      "locality_id": "nagaon-rupahi",
+      "revenue_circle": "Rupahi",
+      "stale_headline": "Satellite estimates show about 24 mm of rain over Rupahi circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 80 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 23.8053642229,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 23.8,
+        "3": 0.4,
+        "6": 5.6,
+        "72": 80.2
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nalbari",
+      "headline": "Satellite estimates show less than 1 mm of rain over Banekuchi circle in the 24 hours up to 7:30 AM on 7 Aug. About 23 mm fell over the 3 days up to then.",
+      "locality_id": "nalbari-banekuchi",
+      "revenue_circle": "Banekuchi",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Banekuchi circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 23 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 23.5
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nalbari",
+      "headline": "Satellite estimates show less than 1 mm of rain over Barama (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 19 mm fell over the 3 days up to then.",
+      "locality_id": "nalbari-barama-pt",
+      "revenue_circle": "Barama (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Barama (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 19 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 18.6
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nalbari",
+      "headline": "Satellite estimates show less than 1 mm of rain over Barbhag circle in the 24 hours up to 7:30 AM on 7 Aug. About 79 mm fell over the 3 days up to then.",
+      "locality_id": "nalbari-barbhag",
+      "revenue_circle": "Barbhag",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Barbhag circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 79 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 79.2
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nalbari",
+      "headline": "Satellite estimates show less than 1 mm of rain over Barkhetri circle in the 24 hours up to 7:30 AM on 7 Aug. About 59 mm fell over the 3 days up to then.",
+      "locality_id": "nalbari-barkhetri",
+      "revenue_circle": "Barkhetri",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Barkhetri circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 59 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 58.6
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nalbari",
+      "headline": "Satellite estimates show less than 1 mm of rain over Nalbari circle in the 24 hours up to 7:30 AM on 7 Aug. About 55 mm fell over the 3 days up to then.",
+      "locality_id": "nalbari-nalbari",
+      "revenue_circle": "Nalbari",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Nalbari circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 55 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 55.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nalbari",
+      "headline": "Satellite estimates show less than 1 mm of rain over Pachim Nalbari circle in the 24 hours up to 7:30 AM on 7 Aug. About 34 mm fell over the 3 days up to then.",
+      "locality_id": "nalbari-pachim-nalbari",
+      "revenue_circle": "Pachim Nalbari",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Pachim Nalbari circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 34 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 33.6
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Nalbari",
+      "headline": "Satellite estimates show less than 1 mm of rain over Tihu (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. About 23 mm fell over the 3 days up to then.",
+      "locality_id": "nalbari-tihu-pt",
+      "revenue_circle": "Tihu (Pt)",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Tihu (Pt) circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 23 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.0,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.0,
+        "3": 0.0,
+        "6": 0.0,
+        "72": 22.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Sivasagar",
+      "headline": "Satellite estimates show about 5 mm of rain over Amguri circle in the 24 hours up to 7:30 AM on 7 Aug. About 28 mm fell over the 3 days up to then.",
+      "locality_id": "sivasagar-amguri",
+      "revenue_circle": "Amguri",
+      "stale_headline": "Satellite estimates show about 5 mm of rain over Amguri circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 28 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 5.1786612311,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 5.2,
+        "3": 0.0,
+        "6": 1.0,
+        "72": 28.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Sivasagar",
+      "headline": "Satellite estimates show about 34 mm of rain over Dimow circle in the 24 hours up to 7:30 AM on 7 Aug. About 61 mm fell over the 3 days up to then.",
+      "locality_id": "sivasagar-dimow",
+      "revenue_circle": "Dimow",
+      "stale_headline": "Satellite estimates show about 34 mm of rain over Dimow circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 61 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 34.0347929113,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 34.0,
+        "3": 0.0,
+        "6": 15.7,
+        "72": 61.1
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Sivasagar",
+      "headline": "Satellite estimates show about 11 mm of rain over Sibsagar circle in the 24 hours up to 7:30 AM on 7 Aug. About 38 mm fell over the 3 days up to then.",
+      "locality_id": "sivasagar-sibsagar",
+      "revenue_circle": "Sibsagar",
+      "stale_headline": "Satellite estimates show about 11 mm of rain over Sibsagar circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 38 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 11.33490713255,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 11.3,
+        "3": 0.0,
+        "6": 2.6,
+        "72": 38.0
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Charaideo",
+      "headline": "Satellite estimates show less than 1 mm of rain over Sonari circle in the 24 hours up to 7:30 AM on 7 Aug. About 23 mm fell over the 3 days up to then.",
+      "locality_id": "sivasagar-sonari",
+      "revenue_circle": "Sonari",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Sonari circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 23 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.68168852055,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.7,
+        "3": 0.0,
+        "6": 0.3,
+        "72": 22.8
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Tinsukia",
+      "headline": "Satellite estimates show less than 1 mm of rain over Doom Dooma circle in the 24 hours up to 7:30 AM on 7 Aug. About 77 mm fell over the 3 days up to then.",
+      "locality_id": "tinsukia-doom-dooma",
+      "revenue_circle": "Doom Dooma",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Doom Dooma circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 77 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.5001124901,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.5,
+        "3": 0.0,
+        "6": 0.3,
+        "72": 77.4
+      }
+    },
+    {
+      "context_window_hours": 72,
+      "district": "Tinsukia",
+      "headline": "Satellite estimates show less than 1 mm of rain over Sadiya circle in the 24 hours up to 7:30 AM on 7 Aug. About 33 mm fell over the 3 days up to then.",
+      "locality_id": "tinsukia-sadiya",
+      "revenue_circle": "Sadiya",
+      "stale_headline": "Satellite estimates show less than 1 mm of rain over Sadiya circle in the 24 hours up to 7:30 AM on 7 Aug. Nothing newer has arrived. About 33 mm fell over the 3 days up to then.",
+      "status": "estimate",
+      "total_precipitation_mm": 0.7070651362,
+      "unavailable_reason": null,
+      "window_hours": 24,
+      "window_unavailable_reasons": {},
+      "windows": {
+        "1": 0.0,
+        "24": 0.7,
+        "3": 0.0,
+        "6": 0.2,
+        "72": 32.7
+      }
+    }
+  ],
+  "coverage": {
+    "cells_digest": "67f9da40f261",
+    "cells_requested": 605,
+    "fetch_retries": 0,
+    "fetch_workers": 1,
+    "first_absent": [],
+    "granules_absent": 0,
+    "granules_downloaded": 144,
+    "granules_expected": 144,
+    "granules_from_cache": 0,
+    "granules_present": 144,
+    "median_request_seconds": 2.2,
+    "observed_latency_hours": 14.611,
+    "slowest_request_seconds": 4.4
+  },
+  "generated_at": "2026-08-07T16:54:01.470755+00:00",
+  "provenance": {
+    "aggregation": "area_weighted_mean_over_circle",
+    "boundary_review": "data/review/circle-boundaries/current.json",
+    "boundary_sha256": "0943e9c696a2cc196849892935b5d10a92fde33db924703950250fba6fb9c609",
+    "built_by": "scripts/build_rainfall.py",
+    "note": "Circles without an analysis-grade boundary are absent from this file entirely. Absence is not a rainfall of zero.",
+    "zone_weights": "data/processed/rainfall-zones/49572883699fa85f0048161376297f751483bb3fade16a731ad1d347c85b05da.json"
+  },
+  "record": "circle_rainfall_estimates",
+  "run": "late",
+  "schema_version": 1,
+  "shared_text": {
+    "estimate_note": "This is a satellite estimate, not a rain gauge reading.",
+    "hedge": "Heavy rain can cause local flooding, but this does not confirm flooding at your location.",
+    "unavailable": {
+      "missing_cells": "Part of this area has no reading, so no total can be given for the whole area.",
+      "series_broken": "Some half-hourly readings in the middle of this period are missing.",
+      "window_not_covered": "The most recent readings have not arrived yet."
+    }
+  },
+  "source": {
+    "attribution": "NASA GPM IMERG (late run)",
+    "documented_typical_latency_hours": 14,
+    "path_verified_against_live_archive": true,
+    "product_short_name": "GPM_3IMERGHHL.07",
+    "product_version": "07",
+    "stale_after_hours": 20,
+    "use_note": "later research precipitation estimate; not a four-hour product"
+  },
+  "totals": {
+    "circles": 101,
+    "estimate": 101,
+    "stale_estimate": 0,
+    "unavailable": 0
+  },
+  "window_hours": [
+    1,
+    3,
+    6,
+    24,
+    72
+  ]
+}

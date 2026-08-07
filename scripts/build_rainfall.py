@@ -192,8 +192,33 @@ def resolve_as_of(
     )
 
 
-def cached_subset_path(run: ImergRun, filename: str) -> Path:
-    return SUBSET_DIR / run.value / f"{filename}.json"
+def cells_digest(keep_cells: set[str]) -> str:
+    """A short name for the set of grid cells a subset was cut down to.
+
+    A cached subset holds only the cells the zone table asked for when it was
+    fetched, so it is not the granule — it is one cut of the granule. Promoting a
+    circle to an analysis boundary adds its cells to that set, and a cache keyed
+    on the granule alone would go on serving the narrower cut. Nothing would
+    error: the new circles simply have no reading for any window reaching further
+    back than the granules downloaded since, and the artifact says
+    `window_not_covered` for them. Correct, and quietly useless.
+
+    Measured when the passing boundaries went 82 to 101: the cell set went 518 to
+    605, and 13 of the 19 new circles published no 24-hour and no 72-hour number
+    because 124 of the 144 half hours came from the narrower cache.
+
+    Keying the cache on the cell set makes a widened set miss the cache and
+    refetch, which is right — every granule needs the new cells, so there is no
+    smaller repair than fetching them all again. It also never overwrites: the
+    old cut stays readable under its own name.
+    """
+
+    joined = ",".join(sorted(keep_cells)).encode()
+    return sha256(joined).hexdigest()[:12]
+
+
+def cached_subset_path(run: ImergRun, filename: str, digest: str) -> Path:
+    return SUBSET_DIR / run.value / digest / f"{filename}.json"
 
 
 def store_subset(path: Path, content: bytes) -> None:
@@ -256,10 +281,11 @@ def collect_observations(
     absent: list[str] = []
     latencies: list[float] = []
 
+    digest = cells_digest(keep_cells)
     missing = [
         granule
         for granule in granules
-        if not cached_subset_path(run, granule.filename).exists()
+        if not cached_subset_path(run, granule.filename, digest).exists()
     ]
     from_cache = len(granules) - len(missing)
     downloaded = 0
@@ -314,7 +340,10 @@ def collect_observations(
                     ) from error
                 except SubsetError as error:
                     raise SystemExit(f"{granule.filename}: {error}") from error
-                store_subset(cached_subset_path(run, granule.filename), download.content)
+                store_subset(
+                    cached_subset_path(run, granule.filename, digest),
+                    download.content,
+                )
                 downloaded += 1
                 fetch_seconds.append(seconds)
                 if download.observed_latency_hours is not None:
@@ -349,7 +378,7 @@ def collect_observations(
     # windows care about a continuous series, and reading it back in one pass
     # keeps that ordering independent of which download happened to finish first.
     for granule in granules:
-        cached = cached_subset_path(run, granule.filename)
+        cached = cached_subset_path(run, granule.filename, digest)
         if not cached.exists():
             continue
         content = cached.read_bytes()
@@ -366,6 +395,11 @@ def collect_observations(
 
     return observations, {
         "granules_expected": len(granules),
+        # Which cut of the granules these numbers came from. A cached subset
+        # holds only the cells the zone table asked for at fetch time, so this
+        # says the cache being read is the one this circle set needs.
+        "cells_digest": digest,
+        "cells_requested": len(keep_cells),
         "granules_present": from_cache + downloaded,
         "granules_from_cache": from_cache,
         "granules_downloaded": downloaded,
