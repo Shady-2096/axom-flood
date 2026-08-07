@@ -1,4 +1,21 @@
-"""Check the first-visit application shell against its regression ceiling."""
+"""Check the first-visit shell and the lazy map bundle against their ceilings.
+
+Two budgets, for two different reasons.
+
+The **first-visit shell** is a bandwidth budget. It is what a phone on a bad
+connection downloads before it can read the bulletin, and it is tight on purpose.
+
+The **lazy map chunk** is not a bandwidth budget. Detailed mode has no download
+limit — raster tiles, terrain, and big geometry are all fine. It is a *device*
+budget. MapLibre plus terrain plus raster layers costs parse time, GPU, and
+memory, and most of this audience is on mid-range Android phones several years
+old. A megabyte of JavaScript is around a second of parse and compile on that
+hardware before anything is drawn.
+
+This number was printed as "informational only" while the map was being
+rewritten, which meant it could double without failing anything. It does not
+need to be tight, but an unbounded number is not a budget.
+"""
 
 from html.parser import HTMLParser
 from pathlib import Path
@@ -6,6 +23,16 @@ from urllib.parse import unquote, urljoin, urlsplit
 
 BUILD = Path("build")
 LIMIT = 400 * 1024
+
+#: The ceiling on everything the detailed map loads after first paint.
+#:
+#: Today's build is about 1.30 MiB, and MapLibre is roughly 1.1 MiB of that. The
+#: layers still to come — PMTiles registration, terrain, rainfall, model reach —
+#: are style and glue code, not another library, so 2 MiB leaves around 700 KiB
+#: of room for all of them together. What it is really guarding against is a
+#: second heavy dependency arriving by accident inside a lazy chunk, where
+#: nothing about the first visit would notice.
+LAZY_LIMIT = 2048 * 1024
 SHELL_NAMES = {"manifest.webmanifest"}
 PRECACHED_ROUTE_HTML = {
     "home/index.html",
@@ -102,11 +129,26 @@ def main() -> None:
         raise SystemExit("built PWA output not found; run npm run build")
 
     size = sum(path.stat().st_size for path in files)
-    lazy_size = sum(path.stat().st_size for path in lazy_chunk_files(files))
+    lazy_files = lazy_chunk_files(files)
+    lazy_size = sum(path.stat().st_size for path in lazy_files)
     print(f"Phase 1 first visit: {size} bytes / {LIMIT} bytes")
-    print(f"Excluded lazy chunks: {lazy_size} bytes (informational only)")
+    print(f"Lazy map chunks: {lazy_size} bytes / {LAZY_LIMIT} bytes")
     if size >= LIMIT:
         raise SystemExit("first-visit PWA exceeds 400 KiB regression alarm")
+    if lazy_size >= LAZY_LIMIT:
+        # Name the biggest offenders, because the useful next question is always
+        # "what got bigger", and a total on its own cannot answer it.
+        biggest = sorted(lazy_files, key=lambda path: path.stat().st_size, reverse=True)
+        listing = "\n".join(
+            f"  {path.stat().st_size:>9} {path.relative_to(BUILD)}"
+            for path in biggest[:5]
+        )
+        raise SystemExit(
+            f"lazy map chunks exceed the 2 MiB device ceiling.\n{listing}\n"
+            "Detailed mode has no download budget, but it still runs on a "
+            "four-year-old phone. Either this belongs on the first visit, or it "
+            "should load only when its layer is switched on."
+        )
 
 
 if __name__ == "__main__":
