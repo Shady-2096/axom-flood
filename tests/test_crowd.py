@@ -7,6 +7,7 @@ rules that prevent a single report from being shown as fact.
 
 import json
 import math
+import re
 import secrets
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -32,6 +33,7 @@ from axom_flood.crowd.aggregate import (
     is_visible,
 )
 from axom_flood.crowd.pipeline import build_crowd_report, build_high_water_mark
+from axom_flood.crowd.privacy import _UNSCANNED_KEYS
 
 IST = ZoneInfo("Asia/Kolkata")
 NOW = datetime(2026, 7, 27, 14, 31, tzinfo=IST)
@@ -607,3 +609,83 @@ def test_a_bad_item_aborts_before_anything_in_its_batch_is_stored(tmp_path: Path
         1 for path in series for line in path.read_text().splitlines() if line.strip()
     )
     assert stored == 0, "no item from a rejected batch may reach the series"
+
+
+# --- identifiers must not look like phone numbers ------------------------
+
+
+#: A real uuid4, chosen because "9588952247" inside it is exactly an Indian
+#: mobile number to `_PHONE`. Hard-coded rather than generated so this test
+#: cannot itself become the flaky thing it is guarding against.
+PHONE_SHAPED_UUID = "8a764358-3236-48ec-9ae3-9588952247ab"
+
+
+def test_a_machine_generated_id_is_never_mistaken_for_a_phone_number():
+    """The bug this catches failed about one submission in three hundred.
+
+    `hwm_id` is a uuid4 and was not exempt from phone-pattern scanning, so any
+    high-water mark whose id happened to contain ten consecutive digits starting
+    6-9 was rejected as carrying PII. It surfaced as a test that passed on its
+    own and failed in a full run, which is the worst way to find a bug that was
+    also rejecting real submissions.
+    """
+
+    record, banned = build_high_water_mark(
+        {
+            "latitude": 26.9123456789,
+            "longitude": 94.6801234567,
+            "year": 2023,
+            "depth_cm": 110,
+            "reference_en": "up to the window sill",
+            "confidence": "recalled",
+            "hwm_id": PHONE_SHAPED_UUID,
+        },
+        now=NOW,
+    )
+
+    assert record["hwm_id"] == PHONE_SHAPED_UUID
+    assert_no_pii(record, banned_values=banned)
+
+
+def test_every_identifier_the_crowd_pipeline_emits_is_exempt_from_scanning():
+    """A guard on the guard.
+
+    Exempting by field name is the right default — a `landmark` field added
+    later must be scanned, not silently trusted. The cost is that a forgotten
+    identifier fails randomly. This asserts the exemption list actually covers
+    the identifiers the pipeline emits, so the next one is caught at the bench.
+    """
+
+    report, _ = build_crowd_report(
+        {
+            "latitude": 26.9123456789,
+            "longitude": 94.6801234567,
+            "depth_class": "knee",
+            "locality_id": "baksa-barama-pt",
+            "device_token": "d" * 40,
+            "source": "app",
+            "submitted_at": NOW.isoformat(),
+        },
+        salt=b"0123456789abcdef0123456789abcdef",
+        month="2026-07",
+        now=NOW,
+    )
+    mark, _ = build_high_water_mark(
+        {
+            "latitude": 26.9123456789,
+            "longitude": 94.6801234567,
+            "year": 2023,
+            "depth_cm": 110,
+            "reference_en": "up to the window sill",
+        },
+        now=NOW,
+    )
+
+    emitted = {
+        key
+        for record in (report, mark)
+        for key in record
+        if key.endswith(("_id", "_hash", "_sha256", "_revision"))
+    }
+    unscanned = {re.sub(r"[-_]", "", key) for key in emitted}
+    assert unscanned <= _UNSCANNED_KEYS, sorted(unscanned - _UNSCANNED_KEYS)

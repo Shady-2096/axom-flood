@@ -181,9 +181,20 @@ class PrivacyError(ValueError):
 #: is the wrong failure direction for a privacy guard: a new ``landmark`` or
 #: ``description`` field would carry reporter text and go unchecked. Exempting a
 #: field is a decision someone has to make explicitly, here.
+#:
+#: ⚠️ The cost of that safe default is that forgetting an identifier here is a
+#: **random** bug, not a deterministic one. ``hwm_id`` was missing until
+#: 2026-08-07 and rejected about one high-water mark in every three hundred:
+#: 0.33% of UUIDs contain ten consecutive digits starting 6-9, which is exactly
+#: an Indian mobile number to the pattern. Hex digests are far worse at 2.9%,
+#: because they are twice as long and drawn from a smaller alphabet. The symptom
+#: is a test that passes alone and fails in a full run, so when adding an
+#: identifier field, add it here in the same change.
 _UNSCANNED_KEYS = {
     "reportid",
+    "hwmid",
     "devicehash",
+    "reporterhash",
     "sourcerevision",
     "sourcesha256",
     "artifactid",
