@@ -429,20 +429,32 @@ The same granule filename arriving with different numbers means NASA reprocessed
 the record without changing the version letter, and the build stops rather than
 adopting it silently.
 
-⚠️ **This is slow, and the cache is the whole difference.** One subset takes
-about 30 seconds, because GES DISC cuts the Assam box out of a global file on
-every request. A cold 72-hour window is 144 granules, so around 75 minutes. With
-a warm cache a two-hourly run needs only the 4 new half hours, about two
-minutes. Cloud Run has no persistent disk, so a job scheduled there pays the
-cold price every time unless the cache lives somewhere it survives.
+**A cold 72-hour window costs about nine minutes.** Measured on 2026-08-07,
+serially: 143 granules in 528 seconds, median 2.1 s each.
 
-**That decision is open, and serial-only makes it sharper.** A cold run does not
-fit inside a two-hour schedule with any margin, and there is no concurrency to
-buy the time back with — see below. A surviving cache is no longer an
-optimisation. The options are a GCS bucket, a shorter lookback that gives up the
-72-hour window, or publishing from the owner's Mac the way the ASDMA bulletin
-already does. Committing the subsets was rejected: they are about 126 KB each,
-6 MB a day, in a repository that is otherwise text.
+That number was estimated at 75 minutes beforehand and the estimate was wrong by
+eight times, in a way worth recording. The first requests really do take 20 to
+30 seconds and then the rate collapses:
+
+| Progress | Seconds per granule |
+| --- | --- |
+| 10 of 143 | 21 |
+| 30 of 143 | 9 |
+| 70 of 143 | 5 |
+| 140 of 143 | 4 (last few at 2) |
+
+Fastest 2 s, median 2 s, slowest 57 s. So the honest cost model is a fixed
+warm-up of a minute or two, not a per-granule price — and anyone timing a
+handful of requests and multiplying will overestimate the total by an order of
+magnitude, which is exactly what happened here.
+
+**This mostly dissolves the cold-start problem.** Nine minutes fits inside a
+two-hourly schedule with room to spare, so Cloud Run can re-fetch from cold and
+a surviving cache is an optimisation again rather than a precondition. The
+options if one is wanted later are a GCS bucket, a shorter lookback, or
+publishing from the owner's Mac the way the ASDMA bulletin does. Committing the
+subsets stays rejected: about 126 KB each, 6 MB a day, in a repository that is
+otherwise text.
 
 ⚠️ **Fetching must be serial. This is settled, not a preference.**
 
@@ -454,14 +466,16 @@ stayed that way for twenty minutes while the process burned 0.6 seconds of CPU.
 GES DISC accepts one connection from this client and black-holes the rest.
 
 So `RAINFALL_FETCH_WORKERS` defaults to 1 and raising it is not a speed-up — it
-wedges a thread permanently. The cold-start cost is a scheduling problem to
-solve with a cache that survives, not a concurrency problem to solve with more
-workers.
+wedges a thread permanently. This turned out not to matter: serial is fast
+enough once the connection is warm, as the timings above show.
 
-⚠️ **The archive resets roughly one connection in four.** Measured over four
-consecutive serial requests: 30 s, `[Errno 54] Connection reset by peer` after
-3.6 s, 29 s, 52 s. Nothing caught that error, so it would have killed a cold
-144-granule run within the first few minutes — and did.
+⚠️ **The archive resets connections.** First measured over four consecutive
+serial requests during the cold warm-up: 30 s, `[Errno 54] Connection reset by
+peer` after 3.6 s, 29 s, 52 s. Nothing caught that error, so it would have
+killed a cold 144-granule run within the first few minutes — and did. Over the
+full run that followed, 3 of 143 granules needed a retry, so the one-in-four
+figure was warm-up noise and the steady rate is closer to one in fifty. Either
+way it is far too common to leave unhandled.
 
 `ImergClient.get` now retries three times with a 5 s and then 10 s backoff.
 Transport failures and 5xx are retried; 401, 403 and 404 are not, because those
