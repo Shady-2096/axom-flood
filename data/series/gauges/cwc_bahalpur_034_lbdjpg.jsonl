@@ -259,3 +259,4 @@
 {"gauge_id": "cwc_bahalpur_034_lbdjpg", "level_m": 35.51, "observed_at": "2026-08-09T22:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "795a6660c39df17f3110a07ade6adba7f854062ab9cee94094b2f6e88814d2ab"}
 {"gauge_id": "cwc_bahalpur_034_lbdjpg", "level_m": 35.53, "observed_at": "2026-08-09T23:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d752061dbe6f5ad1f70d488370e476e8d8244c47716108b41c1cbb1942cfd67e"}
 {"gauge_id": "cwc_bahalpur_034_lbdjpg", "level_m": 32.55, "observed_at": "2026-08-10T00:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d752061dbe6f5ad1f70d488370e476e8d8244c47716108b41c1cbb1942cfd67e"}
+{"gauge_id": "cwc_bahalpur_034_lbdjpg", "level_m": 32.59, "observed_at": "2026-08-10T01:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "818eb2cdb21369e6d400fc78835826cd7e18e5b516282787e3cf9660fef147a7"}
