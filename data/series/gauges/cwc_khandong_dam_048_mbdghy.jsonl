@@ -300,3 +300,4 @@
 {"gauge_id": "cwc_khandong_dam_048_mbdghy", "level_m": 721.5, "observed_at": "2026-08-12T00:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "c3d38274872f16f2ecef65f6037cfeb4ea2d65b271787171432fd56b0ccef509"}
 {"gauge_id": "cwc_khandong_dam_048_mbdghy", "level_m": 721.5, "observed_at": "2026-08-12T01:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "c3d38274872f16f2ecef65f6037cfeb4ea2d65b271787171432fd56b0ccef509"}
 {"gauge_id": "cwc_khandong_dam_048_mbdghy", "level_m": 721.45, "observed_at": "2026-08-12T05:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "c3d38274872f16f2ecef65f6037cfeb4ea2d65b271787171432fd56b0ccef509"}
+{"gauge_id": "cwc_khandong_dam_048_mbdghy", "level_m": 721.4, "observed_at": "2026-08-12T06:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "1f948843ae7c373384cf1486a79f4c98abcb5bd3c045dafbe09d6b7bf49a2184"}
