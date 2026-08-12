@@ -322,3 +322,6 @@
 {"gauge_id": "cwc_udaipur_049", "level_m": 144.53, "observed_at": "2026-08-12T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "b386422f6c04d6a06510b9936073fc9db8e6f4698bcc4a8497dae6f6f006b7f4"}
 {"gauge_id": "cwc_udaipur_049", "level_m": 144.52, "observed_at": "2026-08-12T14:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "b386422f6c04d6a06510b9936073fc9db8e6f4698bcc4a8497dae6f6f006b7f4"}
 {"gauge_id": "cwc_udaipur_049", "level_m": 144.52, "observed_at": "2026-08-12T15:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "b386422f6c04d6a06510b9936073fc9db8e6f4698bcc4a8497dae6f6f006b7f4"}
+{"gauge_id": "cwc_udaipur_049", "level_m": 144.52, "observed_at": "2026-08-12T16:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0e4bb3ac9427de7fb7fddb2a35a40755adfbcd5be8cbf6a69fabc26a09e0ae44"}
+{"gauge_id": "cwc_udaipur_049", "level_m": 144.58, "observed_at": "2026-08-12T17:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0e4bb3ac9427de7fb7fddb2a35a40755adfbcd5be8cbf6a69fabc26a09e0ae44"}
+{"gauge_id": "cwc_udaipur_049", "level_m": 144.6, "observed_at": "2026-08-12T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0e4bb3ac9427de7fb7fddb2a35a40755adfbcd5be8cbf6a69fabc26a09e0ae44"}
