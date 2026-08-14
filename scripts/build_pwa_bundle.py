@@ -123,6 +123,26 @@ def main() -> None:
         if camp.get("geocode_confidence") in {"high", "source_coordinates"}
         or camp.get("udise_match_confidence") == "high"
     ]
+    # When these listings were taken off the district notifications, which is a
+    # different question from when this bundle was built and a very different one
+    # from when a gauge last reported.
+    #
+    # The camps screen had no date of its own, so it printed the river gauge's
+    # reading age instead: "3.2 hours old" over a list read from documents saved
+    # eighteen days earlier. Every word of it true about the gauge and none of it
+    # true about the camps. A camp list is the one thing here somebody might act
+    # on by getting in a boat.
+    #
+    # This is our fetch time, not the district's publication time -- the
+    # notifications are PDFs and most carry no date we can parse. So it is
+    # published as "saved", which is exactly what it is, and never as "published"
+    # or "updated".
+    camps_saved_at = None
+    source_artifact = camps_document.get("camp_source_artifact")
+    if source_artifact:
+        source_path = Path("data/processed/district-camps") / f"{source_artifact}.json"
+        if source_path.exists():
+            camps_saved_at = read(source_path).get("generated_at")
     gauges = []
     retired = 0
     for gauge in cwc["stations"]:
@@ -187,6 +207,7 @@ def main() -> None:
         "localities": localities["localities"],
         "gauges": gauges,
         "camps": camps,
+        "camps_saved_at": camps_saved_at,
         "official_source_url": cwc["source_base_url"],
         "crowd_url": crowd_url,
         "impact_pointer_url": impact_pointer_url,

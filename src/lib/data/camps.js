@@ -39,6 +39,37 @@ export function campsForLocality(camps, locality) {
   return [...unique.values()];
 }
 
+/* How long a saved camp list may go without being called old.
+   Matched to the ASDMA report window, and for the same reason the page already
+   states out loud: camp lists change quickly. */
+export const CAMPS_STALE_AFTER_DAYS = 3;
+
+/* How old the saved camp listings are.
+   Deliberately its own answer rather than the gauge's. The camps screen had no
+   date of its own and rendered the river gauge's reading age, so a list read
+   from district documents saved eighteen days earlier was headed "3.2 hours
+   old". True about the gauge, false about every camp under it, and this is the
+   one screen somebody might act on by travelling.
+   `saved`, never `published` or `updated`: this is when the notifications were
+   fetched, not when a district issued them. Most are PDFs carrying no date we
+   can parse, and inventing a publication time would be the same mistake again. */
+export function campsSavedLabel(savedAt, now = new Date()) {
+  const stamp = Date.parse(savedAt ?? "");
+  if (Number.isNaN(stamp)) return null;
+  const days = Math.floor((now.getTime() - stamp) / 86_400_000);
+  const on = new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    day: "numeric",
+    month: "short",
+  }).format(stamp);
+  if (days < 1) return { text: `Saved today`, stale: false };
+  if (days === 1) return { text: `Saved yesterday, ${on}`, stale: false };
+  return {
+    text: `Saved ${on}, ${days} days ago`,
+    stale: days > CAMPS_STALE_AFTER_DAYS,
+  };
+}
+
 export function campPhoneNumbers(value) {
   const seen = new Set();
   const phones = [];

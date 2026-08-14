@@ -1,9 +1,8 @@
 <script>
-  import AgeBlock from "$lib/components/AgeBlock.svelte";
   import DataUnavailable from "$lib/components/DataUnavailable.svelte";
   import LoadingState from "$lib/components/LoadingState.svelte";
   import NoLocality from "$lib/components/NoLocality.svelte";
-  import { campPhoneNumbers, campsForLocality } from "$lib/data/camps.js";
+  import { campPhoneNumbers, campsForLocality, campsSavedLabel } from "$lib/data/camps.js";
   import { currentContext, dataState } from "$lib/data/index.js";
   import { preferencesChanged } from "$lib/data/preferences.js";
 
@@ -14,6 +13,9 @@
   let matches = $derived(context
     ? campsForLocality($dataState.bundle.camps, context.locality)
     : []);
+  let saved = $derived($dataState.bundle
+    ? campsSavedLabel($dataState.bundle.camps_saved_at)
+    : null);
 
   function confidenceLabel(camp) {
     const value = camp.geocode_confidence || camp.udise_match_confidence;
@@ -45,7 +47,11 @@
       <div class="camps-guidance">
         <p>Listings saved from published district camp documents. Confirm a camp by phone before travelling.</p>
         <p class="saved-count">{matches.length} unique listing{matches.length === 1 ? "" : "s"} saved for this circle</p>
-        <AgeBlock gauge={context.gauge} />
+        {#if saved}
+          <p class:stale={saved.stale} class="age">{saved.text}</p>
+        {:else}
+          <p class="age stale">Save date unavailable</p>
+        {/if}
       </div>
     </header>
     <div class="list">
