@@ -120,6 +120,16 @@
      token for both, which works only while the page is light. */
   --chrome: #04171e;
   --chrome-active: #0d3440;
+  /* What may be read on that slab. The note above says --ink for both works
+     only while the page is light, and it was right: chrome stays a deep river
+     tone in daylight while --ink flips dark, so anything still reaching for
+     --ink on a chrome background goes dark-on-dark at 1.24:1. The header and
+     footer were each given a literal light value when daylight arrived; the
+     skip link and the kill screen were not, and had no way to say what they
+     needed. Now they do. */
+  --on-chrome: #edf5f4;
+  /* The second rank on that slab, for controls and labels rather than names. */
+  --on-chrome-quiet: #a9bdc1;
 
   /* Live data. Cyan is the only colour that means "measured right now". */
   --river: #75d0df;
@@ -292,7 +302,12 @@ main h1:focus { outline: none; }
   min-height: 44px;
   padding: 12px 16px;
   border-radius: var(--r-control);
-  color: var(--ink);
+  /* On the chrome slab, so it takes the chrome foreground. It used to take
+     --ink, which is the page's, and in daylight that put #10272f on #063947:
+     1.24:1. The first control a keyboard reader reaches on every page, and it
+     was invisible on half of them — invisible in the ordinary way too, since
+     it only appears once someone tabs into it. */
+  color: var(--on-chrome);
   background: var(--chrome);
   transform: translateY(-150%);
 }
@@ -1258,7 +1273,10 @@ input:focus-visible, select:focus-visible {
   padding: clamp(28px, 6vw, 64px);
   border: 1px solid var(--line);
   border-radius: var(--r-panel);
-  color: var(--ink);
+  /* Same slab, same reason as the skip link. This is the screen shown when
+     river information is deliberately paused, so it is the last one that can
+     afford to go dark-on-dark in daylight. */
+  color: var(--on-chrome);
   background: var(--chrome);
 }
 .kill .screen-kicker { color: #ffb27a; }
@@ -1443,6 +1461,11 @@ input:focus-visible, select:focus-visible {
        which made the rail and technical reading nearly illegible. */
     --chrome: #063947;
     --chrome-active: #0b5060;
+    /* Not flipped with the scheme. The slab underneath it did not flip either
+       — daylight keeps a deep river header on purpose — so its foreground
+       stays light and only deepens enough to hold 11.8:1 on the lighter slab. */
+    --on-chrome: #f4faf9;
+    --on-chrome-quiet: #bfd3d6;
 
     --river: #0d7287;
     --river-deep: #084f5e;
@@ -1455,7 +1478,12 @@ input:focus-visible, select:focus-visible {
     --ink-soft: #25464f;
     --ink-deep: #081a20;
     --graphite: #36545d;
-    --muted: #526b72;
+    /* Daylight has five backgrounds this can land on, and the old #526b72 only
+       cleared 4.5:1 on two of them: 4.00 on --ground-deep, 4.16 on --surface-2,
+       4.28 on --surface-inactive. It reads as the quiet tone on paper, so it
+       was measured against paper and not against the tinted panels. One step
+       deeper puts the worst case at 4.81 and still sits well clear of --ink. */
+    --muted: #4a6169;
     --placeholder: #657c82;
     --line: #adc2c5;
     --line-strong: #839fa5;
@@ -1498,7 +1526,7 @@ input:focus-visible, select:focus-visible {
    stops the light scheme becoming one undifferentiated white sheet. */
 :root[data-theme="light"] .site-header {
   border-color: rgba(213, 237, 239, .16);
-  color: #f4faf9;
+  color: var(--on-chrome);
   background: var(--chrome);
   box-shadow: none;
 }
@@ -1509,11 +1537,17 @@ input:focus-visible, select:focus-visible {
   color: #f4faf9;
 }
 
+/* These now name the token rather than repeating its value. The list itself is
+   the hazard this whole group represents: every control added to the header
+   after daylight arrived had to be remembered here, and the display-mode toggle
+   was not. Anything reaching for --on-chrome-quiet is correct in both schemes
+   without being listed. */
 :root[data-theme="light"] .site-header .brand small,
 :root[data-theme="light"] .site-header .primary-nav a,
 :root[data-theme="light"] .site-header .theme-toggle,
+:root[data-theme="light"] .site-header .mode-toggle,
 :root[data-theme="light"] .site-header .network-state {
-  color: #bfd3d6;
+  color: var(--on-chrome-quiet);
 }
 
 :root[data-theme="light"] .site-header .brand-mark,
@@ -1522,15 +1556,16 @@ input:focus-visible, select:focus-visible {
 }
 
 :root[data-theme="light"] .site-header .primary-nav a:hover,
-:root[data-theme="light"] .site-header .theme-toggle:hover {
-  color: #f4faf9;
+:root[data-theme="light"] .site-header .theme-toggle:hover,
+:root[data-theme="light"] .site-header .mode-toggle:hover {
+  color: var(--on-chrome);
   background: transparent;
 }
 
 /* The footer keeps the header's deep river tone in daylight too. */
 :root[data-theme="light"] .site-footer {
   border-color: rgba(213, 237, 239, .16);
-  color: #bfd3d6;
+  color: var(--on-chrome-quiet);
   background: var(--chrome);
 }
 
@@ -1638,7 +1673,7 @@ input:focus-visible, select:focus-visible {
   padding: 0 clamp(16px, 3vw, 32px);
   border: 0;
   border-radius: 0;
-  color: var(--ink);
+  color: var(--on-chrome);
   background: var(--chrome);
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
@@ -1736,7 +1771,12 @@ input:focus-visible, select:focus-visible {
   padding: 8px 12px;
   border: 0;
   border-radius: 8px;
-  color: var(--rail-text);
+  /* --rail-text is the rail's, and the rail sits on the page. These sit on the
+     header, which stays a deep river tone in daylight while --rail-text flips
+     dark with the scheme: "Detailed map" fell to 1.83:1 on paper. The theme
+     toggle beside it was spared only because the daylight block below happens
+     to name it; this control was added afterwards and was not added there. */
+  color: var(--on-chrome-quiet);
   background: transparent;
   box-shadow: none;
   font-size: 12px;
@@ -1745,7 +1785,10 @@ input:focus-visible, select:focus-visible {
 
 .header-tools .theme-toggle:hover,
 .header-tools .mode-toggle:hover {
-  color: var(--ink);
+  /* Same correction as the resting state above: --ink is the page's, and in
+     daylight it goes dark on this slab. Hover brightens toward the header's
+     own foreground instead. */
+  color: var(--on-chrome);
   background: rgba(255,255,255,.06);
 }
 
@@ -1899,7 +1942,7 @@ button {
 .site-footer {
   padding: 0 var(--page-pad-x, clamp(28px, 5vw, 84px));
   border-top: 1px solid var(--line);
-  color: var(--rail-text);
+  color: var(--on-chrome-quiet);
   background: var(--chrome);
 }
 

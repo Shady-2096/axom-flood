@@ -200,7 +200,12 @@
     --field: var(--signal);
     --field-shade: #f7b075;
     --on-field: var(--on-warning);
-    --on-field-quiet: rgba(31, 21, 12, .76);
+    /* .76 measured 4.19:1 on amber -- under the line, and the three lines
+       wearing it are the reading's age, the stand-in notice and the gauge
+       attribution. .84 is 4.85:1 and still reads a step quieter than the
+       sentence above it, which is the whole point of the token. The reds are
+       fine as they are: white at .78 clears 4.5 on both. */
+    --on-field-quiet: rgba(31, 21, 12, .84);
     --status-mark: var(--on-warning);
   }
 
