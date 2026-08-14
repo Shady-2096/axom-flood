@@ -132,10 +132,18 @@
       </section>
       <section class="settings-block">
         <h2>Display mode</h2>
-        <p>Light mode shows the complete flood bulletin with fewer downloads. Full mode adds the detailed river visualization after the bulletin appears.</p>
+        <!-- Named the way the options below are named. This used to say "Light
+             mode" and "Full mode", which are the stored values (`light`, `full`)
+             and not words the reader is ever shown. "Light mode" also means the
+             pale colour theme, and the switch for that is in the header on the
+             same screen. -->
+        <p>Data saver shows the complete flood bulletin with fewer downloads. Detailed map adds the river map after the bulletin appears.</p>
         <label for="render-mode">Preferred display</label>
         <select id="render-mode" value={store.renderMode} onchange={event => selectRenderMode(event.currentTarget.value)}>
-          <option value="auto">Automatic — save data on slow connections</option>
+          <!-- Automatic is biased to the detailed map and only drops out for a
+               connection that genuinely cannot carry tiles. "Save data on slow
+               connections" read as though it saves data generally. -->
+          <option value="auto">Automatic — detailed map unless the connection is very slow</option>
           <option value="light">Data saver</option>
           <option value="full">Detailed map</option>
         </select>

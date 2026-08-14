@@ -69,3 +69,16 @@ test("the detailed map is the one carrying the third-party hosts", () => {
   assert.match(detailedMap, /cdn\.protomaps\.com/);
   assert.match(detailedMap, /tile\.openstreetmap\.org/);
 });
+
+test("the loading pill clears the bulletin sheet on a phone", () => {
+  // The map is full-bleed and the bulletin floats over its lower half, so a
+  // plain `top: 50%` centred "Drawing the Assam atlas…" on top of the card and
+  // covered the words "Local flood bulletin". Every other note in this component
+  // is already lifted clear of the sheet with --atlas-panel-h; this one was
+  // missed. Measured at 375x812: pill 262-291, card starts at 344.
+  const phone = detailedMap.slice(detailedMap.indexOf("@media (max-width: 859px)"));
+  assert.match(
+    phone,
+    /\.map-loading \{ top: calc\(\(100dvh - var\(--atlas-panel-h, 240px\)\) \/ 2\); \}/,
+  );
+});

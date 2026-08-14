@@ -1606,6 +1606,13 @@
       right: 16px;
       bottom: calc(var(--atlas-panel-h, 240px) + 84px);
     }
+    /* Centred in the map a phone can actually see, which is the band above the
+       bulletin sheet rather than the whole element. The map is full-bleed and
+       the sheet floats over its lower half, so a plain `top: 50%` put "Drawing
+       the Assam atlas…" on top of the card -- covering the words "Local flood
+       bulletin" on the one screen that has to be readable first. Every other
+       note here is already lifted clear of the sheet; this one was missed. */
+    .map-loading { top: calc((100dvh - var(--atlas-panel-h, 240px)) / 2); }
     .atlas-readout {
       /* Clear of the search field, which spans the head of the map here. */
       top: 84px;
