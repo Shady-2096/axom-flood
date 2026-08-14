@@ -188,8 +188,6 @@
      which is stricter than tokens would be — a literal cannot slip past it.
      11px is the floor and belongs to tracked instrument labels only; no prose
      sits below 14px. */
-  --rail-width: 168px;
-
   /* The gauge deck was #08171c — 1.04:1 against its own page. One fixed dark
      field was being asked to create hierarchy in both schemes, and it only ever
      worked against paper: a 12.3:1 black slab dropped into the daylight page,
@@ -300,22 +298,6 @@ main h1:focus { outline: none; }
 }
 .skip-link:focus-visible { transform: none; }
 
-.mobile-mast {
-  display: none;
-}
-
-.receiver-rail {
-  position: fixed;
-  inset: 0 auto 0 0;
-  z-index: 20;
-  display: flex;
-  width: var(--rail-width);
-  flex-direction: column;
-  border-right: 1px solid var(--line);
-  color: var(--ink);
-  background: var(--chrome);
-}
-
 .brand {
   display: flex;
   min-height: 136px;
@@ -393,26 +375,6 @@ main h1:focus { outline: none; }
    still obvious without relying on the fill behind it. */
 .primary-nav a.active svg { stroke-width: 2.1; }
 
-/* River blue on the ink rail sits at 2.8:1. On dark chrome the ring is white. */
-.receiver-rail :focus-visible, .mobile-mast :focus-visible {
-  outline-color: var(--ink);
-  outline-offset: -3px;
-}
-
-/* The rail's foot is part of the rail, not a card parked inside it. */
-.rail-signal {
-  margin: 0;
-  padding: 16px 20px 24px;
-  border-top: 1px solid var(--line-dark);
-}
-.rail-signal p {
-  max-width: 22ch;
-  margin: 8px 0 0;
-  color: var(--rail-text);
-  font-size: 11px;
-  line-height: 1.45;
-}
-
 /* Anything that reports a measurement uses lining tabular figures, so a
    reading does not jitter sideways between updates. */
 .age, .dial strong, .place-source, .data-foot {
@@ -442,8 +404,6 @@ main h1:focus { outline: none; }
   background: none;
   box-shadow: inset 0 0 0 2.5px var(--signal-ink);
 }
-/* On the ink rail the bright amber is the readable one. */
-.receiver-rail .network-state.offline i { box-shadow: inset 0 0 0 2.5px var(--signal); }
 .age.stale .age-dot {
   background: none;
   box-shadow: inset 0 0 0 2.5px var(--signal-ink);
@@ -474,14 +434,11 @@ main h1:focus { outline: none; }
   stroke-linejoin: round;
   stroke-width: 1.8;
 }
-.theme-toggle-mobile { display: none; }
-.mast-tools { display: flex; align-items: center; gap: 12px; }
 
 main {
   --page-pad-x: clamp(28px, 5vw, 84px);
 
   min-height: 100svh;
-  margin-left: var(--rail-width);
   padding: clamp(32px, 5vw, 72px) var(--page-pad-x) 80px;
 }
 
@@ -1346,13 +1303,6 @@ input:focus-visible, select:focus-visible {
 
 @media (max-width: 859px) {
   body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
-  .receiver-rail {
-    inset: auto 0 0;
-    width: auto;
-    height: calc(68px + env(safe-area-inset-bottom));
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-  .receiver-rail > .brand, .receiver-rail > .theme-toggle, .rail-signal { display: none; }
   .primary-nav {
     grid-template-columns: repeat(5, 1fr);
     height: 68px;
@@ -1371,36 +1321,6 @@ input:focus-visible, select:focus-visible {
   .primary-nav a::before { inset: 0 22% auto; width: auto; height: 3px; border-radius: 0 0 2px 2px; }
   .primary-nav a.active { color: var(--ink); background: var(--chrome-active); }
   .primary-nav svg { width: 23px; height: 23px; }
-
-  .mobile-mast {
-    position: sticky;
-    z-index: 18;
-    top: 0;
-    display: flex;
-    min-height: 66px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: env(safe-area-inset-top) 20px 0;
-    border-bottom: 1px solid var(--line);
-    background: var(--mist);
-  }
-  .brand-mobile { min-height: 65px; padding: 12px 0; color: var(--ink); }
-  .brand-mobile .brand-mark { width: 31px; height: 31px; border-color: var(--line); color: var(--river); }
-  .brand-mobile .brand-mark svg { width: 23px; height: 23px; }
-  .brand-mobile strong { font: 800 18px/1 var(--display); }
-  .brand-mobile small { margin-top: 4px; color: var(--muted); font-size: 11px; }
-  .mobile-mast .network-state { color: var(--graphite); font-size: 11px; }
-  .theme-toggle-mobile {
-    display: grid;
-    width: 42px;
-    min-height: 42px;
-    margin: 0;
-    padding: 0;
-    place-items: center;
-    border-color: var(--line);
-    color: var(--river);
-  }
 
   main {
     --page-pad-x: 18px;
@@ -1452,7 +1372,6 @@ input:focus-visible, select:focus-visible {
 
 @media (max-width: 520px) {
   .network-state span { display: none; }
-  .mobile-mast .network-state { gap: 0; }
   .place-meta { font-size: 14px; }
   .list-card { grid-template-columns: 1fr; gap: 12px; }
   .list-meta { text-align: left; }
@@ -1471,7 +1390,7 @@ input:focus-visible, select:focus-visible {
 }
 
 @media print {
-  .receiver-rail, .mobile-mast, .tuner-slot, .site-footer { display: none; }
+  .tuner-slot, .site-footer { display: none; }
   main { margin: 0; padding: 20px; }
 }
 
