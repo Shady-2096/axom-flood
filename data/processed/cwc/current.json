@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-08-14T16:17:31.179139+05:30",
+  "record": "cwc_snapshot_pointer",
+  "revision_id": "1e530d96e7cf5134e067500e0e17f77d46aea0b1d8b6c66618ef0e88d7d56b4a",
+  "schema_version": 1,
+  "snapshot_url": "data/processed/cwc/1e530d96e7cf5134e067500e0e17f77d46aea0b1d8b6c66618ef0e88d7d56b4a.json",
+  "source_revision": "4458c4d94487eeb97bc710530ed96a1ac5cc565888ba40c271c61c556149ab3c",
+  "totals": {
+    "stations": 160,
+    "stations_current": 89,
+    "stations_with_no_data": 71
+  }
+}

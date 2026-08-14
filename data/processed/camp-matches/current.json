@@ -1,0 +1,14 @@
+{
+  "camp_source_artifact": "2539aab551004bdddee707f9eb3dbf5e7809c4b515e498f40d74a16947d13197",
+  "matches_url": "data/processed/camp-matches/b4957da88124bc0655785b24bc01d0f6c10e38ca85e74ed73946cc48a596fd8b.json",
+  "record": "camp_match_pointer",
+  "revision_id": "b4957da88124bc0655785b24bc01d0f6c10e38ca85e74ed73946cc48a596fd8b",
+  "schema_version": 1,
+  "school_source_artifact": "assam-schools-6570f268f67197d42ce3584f6e54ca703c4dca348ec0d8a960f10e479bfb888d",
+  "totals": {
+    "camps": 150,
+    "high_confidence": 38,
+    "medium_confidence": 24,
+    "unverified": 88
+  }
+}

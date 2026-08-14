@@ -611,6 +611,40 @@ def ingest_cwc_gauges(
     output_path.write_text(
         json.dumps(document, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
     )
+    # Which of the committed snapshots is live, written down rather than left to
+    # the filesystem. The bundle build used to take the newest modification time.
+    # That is right whenever this ingest has just run, and wrong the moment it
+    # has not: a fresh `git clone` -- what every Cloud Run job starts from --
+    # stamps all 122 snapshots with the checkout time, so "newest" becomes
+    # whichever hash readdir happens to return first.
+    #
+    # The daily job is where that bites. It records a failed CWC ingest and
+    # carries on to build the bundle anyway, deliberately, so that one bad source
+    # cannot hold up the others. Without this pointer that path could publish a
+    # snapshot from ten days earlier as the current river bundle -- every reading
+    # correctly stamped and correctly aged into "no data", and the whole state
+    # dark during a flood.
+    (output_dir / "current.json").write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "record": "cwc_snapshot_pointer",
+                "revision_id": artifact_id,
+                "snapshot_url": f"data/processed/cwc/{artifact_id}.json",
+                "generated_at": document["generated_at"],
+                "source_revision": document["source_revision"],
+                "totals": {
+                    "stations": document["station_count"],
+                    "stations_current": document["stations_current"],
+                    "stations_with_no_data": document["stations_with_no_data"],
+                },
+            },
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
+    )
     return {
         "artifact_id": artifact_id,
         "station_count": document["station_count"],

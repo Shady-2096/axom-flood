@@ -35,11 +35,29 @@ def read(path: Path) -> Any:
     return json.loads(path.read_text())
 
 
-def latest(pattern: str) -> Path:
-    paths = list(Path().glob(pattern))
-    if not paths:
-        raise RuntimeError(f"no artifact matches {pattern}")
-    return max(paths, key=lambda path: path.stat().st_mtime)
+def pointed_at(directory: str) -> Path:
+    """The artifact `current.json` in `directory` names.
+
+    This replaced a newest-modification-time pick, which is right only while the
+    run that wrote the file is the run reading it. Every Cloud Run job starts
+    from a fresh `git clone`, and `git checkout` stamps every file at once, so
+    "newest" collapses to whichever hash the filesystem hands back first --
+    silently, out of 122 river snapshots and 7 camp lists.
+
+    A missing or dangling pointer is fatal. The alternative is guessing, and a
+    bundle built from the wrong artifact looks entirely normal in the output --
+    which is exactly what let the same bug in the rainfall zone table survive
+    until someone measured it on a clean clone.
+    """
+
+    pointer = Path(directory) / "current.json"
+    if not pointer.exists():
+        raise RuntimeError(f"no {pointer}; rebuild the artifact to write one")
+    revision = json.loads(pointer.read_text())["revision_id"]
+    target = Path(directory) / f"{revision}.json"
+    if not target.exists():
+        raise RuntimeError(f"{pointer} names {revision}, which is not on disk")
+    return target
 
 
 def write_immutable(path: Path, payload: bytes) -> None:
@@ -66,7 +84,7 @@ def _retired_from_service(gauge: dict[str, Any], *, now: datetime) -> bool:
 
 def main() -> None:
     now = datetime.now(IST)
-    cwc = read(latest("data/processed/cwc/*.json"))
+    cwc = read(pointed_at("data/processed/cwc"))
     localities = read(Path("config/assam-localities.json"))
     villages_path = Path("config/assam-village-search-index.json")
     villages_bytes = villages_path.read_bytes()
@@ -95,7 +113,10 @@ def main() -> None:
             osm_places.append(entry)
 
     shapes_path = Path("config/assam-circle-shapes.json")
-    camps_document = read(latest("data/processed/camp-matches/*.json"))
+    # By the pointer, not by mtime. Only the daily job re-runs the UDISE matcher,
+    # so on the two-hourly CWC run this directory is seven committed artifacts
+    # with identical checkout times and nothing to separate them.
+    camps_document = read(pointed_at("data/processed/camp-matches"))
     camps = [
         camp
         for camp in camps_document.get("camps", [])

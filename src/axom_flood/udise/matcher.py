@@ -53,6 +53,48 @@ def _load_schools(path: Path) -> dict[str, list[dict[str, str]]]:
     return by_district
 
 
+def _write_pointer(path: Path, *, digest: str, stable: dict[str, Any]) -> None:
+    """Say which camp-match artifact is live, in a file rather than an mtime.
+
+    Every run of this matcher leaves another content-addressed artifact behind,
+    and nothing deletes the old ones. The bundle build used to take the newest
+    modification time, which is right on a working copy and wrong on the fresh
+    clone Cloud Run makes every run: `git checkout` stamps every file at once, so
+    "newest" collapses to whichever hash the filesystem happens to hand back
+    first. The two-hourly CWC job never re-runs this matcher, so it was picking
+    among seven camp lists by luck.
+
+    They all held the same 150 camps, so nothing was ever wrong on the site. The
+    rainfall zone table hit the identical bug and it was not harmless there --
+    a clean clone silently chose an 82-circle table over the 101-circle one. This
+    is the same repair, in the same shape: mtime is fine for "the file this run
+    just wrote", wrong for "the committed artifact chosen among several".
+    """
+
+    path.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "record": "camp_match_pointer",
+                "revision_id": digest,
+                "matches_url": f"data/processed/camp-matches/{digest}.json",
+                "camp_source_artifact": stable["camp_source_artifact"],
+                "school_source_artifact": stable["school_source_artifact"],
+                "totals": {
+                    "camps": stable["camp_count"],
+                    "high_confidence": stable["high_confidence"],
+                    "medium_confidence": stable["medium_confidence"],
+                    "unverified": stable["unverified"],
+                },
+            },
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
+    )
+
+
 def match_camps_to_schools(
     *,
     camps_path: Path,
@@ -155,6 +197,7 @@ def match_camps_to_schools(
     output_path = output_dir / f"{digest}.json"
     review_path = review_dir / f"{digest}.json"
     output_path.write_text(json.dumps(stable, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+    _write_pointer(output_dir / "current.json", digest=digest, stable=stable)
     review_path.write_text(
         json.dumps(
             {"schema_version": 1, "artifact_id": digest, "items": review},
