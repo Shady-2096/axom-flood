@@ -62,6 +62,14 @@
   const PRECISE_BOUNDARY_ZOOM = 10;
   // Kept in step with the fade on .gauge-tooltip in static/styles.css.
   const GAUGE_CARD_FADE = 220;
+  // How long the detailed map may spend loading before the plain map takes over.
+  //
+  // Generous on purpose. Detailed mode has no data budget and a slow connection
+  // that is still making progress should be allowed to finish -- falling back
+  // early would downgrade a reader who was about to get the full atlas. What
+  // this catches is the load that is not slow but stopped, which the page
+  // otherwise renders as a spinner with no end.
+  const MAP_LOAD_TIMEOUT_MS = 15_000;
   const impactDateFormatter = new Intl.DateTimeFormat("en-IN", {
     timeZone: "Asia/Kolkata",
     day: "numeric",
@@ -92,6 +100,7 @@
   let focusedLocalityId;
   let focusedRequest = 0;
   let revealTimer;
+  let loadWatchdog;
   let villageDocument = $state();
   let impactAggregation = { districts: new Map(), circles: new Map() };
   let gaugePopup;
@@ -879,7 +888,28 @@
       [assamBounds[0][0] - 4, assamBounds[0][1] - 4],
       [assamBounds[1][0] + 4, assamBounds[1][1] + 4],
     ]);
+    // Before `load`, not inside it. Everything that notices a broken map used to
+    // be registered in the load callback, so none of it was listening for the
+    // one failure that matters: the style never finishing. MapLibre only fires
+    // `load` once the whole style resolves, glyphs included, and the glyph CDN
+    // is a third-party host. Block it -- a captive portal, an ISP filter, a
+    // corporate proxy, or just a link too slow to finish -- and `load` never
+    // arrives, so `ready` stays false, so the reader watches "Drawing the Assam
+    // atlas…" for as long as they are willing to wait. Nothing else on the
+    // screen is wrong. The river reading beside it is fine.
+    //
+    // `initialize()` could not catch it either: it resolves the moment the Map
+    // is constructed, and the style loads afterwards.
+    //
+    // So give up out loud instead. `mapFailed` swaps in the plain RiverMap,
+    // which fetches nothing and needs no remote host, and a reader who cannot
+    // reach a tile server gets a map that works rather than a spinner.
+    loadWatchdog = setTimeout(() => {
+      if (!ready) mapFailed = true;
+    }, MAP_LOAD_TIMEOUT_MS);
+
     map.once("load", () => {
+      clearTimeout(loadWatchdog);
       addOperationalLayers();
       addGaugeMarkers();
       bindMapEvents();
@@ -931,6 +961,7 @@
     return () => {
       cancelled = true;
       clearTimeout(revealTimer);
+      clearTimeout(loadWatchdog);
       document.removeEventListener("pointerdown", closeLayerMenu);
       document.removeEventListener("keydown", closeWithKeyboard);
       clearTimeout(gaugeCardTimer);

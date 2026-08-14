@@ -13,10 +13,24 @@ const DEFAULT_STALE_AFTER_HOURS = 20;
    and on a small screen it would push the river reading down for nothing. */
 const DROP_AFTER_HOURS = 72;
 
-function ageHours(asOf, now) {
+export function ageHours(asOf, now = new Date()) {
   const stamp = Date.parse(asOf);
   if (Number.isNaN(stamp)) return null;
   return (now.getTime() - stamp) / 3_600_000;
+}
+
+/* What a reader sees for an estimate this old: the sentence as written, the same
+   sentence saying nothing newer has arrived, or no rainfall line at all.
+
+   One function rather than two thresholds read in two places. The publication
+   freshness check asks this the same way the page does, so it can never report
+   a layer as visible while the page is dropping it. That is the whole failure it
+   exists to catch: rainfall stopped publishing on 7 Aug, passed 72 hours three
+   days later, and disappeared from every bulletin in Assam with nothing anywhere
+   saying so. */
+export function rainfallVisibility(age, staleAfterHours = DEFAULT_STALE_AFTER_HOURS) {
+  if (age === null || !Number.isFinite(age) || age > DROP_AFTER_HOURS) return "dropped";
+  return age > staleAfterHours ? "stale" : "current";
 }
 
 /* The rainfall layer is an addition, never a precondition. Every failure path
@@ -34,7 +48,7 @@ export async function loadRainfall({ now = new Date() } = {}) {
   if (!pointer?.rainfall_url || !pointer?.as_of) return null;
 
   const age = ageHours(pointer.as_of, now);
-  if (age === null || age > DROP_AFTER_HOURS) return null;
+  if (rainfallVisibility(age) === "dropped") return null;
 
   let artifact;
   try {
@@ -72,7 +86,7 @@ export function rainfallFor(loaded, localityId) {
   const circle = loaded.byLocality.get(localityId);
   if (!circle) return null;
 
-  const stale = loaded.ageHours > loaded.staleAfterHours;
+  const stale = rainfallVisibility(loaded.ageHours, loaded.staleAfterHours) === "stale";
   const headline = stale && circle.stale_headline ? circle.stale_headline : circle.headline;
   if (!headline) return null;
 

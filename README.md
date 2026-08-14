@@ -115,6 +115,21 @@ uv run axom-flood cwc --backfill-hours 12    # ingest the primary gauge feed
 uv run python scripts/build_pwa_bundle.py    # rebuild the data bundle the site reads
 ```
 
+To see what a reader is actually being shown today, and which layers have gone
+quiet:
+
+```bash
+npm run check:freshness
+```
+
+Every layer degrades honestly on screen — rainfall past three days is dropped
+rather than shown as news, and an old ASDMA report is repainted in a colour the
+map uses for nothing else — but nothing announces it. This prints the age of each
+published layer against the threshold the site itself uses, so a source that
+stopped publishing is a line of output rather than something you notice weeks
+later. It is deliberately not a CI gate: ASDMA is fetched from one machine and is
+expected to have gaps, and an agency having a quiet week should not fail a build.
+
 Before pushing, run the full CI set — a lint break fails the run before any test does:
 
 ```bash

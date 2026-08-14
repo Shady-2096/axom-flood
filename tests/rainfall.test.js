@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { loadRainfall, rainfallFor } from "../src/lib/data/rainfall.js";
+import { loadRainfall, rainfallFor, rainfallVisibility } from "../src/lib/data/rainfall.js";
 
 const AS_OF = "2026-08-06T06:00:00+00:00";
 const BUILT = new Date("2026-08-06T20:00:00Z");
@@ -163,4 +163,30 @@ test("the bulletin never shows a rainfall line it was not given", async () => {
   );
   assert.match(bulletin, /rainfall = null,/);
   assert.match(bulletin, /\{#if rainfall\}/);
+});
+
+test("the visibility rule is one function, so a check cannot disagree with the page", () => {
+  // 20 hours is the stale mark the artifact carries, 72 the drop mark. The
+  // publication freshness check asks this the same way `loadRainfall` and
+  // `rainfallFor` do, so it can never report a layer as visible while the page
+  // is dropping it -- which is the failure it exists to catch.
+  assert.equal(rainfallVisibility(3, 20), "current");
+  assert.equal(rainfallVisibility(20, 20), "current");
+  assert.equal(rainfallVisibility(20.1, 20), "stale");
+  assert.equal(rainfallVisibility(72, 20), "stale");
+  assert.equal(rainfallVisibility(72.1, 20), "dropped");
+  assert.equal(rainfallVisibility(null, 20), "dropped");
+  assert.equal(rainfallVisibility(Number.NaN, 20), "dropped");
+});
+
+test("an estimate past three days is dropped, not relabelled", async () => {
+  // The longest window this data describes is three days, so an older artifact
+  // is not late news about now. It is a complete account of a period nobody is
+  // asking about. Rainfall sat in exactly this state for four days in Aug 2026.
+  serve({
+    "/data/rainfall-current.json": POINTER,
+    "/data/rainfall-abc.json": artifact(),
+  });
+  const loaded = await loadRainfall({ now: new Date("2026-08-14T02:00:00Z") });
+  assert.equal(loaded, null);
 });

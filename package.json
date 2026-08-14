@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "test": "node --test tests/*.test.js supabase/functions/tests/*.test.js",
-    "check:browser": "node scripts/check_browser_smoke.mjs"
+    "check:browser": "node scripts/check_browser_smoke.mjs",
+    "check:freshness": "node scripts/check_publication_freshness.mjs"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
