@@ -39,12 +39,51 @@ output entirely.
 
 from __future__ import annotations
 
+import json
 import re
 from collections import Counter
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 
 from axom_flood.geometry import Ring, point_in_rings
+
+
+def newest_snapshot(directory: Path, prefix: str, suffix: str = ".json") -> Path:
+    """The most recently retrieved OSM snapshot, by when it was retrieved.
+
+    Every fetch here writes a content-addressed payload beside a
+    `.metadata.json` sidecar, and the sidecar records `retrieved_at`. That is the
+    ordering key: it says something about the download, and it survives being
+    copied, re-cloned, or restored from a backup.
+
+    The two callers used to sort by modification time instead. Nothing has gone
+    wrong yet -- both orders name the same 2026-07-31 boundary snapshot today --
+    but a modification time is a fact about the filesystem, and the choice here
+    decides which outlines the whole boundary review is measured against. There
+    are two boundary snapshots on disk, four days apart, and picking the older
+    one changes which circles pass and therefore which circles get rainfall.
+
+    A snapshot with no sidecar sorts before every dated one rather than crashing.
+    It is older than the convention, which is exactly what its absence means.
+    """
+
+    candidates = [
+        path
+        for path in directory.glob(f"{prefix}*{suffix}")
+        if ".metadata" not in path.name
+    ]
+    if not candidates:
+        raise FileNotFoundError(f"no {prefix}*{suffix} snapshot under {directory}")
+
+    def retrieved_at(path: Path) -> str:
+        sidecar = path.with_suffix(".metadata.json")
+        if not sidecar.exists():
+            return ""
+        metadata = json.loads(sidecar.read_text())
+        return metadata.get("retrieved_at") or metadata.get("fetch_finished_at") or ""
+
+    return max(sorted(candidates), key=retrieved_at)
 
 # OSM writes some Assam circle names differently from the Census. Only naming
 # conventions are listed -- a "tehsil" suffix, a documented spelling variant.

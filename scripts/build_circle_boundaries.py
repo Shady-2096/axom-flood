@@ -57,6 +57,7 @@ from axom_flood.boundaries.osm import (
     assign_districts,
     load_relations,
     match_localities,
+    newest_snapshot,
 )
 from axom_flood.boundaries.quality import (
     CELL_DEGREES,
@@ -96,16 +97,6 @@ PASS_AGREEMENT = 0.90
 # above this is a duplicate relation or a wrong match and disqualifies the circle.
 MAX_OVERLAP_SHARE = 0.02
 
-def latest_snapshot(directory: Path, prefix: str, suffix: str = ".json") -> Path:
-    candidates = sorted(
-        (path for path in directory.glob(f"{prefix}*{suffix}") if ".metadata" not in path.name),
-        key=lambda path: path.stat().st_mtime,
-    )
-    if not candidates:
-        raise SystemExit(f"no {prefix}*{suffix} snapshot under {directory}")
-    return candidates[-1]
-
-
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--boundaries", type=Path, default=None)
@@ -120,10 +111,10 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    boundaries_path = args.boundaries or latest_snapshot(
+    boundaries_path = args.boundaries or newest_snapshot(
         ROOT / "data" / "reference" / "osm", "assam-boundaries-"
     )
-    udise_csv = args.udise_csv or latest_snapshot(DEFAULT_UDISE, "assam-schools-", ".csv")
+    udise_csv = args.udise_csv or newest_snapshot(DEFAULT_UDISE, "assam-schools-", ".csv")
 
     payload = boundaries_path.read_bytes()
     boundaries_hash = hashlib.sha256(payload).hexdigest()

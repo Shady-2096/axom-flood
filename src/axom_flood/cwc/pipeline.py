@@ -143,21 +143,47 @@ def load_station_reference(
 
     The reference snapshots are content-addressed, so a run that changes one
     threshold writes a whole new file rather than editing the old one. Merging
-    them oldest-first gives one lookup that survives a revision bump: a station's
-    coordinates do not move between revisions, and a station that has dropped out
-    of the newest reference is still the gauge some circle was mapped to.
+    them gives one lookup that survives a revision bump: a station's coordinates
+    do not move between revisions, and a station that has dropped out of the
+    newest reference is still the gauge some circle was mapped to.
 
     Offline by design. Callers that only need to know where a gauge *is* — the
     locality builder and the mapping audit — must not have to reach the network
     to find out.
+
+    Two things decide the merge, and neither is the filesystem.
+
+    The order is by filename. It used to be by modification time, which orders
+    nothing at all on the fresh `git clone` every Cloud Run job starts from:
+    checkout stamps all three snapshots at once. A timestamp inside the file
+    would be the better key, but the body is what the content address hashes, so
+    adding one would write a new snapshot on every run even when nothing changed.
+    Sorted names are at least the same order everywhere.
+
+    A known value is never replaced by a null. One of the three snapshots on disk
+    is a 37-station partial fetch that knows no revenue circles at all, and a
+    plain `dict.update` lets it erase what a 169-station snapshot recorded — 17
+    circles, on two of the six possible orderings. Accumulating field by field
+    makes the result the same whichever order they arrive in, for everything
+    except a field two snapshots genuinely disagree about.
+
+    There are two of those today: station 059-UBDDIB carries danger and warning
+    levels 2.11 m apart between revisions. Nothing reads thresholds from here —
+    every caller wants coordinates, name, river, district, state — and on those
+    the three snapshots agree completely. Recorded because the day something does
+    read them, first-one-wins is not a good enough answer.
     """
     directory = (data_dir or Path("data")) / "reference" / "cwc"
     if not directory.exists():
         return {}
     stations: dict[str, dict[str, Any]] = {}
-    for path in sorted(directory.glob("*.json"), key=lambda item: item.stat().st_mtime):
+    for path in sorted(directory.glob("*.json")):
         snapshot = json.loads(path.read_text())
-        stations.update(snapshot.get("stations") or {})
+        for code, station in (snapshot.get("stations") or {}).items():
+            known = stations.setdefault(code, {})
+            for field, value in station.items():
+                if value is not None or field not in known:
+                    known[field] = value
     return stations
 
 

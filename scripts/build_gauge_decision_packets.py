@@ -37,13 +37,14 @@ in a reviewed record that carries who decided and why.
 from __future__ import annotations
 
 import argparse
-import glob
 import importlib.util
 import json
 import re
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+
+from axom_flood.boundaries.osm import newest_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -145,13 +146,12 @@ def latest_waterways() -> tuple[dict[str, Any], str | None]:
     itself from the station reference, and the missing section says so out loud
     rather than rendering an empty river list that reads like "no rivers here".
     """
-    paths = sorted(glob.glob(str(WATERWAY_DIR / "assam-waterways-*.json")))
-    paths = [p for p in paths if not p.endswith(".metadata.json")]
-    if not paths:
+    try:
+        newest = newest_snapshot(WATERWAY_DIR, "assam-waterways-")
+    except FileNotFoundError:
         return {}, None
-    newest = max(paths, key=lambda p: Path(p).stat().st_mtime)
-    document = json.loads(Path(newest).read_text(encoding="utf-8"))
-    return document.get("circles", {}), str(Path(newest).relative_to(ROOT))
+    document = json.loads(newest.read_text(encoding="utf-8"))
+    return document.get("circles", {}), str(newest.relative_to(ROOT))
 
 
 def upstream_questions(

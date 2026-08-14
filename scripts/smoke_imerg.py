@@ -67,11 +67,23 @@ def assam_box() -> GridBox:
     Taken from the same artifact `build_rainfall.py` uses, so a passing smoke
     test is a statement about the box the pipeline will really request rather
     than about a rounder one written here.
+
+    That claim was false for a week. This took the newest file in the directory,
+    and the `current.json` pointer added alongside it is a file in that directory
+    too -- the newest one, every time. So the smoke test read the pointer as if it
+    were a zone table and died on `KeyError: 'zones'` before reaching NASA at all.
+    Reading the pointer properly is both the fix and the thing the docstring
+    always said this did.
     """
 
-    zones = json.loads(
-        max(ZONES_DIR.glob("*.json"), key=lambda path: path.stat().st_mtime).read_text()
-    )
+    pointer = ZONES_DIR / "current.json"
+    if not pointer.exists():
+        raise SystemExit(f"no {pointer}; run scripts/build_rainfall_zones.py first")
+    revision = json.loads(pointer.read_text())["revision_id"]
+    table = ZONES_DIR / f"{revision}.json"
+    if not table.exists():
+        raise SystemExit(f"{pointer} names {revision}, which is not on disk")
+    zones = json.loads(table.read_text())
     cells = [cell["grid_cell_id"] for zone in zones["zones"] for cell in zone["cells"]]
     return GridBox.around_cells(cells, cell_degrees=zones["cell_degrees"])
 

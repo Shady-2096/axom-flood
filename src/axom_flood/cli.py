@@ -59,11 +59,53 @@ def _run_camps(args: argparse.Namespace) -> int:
         return 1
 
 
-def _latest(path: Path, pattern: str) -> Path:
-    matches = list(path.glob(pattern))
+def _candidates(path: Path, pattern: str) -> list[Path]:
+    matches = sorted(path.glob(pattern))
     if not matches:
         raise FileNotFoundError(f"no files matching {path / pattern}")
-    return max(matches, key=lambda item: item.stat().st_mtime)
+    return matches
+
+
+def _newest_by_field(path: Path, pattern: str, field: str) -> Path:
+    """The artifact whose own `field` is latest.
+
+    These used to be chosen by newest modification time, which describes the
+    filesystem rather than the data. It is right only while the run that wrote
+    the file is the run reading it, and both callers below have a path where that
+    is false: a fresh `git clone` stamps every artifact with the checkout time,
+    and the daily pipeline carries on to the next step when a fetch fails, so
+    there may be no fresh file at all.
+
+    Every artifact here already carries the answer -- a camp list its
+    `generated_at`, a bulletin its `report_date` -- so the ordering is a fact
+    about the data. Reading them all costs a few hundred kilobytes and happens
+    once per run.
+    """
+
+    return max(
+        _candidates(path, pattern),
+        key=lambda item: json.loads(item.read_text())[field],
+    )
+
+
+def _the_only_one(path: Path, pattern: str) -> Path:
+    """The single artifact matching `pattern`, or a refusal.
+
+    For a hand-chosen reference snapshot there is no such thing as the newest
+    one. The UDISE roster is a 2021 community mirror pinned by its sha256; a
+    second one appearing means someone deliberately added a different roster, and
+    which of the two the matcher should use is their decision, not a coin toss
+    over file timestamps. Say so and let them pass it explicitly.
+    """
+
+    matches = _candidates(path, pattern)
+    if len(matches) > 1:
+        names = ", ".join(item.name for item in matches)
+        raise RuntimeError(
+            f"{len(matches)} files match {path / pattern} and they have no order; "
+            f"pass one explicitly ({names})"
+        )
+    return matches[0]
 
 
 def _run_udise(args: argparse.Namespace) -> int:
@@ -75,12 +117,14 @@ def _run_udise(args: argparse.Namespace) -> int:
             camps_path = (
                 Path(args.camps)
                 if args.camps
-                else _latest(data_dir / "processed" / "district-camps", "*.json")
+                else _newest_by_field(
+                    data_dir / "processed" / "district-camps", "*.json", "generated_at"
+                )
             )
             schools_path = (
                 Path(args.schools)
                 if args.schools
-                else _latest(data_dir / "reference" / "udise", "assam-schools-*.csv")
+                else _the_only_one(data_dir / "reference" / "udise", "assam-schools-*.csv")
             )
             result = match_camps_to_schools(
                 camps_path=camps_path,
@@ -273,7 +317,9 @@ def _run_asdma(args: argparse.Namespace) -> int:
             bulletin_path = (
                 Path(args.bulletin)
                 if args.bulletin
-                else _latest(data_dir / "processed" / "asdma", "*/*-extractor-v7.json")
+                else _newest_by_field(
+                    data_dir / "processed" / "asdma", "*/*-extractor-v7.json", "report_date"
+                )
             )
             result = publish_impact(
                 bulletin_path,
