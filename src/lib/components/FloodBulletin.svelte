@@ -229,7 +229,20 @@
     box-shadow: var(--shadow-2);
   }
 
-  .bulletin.standalone,
+  /* Bodiless, but only where the field carries nothing. In data-saver mode the
+     place name is already set above this panel, so the calm and no-data cards
+     drop their body and read as the document they sit in.
+
+     Warning and above keep theirs. The foreground travels with the safety state
+     — dark ink on amber, white on the two reds — so dropping the field left that
+     ink printed straight onto the page: 1.02:1 for warning on the night ground,
+     1.23:1 for both reds on paper. Not "low contrast". Invisible, in the mode
+     built for someone on a bad connection during a flood, where the bulletin is
+     the whole screen.
+
+     It is also the rule the atlas states one block down, for the same reason: a
+     state you can see through is a state you can miss. */
+  .bulletin.standalone[data-state="normal"],
   .bulletin.standalone[data-state="no-data"] {
     border: 0;
     border-radius: 0;
@@ -349,7 +362,10 @@
   .folded .fold svg { transform: rotate(180deg); }
   .folded .fold:hover svg { transform: rotate(180deg) scale(1.15); }
 
-  .standalone .face {
+  /* Scoped the same way the bodiless rule above is. A card that kept its field
+     needs the inset that goes with it, or the amber runs under the type. */
+  .standalone[data-state="normal"] .face,
+  .standalone[data-state="no-data"] .face {
     padding: 24px 0;
   }
 
