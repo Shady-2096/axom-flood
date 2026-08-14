@@ -113,6 +113,7 @@ def main() -> None:
             osm_places.append(entry)
 
     shapes_path = Path("config/assam-circle-shapes.json")
+    helplines = read(Path("content/helplines.json"))
     # By the pointer, not by mtime. Only the daily job re-runs the UDISE matcher,
     # so on the two-hourly CWC run this directory is seven committed artifacts
     # with identical checkout times and nothing to separate them.
@@ -199,7 +200,12 @@ def main() -> None:
         "stale_after_hours": 6,
         "default_locality_id": "sivasagar-sibsagar",
         "runtime": read(Path("content/runtime.json")),
-        "helplines": read(Path("content/helplines.json"))["numbers"],
+        "helplines": helplines["numbers"],
+        # When a person last checked the numbers. The emergency screen showed the
+        # river gauge's reading age instead, so 1070 was labelled "3.3 hours old"
+        # -- a freshness claim about a hand-maintained constant, on the screen
+        # where a wrong impression is least affordable.
+        "helplines_updated_at": helplines.get("updated_at"),
         "i18n": {
             "en": read(Path("content/i18n/en.json")),
             "as": read(Path("content/i18n/as.json")),
