@@ -8,16 +8,10 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
+from ..artifacts import pointed_at
 from .engine import evaluate_alert, persist_alert_artifacts
 
 IST = ZoneInfo("Asia/Kolkata")
-
-
-def _latest(directory: Path) -> Path:
-    paths = list(directory.glob("*.json"))
-    if not paths:
-        raise RuntimeError(f"no JSON artifacts in {directory}")
-    return max(paths, key=lambda path: path.stat().st_mtime)
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -50,7 +44,13 @@ def run_alerts(
     now: datetime | None = None,
 ) -> dict[str, Any]:
     now = now or datetime.now(IST)
-    cwc_path = cwc_snapshot or _latest(data_dir / "processed" / "cwc")
+    # By the pointer the CWC ingest writes, never by modification time. This
+    # picked `max(..., key=st_mtime)` until it was found to be wrong twice over:
+    # a fresh `git clone` stamps all 213 snapshots at once so the pick was
+    # arbitrary, and `current.json` is itself in that directory and written last,
+    # so the newest file was usually the pointer -- which has no `stations` and
+    # failed the whole run with a KeyError.
+    cwc_path = cwc_snapshot or pointed_at(data_dir / "processed" / "cwc")
     cwc = json.loads(cwc_path.read_text())
     localities = json.loads(localities_path.read_text())["localities"]
     stations = {item["cwc_station_code"]: item for item in cwc["stations"]}

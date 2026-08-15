@@ -9,26 +9,45 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
+from .artifacts import newest_by_field, pointed_at, the_only_one
+
 IST = ZoneInfo("Asia/Kolkata")
 
-REQUIRED_ARTIFACTS = {
-    "asdma": ("processed/asdma", "*/*.json"),
-    "camps": ("processed/district-camps", "*.json"),
-    "udise": ("reference/udise", "assam-schools-*.csv"),
-    "camp_matches": ("processed/camp-matches", "*.json"),
-    "gauges": ("processed/gauges", "*.json"),
-    "cwc": ("processed/cwc", "*.json"),
-    "smart_axom": ("processed/smart-axom", "*.json"),
+# What this ledger is evidence *of*, and how each source names its current
+# artifact.
+#
+# The rule used to be newest modification time for all seven, which is the bug
+# `artifacts.py` exists to remove. It was already producing wrong evidence: the
+# two directories that carry a `current.json` were resolving to the pointer
+# itself, because a pointer is written after the artifact it names and so is
+# always the newest file. The ledger recorded the sha256 of a forty-line pointer
+# as proof that a camp match ran.
+#
+# `pointer` where a writer leaves one, the artifact's own timestamp where it does
+# not, and a refusal for the UDISE roster, which is a hand-pinned 2021 mirror
+# where "the newest" is not a question with an answer.
+REQUIRED_ARTIFACTS: dict[str, tuple[str, str, str]] = {
+    "asdma": ("processed/asdma", "*/*.json", "report_date"),
+    "camps": ("processed/district-camps", "*.json", "generated_at"),
+    "udise": ("reference/udise", "assam-schools-*.csv", "only"),
+    "camp_matches": ("processed/camp-matches", "*.json", "pointer"),
+    "gauges": ("processed/gauges", "*.json", "generated_at"),
+    "cwc": ("processed/cwc", "*.json", "pointer"),
+    "smart_axom": ("processed/smart-axom", "*.json", "fetched_at"),
 }
 
 RUN_ORIGINS = {"schedule", "workflow_dispatch", "local"}
 
 
-def _latest(root: Path, pattern: str) -> Path:
-    matches = list(root.glob(pattern))
-    if not matches:
-        raise FileNotFoundError(f"missing Phase 0 artifact: {root / pattern}")
-    return max(matches, key=lambda path: path.stat().st_mtime)
+def _latest(root: Path, pattern: str, rule: str) -> Path:
+    try:
+        if rule == "pointer":
+            return pointed_at(root)
+        if rule == "only":
+            return the_only_one(root, pattern)
+        return newest_by_field(root, pattern, rule)
+    except FileNotFoundError as exc:
+        raise FileNotFoundError(f"missing Phase 0 artifact: {root / pattern}") from exc
 
 
 def _sha256(path: Path) -> str:
@@ -54,8 +73,8 @@ def record_success(
         )
     now = now or datetime.now(IST)
     artifacts: dict[str, Any] = {}
-    for pipeline, (directory, pattern) in REQUIRED_ARTIFACTS.items():
-        path = _latest(data_dir / directory, pattern)
+    for pipeline, (directory, pattern, rule) in REQUIRED_ARTIFACTS.items():
+        path = _latest(data_dir / directory, pattern, rule)
         artifact: dict[str, Any] = {
             "path": str(path.relative_to(data_dir.parent)),
             "sha256": _sha256(path),

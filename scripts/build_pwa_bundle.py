@@ -11,6 +11,14 @@ from zoneinfo import ZoneInfo
 
 from axom_flood.alerts.sentence import generate_sentence
 
+# The two selection rules live in the package now, because four callers needed
+# them and only two of them had the repair. `pointed_at` is re-exported here
+# rather than wrapped: it was defined in this file first and is still referred to
+# by that name from the tests that hold the repair in place.
+from axom_flood.artifacts import newest_by_field, pointed_at
+
+__all__ = ["main", "newest_by_field", "pointed_at"]
+
 IST = ZoneInfo("Asia/Kolkata")
 
 # How long a gauge may be silent before it stops being drawn on the map.
@@ -33,31 +41,6 @@ PUBLISH_SILENT_AFTER_DAYS = 365
 
 def read(path: Path) -> Any:
     return json.loads(path.read_text())
-
-
-def pointed_at(directory: str) -> Path:
-    """The artifact `current.json` in `directory` names.
-
-    This replaced a newest-modification-time pick, which is right only while the
-    run that wrote the file is the run reading it. Every Cloud Run job starts
-    from a fresh `git clone`, and `git checkout` stamps every file at once, so
-    "newest" collapses to whichever hash the filesystem hands back first --
-    silently, out of 122 river snapshots and 7 camp lists.
-
-    A missing or dangling pointer is fatal. The alternative is guessing, and a
-    bundle built from the wrong artifact looks entirely normal in the output --
-    which is exactly what let the same bug in the rainfall zone table survive
-    until someone measured it on a clean clone.
-    """
-
-    pointer = Path(directory) / "current.json"
-    if not pointer.exists():
-        raise RuntimeError(f"no {pointer}; rebuild the artifact to write one")
-    revision = json.loads(pointer.read_text())["revision_id"]
-    target = Path(directory) / f"{revision}.json"
-    if not target.exists():
-        raise RuntimeError(f"{pointer} names {revision}, which is not on disk")
-    return target
 
 
 def write_immutable(path: Path, payload: bytes) -> None:
@@ -159,11 +142,17 @@ def main() -> None:
     # only the reconciled, anonymised open dataset -- never an individual
     # report. If no crowd run has published an artifact yet the field is null
     # and the screen shows a placeholder rather than a single-report view.
+    #
+    # Chosen by the dataset's own `generated_at`. It was `sorted(glob)[-1]`,
+    # which orders by sha256 -- the one ordering that carries no information at
+    # all -- so the published aggregate would have been whichever hash happened
+    # to sort last. Latent only because no crowd run has published yet; the first
+    # second artifact would have made it live.
     crowd_url = None
     try:
-        crowd_paths = sorted(Path("data/processed/crowd").glob("*.json"))
-        if crowd_paths:
-            crowd_bytes = crowd_paths[-1].read_bytes()
+        crowd_dir = Path("data/processed/crowd")
+        if crowd_dir.exists():
+            crowd_bytes = newest_by_field(crowd_dir, "*.json", "generated_at").read_bytes()
             crowd_hash = hashlib.sha256(crowd_bytes).hexdigest()
             crowd_name = f"crowd-{crowd_hash}.json"
             write_immutable(Path("pwa/data") / crowd_name, crowd_bytes)

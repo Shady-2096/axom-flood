@@ -12,6 +12,7 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 from .alerts.pipeline import run_alerts
+from .artifacts import newest_by_field, the_only_one
 from .asdma import BulletinNotFound, fetch_bulletin, persist_bulletin
 from .asdma.parser import BulletinParseError
 from .asdma.publisher import (
@@ -59,53 +60,15 @@ def _run_camps(args: argparse.Namespace) -> int:
         return 1
 
 
-def _candidates(path: Path, pattern: str) -> list[Path]:
-    matches = sorted(path.glob(pattern))
-    if not matches:
-        raise FileNotFoundError(f"no files matching {path / pattern}")
-    return matches
-
-
-def _newest_by_field(path: Path, pattern: str, field: str) -> Path:
-    """The artifact whose own `field` is latest.
-
-    These used to be chosen by newest modification time, which describes the
-    filesystem rather than the data. It is right only while the run that wrote
-    the file is the run reading it, and both callers below have a path where that
-    is false: a fresh `git clone` stamps every artifact with the checkout time,
-    and the daily pipeline carries on to the next step when a fetch fails, so
-    there may be no fresh file at all.
-
-    Every artifact here already carries the answer -- a camp list its
-    `generated_at`, a bulletin its `report_date` -- so the ordering is a fact
-    about the data. Reading them all costs a few hundred kilobytes and happens
-    once per run.
-    """
-
-    return max(
-        _candidates(path, pattern),
-        key=lambda item: json.loads(item.read_text())[field],
-    )
-
-
-def _the_only_one(path: Path, pattern: str) -> Path:
-    """The single artifact matching `pattern`, or a refusal.
-
-    For a hand-chosen reference snapshot there is no such thing as the newest
-    one. The UDISE roster is a 2021 community mirror pinned by its sha256; a
-    second one appearing means someone deliberately added a different roster, and
-    which of the two the matcher should use is their decision, not a coin toss
-    over file timestamps. Say so and let them pass it explicitly.
-    """
-
-    matches = _candidates(path, pattern)
-    if len(matches) > 1:
-        names = ", ".join(item.name for item in matches)
-        raise RuntimeError(
-            f"{len(matches)} files match {path / pattern} and they have no order; "
-            f"pass one explicitly ({names})"
-        )
-    return matches[0]
+# These three used to be defined here. They moved to `axom_flood.artifacts` when
+# a fourth caller turned up -- the alert engine -- still choosing its river
+# snapshot by modification time, which is the bug they were written to remove.
+# The shared versions also skip `current.json`, which is a pointer rather than an
+# artifact and carries a `generated_at` of its own.
+#
+# Kept under their old private names so the call sites below read unchanged.
+_newest_by_field = newest_by_field
+_the_only_one = the_only_one
 
 
 def _run_udise(args: argparse.Namespace) -> int:

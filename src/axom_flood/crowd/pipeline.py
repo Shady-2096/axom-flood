@@ -30,6 +30,7 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
+from ..artifacts import pointed_at
 from .aggregate import load_locality_index, reconcile_dataset
 from .privacy import (
     MIN_PRECISION_M,
@@ -405,20 +406,24 @@ def _detect_active_event(
     now: datetime,
     fresh_for_hours: float = 6.0,
 ) -> bool:
-    """Return true only for a fresh CWC snapshot with a danger exceedance."""
-    candidates: list[tuple[datetime, dict[str, Any]]] = []
-    for path in (data_dir / "processed" / "cwc").glob("*.json"):
-        try:
-            document = json.loads(path.read_text())
-            generated = datetime.fromisoformat(document["generated_at"])
-            if generated.tzinfo is None:
-                generated = generated.replace(tzinfo=IST)
-            candidates.append((generated, document))
-        except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
-            continue
-    if not candidates:
+    """Return true only for a fresh CWC snapshot with a danger exceedance.
+
+    By the pointer the ingest writes. This used to parse all 213 committed
+    snapshots to find the newest `generated_at` -- the right key, so the answer
+    was correct, but at the cost of reading every river snapshot the project has
+    ever published on a code path that only needs one of them.
+
+    A missing pointer is not fatal here. Event mode decides whether recent crowd
+    reports are held back for twelve hours, and the safe reading of "we cannot
+    tell" is the same as it has always been: no event, so nothing is hidden.
+    """
+    try:
+        latest = json.loads(pointed_at(data_dir / "processed" / "cwc").read_text())
+        generated = datetime.fromisoformat(latest["generated_at"])
+    except (OSError, RuntimeError, ValueError, KeyError, TypeError, json.JSONDecodeError):
         return False
-    generated, latest = max(candidates, key=lambda item: item[0])
+    if generated.tzinfo is None:
+        generated = generated.replace(tzinfo=IST)
     age_hours = max(0.0, (now - generated).total_seconds() / 3600.0)
     return (
         age_hours <= fresh_for_hours
