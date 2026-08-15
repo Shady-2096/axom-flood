@@ -2,7 +2,12 @@
   import DataUnavailable from "$lib/components/DataUnavailable.svelte";
   import LoadingState from "$lib/components/LoadingState.svelte";
   import NoLocality from "$lib/components/NoLocality.svelte";
-  import { campPhoneNumbers, campsForLocality, campsSavedLabel } from "$lib/data/camps.js";
+  import {
+    campPhoneNumbers,
+    campPlaceLabel,
+    campsForLocality,
+    campsSavedLabel,
+  } from "$lib/data/camps.js";
   import { currentContext, dataState } from "$lib/data/index.js";
   import { preferencesChanged } from "$lib/data/preferences.js";
 
@@ -58,9 +63,14 @@
       {#if matches.length}
         {#each matches as camp (`${camp.source_document_id}-${camp.source_page}-${camp.name_normalized}`)}
           {@const phones = campPhoneNumbers(camp.contact_phone)}
+          {@const place = campPlaceLabel(camp)}
           <article class="list-card">
             <div><h2>{camp.name_raw}</h2>
-              <p><span class="camp-status">{camp.status || "Status not stated"}</span> · {camp.revenue_circle || context.locality.revenue_circle}</p>
+              <!-- Never `|| context.locality.revenue_circle`. A listing whose
+                   circle the document did not record was being labelled with the
+                   reader's own circle, which reads as a camp confirmed to be
+                   here. It is a camp somewhere in the district. -->
+              <p><span class="camp-status">{camp.status || "Status not stated"}</span> · <span class:unstated={!place.circleStated} class="camp-place">{place.text}</span></p>
               {#if camp.udise_match_confidence === "unverified"}
                 <p>Location is unverified. Call the listed contact or district authority before travelling.</p>
               {/if}

@@ -4,6 +4,7 @@ import test from "node:test";
 
 import {
   campPhoneNumbers,
+  campPlaceLabel,
   campsForLocality,
   campsSavedLabel,
   normalizeCircleName,
@@ -68,4 +69,37 @@ test("a camp list older than the report window is marked stale", () => {
   assert.equal(campsSavedLabel("2026-08-10T09:00:00+05:30", now).stale, true);
   assert.equal(campsSavedLabel(null, now), null);
   assert.equal(campsSavedLabel("not a date", now), null);
+});
+
+test("a camp with no recorded circle is never labelled with the reader's circle", () => {
+  // The screen rendered `camp.revenue_circle || context.locality.revenue_circle`,
+  // so a listing the district document gave no circle for was printed under the
+  // name of the place the reader is standing in. It is a camp somewhere in the
+  // district, possibly eighty kilometres off, on the screen somebody acts on by
+  // getting in a boat. Same class of mistake as the borrowed timestamps.
+  const stated = campPlaceLabel({ revenue_circle: "Sidli", district: "Chirang" });
+  assert.equal(stated.text, "Sidli");
+  assert.equal(stated.circleStated, true);
+
+  const unstated = campPlaceLabel({ district: "Chirang" });
+  assert.equal(unstated.circleStated, false);
+  assert.match(unstated.text, /Chirang/);
+  assert.match(unstated.text, /not stated/);
+
+  // Nothing to fall back on at all still must not invent a place.
+  assert.equal(campPlaceLabel({}).circleStated, false);
+  assert.equal(campPlaceLabel(null).circleStated, false);
+});
+
+test("district-wide listings still reach a circle's list", () => {
+  // Withholding them would be the opposite mistake: a camp really is open and
+  // the document simply did not say which circle. They are shown, and labelled.
+  const locality = { district: "Chirang", revenue_circle: "Sidli (Pt)" };
+  const camps = [
+    { district: "Chirang", name_raw: "No circle recorded" },
+    { district: "Chirang", revenue_circle: "Bengtol", name_raw: "Another circle" },
+  ];
+  const matches = campsForLocality(camps, locality);
+  assert.equal(matches.length, 1);
+  assert.equal(campPlaceLabel(matches[0]).circleStated, false);
 });

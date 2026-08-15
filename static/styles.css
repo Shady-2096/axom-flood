@@ -1105,6 +1105,9 @@ input:focus-visible, select:focus-visible {
 .list-card p { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
 .list-meta { text-align: right; }
 .camp-status { text-transform: capitalize; }
+/* A listing the district document gave no revenue circle for. It sits a step
+   back from a stated one so the two cannot be read as the same claim. */
+.camp-place.unstated { font-style: italic; opacity: .8; }
 .camp-phones {
   display: grid;
   justify-items: end;

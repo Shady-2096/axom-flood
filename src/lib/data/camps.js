@@ -26,6 +26,23 @@ function campIdentity(camp) {
   ].join("|");
 }
 
+/* Where a listing says it is — and nothing borrowed from the reader.
+
+   A camp document does not always name a revenue circle. Those listings are
+   still shown, because a camp somewhere in your district is worth knowing about,
+   but the screen printed the *reader's own* circle beside them: a camp that could
+   be eighty kilometres away, labelled with the name of the place they are
+   standing in. Same mistake as the borrowed timestamps, in the field somebody
+   would act on by travelling.
+
+   `circleStated` is false for exactly those, so the screen can say "district
+   only" instead of naming a circle nobody recorded. */
+export function campPlaceLabel(camp) {
+  return camp?.revenue_circle
+    ? { text: camp.revenue_circle, circleStated: true }
+    : { text: `${camp?.district || "District"} district · circle not stated`, circleStated: false };
+}
+
 export function campsForLocality(camps, locality) {
   if (!locality) return [];
   const district = normalized(locality.district);
