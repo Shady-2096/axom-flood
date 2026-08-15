@@ -31,7 +31,11 @@ export function loadVillageIndex(pointer = villagePointer) {
 }
 
 export function normalizedSearch(value) {
-  return value.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]/g, "");
+  // `String(value ?? "")` here as well as in `searchKeys`. Only `raw` was guarded,
+  // so a record missing the name being indexed threw out of the whole search
+  // rather than simply not matching -- one absent `district` on one locality and
+  // nobody can find anywhere.
+  return String(value ?? "").toLowerCase().normalize("NFKD").replace(/[^a-z0-9]/g, "");
 }
 
 // Assamese place names reach us through several English spellings: Sivasagar and

@@ -164,7 +164,13 @@
       </div>
       <aside class:stale={situation.state === "stale"} class="report-state">
         <strong>{situation.state === "stale" ? "Historical report" : profileLabel(impact.publication.state)}</strong>
-        <span>{situation.ageDays === 0 ? "Report dated today" : `${situation.ageDays} days since report date`}</span>
+        <!-- Null when the pointer's report_date cannot be read. Saying nothing
+             beats printing "null days since report date" over official numbers. -->
+        {#if situation.ageDays !== null}
+          <span>{situation.ageDays === 0 ? "Report dated today" : `${situation.ageDays} days since report date`}</span>
+        {:else}
+          <span>Report date unavailable</span>
+        {/if}
         <span>Fetched {formatTime(impact.fetched_at)}</span>
         <span>{online ? "Network available" : "Saved report shown offline"}</span>
       </aside>

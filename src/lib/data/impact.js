@@ -86,7 +86,13 @@ export function placeKey(district, circle = "") {
   return `${normalisePlace(district)}:${normalisePlace(circle)}`;
 }
 
+/* Null for a date we cannot read, rather than NaN.
+   NaN was worse than it looks: every comparison against it is false, so
+   `reportState` fell through to "current" and a pointer with a missing or
+   malformed `report_date` would have labelled its report today's. The one label
+   on this screen that must never be given away by accident. */
 export function reportAgeDays(reportDate, now = new Date()) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(reportDate || "")) return null;
   const today = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Kolkata",
     year: "numeric",
@@ -95,15 +101,17 @@ export function reportAgeDays(reportDate, now = new Date()) {
   }).format(now);
   const dateValue = Date.parse(`${reportDate}T00:00:00Z`);
   const todayValue = Date.parse(`${today}T00:00:00Z`);
+  if (Number.isNaN(dateValue) || Number.isNaN(todayValue)) return null;
   return Math.max(0, Math.floor((todayValue - dateValue) / 86_400_000));
 }
 
 export function reportState(pointer, now = new Date()) {
   if (pointer?.publication_state === "quarantined") return "quarantined";
   if (!pointer?.impact_url) return "no-data";
-  return reportAgeDays(pointer.report_date, now) > CURRENT_REPORT_DAYS
-    ? "stale"
-    : "current";
+  const age = reportAgeDays(pointer.report_date, now);
+  // A report we cannot date is not a report we can call current.
+  if (age === null) return "stale";
+  return age > CURRENT_REPORT_DAYS ? "stale" : "current";
 }
 
 export function metricValue(record, metricKey) {
