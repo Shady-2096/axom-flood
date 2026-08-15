@@ -2,11 +2,25 @@ import { cacheFirst } from "$lib/data/cache.js";
 import { crowdUrl, getBundle } from "$lib/data/index.js";
 import { store } from "$lib/data/preferences.js";
 import { syncReportConversation } from "./conversation.js";
-import { isHeldOnDevice } from "./records.js";
+import { isAbandonedSync, isHeldOnDevice, retryPauseMs } from "./records.js";
 
 export { isHeldOnDevice };
 
 let dbPromise = null;
+
+/* The record ids this page is sending right now. `syncing` in the database means
+   "in flight" only while the page that wrote it is alive, so this is what tells a
+   live send apart from one abandoned by a closed tab. See `isAbandonedSync`. */
+const inFlight = new Set();
+
+/* When the endpoint will next accept anything from this device. Rate limiting is
+   per device rather than per report, so one refusal pauses the whole outbox.
+   Elapsed time within this page, never a stored deadline — see `retryPauseMs`. */
+let pausedUntil = 0;
+
+function paused() {
+  return pausedUntil > Date.now();
+}
 
 function outbox() {
   if (dbPromise) return dbPromise;
@@ -102,6 +116,7 @@ async function syncOne(record) {
   const url = bundle?.runtime?.crowd_submission_url;
   if (!url) return { status: "queued", reason: "sync_unconfigured" };
   const updated = { ...record, status: "syncing", attempts: (record.attempts || 0) + 1 };
+  inFlight.add(updated.record_id);
   await dbUpdate(updated);
   try {
     // The record is stored flat because that is what the report screen and
@@ -121,6 +136,8 @@ async function syncOne(record) {
   } catch (error) {
     await dbUpdate({ ...updated, status: "queued", last_error: String(error?.message || error) });
     return { status: "queued", reason: "network" };
+  } finally {
+    inFlight.delete(updated.record_id);
   }
 }
 
@@ -137,17 +154,49 @@ export async function flushOutbox() {
   let queued = 0;
   let synced = 0;
   let held = 0;
+  let reclaimed = 0;
+  if (paused()) {
+    // Nothing leaves during the pause, but the reports are still counted: they
+    // are waiting, which is what the screen has to be able to say.
+    return {
+      queued: records.filter(item => !isHeldOnDevice(item)).length,
+      synced: 0,
+      held: records.filter(isHeldOnDevice).length,
+      reclaimed: 0,
+      rateLimited: true,
+    };
+  }
   for (const record of records) {
-    if (record.status === "syncing") continue;
-    if (isHeldOnDevice(record)) {
+    // A leftover `syncing` flag from a page that went away goes back in the
+    // queue and is sent in this pass. Only a send this page is running is
+    // skipped, and a skipped one is still counted, so the number on screen
+    // matches the number of reports actually waiting.
+    let candidate = record;
+    if (isAbandonedSync(record, inFlight)) {
+      candidate = { ...record, status: "queued" };
+      await dbUpdate(candidate);
+      reclaimed += 1;
+    } else if (record.status === "syncing") {
+      queued += 1;
+      continue;
+    }
+    if (isHeldOnDevice(candidate)) {
       held += 1;
       continue;
     }
-    const outcome = await syncOne(record);
+    const outcome = await syncOne(candidate);
     if (outcome.status === "synced") synced += 1;
     else queued += 1;
+    const pause = retryPauseMs(outcome);
+    if (pause) {
+      // The refusal is about this device, not this record, so there is nothing
+      // to gain from trying the rest of the queue against the same wall.
+      pausedUntil = Date.now() + pause;
+      queued += records.length - records.indexOf(record) - 1;
+      return { queued, synced, held, reclaimed, rateLimited: true };
+    }
   }
-  return { queued, synced, held };
+  return { queued, synced, held, reclaimed, rateLimited: false };
 }
 
 export function uuid() {

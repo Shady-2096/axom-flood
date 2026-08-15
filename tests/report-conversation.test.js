@@ -15,7 +15,7 @@ import {
   transition,
 } from "../supabase/functions/_shared/conversation.js";
 import { syncReportConversation } from "../src/lib/report/conversation.js";
-import { isHeldOnDevice } from "../src/lib/report/records.js";
+import { isAbandonedSync, isHeldOnDevice, retryPauseMs } from "../src/lib/report/records.js";
 
 const URL = "https://example.invalid/web-intake";
 
@@ -293,4 +293,50 @@ test("a high-water mark is held on the device, not queued for sync", () => {
   // must not say it is waiting for a network.
   assert.equal(isHeldOnDevice(record({ record_type: "hwm" })), true);
   assert.equal(isHeldOnDevice(record()), false);
+});
+
+test("a send abandoned by a closed tab is reclaimed, not skipped forever", () => {
+  // `syncing` is written before the network call and cleared after it, so it
+  // means "in flight" only while the page that wrote it is alive. The flush loop
+  // skips `syncing` records so two sends cannot race — correct for a live send,
+  // and the reason a report left behind by a closed tab was skipped on every
+  // future flush and never counted anywhere. Somebody's flood report, stuck.
+  const stranded = record({ record_id: "abandoned", status: "syncing" });
+  const live = record({ record_id: "live", status: "syncing" });
+
+  assert.equal(isAbandonedSync(stranded, new Set(["live"])), true);
+  assert.equal(isAbandonedSync(live, new Set(["live"])), false);
+  // Nothing in flight at all is the ordinary case on a fresh page load.
+  assert.equal(isAbandonedSync(stranded, new Set()), true);
+  // A queued record is not an abandoned send; it is simply waiting its turn.
+  assert.equal(isAbandonedSync(record({ status: "queued" }), new Set()), false);
+});
+
+test("a rate-limit refusal pauses the outbox for as long as the server asked", () => {
+  // The endpoint counts every event and answers `allowed = count <= limit`, so
+  // retrying while already over the limit does not get refused cheaply — it
+  // raises the counter and returns nothing. The report screen flushes on mount
+  // and on every online/offline event, so a flapping connection was spending the
+  // device's whole quota on requests the server had already said no to.
+  assert.equal(retryPauseMs({ status: "queued", reason: "rate_limited", retryAfterSeconds: 600 }), 600_000);
+
+  // A 429 without a usable retry-after still has to pause, or the spiral stays.
+  assert.equal(retryPauseMs({ status: "queued", reason: "rate_limited" }), 600_000);
+  assert.equal(retryPauseMs({ status: "queued", reason: "rate_limited", retryAfterSeconds: 0 }), 600_000);
+  assert.equal(
+    retryPauseMs({ status: "queued", reason: "rate_limited", retryAfterSeconds: "nonsense" }),
+    600_000,
+  );
+
+  // Capped, so a hostile or mistaken header cannot mute the outbox for a day.
+  assert.equal(
+    retryPauseMs({ status: "queued", reason: "rate_limited", retryAfterSeconds: 999_999 }),
+    3_600_000,
+  );
+
+  // Every other outcome retries as before. An ordinary network failure during a
+  // flood is exactly when the next attempt should come quickly.
+  assert.equal(retryPauseMs({ status: "queued", reason: "network" }), 0);
+  assert.equal(retryPauseMs({ status: "synced" }), 0);
+  assert.equal(retryPauseMs(undefined), 0);
 });
