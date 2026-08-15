@@ -455,3 +455,4 @@
 {"gauge_id": "cwc_beki_road_bridge_002_lbdjpg", "level_m": 43.79, "observed_at": "2026-08-15T12:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d1fc5909dc03284103e2f409e77238c7becc82285211e2f1f8e920add5900c6f"}
 {"gauge_id": "cwc_beki_road_bridge_002_lbdjpg", "level_m": 43.8, "observed_at": "2026-08-15T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "9e1380c397533f055f14fea7616377fefc2179fca1f87a3d70960a2956ce102c"}
 {"gauge_id": "cwc_beki_road_bridge_002_lbdjpg", "level_m": 43.81, "observed_at": "2026-08-15T14:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "9e1380c397533f055f14fea7616377fefc2179fca1f87a3d70960a2956ce102c"}
+{"gauge_id": "cwc_beki_road_bridge_002_lbdjpg", "level_m": 43.82, "observed_at": "2026-08-15T15:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "93e38f8acba82fcf3708ac9dab2388f99b0297baeeb736cfe707f42d42b9d2e6"}
