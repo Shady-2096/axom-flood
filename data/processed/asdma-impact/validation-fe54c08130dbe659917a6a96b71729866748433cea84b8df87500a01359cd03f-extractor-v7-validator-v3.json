@@ -1,0 +1,102 @@
+{
+  "allowed_fields": [
+    "state_summary",
+    "districts",
+    "revenue_circles",
+    "rescue",
+    "relief",
+    "infrastructure_filtered",
+    "infrastructure_except:embankment_affected"
+  ],
+  "checks": [
+    {
+      "detail": "bulletin matches its versioned schema",
+      "field_paths": [],
+      "id": "bulletin_schema",
+      "status": "pass"
+    },
+    {
+      "detail": "source SHA, revision ID, and extractor artifact ID agree",
+      "field_paths": [
+        "revision_id",
+        "artifact_id",
+        "source.sha256"
+      ],
+      "id": "source_identity",
+      "status": "pass"
+    },
+    {
+      "detail": "all impact-v1 fields are present",
+      "field_paths": [],
+      "id": "required_impact_fields",
+      "status": "pass"
+    },
+    {
+      "detail": "all official numeric impact fields are non-negative",
+      "field_paths": [],
+      "id": "non_negative_metrics",
+      "status": "pass"
+    },
+    {
+      "detail": "livestock and house subtotals reconcile",
+      "field_paths": [],
+      "id": "component_arithmetic",
+      "status": "pass"
+    },
+    {
+      "detail": "state totals reconcile with complete district detail",
+      "field_paths": [],
+      "id": "district_arithmetic",
+      "status": "pass"
+    },
+    {
+      "detail": "all extracted values resolve to exact source rows and revision",
+      "field_paths": [],
+      "id": "field_provenance",
+      "status": "pass"
+    },
+    {
+      "detail": "report date and fetch time are chronologically valid",
+      "field_paths": [
+        "report_date",
+        "source.fetched_at"
+      ],
+      "id": "temporal_contract",
+      "status": "pass"
+    },
+    {
+      "detail": "extracted infrastructure counts equal retained records",
+      "field_paths": [],
+      "id": "infrastructure_record_count",
+      "status": "pass"
+    },
+    {
+      "detail": "approved source/detail mismatch: embankment_affected",
+      "field_paths": [
+        "summary.infrastructure_incidents.embankment_affected"
+      ],
+      "id": "infrastructure_source_reconciliation",
+      "status": "warn"
+    },
+    {
+      "detail": "coordinate points and fallback scopes obey the Assam envelope",
+      "field_paths": [],
+      "id": "coordinate_scope",
+      "status": "pass"
+    }
+  ],
+  "extractor_version": 7,
+  "failures": [],
+  "impact_url": "data/impact-fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f-extractor-v7-validator-v3.json",
+  "profile": "impact-v1-infrastructure-count-only",
+  "report_date": "2026-08-14",
+  "revision_id": "fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f",
+  "schema_version": 1,
+  "state": "validated_partial",
+  "validated_at": "2026-08-15T16:02:28.293098+05:30",
+  "validation_id": "validation-fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f-extractor-v7-validator-v3",
+  "validator_version": 3,
+  "warnings": [
+    "infrastructure_source_reconciliation"
+  ]
+}

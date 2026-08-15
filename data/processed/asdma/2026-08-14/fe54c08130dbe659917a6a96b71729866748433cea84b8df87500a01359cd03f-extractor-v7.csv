@@ -1,0 +1,12 @@
+schema_version,extractor_version,report_date,revision_id,district,affected_revenue_circles,revenue_circles,affected_villages,affected_population,crop_area_submerged_hectares,relief_camps_open,relief_distribution_centres_open,relief_camp_occupants,confirmed_deaths
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Cachar,,,,0,0,0,0,0,0
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Charaideo,,,,0,0,0,0,0,0
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Dibrugarh,,,,0,0,0,0,0,0
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Golaghat,6,Golaghat|Khumtai|Bokakhat|Morongi|Sarupathar|Dergaon,85,30778,1924.95,6,1,401,0
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Hojai,1,Doboka,24,0,363,0,0,0,0
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Jorhat,4,Jorhat West|Teok|Titabor|Jorhat East,51,9087,369.26,6,0,645,0
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Kamrup,1,Kamalpur,8,0,52.4,0,0,0,0
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Lakhimpur,1,Narayanpur,3,0,180,0,3,0,0
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Nagaon,4,Samaguri|Rupahi|Nagaon|Kampur,93,26292,3667.1,8,33,1907,0
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Sivasagar,3,Nazira|Amguri|Sibsagar,49,12480,1712,11,0,2104,1
+1,7,2026-08-14,fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f,Udalguri,,,,0,0,0,0,0,0

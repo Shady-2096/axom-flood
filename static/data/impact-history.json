@@ -2,6 +2,18 @@
   "reports": [
     {
       "extractor_version": 7,
+      "fetched_at": "2026-08-15T16:02:26.773844+05:30",
+      "impact_url": "data/impact-fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f-extractor-v7-validator-v3.json",
+      "profile": "impact-v1-infrastructure-count-only",
+      "publication_state": "validated_partial",
+      "report_date": "2026-08-14",
+      "revision_id": "fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f",
+      "source_artifact_url": "data/asdma-source/fe54c08130dbe659917a6a96b71729866748433cea84b8df87500a01359cd03f.pdf",
+      "source_url": "https://sdrf.assam.gov.in/dfr/download",
+      "validated_at": "2026-08-15T16:02:28.293098+05:30"
+    },
+    {
+      "extractor_version": 7,
       "fetched_at": "2026-07-28T01:54:12.143080+05:30",
       "impact_url": "data/impact-4ecdaf4b086d499713163847e6fd91bec383b0ebdb6f88a5b2df38b9d8145fe7-extractor-v7-validator-v3.json",
       "profile": "impact-v1",
@@ -38,5 +50,5 @@
     }
   ],
   "schema_version": 2,
-  "updated_at": "2026-07-29T16:51:12.638363+05:30"
+  "updated_at": "2026-08-15T16:02:28.293098+05:30"
 }
