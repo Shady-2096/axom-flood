@@ -749,3 +749,67 @@ def test_status_boundaries_are_inclusive(level: float, expected: str, tmp_path: 
     from axom_flood.cwc.pipeline import _level_status
 
     assert _level_status(level, warning=104.7, danger=105.7, highest=106.48) == expected
+
+
+def _forecast_row(
+    *, forecasted: str, issued: str, value: float, revised: bool = False
+) -> dict:
+    return {
+        "stationCode": "018-UBDDIB",
+        "datatypeCode": "HHS",
+        "realValue": value,
+        "revised": revised,
+        "id": {"forecastedDate": forecasted, "issuedDate": issued},
+    }
+
+
+@pytest.mark.parametrize("order", [lambda rows: rows, lambda rows: rows[::-1]])
+def test_a_revised_forecast_beats_the_one_it_replaced(order) -> None:
+    """Nearest horizon first, then newest issue -- and never the arrival order.
+
+    CWC reissues a forecast for the same instant, and the row says so with
+    `revised`. The pick was `min` on `forecastedDate` alone, so two rows sharing a
+    horizon were separated by nothing at all and a superseded level could be
+    published as the official forecast. Parametrised on input order because that
+    is exactly what used to decide it.
+    """
+    from axom_flood.cwc.pipeline import _forecast_by_station, _forecast_record
+
+    rows = order(
+        [
+            _forecast_row(
+                forecasted="2026-08-16T09:00:00", issued="2026-08-15T06:00:00", value=10.0
+            ),
+            _forecast_row(
+                forecasted="2026-08-16T09:00:00",
+                issued="2026-08-15T18:00:00",
+                value=12.5,
+                revised=True,
+            ),
+            # A further-out horizon issued at the same time must not win.
+            _forecast_row(
+                forecasted="2026-08-17T09:00:00", issued="2026-08-15T18:00:00", value=99.0
+            ),
+        ]
+    )
+
+    published = _forecast_record(_forecast_by_station(rows)["018-UBDDIB"])
+    assert published["forecast_level_m"] == 12.5
+    assert published["revised"] is True
+    assert published["forecast_for"].startswith("2026-08-16T09:00")
+
+
+def test_an_unapproved_or_non_level_forecast_is_never_published() -> None:
+    """Same gate as before, kept while the selection around it changed."""
+    from axom_flood.cwc.pipeline import _forecast_by_station
+
+    pending = _forecast_row(
+        forecasted="2026-08-16T09:00:00", issued="2026-08-15T06:00:00", value=10.0
+    )
+    pending["pendingOfApproval"] = True
+    gauge_height = _forecast_row(
+        forecasted="2026-08-16T09:00:00", issued="2026-08-15T06:00:00", value=8.06
+    )
+    gauge_height["datatypeCode"] = "HZS"
+
+    assert _forecast_by_station([pending, gauge_height]) == {}

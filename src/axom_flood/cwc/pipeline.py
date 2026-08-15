@@ -365,24 +365,69 @@ def _select_stations(
     return selected
 
 
-def _forecast_for(code: str, forecasts: list[dict[str, Any]]) -> dict[str, Any] | None:
-    candidates = [
-        row
-        for row in forecasts
-        if row.get("stationCode") == code
-        and row.get("datatypeCode") == "HHS"
-        and not row.get("pendingOfApproval")
-        and row.get("realValue") is not None
-    ]
-    if not candidates:
+def _forecast_by_station(
+    forecasts: list[dict[str, Any]],
+) -> dict[str, dict[str, Any]]:
+    """The forecast to publish for each station: nearest horizon, newest issue.
+
+    Two orderings, and only one of them was here before.
+
+    `forecastedDate` ascending picks the nearest forecast horizon, which is the
+    one a reader deciding what to do in the next few hours needs. That part was
+    right, under a variable named `latest` that reads as the opposite.
+
+    `issuedDate` descending is the part that was missing. CWC revises a forecast
+    for the same instant -- the rows carry a `revised` flag saying so -- and
+    nothing chose between two rows sharing a horizon, so a superseded value could
+    win on whichever order the response happened to arrive in. No duplicates are
+    present in today's payloads, which is why this never showed.
+
+    Indexed once for every station rather than rescanned per station: the same
+    national forecast list was being filtered 169 times.
+    """
+    best: dict[str, dict[str, Any]] = {}
+    for row in forecasts:
+        code = row.get("stationCode")
+        if (
+            not code
+            or row.get("datatypeCode") != "HHS"
+            or row.get("pendingOfApproval")
+            or row.get("realValue") is None
+        ):
+            continue
+        key = (row["id"]["forecastedDate"], _negated(row["id"]["issuedDate"]))
+        if code not in best or key < best[code]["_key"]:
+            best[code] = {**row, "_key": key}
+    return best
+
+
+class _negated:
+    """Sort one component of a key descending inside an otherwise ascending key."""
+
+    __slots__ = ("value",)
+
+    def __init__(self, value: str) -> None:
+        self.value = value
+
+    def __lt__(self, other: _negated) -> bool:
+        return self.value > other.value
+
+    def __eq__(self, other: object) -> bool:
+        return isinstance(other, _negated) and self.value == other.value
+
+    def __hash__(self) -> int:
+        return hash(self.value)
+
+
+def _forecast_record(row: dict[str, Any] | None) -> dict[str, Any] | None:
+    if row is None:
         return None
-    latest = min(candidates, key=lambda row: row["id"]["forecastedDate"])
     return {
-        "forecast_level_m": latest["realValue"],
-        "forecast_for": parse_ffs_time(latest["id"]["forecastedDate"]).isoformat(),
-        "issued_at": parse_ffs_time(latest["id"]["issuedDate"]).isoformat(),
-        "trend_word": latest.get("trend"),
-        "revised": bool(latest.get("revised")),
+        "forecast_level_m": row["realValue"],
+        "forecast_for": parse_ffs_time(row["id"]["forecastedDate"]).isoformat(),
+        "issued_at": parse_ffs_time(row["id"]["issuedDate"]).isoformat(),
+        "trend_word": row.get("trend"),
+        "revised": bool(row.get("revised")),
     }
 
 
@@ -479,6 +524,7 @@ def ingest_cwc_gauges(
     if not raw_path.exists():
         raw_path.write_bytes(raw_bytes)
 
+    forecast_index = _forecast_by_station(forecasts)
     snapshots: list[dict[str, Any]] = []
     readings_added = 0
     readings_rejected = 0
@@ -561,7 +607,7 @@ def ingest_cwc_gauges(
                     cwc.get("trend") if is_current and classification_available else None
                 ),
                 "cwc_classification_available": classification_available,
-                "forecast": _forecast_for(code, forecasts),
+                "forecast": _forecast_record(forecast_index.get(code)),
                 # False means CWC stopped returning this station this run, so the
                 # snapshot rests on stored history alone.
                 "in_latest_source_response": code in aggregate,
