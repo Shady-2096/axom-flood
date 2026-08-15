@@ -42,3 +42,44 @@ def test_ci_validates_reviewed_gauge_decisions() -> None:
     workflow = (ROOT / ".github/workflows/phase1-ci.yml").read_text()
 
     assert "uv run python scripts/apply_gauge_decisions.py --check" in workflow
+
+
+def test_the_publication_watchdog_actually_runs_on_a_schedule() -> None:
+    """A watchdog nobody triggers is a watchdog that never barks.
+
+    The rainfall layer stopped publishing on 2026-08-07 and was still dark eight
+    days later. The check that would have said so existed the whole time; it was
+    a command somebody had to remember to type. So the schedule is the load-
+    bearing part of this file, not the script it calls.
+    """
+    workflow = (ROOT / ".github/workflows/publication-watchdog.yml").read_text()
+
+    assert "schedule:" in workflow
+    assert "cron:" in workflow
+    assert "node scripts/check_publication_freshness.mjs" in workflow
+    # It has to be able to say something, not just fail a run nobody watches.
+    assert "issues: write" in workflow
+    assert "issues.create" in workflow
+
+
+def test_the_watchdog_reads_a_current_checkout() -> None:
+    """`static/data` is what the site downloads, so it only describes what a
+    reader sees when the checkout is the published one. Against a stale clone the
+    check reports darkness that is not there — which would train everyone to
+    ignore it, the one failure a watchdog cannot survive."""
+    workflow = (ROOT / ".github/workflows/publication-watchdog.yml").read_text()
+
+    assert "actions/checkout@v4" in workflow
+    assert "ref: main" in workflow
+
+
+def test_the_freshness_check_stays_out_of_the_ci_chain() -> None:
+    """An upstream agency having a quiet week must not fail a stylesheet change.
+
+    ASDMA is blocked from cloud hosts and runs off one Mac; gaps are expected and
+    documented. Wiring this into CI would make somebody else's outage look like
+    our broken build, and the fix would be to delete the check.
+    """
+    ci = (ROOT / ".github/workflows/phase1-ci.yml").read_text()
+
+    assert "check_publication_freshness" not in ci

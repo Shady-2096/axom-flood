@@ -24,12 +24,20 @@
  * Exit codes
  * ----------
  * Plain run reports and exits 0. `--check` exits 1 if any layer is dark.
+ * `--json` prints the same findings as one object, for the watchdog workflow.
  *
  * ⚠️ `--check` is deliberately *not* in the CI chain. ASDMA is documented as
  * gappy -- it is blocked from cloud hosts and fetched from one Mac -- and an
  * upstream agency having a quiet week must not be able to fail a build that
- * changes a stylesheet. Run it when you want to know, or on a schedule that can
- * notify someone.
+ * changes a stylesheet.
+ *
+ * It runs on a schedule instead, from `.github/workflows/publication-watchdog.yml`,
+ * which opens an issue naming the dark layer and closes it on recovery. That
+ * workflow is the answer to the question this file's own header raises and did
+ * not settle: the rainfall layer stopped publishing on 2026-08-07 and was still
+ * dark eight days later, because "run it when you want to know" is not something
+ * anybody remembers to do. Reading `static/data` only tells you what a reader
+ * sees if the checkout is current, so the workflow fetches before it looks.
  */
 
 import { readFileSync, existsSync } from "node:fs";
@@ -133,6 +141,13 @@ const layers = [];
 
 const width = Math.max(...layers.map(layer => layer.name.length));
 const dark = layers.filter(layer => layer.dark);
+
+/* One object for the watchdog, so it never has to scrape the table above.
+   `age` is hours, null when there is nothing published to age. */
+if (process.argv.includes("--json")) {
+  console.log(JSON.stringify({ as_of: NOW.toISOString(), layers, dark: dark.length }, null, 2));
+  process.exit(dark.length > 0 && process.argv.includes("--check") ? 1 : 0);
+}
 
 console.log(`As of ${NOW.toISOString()}\n`);
 for (const layer of layers) {
