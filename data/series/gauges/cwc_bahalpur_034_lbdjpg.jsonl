@@ -422,3 +422,5 @@
 {"gauge_id": "cwc_bahalpur_034_lbdjpg", "level_m": 32.23, "observed_at": "2026-08-16T17:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "24ecd8c184e3b3a0be8adc1a1aa98ca4d87175dbe4bd077970f9a3aa2819d7a6"}
 {"gauge_id": "cwc_bahalpur_034_lbdjpg", "level_m": 32.22, "observed_at": "2026-08-16T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "fcf2d6fc51efe44d94cbc7836567037b89c834d66183812c6b01bbb2e1633546"}
 {"gauge_id": "cwc_bahalpur_034_lbdjpg", "level_m": 32.22, "observed_at": "2026-08-16T19:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "fcf2d6fc51efe44d94cbc7836567037b89c834d66183812c6b01bbb2e1633546"}
+{"gauge_id": "cwc_bahalpur_034_lbdjpg", "level_m": 32.22, "observed_at": "2026-08-16T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "a1bb19127fd4ec38a6f7b5920e333dff036cdcc556c796914dcb40e4299087ed"}
+{"gauge_id": "cwc_bahalpur_034_lbdjpg", "level_m": 32.22, "observed_at": "2026-08-16T21:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "a1bb19127fd4ec38a6f7b5920e333dff036cdcc556c796914dcb40e4299087ed"}
