@@ -15,3 +15,4 @@
 {"gauge_id": "cwc_subansiri_lower_dam_054_ubddib", "level_m": 186.39, "observed_at": "2026-08-13T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7f244d539734cd47dca76858bbbc457499b73278eff50c02b2938954f58282cd"}
 {"gauge_id": "cwc_subansiri_lower_dam_054_ubddib", "level_m": 186.33, "observed_at": "2026-08-14T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "66b9c4549457d2d501b65975750a1bed93346f2cc24b0aff208e5ebddbc9ff74"}
 {"gauge_id": "cwc_subansiri_lower_dam_054_ubddib", "level_m": 186.67, "observed_at": "2026-08-16T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e06c5150c95a8cd88b1663140c5a284366d4307d923f610b2752c62da3302ffd"}
+{"gauge_id": "cwc_subansiri_lower_dam_054_ubddib", "level_m": 186.48, "observed_at": "2026-08-17T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "a0a2f5e0f7061185fd79e14826b80fd1d20c76fedca7925e648eda0ca7e83adf"}
