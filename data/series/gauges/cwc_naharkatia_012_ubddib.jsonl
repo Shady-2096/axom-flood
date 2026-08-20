@@ -573,3 +573,5 @@
 {"gauge_id": "cwc_naharkatia_012_ubddib", "level_m": 115.45, "observed_at": "2026-08-20T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "66694491008c9db05cc61398edfcf65a62e5202868bb5a03f1c9610c4fac3a7c"}
 {"gauge_id": "cwc_naharkatia_012_ubddib", "level_m": 115.46, "observed_at": "2026-08-20T11:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0245d68309501cb7404897a83973dfaa6c048a0fff63fc0156134e5bfb21bdce"}
 {"gauge_id": "cwc_naharkatia_012_ubddib", "level_m": 115.47, "observed_at": "2026-08-20T12:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0245d68309501cb7404897a83973dfaa6c048a0fff63fc0156134e5bfb21bdce"}
+{"gauge_id": "cwc_naharkatia_012_ubddib", "level_m": 115.51, "observed_at": "2026-08-20T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "1fc70d5301925722b52bd8e29aa2c35b5cae298b67691b1b016421d7e5b5a6de"}
+{"gauge_id": "cwc_naharkatia_012_ubddib", "level_m": 115.55, "observed_at": "2026-08-20T14:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "1fc70d5301925722b52bd8e29aa2c35b5cae298b67691b1b016421d7e5b5a6de"}
