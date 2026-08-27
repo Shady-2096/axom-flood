@@ -649,3 +649,5 @@
 {"gauge_id": "cwc_chiripool_024_mdsil", "level_m": 19.12, "observed_at": "2026-08-27T07:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e84e8379d3596b1c3ab50ffb4a99cb61c54359471312bf1d3ee1663e4a559e45"}
 {"gauge_id": "cwc_chiripool_024_mdsil", "level_m": 19.32, "observed_at": "2026-08-27T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e84e8379d3596b1c3ab50ffb4a99cb61c54359471312bf1d3ee1663e4a559e45"}
 {"gauge_id": "cwc_chiripool_024_mdsil", "level_m": 20.1, "observed_at": "2026-08-27T09:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e84e8379d3596b1c3ab50ffb4a99cb61c54359471312bf1d3ee1663e4a559e45"}
+{"gauge_id": "cwc_chiripool_024_mdsil", "level_m": 20.4, "observed_at": "2026-08-27T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7272394d661ebdd0dfb65d50feef6f0964862e5b90f94dd2dce2502a3506bf3b"}
+{"gauge_id": "cwc_chiripool_024_mdsil", "level_m": 20.8, "observed_at": "2026-08-27T11:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7272394d661ebdd0dfb65d50feef6f0964862e5b90f94dd2dce2502a3506bf3b"}
