@@ -737,3 +737,5 @@
 {"gauge_id": "cwc_numaligarh_024_ubddib", "level_m": 78.07, "observed_at": "2026-08-27T06:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "467fa6e3b2412d8d049fb00b8c5a65bc494eae42ea02c32765cdc1d115539166"}
 {"gauge_id": "cwc_numaligarh_024_ubddib", "level_m": 78.06, "observed_at": "2026-08-27T07:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "467fa6e3b2412d8d049fb00b8c5a65bc494eae42ea02c32765cdc1d115539166"}
 {"gauge_id": "cwc_numaligarh_024_ubddib", "level_m": 78.05, "observed_at": "2026-08-27T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "467fa6e3b2412d8d049fb00b8c5a65bc494eae42ea02c32765cdc1d115539166"}
+{"gauge_id": "cwc_numaligarh_024_ubddib", "level_m": 78.04, "observed_at": "2026-08-27T09:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e84e8379d3596b1c3ab50ffb4a99cb61c54359471312bf1d3ee1663e4a559e45"}
+{"gauge_id": "cwc_numaligarh_024_ubddib", "level_m": 78.03, "observed_at": "2026-08-27T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e84e8379d3596b1c3ab50ffb4a99cb61c54359471312bf1d3ee1663e4a559e45"}
