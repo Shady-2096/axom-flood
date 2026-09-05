@@ -106,14 +106,40 @@ gcloud run jobs deploy axom-flood-cwc-publisher \
   axom-flood-publisher@<your-gcp-project>.iam.gserviceaccount.com \
   --set-secrets GITHUB_DEPLOY_KEY=axom-flood-github-deploy-key:latest \
   --set-env-vars AXOM_GITHUB_REPOSITORY=Shady-2096/axom-flood \
-  --cpu 1 \
-  --memory 1Gi \
+  --cpu 2 \
+  --memory 4Gi \
   --task-timeout 20m \
   --max-retries 1 \
   --tasks 1
 ```
 
+### Why 4 GiB for a job that reads one API
+
+A Cloud Run job's filesystem is held in memory, so everything the run writes to
+disk counts against the memory limit. The run clones the whole repository into a
+temporary directory and builds a virtualenv beside it, and the repository is
+mostly published data: `data/raw` and `static/data` are append-only, so the
+checkout grows by roughly 13 MB a day on its own.
+
+It crossed 1 GiB on 2026-09-01 and the job began dying with exit 137 on almost
+every run. Nothing in the logs said "disk"; the clone and `uv sync` both
+finished, and the container was killed seconds later. The site did not go blank
+either, because a stale bundle still renders — it just quietly aged past
+`stale_after_hours` and showed "no recent reading" on every gauge for three days.
+
+Sizes at the time of the fix: 686 MB checkout, about 150 MB of shallow git
+objects, about 250 MB of virtualenv. 4 GiB leaves room for another two years of
+growth at the current rate. If it ever bites again, prefer a sparse or partial
+clone over another doubling — the job needs `config/`, `data/` and `static/data`,
+not the whole history of published bundles.
+
 ## Setting up the rainfall job
+
+⚠️ Not deployed. As of 2026-09-05 neither the secret, the job, nor the schedule
+exists in the project — only the CWC publisher and the connectivity probe do.
+The rainfall layer has been dark since 2026-08-07, which is the day the code
+landed, so it has never once published on a schedule. `npm run check:freshness`
+reports it. Nothing below has been run yet.
 
 Three steps, run once. The first two need values only the owner has.
 
@@ -156,8 +182,8 @@ gcloud run jobs deploy axom-flood-rainfall-publisher \
   axom-flood-publisher@<your-gcp-project>.iam.gserviceaccount.com \
   --set-secrets GITHUB_DEPLOY_KEY=axom-flood-github-deploy-key:latest,EARTHDATA_TOKEN=axom-flood-earthdata-token:latest \
   --set-env-vars AXOM_GITHUB_REPOSITORY=Shady-2096/axom-flood \
-  --cpu 1 \
-  --memory 1Gi \
+  --cpu 2 \
+  --memory 4Gi \
   --task-timeout 30m \
   --max-retries 1 \
   --tasks 1
