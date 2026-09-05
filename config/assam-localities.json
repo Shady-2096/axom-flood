@@ -8518,7 +8518,7 @@
         "source_checked": "https://westkarbianglong.assam.gov.in/"
       }
     },
-    "gauge_distance_audit": "Distance to the assigned gauge is measured against the recorded CWC station reference. Beyond 60 km, or more than 25 km further than the nearest station, a mapping is forced to unverified and queued for hydrology review whatever the mapping table claimed. It never promotes a mapping or picks a gauge.",
+    "gauge_distance_audit": "Distance to the assigned gauge is measured against the recorded CWC station reference. Beyond 60 km, or more than 25 km further than the nearest station, a mapping is forced to unverified and queued for hydrology review whatever the mapping table claimed. It never promotes a mapping or picks a gauge. Circles with a reviewed decision in gauge-topology-decisions.json are exempt: a person answered the distance question there, and this audit does not get to overrule them nightly.",
     "post_2011_district_reassignment": "Districts created after the 2011 Census are resolved from their administrations' own published revenue-circle lists. Districts with no evidenced circle are listed in districts_without_evidenced_circles rather than assigned by inference."
   },
   "schema_version": 1
