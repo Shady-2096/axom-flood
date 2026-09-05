@@ -218,3 +218,4 @@
 {"gauge_id": "cwc_jalalpur_01_10_24_001", "level_m": 12.71, "observed_at": "2026-09-01T09:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "9b656d3f6617079869467fb61ff6a1f21000ca49141c4bf49b4e8efad27c7563"}
 {"gauge_id": "cwc_jalalpur_01_10_24_001", "level_m": 12.71, "observed_at": "2026-09-01T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "9b656d3f6617079869467fb61ff6a1f21000ca49141c4bf49b4e8efad27c7563"}
 {"gauge_id": "cwc_jalalpur_01_10_24_001", "level_m": 12.74, "observed_at": "2026-09-02T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "1e36c14ca3d05c80f00cea4fc1358860f421110ba88443cf9939816cd7eec54e"}
+{"gauge_id": "cwc_jalalpur_01_10_24_001", "level_m": 12.85, "observed_at": "2026-09-03T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "18cda37d34838d2f25c98600d934cdbf4db45ccb0e62a71d959ef377b57b1c2d"}
