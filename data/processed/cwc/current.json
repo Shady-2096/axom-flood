@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-11T06:17:25.433047+05:30",
+  "generated_at": "2026-09-11T08:17:27.603066+05:30",
   "record": "cwc_snapshot_pointer",
-  "revision_id": "86a5dce8c6af5e63b3c1f1be7ff3a2233a5c05dc72f9166e2e63f5f9dc4d686f",
+  "revision_id": "d08ea39e47c614643be679113d489d59efb2c926e34e9a2fb555eb6e471048b9",
   "schema_version": 1,
-  "snapshot_url": "data/processed/cwc/86a5dce8c6af5e63b3c1f1be7ff3a2233a5c05dc72f9166e2e63f5f9dc4d686f.json",
-  "source_revision": "7cd87f83cb9a110a368b08295a8277424182ea96ce675f06a334f769c59dfd85",
+  "snapshot_url": "data/processed/cwc/d08ea39e47c614643be679113d489d59efb2c926e34e9a2fb555eb6e471048b9.json",
+  "source_revision": "cfe65a8b71b16dd68ea6b186a2218c7dd532f91e56cd1f03aa478d7d6de915ba",
   "totals": {
     "stations": 160,
-    "stations_current": 60,
-    "stations_with_no_data": 100
+    "stations_current": 82,
+    "stations_with_no_data": 78
   }
 }
