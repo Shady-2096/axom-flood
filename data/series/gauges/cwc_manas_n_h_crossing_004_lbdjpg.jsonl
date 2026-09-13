@@ -1113,3 +1113,4 @@
 {"gauge_id": "cwc_manas_n_h_crossing_004_lbdjpg", "level_m": 46.72, "observed_at": "2026-09-13T22:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "f644e0920599e0c6df9d271d41e67b8c1bd7a4e03e7a8ead01f3bcc4789b4373"}
 {"gauge_id": "cwc_manas_n_h_crossing_004_lbdjpg", "level_m": 46.72, "observed_at": "2026-09-13T23:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "f644e0920599e0c6df9d271d41e67b8c1bd7a4e03e7a8ead01f3bcc4789b4373"}
 {"gauge_id": "cwc_manas_n_h_crossing_004_lbdjpg", "level_m": 46.7, "observed_at": "2026-09-14T00:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "f644e0920599e0c6df9d271d41e67b8c1bd7a4e03e7a8ead01f3bcc4789b4373"}
+{"gauge_id": "cwc_manas_n_h_crossing_004_lbdjpg", "level_m": 46.68, "observed_at": "2026-09-14T01:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "c0d1ad716b7e3364b78c5727c756fe95f7aece61a0e228e5c063758889b83466"}
