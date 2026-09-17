@@ -1210,3 +1210,4 @@
 {"gauge_id": "cwc_annapurna_ghat_01_11_01_007", "level_m": 15.47, "observed_at": "2026-09-17T22:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d132723acee7a923e663ef67d4d2795eac9da8c321bf1c0c1402e4474a57a156"}
 {"gauge_id": "cwc_annapurna_ghat_01_11_01_007", "level_m": 15.48, "observed_at": "2026-09-17T23:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d132723acee7a923e663ef67d4d2795eac9da8c321bf1c0c1402e4474a57a156"}
 {"gauge_id": "cwc_annapurna_ghat_01_11_01_007", "level_m": 15.48, "observed_at": "2026-09-18T00:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d132723acee7a923e663ef67d4d2795eac9da8c321bf1c0c1402e4474a57a156"}
+{"gauge_id": "cwc_annapurna_ghat_01_11_01_007", "level_m": 15.48, "observed_at": "2026-09-18T01:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "30b94d2331cfa84919ad2e90437971b0321f7ee77e70d904bdcede51d84a2632"}
