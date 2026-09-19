@@ -1116,3 +1116,5 @@
 {"gauge_id": "cwc_neairgram_028_mdsil", "level_m": 15.77, "observed_at": "2026-09-19T16:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "ff0b1a50e8effef0bc95d223ec302539df29cb06292620cf42b2b9a235f2d957"}
 {"gauge_id": "cwc_neairgram_028_mdsil", "level_m": 15.75, "observed_at": "2026-09-19T17:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "ce6c5387a0d89ce019096bc05f9f47332e1ba58befe051ee0af0892013af1ec8"}
 {"gauge_id": "cwc_neairgram_028_mdsil", "level_m": 15.73, "observed_at": "2026-09-19T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "ce6c5387a0d89ce019096bc05f9f47332e1ba58befe051ee0af0892013af1ec8"}
+{"gauge_id": "cwc_neairgram_028_mdsil", "level_m": 15.71, "observed_at": "2026-09-19T19:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "bf830bf5d4d72cce46c0d1ce0abcd90566d625edde29919982e77c246d5e8a50"}
+{"gauge_id": "cwc_neairgram_028_mdsil", "level_m": 15.68, "observed_at": "2026-09-19T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "bf830bf5d4d72cce46c0d1ce0abcd90566d625edde29919982e77c246d5e8a50"}
