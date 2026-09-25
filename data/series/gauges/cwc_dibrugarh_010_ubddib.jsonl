@@ -1390,3 +1390,5 @@
 {"gauge_id": "cwc_dibrugarh_010_ubddib", "level_m": 105.05, "observed_at": "2026-09-25T12:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "fb5e3c009d9459c2d7c8e41aae93e1188118dc2e6525ce38cb6ff0206724dbd4"}
 {"gauge_id": "cwc_dibrugarh_010_ubddib", "level_m": 105.05, "observed_at": "2026-09-25T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "cb93e9b78ac7458b334ff1c0002c5e644e39a0f398e523edfb26534ca4a68234"}
 {"gauge_id": "cwc_dibrugarh_010_ubddib", "level_m": 105.05, "observed_at": "2026-09-25T14:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "cb93e9b78ac7458b334ff1c0002c5e644e39a0f398e523edfb26534ca4a68234"}
+{"gauge_id": "cwc_dibrugarh_010_ubddib", "level_m": 105.05, "observed_at": "2026-09-25T15:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "fa25856c09dd16b4aec8655880306654f25d36158af37bf0192a83a508e9da87"}
+{"gauge_id": "cwc_dibrugarh_010_ubddib", "level_m": 105.05, "observed_at": "2026-09-25T16:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "fa25856c09dd16b4aec8655880306654f25d36158af37bf0192a83a508e9da87"}
