@@ -1419,3 +1419,5 @@
 {"gauge_id": "cwc_golaghat_026_ubddib", "level_m": 86.28, "observed_at": "2026-09-26T16:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "10dd3c08a784eb95c8998cd742ef7f893c560b5350d7dd6c8fb7a94a61c05956"}
 {"gauge_id": "cwc_golaghat_026_ubddib", "level_m": 86.28, "observed_at": "2026-09-26T17:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "10dd3c08a784eb95c8998cd742ef7f893c560b5350d7dd6c8fb7a94a61c05956"}
 {"gauge_id": "cwc_golaghat_026_ubddib", "level_m": 86.3, "observed_at": "2026-09-26T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "10dd3c08a784eb95c8998cd742ef7f893c560b5350d7dd6c8fb7a94a61c05956"}
+{"gauge_id": "cwc_golaghat_026_ubddib", "level_m": 86.32, "observed_at": "2026-09-26T19:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "6ba7df8fe6251741d1fd74a2e28bbf1ae2b4add46f9d77439540f8fdb71d34ee"}
+{"gauge_id": "cwc_golaghat_026_ubddib", "level_m": 86.34, "observed_at": "2026-09-26T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "6ba7df8fe6251741d1fd74a2e28bbf1ae2b4add46f9d77439540f8fdb71d34ee"}
