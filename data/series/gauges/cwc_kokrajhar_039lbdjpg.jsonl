@@ -1462,3 +1462,5 @@
 {"gauge_id": "cwc_kokrajhar_039lbdjpg", "level_m": 40.9, "observed_at": "2026-09-28T11:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "8b4a08ae774f4c3b8831d7dd070375ab894fff03deb3b0f6a1f51376814c2539"}
 {"gauge_id": "cwc_kokrajhar_039lbdjpg", "level_m": 40.9, "observed_at": "2026-09-28T12:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "8b4a08ae774f4c3b8831d7dd070375ab894fff03deb3b0f6a1f51376814c2539"}
 {"gauge_id": "cwc_kokrajhar_039lbdjpg", "level_m": 40.9, "observed_at": "2026-09-28T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "5752f2c6103a85ea9e1e1e2ec3a0a0bc9c8cc8868d88c172d2090a198c7ad543"}
+{"gauge_id": "cwc_kokrajhar_039lbdjpg", "level_m": 40.9, "observed_at": "2026-09-28T14:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d37abc000a96457c2ad794926d461224a101cc6c4cc8f7fdfcc87fcf45d2da69"}
+{"gauge_id": "cwc_kokrajhar_039lbdjpg", "level_m": 40.89, "observed_at": "2026-09-28T15:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d37abc000a96457c2ad794926d461224a101cc6c4cc8f7fdfcc87fcf45d2da69"}
