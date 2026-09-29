@@ -1483,3 +1483,4 @@
 {"gauge_id": "cwc_badarpur_ghat_01_11_01_006", "level_m": 10.9, "observed_at": "2026-09-29T06:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "318b7291e5fb75618477d3026e16dbf0255b4b4b044564a0480ec00cbe4eea47"}
 {"gauge_id": "cwc_badarpur_ghat_01_11_01_006", "level_m": 10.89, "observed_at": "2026-09-29T07:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "318b7291e5fb75618477d3026e16dbf0255b4b4b044564a0480ec00cbe4eea47"}
 {"gauge_id": "cwc_badarpur_ghat_01_11_01_006", "level_m": 10.88, "observed_at": "2026-09-29T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "318b7291e5fb75618477d3026e16dbf0255b4b4b044564a0480ec00cbe4eea47"}
+{"gauge_id": "cwc_badarpur_ghat_01_11_01_006", "level_m": 10.87, "observed_at": "2026-09-29T09:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "1a2a147e9e8242c268defeadec03a7d9abd9f1c490730f137590efce9eb5a9e3"}
