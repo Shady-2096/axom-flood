@@ -1407,3 +1407,5 @@
 {"gauge_id": "cwc_muhammedpur_017_mdsil", "level_m": 20.93, "observed_at": "2026-10-03T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "af2e76efc12d76dc4c47482f2fc008fcd6710ee0c7b10056512e5c8c6e3bb4a9"}
 {"gauge_id": "cwc_muhammedpur_017_mdsil", "level_m": 20.91, "observed_at": "2026-10-03T11:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "cb2494f5ba23d49ae35d665075c29480a782c5dfa2f373c7901a18ddb1612fa1"}
 {"gauge_id": "cwc_muhammedpur_017_mdsil", "level_m": 20.89, "observed_at": "2026-10-03T12:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "cb2494f5ba23d49ae35d665075c29480a782c5dfa2f373c7901a18ddb1612fa1"}
+{"gauge_id": "cwc_muhammedpur_017_mdsil", "level_m": 20.87, "observed_at": "2026-10-03T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "25645c7ba2303c6bd0b492e72c6e7e3b687f2382b3b67a7200dcd408ad34fced"}
+{"gauge_id": "cwc_muhammedpur_017_mdsil", "level_m": 20.84, "observed_at": "2026-10-03T14:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "25645c7ba2303c6bd0b492e72c6e7e3b687f2382b3b67a7200dcd408ad34fced"}
