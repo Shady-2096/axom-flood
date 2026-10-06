@@ -1409,3 +1409,5 @@
 {"gauge_id": "cwc_borkhola_016_mdsil", "level_m": 13.8, "observed_at": "2026-10-05T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "134ac5299e5aca02f3a58b07044339109cba042c04ca6a26471918d9608ee76a"}
 {"gauge_id": "cwc_borkhola_016_mdsil", "level_m": 13.78, "observed_at": "2026-10-05T14:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "134ac5299e5aca02f3a58b07044339109cba042c04ca6a26471918d9608ee76a"}
 {"gauge_id": "cwc_borkhola_016_mdsil", "level_m": 13.76, "observed_at": "2026-10-05T15:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "134ac5299e5aca02f3a58b07044339109cba042c04ca6a26471918d9608ee76a"}
+{"gauge_id": "cwc_borkhola_016_mdsil", "level_m": 13.72, "observed_at": "2026-10-05T21:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "11ad7ccaf2966df74231d789ba99d995a66a13a301041b7057eb2e14e9f9f8c3"}
+{"gauge_id": "cwc_borkhola_016_mdsil", "level_m": 13.71, "observed_at": "2026-10-05T22:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "11ad7ccaf2966df74231d789ba99d995a66a13a301041b7057eb2e14e9f9f8c3"}
