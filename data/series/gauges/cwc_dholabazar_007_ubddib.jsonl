@@ -1731,3 +1731,4 @@
 {"gauge_id": "cwc_dholabazar_007_ubddib", "level_m": 123.96, "observed_at": "2026-10-09T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "a7a739176f27b35eef8d4cd200f0e2c6ece5cd5cc1ed646b9036ce1710750da9"}
 {"gauge_id": "cwc_dholabazar_007_ubddib", "level_m": 123.96, "observed_at": "2026-10-09T19:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "a7a739176f27b35eef8d4cd200f0e2c6ece5cd5cc1ed646b9036ce1710750da9"}
 {"gauge_id": "cwc_dholabazar_007_ubddib", "level_m": 123.96, "observed_at": "2026-10-09T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "a7a739176f27b35eef8d4cd200f0e2c6ece5cd5cc1ed646b9036ce1710750da9"}
+{"gauge_id": "cwc_dholabazar_007_ubddib", "level_m": 123.96, "observed_at": "2026-10-09T21:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "2d651ecb0b73923bcf82419da87c00e0c11c1cd2f9fb3c61a6fbc96b381d660f"}
