@@ -1718,3 +1718,4 @@
 {"gauge_id": "cwc_kabu_basti_kambang_048", "level_m": 249.86, "observed_at": "2026-10-12T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "233cb2f00e27540371c4d0472b9060efb998ffa0b05a11d04fb22a4acd0e083a"}
 {"gauge_id": "cwc_kabu_basti_kambang_048", "level_m": 249.85, "observed_at": "2026-10-12T19:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "233cb2f00e27540371c4d0472b9060efb998ffa0b05a11d04fb22a4acd0e083a"}
 {"gauge_id": "cwc_kabu_basti_kambang_048", "level_m": 249.85, "observed_at": "2026-10-12T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "233cb2f00e27540371c4d0472b9060efb998ffa0b05a11d04fb22a4acd0e083a"}
+{"gauge_id": "cwc_kabu_basti_kambang_048", "level_m": 249.84, "observed_at": "2026-10-13T00:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7cbd35d3ee2ac9363338de796432247a53a082d74553404454012b59b70e5500"}
