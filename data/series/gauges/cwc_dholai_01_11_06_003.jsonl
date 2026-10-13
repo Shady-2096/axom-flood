@@ -1764,3 +1764,5 @@
 {"gauge_id": "cwc_dholai_01_11_06_003", "level_m": 21.08, "observed_at": "2026-10-13T16:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "923fd87239a406202c213223da8b96222d62bec963b6f37d6db78119f396f703"}
 {"gauge_id": "cwc_dholai_01_11_06_003", "level_m": 21.08, "observed_at": "2026-10-13T17:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "923fd87239a406202c213223da8b96222d62bec963b6f37d6db78119f396f703"}
 {"gauge_id": "cwc_dholai_01_11_06_003", "level_m": 21.08, "observed_at": "2026-10-13T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "923fd87239a406202c213223da8b96222d62bec963b6f37d6db78119f396f703"}
+{"gauge_id": "cwc_dholai_01_11_06_003", "level_m": 21.08, "observed_at": "2026-10-13T19:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e0a68af56b05aba22a65fc3f65f97dee6e52fbb5bd2eb2ea6ec076d6b4c5fb38"}
+{"gauge_id": "cwc_dholai_01_11_06_003", "level_m": 21.08, "observed_at": "2026-10-13T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e0a68af56b05aba22a65fc3f65f97dee6e52fbb5bd2eb2ea6ec076d6b4c5fb38"}
