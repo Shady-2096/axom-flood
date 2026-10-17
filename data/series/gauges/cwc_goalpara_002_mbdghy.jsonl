@@ -1914,3 +1914,4 @@
 {"gauge_id": "cwc_goalpara_002_mbdghy", "level_m": 32.27, "observed_at": "2026-10-17T10:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "273c74caa88f905907abdb818962357c1adf21f09333cbfeeb95b8c0048b6399"}
 {"gauge_id": "cwc_goalpara_002_mbdghy", "level_m": 32.27, "observed_at": "2026-10-17T11:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "273c74caa88f905907abdb818962357c1adf21f09333cbfeeb95b8c0048b6399"}
 {"gauge_id": "cwc_goalpara_002_mbdghy", "level_m": 32.26, "observed_at": "2026-10-17T12:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "273c74caa88f905907abdb818962357c1adf21f09333cbfeeb95b8c0048b6399"}
+{"gauge_id": "cwc_goalpara_002_mbdghy", "level_m": 32.26, "observed_at": "2026-10-17T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "079cfce2683992146d46a5aa7b235a5d231abefcde5f907c31aa038253722003"}
