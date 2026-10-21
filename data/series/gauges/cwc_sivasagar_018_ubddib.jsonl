@@ -2015,3 +2015,4 @@
 {"gauge_id": "cwc_sivasagar_018_ubddib", "level_m": 87.71, "observed_at": "2026-10-21T15:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7c29226cb01e8307e601c4e3fd6610e1ea098586bf3557f7c1737c9bbf039944"}
 {"gauge_id": "cwc_sivasagar_018_ubddib", "level_m": 87.72, "observed_at": "2026-10-21T16:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7c29226cb01e8307e601c4e3fd6610e1ea098586bf3557f7c1737c9bbf039944"}
 {"gauge_id": "cwc_sivasagar_018_ubddib", "level_m": 87.73, "observed_at": "2026-10-21T17:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7c29226cb01e8307e601c4e3fd6610e1ea098586bf3557f7c1737c9bbf039944"}
+{"gauge_id": "cwc_sivasagar_018_ubddib", "level_m": 87.74, "observed_at": "2026-10-21T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "4559f9218a2169d54d0279697273898c1156c88669b8581bc08307e7620ccbd3"}

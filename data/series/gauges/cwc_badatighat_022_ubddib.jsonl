@@ -2015,3 +2015,4 @@
 {"gauge_id": "cwc_badatighat_022_ubddib", "level_m": 79.17, "observed_at": "2026-10-21T15:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "4f942557f5ba0775aeaf42b2e692cf1c124dc32c7b1be030a3a4c49c1229db74"}
 {"gauge_id": "cwc_badatighat_022_ubddib", "level_m": 79.17, "observed_at": "2026-10-21T16:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7c29226cb01e8307e601c4e3fd6610e1ea098586bf3557f7c1737c9bbf039944"}
 {"gauge_id": "cwc_badatighat_022_ubddib", "level_m": 79.16, "observed_at": "2026-10-21T17:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7c29226cb01e8307e601c4e3fd6610e1ea098586bf3557f7c1737c9bbf039944"}
+{"gauge_id": "cwc_badatighat_022_ubddib", "level_m": 79.16, "observed_at": "2026-10-21T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "4559f9218a2169d54d0279697273898c1156c88669b8581bc08307e7620ccbd3"}
