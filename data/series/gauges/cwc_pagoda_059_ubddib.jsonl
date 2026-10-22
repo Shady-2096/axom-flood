@@ -491,3 +491,5 @@
 {"gauge_id": "cwc_pagoda_059_ubddib", "level_m": 145.11, "observed_at": "2026-10-22T12:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "aafe44598a5f77ca6c9371780e11097f4c14de29fdb95cd491ed69dc8c7588fa"}
 {"gauge_id": "cwc_pagoda_059_ubddib", "level_m": 145.11, "observed_at": "2026-10-22T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "aafe44598a5f77ca6c9371780e11097f4c14de29fdb95cd491ed69dc8c7588fa"}
 {"gauge_id": "cwc_pagoda_059_ubddib", "level_m": 145.11, "observed_at": "2026-10-22T14:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "aafe44598a5f77ca6c9371780e11097f4c14de29fdb95cd491ed69dc8c7588fa"}
+{"gauge_id": "cwc_pagoda_059_ubddib", "level_m": 145.11, "observed_at": "2026-10-22T15:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "369bc2a76c583ec8a37c14945d1b39632dae6a4937e856e474e5242524c7b4e3"}
+{"gauge_id": "cwc_pagoda_059_ubddib", "level_m": 145.11, "observed_at": "2026-10-22T16:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "369bc2a76c583ec8a37c14945d1b39632dae6a4937e856e474e5242524c7b4e3"}
