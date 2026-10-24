@@ -2014,3 +2014,4 @@
 {"gauge_id": "cwc_suklai_007_mbdghy", "level_m": 75.17, "observed_at": "2026-10-24T03:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "9d93ad647a271eaf67f6312fa272e0fb38326ba61469076d553609edab994a98"}
 {"gauge_id": "cwc_suklai_007_mbdghy", "level_m": 75.17, "observed_at": "2026-10-24T04:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "9d93ad647a271eaf67f6312fa272e0fb38326ba61469076d553609edab994a98"}
 {"gauge_id": "cwc_suklai_007_mbdghy", "level_m": 75.17, "observed_at": "2026-10-24T05:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "9d93ad647a271eaf67f6312fa272e0fb38326ba61469076d553609edab994a98"}
+{"gauge_id": "cwc_suklai_007_mbdghy", "level_m": 75.17, "observed_at": "2026-10-24T06:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "869c5fb17ddcbde11743f03d219bcc7202f21920fd1b271bd5bd4775383f5583"}
