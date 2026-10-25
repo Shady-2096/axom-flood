@@ -551,3 +551,4 @@
 {"gauge_id": "cwc_jagunghat_061_ubddib", "level_m": 147.08, "observed_at": "2026-10-25T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "4e25c55b99f09722cce85dec6c87a2654c5d24a9e7d7f3057a719fb15c8429fb"}
 {"gauge_id": "cwc_jagunghat_061_ubddib", "level_m": 147.08, "observed_at": "2026-10-25T21:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "fee6cc29426b5873568d4441a7ad6d1371e8c792d13d9ed45f544f68648ca777"}
 {"gauge_id": "cwc_jagunghat_061_ubddib", "level_m": 147.08, "observed_at": "2026-10-25T22:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "fee6cc29426b5873568d4441a7ad6d1371e8c792d13d9ed45f544f68648ca777"}
+{"gauge_id": "cwc_jagunghat_061_ubddib", "level_m": 147.08, "observed_at": "2026-10-26T00:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "a2e5163c5d8a360ac810643f0c7bb4b506baaadc92e7ad8883dc8b17afe8f573"}
