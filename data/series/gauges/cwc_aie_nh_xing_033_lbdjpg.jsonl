@@ -2105,3 +2105,4 @@
 {"gauge_id": "cwc_aie_nh_xing_033_lbdjpg", "level_m": 51.31, "observed_at": "2026-10-27T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "b18d2cd622419b07d9c72e47f51d5be48171b02b1f5e16324e2f3c01462dd599"}
 {"gauge_id": "cwc_aie_nh_xing_033_lbdjpg", "level_m": 51.31, "observed_at": "2026-10-27T21:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "b18d2cd622419b07d9c72e47f51d5be48171b02b1f5e16324e2f3c01462dd599"}
 {"gauge_id": "cwc_aie_nh_xing_033_lbdjpg", "level_m": 51.31, "observed_at": "2026-10-27T22:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "b18d2cd622419b07d9c72e47f51d5be48171b02b1f5e16324e2f3c01462dd599"}
+{"gauge_id": "cwc_aie_nh_xing_033_lbdjpg", "level_m": 51.31, "observed_at": "2026-10-27T23:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "5dbc9de22be47acaebc7cffd6bcee838a2da8542bbd5513b9096617d80ee9aba"}
