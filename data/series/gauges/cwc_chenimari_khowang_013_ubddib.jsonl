@@ -2188,3 +2188,4 @@
 {"gauge_id": "cwc_chenimari_khowang_013_ubddib", "level_m": 97.22, "observed_at": "2026-10-28T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d776886ed5ab4f4698d300c223600cfe87dfe9e40c4842156df9975ae8af61da"}
 {"gauge_id": "cwc_chenimari_khowang_013_ubddib", "level_m": 97.22, "observed_at": "2026-10-28T19:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d776886ed5ab4f4698d300c223600cfe87dfe9e40c4842156df9975ae8af61da"}
 {"gauge_id": "cwc_chenimari_khowang_013_ubddib", "level_m": 97.22, "observed_at": "2026-10-28T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "d776886ed5ab4f4698d300c223600cfe87dfe9e40c4842156df9975ae8af61da"}
+{"gauge_id": "cwc_chenimari_khowang_013_ubddib", "level_m": 97.22, "observed_at": "2026-10-28T21:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "ee314f47cd30de98aea87fc4a7f1bbd5bead53e94a1856645d212f63ea1ada43"}
