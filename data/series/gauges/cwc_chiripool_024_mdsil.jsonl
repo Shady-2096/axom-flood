@@ -2124,3 +2124,4 @@
 {"gauge_id": "cwc_chiripool_024_mdsil", "level_m": 18.06, "observed_at": "2026-10-30T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "5f73e8b44113f8c5a93c3a36257f4e27214ec3a387a810c92ca4a626779349fc"}
 {"gauge_id": "cwc_chiripool_024_mdsil", "level_m": 18.06, "observed_at": "2026-10-30T19:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "8f76c6b0f0b79266e464435a58b29654cc709ebeb0939553c1cc2d584993232d"}
 {"gauge_id": "cwc_chiripool_024_mdsil", "level_m": 18.07, "observed_at": "2026-10-30T20:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "8f76c6b0f0b79266e464435a58b29654cc709ebeb0939553c1cc2d584993232d"}
+{"gauge_id": "cwc_chiripool_024_mdsil", "level_m": 18.07, "observed_at": "2026-10-30T21:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "cc03fce90344f8f8a34dbb832d31cf26ac509cf45da06a5eb232c04cc5959d76"}
