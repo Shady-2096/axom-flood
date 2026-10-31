@@ -2251,3 +2251,4 @@
 {"gauge_id": "cwc_karimganj_021_mbdghy", "level_m": 7.72, "observed_at": "2026-10-31T06:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "3cac3953aaa1599e540d67fb2c1c482094813cae29d3bdee9b68cb47f2779484"}
 {"gauge_id": "cwc_karimganj_021_mbdghy", "level_m": 7.72, "observed_at": "2026-10-31T07:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "3cac3953aaa1599e540d67fb2c1c482094813cae29d3bdee9b68cb47f2779484"}
 {"gauge_id": "cwc_karimganj_021_mbdghy", "level_m": 7.72, "observed_at": "2026-10-31T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "3cac3953aaa1599e540d67fb2c1c482094813cae29d3bdee9b68cb47f2779484"}
+{"gauge_id": "cwc_karimganj_021_mbdghy", "level_m": 7.72, "observed_at": "2026-10-31T09:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "168d7e2054a70b8496a81deb9ecce00b74db0316624804c5c7aeda437570f67b"}
