@@ -2175,3 +2175,5 @@
 {"gauge_id": "cwc_jagibhakatgaon_051", "level_m": 47.26, "observed_at": "2026-10-31T16:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "ffd8e17b55d7b3f4b0bebe9d38bd5143b6301fc01df04134891b34949ac09829"}
 {"gauge_id": "cwc_jagibhakatgaon_051", "level_m": 47.26, "observed_at": "2026-10-31T17:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "ffd8e17b55d7b3f4b0bebe9d38bd5143b6301fc01df04134891b34949ac09829"}
 {"gauge_id": "cwc_jagibhakatgaon_051", "level_m": 47.26, "observed_at": "2026-10-31T18:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "ffd8e17b55d7b3f4b0bebe9d38bd5143b6301fc01df04134891b34949ac09829"}
+{"gauge_id": "cwc_jagibhakatgaon_051", "level_m": 47.45, "observed_at": "2026-11-02T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e6ae4e0e56abf689bab6c32316ec75d1eea38a7f1f3c01ca3f511323f0816730"}
+{"gauge_id": "cwc_jagibhakatgaon_051", "level_m": 47.4, "observed_at": "2026-11-02T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e6ae4e0e56abf689bab6c32316ec75d1eea38a7f1f3c01ca3f511323f0816730"}
