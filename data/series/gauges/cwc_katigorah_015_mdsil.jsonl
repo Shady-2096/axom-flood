@@ -1934,3 +1934,4 @@
 {"gauge_id": "cwc_katigorah_015_mdsil", "level_m": 9.55, "observed_at": "2026-10-31T15:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "79a2fd961375c6f23e7a419d381fe7f320977af228ed88a0a97dff27962b7797"}
 {"gauge_id": "cwc_katigorah_015_mdsil", "level_m": 9.8, "observed_at": "2026-11-02T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "c5e7dc826075d9433b730f1bb128a42d97e5fffc361116ee3ba3496da0d4db34"}
 {"gauge_id": "cwc_katigorah_015_mdsil", "level_m": 9.72, "observed_at": "2026-11-02T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "2c1cddb7bbe9da4b48e8af97683904f483acb8710f7a6cefe3e154c4adf69d79"}
+{"gauge_id": "cwc_katigorah_015_mdsil", "level_m": 9.48, "observed_at": "2026-11-03T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0cec81293a0e3b085609154421238cc5c649bbb7a4e7b7e00c832ab1b1f39113"}
