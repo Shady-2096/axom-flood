@@ -510,3 +510,4 @@
 {"gauge_id": "cwc_murga_bridge_002neid3", "level_m": 2134.07, "observed_at": "2026-11-03T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "fadc65e84f8e6515112618c8f854e676529f113057ddaa907a5f4086b5682480"}
 {"gauge_id": "cwc_murga_bridge_002neid3", "level_m": 2134.05, "observed_at": "2026-11-05T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "698a1ec9dc94da80ddd9cb0e3bb777ab82d5f1665db0c2a05e051c48dec2a3b8"}
 {"gauge_id": "cwc_murga_bridge_002neid3", "level_m": 2134.04, "observed_at": "2026-11-06T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "5079c72557ecd1ba0dca81e82c7a0370094ee7927c5c71959af4fa32b5280b78"}
+{"gauge_id": "cwc_murga_bridge_002neid3", "level_m": 2134.03, "observed_at": "2026-11-07T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "95a6da24ad5a0d8a76dda04b04b79d0c04919063eccb3347200221b15fbb7ff7"}
