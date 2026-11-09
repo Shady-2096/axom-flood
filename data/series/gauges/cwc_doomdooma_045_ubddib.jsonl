@@ -646,3 +646,4 @@
 {"gauge_id": "cwc_doomdooma_045_ubddib", "level_m": 116.14, "observed_at": "2026-11-06T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "cea354aea06f060390cabdb01e4fadc82204eb31c65448f15f6a6d7917f9d143"}
 {"gauge_id": "cwc_doomdooma_045_ubddib", "level_m": 116.14, "observed_at": "2026-11-07T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "68e21208ff4aaf27ed7faa2ad7890444193f6f2837be9fe4fce27d7e279ee1ae"}
 {"gauge_id": "cwc_doomdooma_045_ubddib", "level_m": 116.14, "observed_at": "2026-11-07T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "9b27980eeed614527de63c96b805c3f7d82db276692c43a54493002859d84fd2"}
+{"gauge_id": "cwc_doomdooma_045_ubddib", "level_m": 116.13, "observed_at": "2026-11-09T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "2ce4e04e42168b07981c1ad239ff1ac4855aaf18e3b65677411f1fae35f7b8fc"}
