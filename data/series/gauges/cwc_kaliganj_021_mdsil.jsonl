@@ -2165,3 +2165,4 @@
 {"gauge_id": "cwc_kaliganj_021_mdsil", "level_m": 9.31, "observed_at": "2026-11-10T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "72eb70a22a04b16c4f88123df57dc29fa6e7d8122a8a8ea89daeb538b40b28a5"}
 {"gauge_id": "cwc_kaliganj_021_mdsil", "level_m": 9.31, "observed_at": "2026-11-10T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "15e39c23ad0d9e8e12627090d8bcdcae0474582bfe077fe0985090cb45bdb3a6"}
 {"gauge_id": "cwc_kaliganj_021_mdsil", "level_m": 9.3, "observed_at": "2026-11-11T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "59d9b1cf3ccdecb4e75facc37ae98b882cf46961e38902b24ab911c01005065b"}
+{"gauge_id": "cwc_kaliganj_021_mdsil", "level_m": 9.25, "observed_at": "2026-11-12T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "9f07e733a7cd6a481560d35ca90c4ea4e5c4f41ce8d13a10044fd68e1ddc9e2c"}
