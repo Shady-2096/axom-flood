@@ -28,3 +28,4 @@
 {"gauge_id": "cwc_chaklagaon_065_mbdnew", "level_m": 37.22, "observed_at": "2026-11-18T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "a7d030a8340493c040b29693a6ac23065f0d1823453fb7d2ad36d3c72bf7f59c"}
 {"gauge_id": "cwc_chaklagaon_065_mbdnew", "level_m": 37.21, "observed_at": "2026-11-18T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "11e56b053f8375a05a287016a00724b6b6317f8f73216753ac68dc565fbe723f"}
 {"gauge_id": "cwc_chaklagaon_065_mbdnew", "level_m": 37.21, "observed_at": "2026-11-19T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "b728d8c461a2d992168e37acc02eb5aec72544a3accc26d9a5fcd495b2da960d"}
+{"gauge_id": "cwc_chaklagaon_065_mbdnew", "level_m": 37.21, "observed_at": "2026-11-19T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "03cc3968e8c0abb79b69d49be50d6513e6365fe7b28686b733d0a7d5b3febab2"}
