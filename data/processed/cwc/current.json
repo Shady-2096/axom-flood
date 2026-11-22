@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-22T20:17:31.566084+05:30",
+  "generated_at": "2026-11-22T22:17:36.714997+05:30",
   "record": "cwc_snapshot_pointer",
-  "revision_id": "7b233f2b0cdfa114955b3ac171de59dfb995c1e0ce4bf18f6d7efa73dedee5b1",
+  "revision_id": "1ae94e9dbdacb31be197ad1f2fc54a4ab5d8e1acffabd997106bfc5e11b84190",
   "schema_version": 1,
-  "snapshot_url": "data/processed/cwc/7b233f2b0cdfa114955b3ac171de59dfb995c1e0ce4bf18f6d7efa73dedee5b1.json",
+  "snapshot_url": "data/processed/cwc/1ae94e9dbdacb31be197ad1f2fc54a4ab5d8e1acffabd997106bfc5e11b84190.json",
   "source_revision": "419801db1583766e8f7f478b41906259c4e25a7f5d1c18d690a11b5cf51281bc",
   "totals": {
     "stations": 167,
