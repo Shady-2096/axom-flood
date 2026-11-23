@@ -2119,3 +2119,4 @@
 {"gauge_id": "cwc_tulargram_007_mdsil", "level_m": 13.73, "observed_at": "2026-11-17T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "95237b23738628aea491c9e764281467c8dba7d495459e98b3bfa467dc53bc6c"}
 {"gauge_id": "cwc_tulargram_007_mdsil", "level_m": 13.64, "observed_at": "2026-11-19T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "b728d8c461a2d992168e37acc02eb5aec72544a3accc26d9a5fcd495b2da960d"}
 {"gauge_id": "cwc_tulargram_007_mdsil", "level_m": 13.62, "observed_at": "2026-11-20T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "040e723d8857cff67203d7bd7ad84b2f4d559fc96ec48b4c902a97ccf232fe41"}
+{"gauge_id": "cwc_tulargram_007_mdsil", "level_m": 13.89, "observed_at": "2026-11-23T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "0efb4e2006f841402d3fa73e1fb5a1abb36a8dde2c6db1f96a122d44ad9a2e86"}
