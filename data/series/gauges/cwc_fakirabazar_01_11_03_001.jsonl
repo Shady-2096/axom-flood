@@ -782,3 +782,4 @@
 {"gauge_id": "cwc_fakirabazar_01_11_03_001", "level_m": 11.43, "observed_at": "2026-11-19T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "76fd30303f579ac17965ce03f3d8f3eb951dba0322440da719107b106ecf7ff6"}
 {"gauge_id": "cwc_fakirabazar_01_11_03_001", "level_m": 11.45, "observed_at": "2026-11-20T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "7dfe8f48c8315cb0d9adb58b4569a98b883f12e3749eb85b4d80d6032d3a6fed"}
 {"gauge_id": "cwc_fakirabazar_01_11_03_001", "level_m": 11.6, "observed_at": "2026-11-23T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "eb718f86d5571cf2851ba510c13bf5b6877a281dc12d419a1624641f346acec1"}
+{"gauge_id": "cwc_fakirabazar_01_11_03_001", "level_m": 11.77, "observed_at": "2026-11-25T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "4b3fd92e699635997cafe0156ab37d547e389679974a408260438723489d26de"}
