@@ -37,3 +37,5 @@
 {"gauge_id": "cwc_ramdia_041_mbdnew", "level_m": 43.05, "observed_at": "2026-11-25T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "a19b327efdf2a2bc4329c98ae57910a4bf2086db63dd04d88f3a026a6b4f0bcd"}
 {"gauge_id": "cwc_ramdia_041_mbdnew", "level_m": 43.05, "observed_at": "2026-11-26T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "4dcb892271b4df298ab2cba4c0ba7ab083e53a59946f3fdd8b2789b75977f20b"}
 {"gauge_id": "cwc_ramdia_041_mbdnew", "level_m": 43.05, "observed_at": "2026-11-26T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "4dcb892271b4df298ab2cba4c0ba7ab083e53a59946f3fdd8b2789b75977f20b"}
+{"gauge_id": "cwc_ramdia_041_mbdnew", "level_m": 43.04, "observed_at": "2026-11-27T08:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e381fc8e3cf97ae79d173a5cdc403dd383c150c79ec1bc6d30962b9486544627"}
+{"gauge_id": "cwc_ramdia_041_mbdnew", "level_m": 43.04, "observed_at": "2026-11-27T13:00:00+05:30", "schema_version": 1, "source": "CWC FFS", "source_revision": "e381fc8e3cf97ae79d173a5cdc403dd383c150c79ec1bc6d30962b9486544627"}
